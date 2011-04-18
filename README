@@ -1,16 +1,25 @@
-Yii-Docs-Generator
+Yii-Docs-Generator:
 
 Generates nice HTML documentation from your Yii app source code, just a quick hack of the doc builder from Yii's build process.
 
-Installation
+Installation:
 
 Extract the contents of the commands folder to protected/commands
 
-Usage
+Usage:
 
 ./yiic docs check - Checks the source code to see if there's any classes that are lacking documentation, good for quality checking
 
 ./yiic docs ../docs - Generates the site documentation in the specified folder (which must exist)
+
+Documenting Views:
+
+If you want to annotate the parameters passed to views by controllers, use the following syntax in your view right at the top of your view
+/**
+  * Some text describing what the view does goes here
+  * @uses CActiveDataProvider $dataProvider The data provider for this model
+  * @uses User $model The user model
+  */
 
 
 Notes:
