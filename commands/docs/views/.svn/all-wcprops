@@ -1,0 +1,89 @@
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/2942/trunk/build/commands/api/views
+END
+propertyDetails.php
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/!svn/ver/2474/trunk/build/commands/api/views/propertyDetails.php
+END
+sourceCode.php
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/2482/trunk/build/commands/api/views/sourceCode.php
+END
+seeAlso.php
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/2459/trunk/build/commands/api/views/seeAlso.php
+END
+chmProject.php
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/75/trunk/build/commands/api/views/chmProject.php
+END
+methodSummary.php
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/2942/trunk/build/commands/api/views/methodSummary.php
+END
+eventSummary.php
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/2479/trunk/build/commands/api/views/eventSummary.php
+END
+chmIndex.php
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/75/trunk/build/commands/api/views/chmIndex.php
+END
+propertySummary.php
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/!svn/ver/2479/trunk/build/commands/api/views/propertySummary.php
+END
+classSummary.php
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/2479/trunk/build/commands/api/views/classSummary.php
+END
+chmContents.php
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/75/trunk/build/commands/api/views/chmContents.php
+END
+class.php
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/2474/trunk/build/commands/api/views/class.php
+END
+methodDetails.php
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/2530/trunk/build/commands/api/views/methodDetails.php
+END
+index.php
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/2647/trunk/build/commands/api/views/index.php
+END
+eventDetails.php
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/2474/trunk/build/commands/api/views/eventDetails.php
+END
