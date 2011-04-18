@@ -14,7 +14,7 @@ Usage:
 
 Documenting Views:
 
-If you want to annotate the parameters passed to views by controllers, use the following syntax in your view right at the top of your view
+If you want to annotate the parameters passed to views by controllers, use the following syntax in your view right at the top of your view file
 /**
   * Some text describing what the view does goes here
   * @uses CActiveDataProvider $dataProvider The data provider for this model
