@@ -1,0 +1,19 @@
+Yii-Docs-Generator
+
+Generates nice HTML documentation from your Yii app source code, just a quick hack of the doc builder from Yii's build process.
+
+Installation
+
+Extract the contents of the commands folder to protected/commands
+
+Usage
+
+./yiic docs check - Checks the source code to see if there's any classes that are lacking documentation, good for quality checking
+
+./yiic docs ../docs - Generates the site documentation in the specified folder (which must exist)
+
+
+Notes:
+
+If you're getting errors with certain classes you might need to exclude them from the documentation process, to do this add them to the list of excluded files in $this->$appOptions in DocsCommand.php
+
