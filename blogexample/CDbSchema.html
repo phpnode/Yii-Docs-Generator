@@ -1,0 +1,1702 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="language" content="en" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="css/api.css" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<title>CDbSchema</title>
+</head>
+
+<body>
+<div id="apiPage">
+
+<div id="apiHeader">
+My Console Application Class Reference
+</div><!-- end of header -->
+
+<div id="content">
+<h1>CDbSchema</h1>
+<div id="nav">
+<a href="index.html">All Packages</a>
+| <a href="#properties">Properties</a>
+| <a href="#methods">Methods</a>
+</div>
+
+<table class="summaryTable docClass">
+<colgroup>
+	<col class="col-name" />
+	<col class="col-value" />
+</colgroup>
+<tr>
+  <th>Package</th>
+  <td><a href="index.html#system.db.schema">system.db.schema</a></td>
+</tr>
+<tr>
+  <th>Inheritance</th>
+  <td>abstract class CDbSchema &raquo;
+<a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr>
+  <th>Subclasses</th>
+  <td><a href="CMssqlSchema.html">CMssqlSchema</a>, <a href="CMysqlSchema.html">CMysqlSchema</a>, <a href="COciSchema.html">COciSchema</a>, <a href="CPgsqlSchema.html">CPgsqlSchema</a>, <a href="CSqliteSchema.html">CSqliteSchema</a></td>
+</tr>
+<tr>
+  <th>Since</th>
+  <td>1.0</td>
+</tr>
+<tr>
+  <th>Version</th>
+  <td>$Id: CDbSchema.php 3069 2011-03-14 00:28:38Z qiang.xue $</td>
+</tr>
+<tr>
+  <th>Source Code</th>
+  <td><a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/db/schema/CDbSchema.php">framework/db/schema/CDbSchema.php</a></td>
+</tr>
+<tr>
+  <th>Author</th>
+  <td>Qiang Xue &lt;qiang.xue@gmail.com&gt;</td>
+</tr>
+</table>
+
+<div id="classDescription">
+CDbSchema is the base class for retrieving metadata information.</div>
+<a name="properties"></a>
+
+<div class="summary docProperty">
+<h2>Public Properties</h2>
+
+<p><a href="#" class="toggle">Hide inherited properties</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-property" />
+	<col class="col-type" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>Property</th><th>Type</th><th>Description</th><th>Defined By</th>
+</tr>
+<tr id="columnTypes">
+  <td><a href="CDbSchema.html#columnTypes-detail">columnTypes</a></td>
+  <td>array</td>
+  <td>the abstract column types mapped to physical column types.</td>
+  <td>CDbSchema</td>
+</tr>
+<tr id="commandBuilder">
+  <td><a href="CDbSchema.html#commandBuilder-detail">commandBuilder</a></td>
+  <td><a href="CDbCommandBuilder.html">CDbCommandBuilder</a></td>
+  <td>the SQL command builder for this connection.</td>
+  <td>CDbSchema</td>
+</tr>
+<tr id="dbConnection">
+  <td><a href="CDbSchema.html#dbConnection-detail">dbConnection</a></td>
+  <td><a href="CDbConnection.html">CDbConnection</a></td>
+  <td>database connection.</td>
+  <td>CDbSchema</td>
+</tr>
+<tr id="tableNames">
+  <td><a href="CDbSchema.html#tableNames-detail">tableNames</a></td>
+  <td>array</td>
+  <td>Returns all table names in the database.</td>
+  <td>CDbSchema</td>
+</tr>
+<tr id="tables">
+  <td><a href="CDbSchema.html#tables-detail">tables</a></td>
+  <td>array</td>
+  <td>Returns the metadata for all tables in the database.</td>
+  <td>CDbSchema</td>
+</tr>
+</table>
+</div>
+<a name="methods"></a>
+
+<div class="summary docMethod">
+<h2>Public Methods</h2>
+
+<p><a href="#" class="toggle">Hide inherited methods</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-method" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>Method</th><th>Description</th><th>Defined By</th>
+</tr>
+<tr class="inherited" id="__call">
+  <td><a href="CComponent.html#__call-detail">__call()</a></td>
+  <td>Calls the named method which is not a class method.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr id="__construct">
+  <td><a href="CDbSchema.html#__construct-detail">__construct()</a></td>
+  <td>Constructor.</td>
+  <td>CDbSchema</td>
+</tr>
+<tr class="inherited" id="__get">
+  <td><a href="CComponent.html#__get-detail">__get()</a></td>
+  <td>Returns a property value, an event handler list or a behavior based on its name.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__isset">
+  <td><a href="CComponent.html#__isset-detail">__isset()</a></td>
+  <td>Checks if a property value is null.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__set">
+  <td><a href="CComponent.html#__set-detail">__set()</a></td>
+  <td>Sets value of a component property.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__unset">
+  <td><a href="CComponent.html#__unset-detail">__unset()</a></td>
+  <td>Sets a component property to be null.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr id="addColumn">
+  <td><a href="CDbSchema.html#addColumn-detail">addColumn()</a></td>
+  <td>Builds a SQL statement for adding a new DB column.</td>
+  <td>CDbSchema</td>
+</tr>
+<tr id="addForeignKey">
+  <td><a href="CDbSchema.html#addForeignKey-detail">addForeignKey()</a></td>
+  <td>Builds a SQL statement for adding a foreign key constraint to an existing table.</td>
+  <td>CDbSchema</td>
+</tr>
+<tr id="alterColumn">
+  <td><a href="CDbSchema.html#alterColumn-detail">alterColumn()</a></td>
+  <td>Builds a SQL statement for changing the definition of a column.</td>
+  <td>CDbSchema</td>
+</tr>
+<tr class="inherited" id="asa">
+  <td><a href="CComponent.html#asa-detail">asa()</a></td>
+  <td>Returns the named behavior object.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="attachBehavior">
+  <td><a href="CComponent.html#attachBehavior-detail">attachBehavior()</a></td>
+  <td>Attaches a behavior to this component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="attachBehaviors">
+  <td><a href="CComponent.html#attachBehaviors-detail">attachBehaviors()</a></td>
+  <td>Attaches a list of behaviors to the component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="attachEventHandler">
+  <td><a href="CComponent.html#attachEventHandler-detail">attachEventHandler()</a></td>
+  <td>Attaches an event handler to an event.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="canGetProperty">
+  <td><a href="CComponent.html#canGetProperty-detail">canGetProperty()</a></td>
+  <td>Determines whether a property can be read.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="canSetProperty">
+  <td><a href="CComponent.html#canSetProperty-detail">canSetProperty()</a></td>
+  <td>Determines whether a property can be set.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr id="checkIntegrity">
+  <td><a href="CDbSchema.html#checkIntegrity-detail">checkIntegrity()</a></td>
+  <td>Enables or disables integrity check.</td>
+  <td>CDbSchema</td>
+</tr>
+<tr id="compareTableNames">
+  <td><a href="CDbSchema.html#compareTableNames-detail">compareTableNames()</a></td>
+  <td>Compares two table names.</td>
+  <td>CDbSchema</td>
+</tr>
+<tr id="createIndex">
+  <td><a href="CDbSchema.html#createIndex-detail">createIndex()</a></td>
+  <td>Builds a SQL statement for creating a new index.</td>
+  <td>CDbSchema</td>
+</tr>
+<tr id="createTable">
+  <td><a href="CDbSchema.html#createTable-detail">createTable()</a></td>
+  <td>Builds a SQL statement for creating a new DB table.</td>
+  <td>CDbSchema</td>
+</tr>
+<tr class="inherited" id="detachBehavior">
+  <td><a href="CComponent.html#detachBehavior-detail">detachBehavior()</a></td>
+  <td>Detaches a behavior from the component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="detachBehaviors">
+  <td><a href="CComponent.html#detachBehaviors-detail">detachBehaviors()</a></td>
+  <td>Detaches all behaviors from the component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="detachEventHandler">
+  <td><a href="CComponent.html#detachEventHandler-detail">detachEventHandler()</a></td>
+  <td>Detaches an existing event handler.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="disableBehavior">
+  <td><a href="CComponent.html#disableBehavior-detail">disableBehavior()</a></td>
+  <td>Disables an attached behavior.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="disableBehaviors">
+  <td><a href="CComponent.html#disableBehaviors-detail">disableBehaviors()</a></td>
+  <td>Disables all behaviors attached to this component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr id="dropColumn">
+  <td><a href="CDbSchema.html#dropColumn-detail">dropColumn()</a></td>
+  <td>Builds a SQL statement for dropping a DB column.</td>
+  <td>CDbSchema</td>
+</tr>
+<tr id="dropForeignKey">
+  <td><a href="CDbSchema.html#dropForeignKey-detail">dropForeignKey()</a></td>
+  <td>Builds a SQL statement for dropping a foreign key constraint.</td>
+  <td>CDbSchema</td>
+</tr>
+<tr id="dropIndex">
+  <td><a href="CDbSchema.html#dropIndex-detail">dropIndex()</a></td>
+  <td>Builds a SQL statement for dropping an index.</td>
+  <td>CDbSchema</td>
+</tr>
+<tr id="dropTable">
+  <td><a href="CDbSchema.html#dropTable-detail">dropTable()</a></td>
+  <td>Builds a SQL statement for dropping a DB table.</td>
+  <td>CDbSchema</td>
+</tr>
+<tr class="inherited" id="enableBehavior">
+  <td><a href="CComponent.html#enableBehavior-detail">enableBehavior()</a></td>
+  <td>Enables an attached behavior.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="enableBehaviors">
+  <td><a href="CComponent.html#enableBehaviors-detail">enableBehaviors()</a></td>
+  <td>Enables all behaviors attached to this component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="evaluateExpression">
+  <td><a href="CComponent.html#evaluateExpression-detail">evaluateExpression()</a></td>
+  <td>Evaluates a PHP expression or callback under the context of this component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr id="getColumnType">
+  <td><a href="CDbSchema.html#getColumnType-detail">getColumnType()</a></td>
+  <td>Converts an abstract column type into a physical column type.</td>
+  <td>CDbSchema</td>
+</tr>
+<tr id="getCommandBuilder">
+  <td><a href="CDbSchema.html#getCommandBuilder-detail">getCommandBuilder()</a></td>
+  <td>Returns the SQL command builder for this connection.</td>
+  <td>CDbSchema</td>
+</tr>
+<tr id="getDbConnection">
+  <td><a href="CDbSchema.html#getDbConnection-detail">getDbConnection()</a></td>
+  <td>Returns database connection. The connection is active.</td>
+  <td>CDbSchema</td>
+</tr>
+<tr class="inherited" id="getEventHandlers">
+  <td><a href="CComponent.html#getEventHandlers-detail">getEventHandlers()</a></td>
+  <td>Returns the list of attached event handlers for an event.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr id="getTable">
+  <td><a href="CDbSchema.html#getTable-detail">getTable()</a></td>
+  <td>Obtains the metadata for the named table.</td>
+  <td>CDbSchema</td>
+</tr>
+<tr id="getTableNames">
+  <td><a href="CDbSchema.html#getTableNames-detail">getTableNames()</a></td>
+  <td>Returns all table names in the database.</td>
+  <td>CDbSchema</td>
+</tr>
+<tr id="getTables">
+  <td><a href="CDbSchema.html#getTables-detail">getTables()</a></td>
+  <td>Returns the metadata for all tables in the database.</td>
+  <td>CDbSchema</td>
+</tr>
+<tr class="inherited" id="hasEvent">
+  <td><a href="CComponent.html#hasEvent-detail">hasEvent()</a></td>
+  <td>Determines whether an event is defined.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="hasEventHandler">
+  <td><a href="CComponent.html#hasEventHandler-detail">hasEventHandler()</a></td>
+  <td>Checks whether the named event has attached handlers.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="hasProperty">
+  <td><a href="CComponent.html#hasProperty-detail">hasProperty()</a></td>
+  <td>Determines whether a property is defined.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr id="quoteColumnName">
+  <td><a href="CDbSchema.html#quoteColumnName-detail">quoteColumnName()</a></td>
+  <td>Quotes a column name for use in a query.</td>
+  <td>CDbSchema</td>
+</tr>
+<tr id="quoteSimpleColumnName">
+  <td><a href="CDbSchema.html#quoteSimpleColumnName-detail">quoteSimpleColumnName()</a></td>
+  <td>Quotes a simple column name for use in a query.</td>
+  <td>CDbSchema</td>
+</tr>
+<tr id="quoteSimpleTableName">
+  <td><a href="CDbSchema.html#quoteSimpleTableName-detail">quoteSimpleTableName()</a></td>
+  <td>Quotes a simple table name for use in a query.</td>
+  <td>CDbSchema</td>
+</tr>
+<tr id="quoteTableName">
+  <td><a href="CDbSchema.html#quoteTableName-detail">quoteTableName()</a></td>
+  <td>Quotes a table name for use in a query.</td>
+  <td>CDbSchema</td>
+</tr>
+<tr class="inherited" id="raiseEvent">
+  <td><a href="CComponent.html#raiseEvent-detail">raiseEvent()</a></td>
+  <td>Raises an event.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr id="refresh">
+  <td><a href="CDbSchema.html#refresh-detail">refresh()</a></td>
+  <td>Refreshes the schema.</td>
+  <td>CDbSchema</td>
+</tr>
+<tr id="renameColumn">
+  <td><a href="CDbSchema.html#renameColumn-detail">renameColumn()</a></td>
+  <td>Builds a SQL statement for renaming a column.</td>
+  <td>CDbSchema</td>
+</tr>
+<tr id="renameTable">
+  <td><a href="CDbSchema.html#renameTable-detail">renameTable()</a></td>
+  <td>Builds a SQL statement for renaming a DB table.</td>
+  <td>CDbSchema</td>
+</tr>
+<tr id="resetSequence">
+  <td><a href="CDbSchema.html#resetSequence-detail">resetSequence()</a></td>
+  <td>Resets the sequence value of a table's primary key.</td>
+  <td>CDbSchema</td>
+</tr>
+<tr id="truncateTable">
+  <td><a href="CDbSchema.html#truncateTable-detail">truncateTable()</a></td>
+  <td>Builds a SQL statement for truncating a DB table.</td>
+  <td>CDbSchema</td>
+</tr>
+</table>
+</div>
+<div class="summary docMethod">
+<h2>Protected Methods</h2>
+
+<p><a href="#" class="toggle">Hide inherited methods</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-method" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>Method</th><th>Description</th><th>Defined By</th>
+</tr>
+<tr id="createCommandBuilder">
+  <td><a href="CDbSchema.html#createCommandBuilder-detail">createCommandBuilder()</a></td>
+  <td>Creates a command builder for the database.</td>
+  <td>CDbSchema</td>
+</tr>
+<tr id="findTableNames">
+  <td><a href="CDbSchema.html#findTableNames-detail">findTableNames()</a></td>
+  <td>Returns all table names in the database.</td>
+  <td>CDbSchema</td>
+</tr>
+<tr id="loadTable">
+  <td><a href="CDbSchema.html#loadTable-detail">loadTable()</a></td>
+  <td>Loads the metadata for the specified table.</td>
+  <td>CDbSchema</td>
+</tr>
+</table>
+</div>
+<a name="events"></a>
+
+<h2>Property Details</h2>
+<div class="detailHeader" id="columnTypes-detail">
+columnTypes<span class="detailHeaderTag">
+property
+ (available since v1.1.6)
+</span>
+</div>
+
+<div class="signature">
+public array <b>$columnTypes</b>;</div>
+
+<p>the abstract column types mapped to physical column types.</p>
+
+
+<div class="detailHeader" id="commandBuilder-detail">
+commandBuilder<span class="detailHeaderTag">
+property
+ <em>read-only</em> </span>
+</div>
+
+<div class="signature">
+public <a href="CDbCommandBuilder.html">CDbCommandBuilder</a> <a href="CDbSchema.html#getCommandBuilder"><b>getCommandBuilder</b></a>()</div>
+
+<p>the SQL command builder for this connection.</p>
+
+
+<div class="detailHeader" id="dbConnection-detail">
+dbConnection<span class="detailHeaderTag">
+property
+ <em>read-only</em> </span>
+</div>
+
+<div class="signature">
+public <a href="CDbConnection.html">CDbConnection</a> <a href="CDbSchema.html#getDbConnection"><b>getDbConnection</b></a>()</div>
+
+<p>database connection. The connection is active.</p>
+
+
+<div class="detailHeader" id="tableNames-detail">
+tableNames<span class="detailHeaderTag">
+property
+ <em>read-only</em>  (available since v1.0.2)
+</span>
+</div>
+
+<div class="signature">
+public array <a href="CDbSchema.html#getTableNames"><b>getTableNames</b></a>(string $schema='')</div>
+
+<p>Returns all table names in the database.</p>
+
+
+<div class="detailHeader" id="tables-detail">
+tables<span class="detailHeaderTag">
+property
+ <em>read-only</em>  (available since v1.0.2)
+</span>
+</div>
+
+<div class="signature">
+public array <a href="CDbSchema.html#getTables"><b>getTables</b></a>(string $schema='')</div>
+
+<p>Returns the metadata for all tables in the database.</p>
+
+
+<h2>Method Details</h2>
+
+<div class="detailHeader" id="__construct-detail">
+__construct()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>__construct</b>(<a href="CDbConnection.html">CDbConnection</a> $conn)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$conn</td>
+  <td class="paramTypeCol"><a href="CDbConnection.html">CDbConnection</a></td>
+  <td class="paramDescCol">database connection.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/db/schema/CDbSchema.php#44">framework/db/schema/CDbSchema.php#44</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">__construct</span><span style="color: #007700">(</span><span style="color: #0000BB">$conn</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_connection</span><span style="color: #007700">=</span><span style="color: #0000BB">$conn</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;foreach(</span><span style="color: #0000BB">$conn</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">schemaCachingExclude&nbsp;</span><span style="color: #007700">as&nbsp;</span><span style="color: #0000BB">$name</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_cacheExclude</span><span style="color: #007700">[</span><span style="color: #0000BB">$name</span><span style="color: #007700">]=</span><span style="color: #0000BB">true</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Constructor.</p>
+
+
+<div class="detailHeader" id="addColumn-detail">
+addColumn()
+<span class="detailHeaderTag">
+method
+(available since v1.1.6)
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>addColumn</b>(string $table, string $column, string $type)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$table</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the table that the new column will be added to. The table name will be properly quoted by the method.</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$column</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the name of the new column. The name will be properly quoted by the method.</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$type</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the column type. The <a href="CDbSchema.html#getColumnType">getColumnType</a> method will be invoked to convert abstract column type (if any)
+into the physical one. Anything that is not recognized as abstract type will be kept in the generated SQL.
+For example, 'string' will be turned into 'varchar(255)', while 'string not null' will become 'varchar(255) not null'.</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the SQL statement for adding a new column.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/db/schema/CDbSchema.php#420">framework/db/schema/CDbSchema.php#420</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">addColumn</span><span style="color: #007700">(</span><span style="color: #0000BB">$table</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$column</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$type</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$type</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getColumnType</span><span style="color: #007700">(</span><span style="color: #0000BB">$type</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$sql</span><span style="color: #007700">=</span><span style="color: #DD0000">'ALTER&nbsp;TABLE&nbsp;'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">quoteTableName</span><span style="color: #007700">(</span><span style="color: #0000BB">$table</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.&nbsp;</span><span style="color: #DD0000">'&nbsp;ADD&nbsp;'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">quoteColumnName</span><span style="color: #007700">(</span><span style="color: #0000BB">$column</span><span style="color: #007700">)&nbsp;.&nbsp;</span><span style="color: #DD0000">'&nbsp;'<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getColumnType</span><span style="color: #007700">(</span><span style="color: #0000BB">$type</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$sql</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Builds a SQL statement for adding a new DB column.</p>
+
+
+<div class="detailHeader" id="addForeignKey-detail">
+addForeignKey()
+<span class="detailHeaderTag">
+method
+(available since v1.1.6)
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>addForeignKey</b>(string $name, string $table, string $columns, string $refTable, string $refColumns, string $delete=NULL, string $update=NULL)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$name</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the name of the foreign key constraint.</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$table</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the table that the foreign key constraint will be added to.</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$columns</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the name of the column to that the constraint will be added on. If there are multiple columns, separate them with commas.</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$refTable</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the table that the foreign key references to.</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$refColumns</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the name of the column that the foreign key references to. If there are multiple columns, separate them with commas.</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$delete</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the ON DELETE option. Most DBMS support these options: RESTRICT, CASCADE, NO ACTION, SET DEFAULT, SET NULL</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$update</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the ON UPDATE option. Most DBMS support these options: RESTRICT, CASCADE, NO ACTION, SET DEFAULT, SET NULL</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the SQL statement for adding a foreign key constraint to an existing table.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/db/schema/CDbSchema.php#489">framework/db/schema/CDbSchema.php#489</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">addForeignKey</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$table</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$columns</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$refTable</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$refColumns</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$delete</span><span style="color: #007700">=</span><span style="color: #0000BB">null</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$update</span><span style="color: #007700">=</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$columns</span><span style="color: #007700">=</span><span style="color: #0000BB">preg_split</span><span style="color: #007700">(</span><span style="color: #DD0000">'/\s*,\s*/'</span><span style="color: #007700">,</span><span style="color: #0000BB">$columns</span><span style="color: #007700">,-</span><span style="color: #0000BB">1</span><span style="color: #007700">,</span><span style="color: #0000BB">PREG_SPLIT_NO_EMPTY</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;foreach(</span><span style="color: #0000BB">$columns&nbsp;</span><span style="color: #007700">as&nbsp;</span><span style="color: #0000BB">$i</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">$col</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$columns</span><span style="color: #007700">[</span><span style="color: #0000BB">$i</span><span style="color: #007700">]=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">quoteColumnName</span><span style="color: #007700">(</span><span style="color: #0000BB">$col</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$refColumns</span><span style="color: #007700">=</span><span style="color: #0000BB">preg_split</span><span style="color: #007700">(</span><span style="color: #DD0000">'/\s*,\s*/'</span><span style="color: #007700">,</span><span style="color: #0000BB">$refColumns</span><span style="color: #007700">,-</span><span style="color: #0000BB">1</span><span style="color: #007700">,</span><span style="color: #0000BB">PREG_SPLIT_NO_EMPTY</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;foreach(</span><span style="color: #0000BB">$refColumns&nbsp;</span><span style="color: #007700">as&nbsp;</span><span style="color: #0000BB">$i</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">$col</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$refColumns</span><span style="color: #007700">[</span><span style="color: #0000BB">$i</span><span style="color: #007700">]=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">quoteColumnName</span><span style="color: #007700">(</span><span style="color: #0000BB">$col</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$sql</span><span style="color: #007700">=</span><span style="color: #DD0000">'ALTER&nbsp;TABLE&nbsp;'</span><span style="color: #007700">.</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">quoteTableName</span><span style="color: #007700">(</span><span style="color: #0000BB">$table</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.</span><span style="color: #DD0000">'&nbsp;ADD&nbsp;CONSTRAINT&nbsp;'</span><span style="color: #007700">.</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">quoteColumnName</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.</span><span style="color: #DD0000">'&nbsp;FOREIGN&nbsp;KEY&nbsp;('</span><span style="color: #007700">.</span><span style="color: #0000BB">implode</span><span style="color: #007700">(</span><span style="color: #DD0000">',&nbsp;'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$columns</span><span style="color: #007700">).</span><span style="color: #DD0000">')'<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">.</span><span style="color: #DD0000">'&nbsp;REFERENCES&nbsp;'</span><span style="color: #007700">.</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">quoteTableName</span><span style="color: #007700">(</span><span style="color: #0000BB">$refTable</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.</span><span style="color: #DD0000">'&nbsp;('</span><span style="color: #007700">.</span><span style="color: #0000BB">implode</span><span style="color: #007700">(</span><span style="color: #DD0000">',&nbsp;'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$refColumns</span><span style="color: #007700">).</span><span style="color: #DD0000">')'</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$delete</span><span style="color: #007700">!==</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$sql</span><span style="color: #007700">.=</span><span style="color: #DD0000">'&nbsp;ON&nbsp;DELETE&nbsp;'</span><span style="color: #007700">.</span><span style="color: #0000BB">$delete</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$update</span><span style="color: #007700">!==</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$sql</span><span style="color: #007700">.=</span><span style="color: #DD0000">'&nbsp;ON&nbsp;UPDATE&nbsp;'</span><span style="color: #007700">.</span><span style="color: #0000BB">$update</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$sql</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Builds a SQL statement for adding a foreign key constraint to an existing table.
+The method will properly quote the table and column names.</p>
+
+
+<div class="detailHeader" id="alterColumn-detail">
+alterColumn()
+<span class="detailHeaderTag">
+method
+(available since v1.1.6)
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>alterColumn</b>(string $table, string $column, string $type)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$table</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the table whose column is to be changed. The table name will be properly quoted by the method.</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$column</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the name of the column to be changed. The name will be properly quoted by the method.</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$type</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the new column type. The <a href="CDbSchema.html#getColumnType">getColumnType</a> method will be invoked to convert abstract column type (if any)
+into the physical one. Anything that is not recognized as abstract type will be kept in the generated SQL.
+For example, 'string' will be turned into 'varchar(255)', while 'string not null' will become 'varchar(255) not null'.</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the SQL statement for changing the definition of a column.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/db/schema/CDbSchema.php#467">framework/db/schema/CDbSchema.php#467</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">alterColumn</span><span style="color: #007700">(</span><span style="color: #0000BB">$table</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$column</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$type</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$type</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getColumnType</span><span style="color: #007700">(</span><span style="color: #0000BB">$type</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #DD0000">'ALTER&nbsp;TABLE&nbsp;'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">quoteTableName</span><span style="color: #007700">(</span><span style="color: #0000BB">$table</span><span style="color: #007700">)&nbsp;.&nbsp;</span><span style="color: #DD0000">'&nbsp;CHANGE&nbsp;'<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">quoteColumnName</span><span style="color: #007700">(</span><span style="color: #0000BB">$column</span><span style="color: #007700">)&nbsp;.&nbsp;</span><span style="color: #DD0000">'&nbsp;'<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">quoteColumnName</span><span style="color: #007700">(</span><span style="color: #0000BB">$column</span><span style="color: #007700">)&nbsp;.&nbsp;</span><span style="color: #DD0000">'&nbsp;'<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getColumnType</span><span style="color: #007700">(</span><span style="color: #0000BB">$type</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Builds a SQL statement for changing the definition of a column.</p>
+
+
+<div class="detailHeader" id="checkIntegrity-detail">
+checkIntegrity()
+<span class="detailHeaderTag">
+method
+(available since v1.1)
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>checkIntegrity</b>(boolean $check=true, string $schema='')</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$check</td>
+  <td class="paramTypeCol">boolean</td>
+  <td class="paramDescCol">whether to turn on or off the integrity check.</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$schema</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the schema of the tables. Defaults to empty string, meaning the current or default schema.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/db/schema/CDbSchema.php#276">framework/db/schema/CDbSchema.php#276</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">checkIntegrity</span><span style="color: #007700">(</span><span style="color: #0000BB">$check</span><span style="color: #007700">=</span><span style="color: #0000BB">true</span><span style="color: #007700">,</span><span style="color: #0000BB">$schema</span><span style="color: #007700">=</span><span style="color: #DD0000">''</span><span style="color: #007700">)<br />{<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Enables or disables integrity check.</p>
+
+
+<div class="detailHeader" id="compareTableNames-detail">
+compareTableNames()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public boolean <b>compareTableNames</b>(string $name1, string $name2)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$name1</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">table name 1</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$name2</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">table name 2</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">boolean</td>
+  <td class="paramDescCol">whether the two table names refer to the same table.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/db/schema/CDbSchema.php#239">framework/db/schema/CDbSchema.php#239</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">compareTableNames</span><span style="color: #007700">(</span><span style="color: #0000BB">$name1</span><span style="color: #007700">,</span><span style="color: #0000BB">$name2</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$name1</span><span style="color: #007700">=</span><span style="color: #0000BB">str_replace</span><span style="color: #007700">(array(</span><span style="color: #DD0000">'"'</span><span style="color: #007700">,</span><span style="color: #DD0000">'`'</span><span style="color: #007700">,</span><span style="color: #DD0000">"'"</span><span style="color: #007700">),</span><span style="color: #DD0000">''</span><span style="color: #007700">,</span><span style="color: #0000BB">$name1</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$name2</span><span style="color: #007700">=</span><span style="color: #0000BB">str_replace</span><span style="color: #007700">(array(</span><span style="color: #DD0000">'"'</span><span style="color: #007700">,</span><span style="color: #DD0000">'`'</span><span style="color: #007700">,</span><span style="color: #DD0000">"'"</span><span style="color: #007700">),</span><span style="color: #DD0000">''</span><span style="color: #007700">,</span><span style="color: #0000BB">$name2</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;if((</span><span style="color: #0000BB">$pos</span><span style="color: #007700">=</span><span style="color: #0000BB">strrpos</span><span style="color: #007700">(</span><span style="color: #0000BB">$name1</span><span style="color: #007700">,</span><span style="color: #DD0000">'.'</span><span style="color: #007700">))!==</span><span style="color: #0000BB">false</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$name1</span><span style="color: #007700">=</span><span style="color: #0000BB">substr</span><span style="color: #007700">(</span><span style="color: #0000BB">$name1</span><span style="color: #007700">,</span><span style="color: #0000BB">$pos</span><span style="color: #007700">+</span><span style="color: #0000BB">1</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;if((</span><span style="color: #0000BB">$pos</span><span style="color: #007700">=</span><span style="color: #0000BB">strrpos</span><span style="color: #007700">(</span><span style="color: #0000BB">$name2</span><span style="color: #007700">,</span><span style="color: #DD0000">'.'</span><span style="color: #007700">))!==</span><span style="color: #0000BB">false</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$name2</span><span style="color: #007700">=</span><span style="color: #0000BB">substr</span><span style="color: #007700">(</span><span style="color: #0000BB">$name2</span><span style="color: #007700">,</span><span style="color: #0000BB">$pos</span><span style="color: #007700">+</span><span style="color: #0000BB">1</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_connection</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">tablePrefix</span><span style="color: #007700">!==</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">strpos</span><span style="color: #007700">(</span><span style="color: #0000BB">$name1</span><span style="color: #007700">,</span><span style="color: #DD0000">'{'</span><span style="color: #007700">)!==</span><span style="color: #0000BB">false</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$name1</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_connection</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">tablePrefix</span><span style="color: #007700">.</span><span style="color: #0000BB">str_replace</span><span style="color: #007700">(array(</span><span style="color: #DD0000">'{'</span><span style="color: #007700">,</span><span style="color: #DD0000">'}'</span><span style="color: #007700">),</span><span style="color: #DD0000">''</span><span style="color: #007700">,</span><span style="color: #0000BB">$name1</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">strpos</span><span style="color: #007700">(</span><span style="color: #0000BB">$name2</span><span style="color: #007700">,</span><span style="color: #DD0000">'{'</span><span style="color: #007700">)!==</span><span style="color: #0000BB">false</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$name2</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_connection</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">tablePrefix</span><span style="color: #007700">.</span><span style="color: #0000BB">str_replace</span><span style="color: #007700">(array(</span><span style="color: #DD0000">'{'</span><span style="color: #007700">,</span><span style="color: #DD0000">'}'</span><span style="color: #007700">),</span><span style="color: #DD0000">''</span><span style="color: #007700">,</span><span style="color: #0000BB">$name2</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$name1</span><span style="color: #007700">===</span><span style="color: #0000BB">$name2</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Compares two table names.
+The table names can be either quoted or unquoted. This method
+will consider both cases.</p>
+
+
+<div class="detailHeader" id="createCommandBuilder-detail">
+createCommandBuilder()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+protected <a href="CDbCommandBuilder.html">CDbCommandBuilder</a> <b>createCommandBuilder</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol"><a href="CDbCommandBuilder.html">CDbCommandBuilder</a></td>
+  <td class="paramDescCol">command builder instance</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/db/schema/CDbSchema.php#285">framework/db/schema/CDbSchema.php#285</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">protected&nbsp;function&nbsp;</span><span style="color: #0000BB">createCommandBuilder</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;new&nbsp;</span><span style="color: #0000BB">CDbCommandBuilder</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Creates a command builder for the database.
+This method may be overridden by child classes to create a DBMS-specific command builder.</p>
+
+
+<div class="detailHeader" id="createIndex-detail">
+createIndex()
+<span class="detailHeaderTag">
+method
+(available since v1.1.6)
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>createIndex</b>(string $name, string $table, string $column, boolean $unique=false)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$name</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the name of the index. The name will be properly quoted by the method.</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$table</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the table that the new index will be created for. The table name will be properly quoted by the method.</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$column</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the column(s) that should be included in the index. If there are multiple columns, please separate them
+by commas. The column names will be properly quoted by the method.</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$unique</td>
+  <td class="paramTypeCol">boolean</td>
+  <td class="paramDescCol">whether to add UNIQUE constraint on the created index.</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the SQL statement for creating a new index.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/db/schema/CDbSchema.php#532">framework/db/schema/CDbSchema.php#532</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">createIndex</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$table</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$column</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$unique</span><span style="color: #007700">=</span><span style="color: #0000BB">false</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$cols</span><span style="color: #007700">=array();<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$columns</span><span style="color: #007700">=</span><span style="color: #0000BB">preg_split</span><span style="color: #007700">(</span><span style="color: #DD0000">'/\s*,\s*/'</span><span style="color: #007700">,</span><span style="color: #0000BB">$column</span><span style="color: #007700">,-</span><span style="color: #0000BB">1</span><span style="color: #007700">,</span><span style="color: #0000BB">PREG_SPLIT_NO_EMPTY</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;foreach(</span><span style="color: #0000BB">$columns&nbsp;</span><span style="color: #007700">as&nbsp;</span><span style="color: #0000BB">$col</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$cols</span><span style="color: #007700">[]=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">quoteColumnName</span><span style="color: #007700">(</span><span style="color: #0000BB">$col</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;(</span><span style="color: #0000BB">$unique&nbsp;</span><span style="color: #007700">?&nbsp;</span><span style="color: #DD0000">'CREATE&nbsp;UNIQUE&nbsp;INDEX&nbsp;'&nbsp;</span><span style="color: #007700">:&nbsp;</span><span style="color: #DD0000">'CREATE&nbsp;INDEX&nbsp;'</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">quoteTableName</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">).</span><span style="color: #DD0000">'&nbsp;ON&nbsp;'<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">quoteTableName</span><span style="color: #007700">(</span><span style="color: #0000BB">$table</span><span style="color: #007700">).</span><span style="color: #DD0000">'&nbsp;('</span><span style="color: #007700">.</span><span style="color: #0000BB">implode</span><span style="color: #007700">(</span><span style="color: #DD0000">',&nbsp;'</span><span style="color: #007700">,</span><span style="color: #0000BB">$cols</span><span style="color: #007700">).</span><span style="color: #DD0000">')'</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Builds a SQL statement for creating a new index.</p>
+
+
+<div class="detailHeader" id="createTable-detail">
+createTable()
+<span class="detailHeaderTag">
+method
+(available since v1.1.6)
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>createTable</b>(string $table, array $columns, string $options=NULL)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$table</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the name of the table to be created. The name will be properly quoted by the method.</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$columns</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">the columns (name=>definition) in the new table.</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$options</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">additional SQL fragment that will be appended to the generated SQL.</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the SQL statement for creating a new DB table.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/db/schema/CDbSchema.php#362">framework/db/schema/CDbSchema.php#362</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">createTable</span><span style="color: #007700">(</span><span style="color: #0000BB">$table</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$columns</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$options</span><span style="color: #007700">=</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$cols</span><span style="color: #007700">=array();<br />&nbsp;&nbsp;&nbsp;&nbsp;foreach(</span><span style="color: #0000BB">$columns&nbsp;</span><span style="color: #007700">as&nbsp;</span><span style="color: #0000BB">$name</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">$type</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">is_string</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$cols</span><span style="color: #007700">[]=</span><span style="color: #DD0000">"\t"</span><span style="color: #007700">.</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">quoteColumnName</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">).</span><span style="color: #DD0000">'&nbsp;'</span><span style="color: #007700">.</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getColumnType</span><span style="color: #007700">(</span><span style="color: #0000BB">$type</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$cols</span><span style="color: #007700">[]=</span><span style="color: #DD0000">"\t"</span><span style="color: #007700">.</span><span style="color: #0000BB">$type</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$sql</span><span style="color: #007700">=</span><span style="color: #DD0000">"CREATE&nbsp;TABLE&nbsp;"</span><span style="color: #007700">.</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">quoteTableName</span><span style="color: #007700">(</span><span style="color: #0000BB">$table</span><span style="color: #007700">).</span><span style="color: #DD0000">"&nbsp;(\n"</span><span style="color: #007700">.</span><span style="color: #0000BB">implode</span><span style="color: #007700">(</span><span style="color: #DD0000">",\n"</span><span style="color: #007700">,</span><span style="color: #0000BB">$cols</span><span style="color: #007700">).</span><span style="color: #DD0000">"\n)"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$options</span><span style="color: #007700">===</span><span style="color: #0000BB">null&nbsp;</span><span style="color: #007700">?&nbsp;</span><span style="color: #0000BB">$sql&nbsp;</span><span style="color: #007700">:&nbsp;</span><span style="color: #0000BB">$sql</span><span style="color: #007700">.</span><span style="color: #DD0000">'&nbsp;'</span><span style="color: #007700">.</span><span style="color: #0000BB">$options</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Builds a SQL statement for creating a new DB table.
+<br/><br/>
+The columns in the new  table should be specified as name-definition pairs (e.g. 'name'=>'string'),
+where name stands for a column name which will be properly quoted by the method, and definition
+stands for the column type which can contain an abstract DB type.
+The <a href="CDbSchema.html#getColumnType">getColumnType</a> method will be invoked to convert any abstract type into a physical one.
+<br/><br/>
+If a column is specified with definition only (e.g. 'PRIMARY KEY (name, type)'), it will be directly
+inserted into the generated SQL.</p>
+
+
+<div class="detailHeader" id="dropColumn-detail">
+dropColumn()
+<span class="detailHeaderTag">
+method
+(available since v1.1.6)
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>dropColumn</b>(string $table, string $column)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$table</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the table whose column is to be dropped. The name will be properly quoted by the method.</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$column</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the name of the column to be dropped. The name will be properly quoted by the method.</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the SQL statement for dropping a DB column.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/db/schema/CDbSchema.php#436">framework/db/schema/CDbSchema.php#436</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">dropColumn</span><span style="color: #007700">(</span><span style="color: #0000BB">$table</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$column</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #DD0000">"ALTER&nbsp;TABLE&nbsp;"</span><span style="color: #007700">.</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">quoteTableName</span><span style="color: #007700">(</span><span style="color: #0000BB">$table</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.</span><span style="color: #DD0000">"&nbsp;DROP&nbsp;COLUMN&nbsp;"</span><span style="color: #007700">.</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">quoteColumnName</span><span style="color: #007700">(</span><span style="color: #0000BB">$column</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Builds a SQL statement for dropping a DB column.</p>
+
+
+<div class="detailHeader" id="dropForeignKey-detail">
+dropForeignKey()
+<span class="detailHeaderTag">
+method
+(available since v1.1.6)
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>dropForeignKey</b>(string $name, string $table)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$name</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the name of the foreign key constraint to be dropped. The name will be properly quoted by the method.</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$table</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the table whose foreign is to be dropped. The name will be properly quoted by the method.</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the SQL statement for dropping a foreign key constraint.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/db/schema/CDbSchema.php#516">framework/db/schema/CDbSchema.php#516</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">dropForeignKey</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$table</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #DD0000">'ALTER&nbsp;TABLE&nbsp;'</span><span style="color: #007700">.</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">quoteTableName</span><span style="color: #007700">(</span><span style="color: #0000BB">$table</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.</span><span style="color: #DD0000">'&nbsp;DROP&nbsp;CONSTRAINT&nbsp;'</span><span style="color: #007700">.</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">quoteColumnName</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Builds a SQL statement for dropping a foreign key constraint.</p>
+
+
+<div class="detailHeader" id="dropIndex-detail">
+dropIndex()
+<span class="detailHeaderTag">
+method
+(available since v1.1.6)
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>dropIndex</b>(string $name, string $table)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$name</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the name of the index to be dropped. The name will be properly quoted by the method.</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$table</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the table whose index is to be dropped. The name will be properly quoted by the method.</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the SQL statement for dropping an index.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/db/schema/CDbSchema.php#550">framework/db/schema/CDbSchema.php#550</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">dropIndex</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$table</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #DD0000">'DROP&nbsp;INDEX&nbsp;'</span><span style="color: #007700">.</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">quoteTableName</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">).</span><span style="color: #DD0000">'&nbsp;ON&nbsp;'</span><span style="color: #007700">.</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">quoteTableName</span><span style="color: #007700">(</span><span style="color: #0000BB">$table</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Builds a SQL statement for dropping an index.</p>
+
+
+<div class="detailHeader" id="dropTable-detail">
+dropTable()
+<span class="detailHeaderTag">
+method
+(available since v1.1.6)
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>dropTable</b>(string $table)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$table</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the table to be dropped. The name will be properly quoted by the method.</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the SQL statement for dropping a DB table.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/db/schema/CDbSchema.php#394">framework/db/schema/CDbSchema.php#394</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">dropTable</span><span style="color: #007700">(</span><span style="color: #0000BB">$table</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #DD0000">"DROP&nbsp;TABLE&nbsp;"</span><span style="color: #007700">.</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">quoteTableName</span><span style="color: #007700">(</span><span style="color: #0000BB">$table</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Builds a SQL statement for dropping a DB table.</p>
+
+
+<div class="detailHeader" id="findTableNames-detail">
+findTableNames()
+<span class="detailHeaderTag">
+method
+(available since v1.0.2)
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+protected array <b>findTableNames</b>(string $schema='')</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$schema</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the schema of the tables. Defaults to empty string, meaning the current or default schema.
+If not empty, the returned table names will be prefixed with the schema name.</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">all table names in the database.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/db/schema/CDbSchema.php#299">framework/db/schema/CDbSchema.php#299</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">protected&nbsp;function&nbsp;</span><span style="color: #0000BB">findTableNames</span><span style="color: #007700">(</span><span style="color: #0000BB">$schema</span><span style="color: #007700">=</span><span style="color: #DD0000">''</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;throw&nbsp;new&nbsp;</span><span style="color: #0000BB">CDbException</span><span style="color: #007700">(</span><span style="color: #0000BB">Yii</span><span style="color: #007700">::</span><span style="color: #0000BB">t</span><span style="color: #007700">(</span><span style="color: #DD0000">'yii'</span><span style="color: #007700">,</span><span style="color: #DD0000">'{class}&nbsp;does&nbsp;not&nbsp;support&nbsp;fetching&nbsp;all&nbsp;table&nbsp;names.'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array(</span><span style="color: #DD0000">'{class}'</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">get_class</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">))));<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Returns all table names in the database.
+This method should be overridden by child classes in order to support this feature
+because the default implementation simply throws an exception.</p>
+
+
+<div class="detailHeader" id="getColumnType-detail">
+getColumnType()
+<span class="detailHeaderTag">
+method
+(available since v1.1.6)
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>getColumnType</b>(string $type)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$type</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">abstract column type</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">physical column type.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/db/schema/CDbSchema.php#332">framework/db/schema/CDbSchema.php#332</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getColumnType</span><span style="color: #007700">(</span><span style="color: #0000BB">$type</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(isset(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">columnTypes</span><span style="color: #007700">[</span><span style="color: #0000BB">$type</span><span style="color: #007700">]))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">columnTypes</span><span style="color: #007700">[</span><span style="color: #0000BB">$type</span><span style="color: #007700">];<br />&nbsp;&nbsp;&nbsp;&nbsp;else&nbsp;if((</span><span style="color: #0000BB">$pos</span><span style="color: #007700">=</span><span style="color: #0000BB">strpos</span><span style="color: #007700">(</span><span style="color: #0000BB">$type</span><span style="color: #007700">,</span><span style="color: #DD0000">'&nbsp;'</span><span style="color: #007700">))!==</span><span style="color: #0000BB">false</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$t</span><span style="color: #007700">=</span><span style="color: #0000BB">substr</span><span style="color: #007700">(</span><span style="color: #0000BB">$type</span><span style="color: #007700">,</span><span style="color: #0000BB">0</span><span style="color: #007700">,</span><span style="color: #0000BB">$pos</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;(isset(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">columnTypes</span><span style="color: #007700">[</span><span style="color: #0000BB">$t</span><span style="color: #007700">])&nbsp;?&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">columnTypes</span><span style="color: #007700">[</span><span style="color: #0000BB">$t</span><span style="color: #007700">]&nbsp;:&nbsp;</span><span style="color: #0000BB">$t</span><span style="color: #007700">).</span><span style="color: #0000BB">substr</span><span style="color: #007700">(</span><span style="color: #0000BB">$type</span><span style="color: #007700">,</span><span style="color: #0000BB">$pos</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$type</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Converts an abstract column type into a physical column type.
+The conversion is done using the type map specified in <a href="CDbSchema.html#columnTypes">columnTypes</a>.
+These abstract column types are supported (using MySQL as example to explain the corresponding
+physical types):
+<ul>
+<li>pk: an auto-incremental primary key type, will be converted into "int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY"</li>
+<li>string: string type, will be converted into "varchar(255)"</li>
+<li>text: a long string type, will be converted into "text"</li>
+<li>integer: integer type, will be converted into "int(11)"</li>
+<li>boolean: boolean type, will be converted into "tinyint(1)"</li>
+<li>float: float number type, will be converted into "float"</li>
+<li>decimal: decimal number type, will be converted into "decimal"</li>
+<li>datetime: datetime type, will be converted into "datetime"</li>
+<li>timestamp: timestamp type, will be converted into "timestamp"</li>
+<li>time: time type, will be converted into "time"</li>
+<li>date: date type, will be converted into "date"</li>
+<li>binary: binary data type, will be converted into "blob"</li>
+</ul>
+<br/><br/>
+If the abstract type contains two or more parts separated by spaces (e.g. "string NOT NULL"), then only
+the first part will be converted, and the rest of the parts will be appended to the conversion result.
+For example, 'string NOT NULL' is converted to 'varchar(255) NOT NULL'.</p>
+
+
+<div class="detailHeader" id="getCommandBuilder-detail">
+getCommandBuilder()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public <a href="CDbCommandBuilder.html">CDbCommandBuilder</a> <b>getCommandBuilder</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol"><a href="CDbCommandBuilder.html">CDbCommandBuilder</a></td>
+  <td class="paramDescCol">the SQL command builder for this connection.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/db/schema/CDbSchema.php#139">framework/db/schema/CDbSchema.php#139</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getCommandBuilder</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_builder</span><span style="color: #007700">!==</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_builder</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_builder</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">createCommandBuilder</span><span style="color: #007700">();<br />}</span>
+</span>
+</code></div>
+</div>
+<p></p>
+
+
+<div class="detailHeader" id="getDbConnection-detail">
+getDbConnection()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public <a href="CDbConnection.html">CDbConnection</a> <b>getDbConnection</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol"><a href="CDbConnection.html">CDbConnection</a></td>
+  <td class="paramDescCol">database connection. The connection is active.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/db/schema/CDbSchema.php#54">framework/db/schema/CDbSchema.php#54</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getDbConnection</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_connection</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p></p>
+
+
+<div class="detailHeader" id="getTable-detail">
+getTable()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public <a href="CDbTableSchema.html">CDbTableSchema</a> <b>getTable</b>(string $name)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$name</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">table name</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol"><a href="CDbTableSchema.html">CDbTableSchema</a></td>
+  <td class="paramDescCol">table metadata. Null if the named table does not exist.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/db/schema/CDbSchema.php#64">framework/db/schema/CDbSchema.php#64</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getTable</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(isset(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_tables</span><span style="color: #007700">[</span><span style="color: #0000BB">$name</span><span style="color: #007700">]))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_tables</span><span style="color: #007700">[</span><span style="color: #0000BB">$name</span><span style="color: #007700">];<br />&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_connection</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">tablePrefix</span><span style="color: #007700">!==</span><span style="color: #0000BB">null&nbsp;</span><span style="color: #007700">&amp;&amp;&nbsp;</span><span style="color: #0000BB">strpos</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">,</span><span style="color: #DD0000">'{{'</span><span style="color: #007700">)!==</span><span style="color: #0000BB">false</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$realName</span><span style="color: #007700">=</span><span style="color: #0000BB">preg_replace</span><span style="color: #007700">(</span><span style="color: #DD0000">'/\{\{(.*?)\}\}/'</span><span style="color: #007700">,</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_connection</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">tablePrefix</span><span style="color: #007700">.</span><span style="color: #DD0000">'$1'</span><span style="color: #007700">,</span><span style="color: #0000BB">$name</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$realName</span><span style="color: #007700">=</span><span style="color: #0000BB">$name</span><span style="color: #007700">;<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;temporarily&nbsp;disable&nbsp;query&nbsp;caching<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">if(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_connection</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">queryCachingDuration</span><span style="color: #007700">&gt;</span><span style="color: #0000BB">0</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$qcDuration</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_connection</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">queryCachingDuration</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_connection</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">queryCachingDuration</span><span style="color: #007700">=</span><span style="color: #0000BB">0</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(!isset(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_cacheExclude</span><span style="color: #007700">[</span><span style="color: #0000BB">$name</span><span style="color: #007700">])&nbsp;&amp;&amp;&nbsp;(</span><span style="color: #0000BB">$duration</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_connection</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">schemaCachingDuration</span><span style="color: #007700">)&gt;</span><span style="color: #0000BB">0&nbsp;</span><span style="color: #007700">&amp;&amp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_connection</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">schemaCacheID</span><span style="color: #007700">!==</span><span style="color: #0000BB">false&nbsp;</span><span style="color: #007700">&amp;&amp;&nbsp;(</span><span style="color: #0000BB">$cache</span><span style="color: #007700">=</span><span style="color: #0000BB">Yii</span><span style="color: #007700">::</span><span style="color: #0000BB">app</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">getComponent</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_connection</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">schemaCacheID</span><span style="color: #007700">))!==</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$key</span><span style="color: #007700">=</span><span style="color: #DD0000">'yii:dbschema'</span><span style="color: #007700">.</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_connection</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">connectionString</span><span style="color: #007700">.</span><span style="color: #DD0000">':'</span><span style="color: #007700">.</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_connection</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">username</span><span style="color: #007700">.</span><span style="color: #DD0000">':'</span><span style="color: #007700">.</span><span style="color: #0000BB">$name</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if((</span><span style="color: #0000BB">$table</span><span style="color: #007700">=</span><span style="color: #0000BB">$cache</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">get</span><span style="color: #007700">(</span><span style="color: #0000BB">$key</span><span style="color: #007700">))===</span><span style="color: #0000BB">false</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$table</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">loadTable</span><span style="color: #007700">(</span><span style="color: #0000BB">$realName</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$table</span><span style="color: #007700">!==</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$cache</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">set</span><span style="color: #007700">(</span><span style="color: #0000BB">$key</span><span style="color: #007700">,</span><span style="color: #0000BB">$table</span><span style="color: #007700">,</span><span style="color: #0000BB">$duration</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_tables</span><span style="color: #007700">[</span><span style="color: #0000BB">$name</span><span style="color: #007700">]=</span><span style="color: #0000BB">$table</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_tables</span><span style="color: #007700">[</span><span style="color: #0000BB">$name</span><span style="color: #007700">]=</span><span style="color: #0000BB">$table</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">loadTable</span><span style="color: #007700">(</span><span style="color: #0000BB">$realName</span><span style="color: #007700">);<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(isset(</span><span style="color: #0000BB">$qcDuration</span><span style="color: #007700">))&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;re-enable&nbsp;query&nbsp;caching<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_connection</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">queryCachingDuration</span><span style="color: #007700">=</span><span style="color: #0000BB">$qcDuration</span><span style="color: #007700">;<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$table</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Obtains the metadata for the named table.</p>
+
+
+<div class="detailHeader" id="getTableNames-detail">
+getTableNames()
+<span class="detailHeaderTag">
+method
+(available since v1.0.2)
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public array <b>getTableNames</b>(string $schema='')</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$schema</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the schema of the tables. Defaults to empty string, meaning the current or default schema.
+If not empty, the returned table names will be prefixed with the schema name.</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">all table names in the database.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/db/schema/CDbSchema.php#129">framework/db/schema/CDbSchema.php#129</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getTableNames</span><span style="color: #007700">(</span><span style="color: #0000BB">$schema</span><span style="color: #007700">=</span><span style="color: #DD0000">''</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(!isset(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_tableNames</span><span style="color: #007700">[</span><span style="color: #0000BB">$schema</span><span style="color: #007700">]))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_tableNames</span><span style="color: #007700">[</span><span style="color: #0000BB">$schema</span><span style="color: #007700">]=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">findTableNames</span><span style="color: #007700">(</span><span style="color: #0000BB">$schema</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_tableNames</span><span style="color: #007700">[</span><span style="color: #0000BB">$schema</span><span style="color: #007700">];<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Returns all table names in the database.</p>
+
+
+<div class="detailHeader" id="getTables-detail">
+getTables()
+<span class="detailHeaderTag">
+method
+(available since v1.0.2)
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public array <b>getTables</b>(string $schema='')</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$schema</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the schema of the tables. Defaults to empty string, meaning the current or default schema.</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">the metadata for all tables in the database.
+Each array element is an instance of <a href="CDbTableSchema.html">CDbTableSchema</a> (or its child class).
+The array keys are table names.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/db/schema/CDbSchema.php#111">framework/db/schema/CDbSchema.php#111</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getTables</span><span style="color: #007700">(</span><span style="color: #0000BB">$schema</span><span style="color: #007700">=</span><span style="color: #DD0000">''</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$tables</span><span style="color: #007700">=array();<br />&nbsp;&nbsp;&nbsp;&nbsp;foreach(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getTableNames</span><span style="color: #007700">(</span><span style="color: #0000BB">$schema</span><span style="color: #007700">)&nbsp;as&nbsp;</span><span style="color: #0000BB">$name</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if((</span><span style="color: #0000BB">$table</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getTable</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">))!==</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$tables</span><span style="color: #007700">[</span><span style="color: #0000BB">$name</span><span style="color: #007700">]=</span><span style="color: #0000BB">$table</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$tables</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Returns the metadata for all tables in the database.</p>
+
+
+<div class="detailHeader" id="loadTable-detail">
+loadTable()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+abstract protected <a href="CDbTableSchema.html">CDbTableSchema</a> <b>loadTable</b>(string $name)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$name</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">table name</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol"><a href="CDbTableSchema.html">CDbTableSchema</a></td>
+  <td class="paramDescCol">driver dependent table metadata, null if the table does not exist.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/db/schema/CDbSchema.php#38">framework/db/schema/CDbSchema.php#38</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">abstract&nbsp;protected&nbsp;function&nbsp;</span><span style="color: #0000BB">loadTable</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">);</span>
+</span>
+</code></div>
+</div>
+<p>Loads the metadata for the specified table.</p>
+
+
+<div class="detailHeader" id="quoteColumnName-detail">
+quoteColumnName()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>quoteColumnName</b>(string $name)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$name</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">column name</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the properly quoted column name</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/db/schema/CDbSchema.php#207">framework/db/schema/CDbSchema.php#207</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">quoteColumnName</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if((</span><span style="color: #0000BB">$pos</span><span style="color: #007700">=</span><span style="color: #0000BB">strrpos</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">,</span><span style="color: #DD0000">'.'</span><span style="color: #007700">))!==</span><span style="color: #0000BB">false</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$prefix</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">quoteTableName</span><span style="color: #007700">(</span><span style="color: #0000BB">substr</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">,</span><span style="color: #0000BB">0</span><span style="color: #007700">,</span><span style="color: #0000BB">$pos</span><span style="color: #007700">)).</span><span style="color: #DD0000">'.'</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$name</span><span style="color: #007700">=</span><span style="color: #0000BB">substr</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">,</span><span style="color: #0000BB">$pos</span><span style="color: #007700">+</span><span style="color: #0000BB">1</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$prefix</span><span style="color: #007700">=</span><span style="color: #DD0000">''</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$prefix&nbsp;</span><span style="color: #007700">.&nbsp;(</span><span style="color: #0000BB">$name</span><span style="color: #007700">===</span><span style="color: #DD0000">'*'&nbsp;</span><span style="color: #007700">?&nbsp;</span><span style="color: #0000BB">$name&nbsp;</span><span style="color: #007700">:&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">quoteSimpleColumnName</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">));<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Quotes a column name for use in a query.
+If the column name contains prefix, the prefix will also be properly quoted.</p>
+
+<div class="SeeAlso">
+<h4>See Also</h4>
+<ul>
+	<li><a href="CDbSchema.html#quoteSimpleColumnName">quoteSimpleColumnName</a></li>
+</ul>
+</div>
+
+<div class="detailHeader" id="quoteSimpleColumnName-detail">
+quoteSimpleColumnName()
+<span class="detailHeaderTag">
+method
+(available since v1.1.6)
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>quoteSimpleColumnName</b>(string $name)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$name</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">column name</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the properly quoted column name</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/db/schema/CDbSchema.php#226">framework/db/schema/CDbSchema.php#226</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">quoteSimpleColumnName</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #DD0000">'"'</span><span style="color: #007700">.</span><span style="color: #0000BB">$name</span><span style="color: #007700">.</span><span style="color: #DD0000">'"'</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Quotes a simple column name for use in a query.
+A simple column name does not contain prefix.</p>
+
+
+<div class="detailHeader" id="quoteSimpleTableName-detail">
+quoteSimpleTableName()
+<span class="detailHeaderTag">
+method
+(available since v1.1.6)
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>quoteSimpleTableName</b>(string $name)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$name</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">table name</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the properly quoted table name</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/db/schema/CDbSchema.php#195">framework/db/schema/CDbSchema.php#195</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">quoteSimpleTableName</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #DD0000">"'"</span><span style="color: #007700">.</span><span style="color: #0000BB">$name</span><span style="color: #007700">.</span><span style="color: #DD0000">"'"</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Quotes a simple table name for use in a query.
+A simple table name does not schema prefix.</p>
+
+
+<div class="detailHeader" id="quoteTableName-detail">
+quoteTableName()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>quoteTableName</b>(string $name)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$name</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">table name</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the properly quoted table name</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/db/schema/CDbSchema.php#177">framework/db/schema/CDbSchema.php#177</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">quoteTableName</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">strpos</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">,</span><span style="color: #DD0000">'.'</span><span style="color: #007700">)===</span><span style="color: #0000BB">false</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">quoteSimpleTableName</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$parts</span><span style="color: #007700">=</span><span style="color: #0000BB">explode</span><span style="color: #007700">(</span><span style="color: #DD0000">'.'</span><span style="color: #007700">,</span><span style="color: #0000BB">$name</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;foreach(</span><span style="color: #0000BB">$parts&nbsp;</span><span style="color: #007700">as&nbsp;</span><span style="color: #0000BB">$i</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">$part</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$parts</span><span style="color: #007700">[</span><span style="color: #0000BB">$i</span><span style="color: #007700">]=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">quoteSimpleTableName</span><span style="color: #007700">(</span><span style="color: #0000BB">$part</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">implode</span><span style="color: #007700">(</span><span style="color: #DD0000">'.'</span><span style="color: #007700">,</span><span style="color: #0000BB">$parts</span><span style="color: #007700">);<br /><br />}</span>
+</span>
+</code></div>
+</div>
+<p>Quotes a table name for use in a query.
+If the table name contains schema prefix, the prefix will also be properly quoted.</p>
+
+<div class="SeeAlso">
+<h4>See Also</h4>
+<ul>
+	<li><a href="CDbSchema.html#quoteSimpleTableName">quoteSimpleTableName</a></li>
+</ul>
+</div>
+
+<div class="detailHeader" id="refresh-detail">
+refresh()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>refresh</b>()</div>
+</td></tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/db/schema/CDbSchema.php#152">framework/db/schema/CDbSchema.php#152</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">refresh</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if((</span><span style="color: #0000BB">$duration</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_connection</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">schemaCachingDuration</span><span style="color: #007700">)&gt;</span><span style="color: #0000BB">0&nbsp;</span><span style="color: #007700">&amp;&amp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_connection</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">schemaCacheID</span><span style="color: #007700">!==</span><span style="color: #0000BB">false&nbsp;</span><span style="color: #007700">&amp;&amp;&nbsp;(</span><span style="color: #0000BB">$cache</span><span style="color: #007700">=</span><span style="color: #0000BB">Yii</span><span style="color: #007700">::</span><span style="color: #0000BB">app</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">getComponent</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_connection</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">schemaCacheID</span><span style="color: #007700">))!==</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;foreach(</span><span style="color: #0000BB">array_keys</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_tables</span><span style="color: #007700">)&nbsp;as&nbsp;</span><span style="color: #0000BB">$name</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(!isset(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_cacheExclude</span><span style="color: #007700">[</span><span style="color: #0000BB">$name</span><span style="color: #007700">]))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$key</span><span style="color: #007700">=</span><span style="color: #DD0000">'yii:dbschema'</span><span style="color: #007700">.</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_connection</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">connectionString</span><span style="color: #007700">.</span><span style="color: #DD0000">':'</span><span style="color: #007700">.</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_connection</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">username</span><span style="color: #007700">.</span><span style="color: #DD0000">':'</span><span style="color: #007700">.</span><span style="color: #0000BB">$name</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$cache</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">delete</span><span style="color: #007700">(</span><span style="color: #0000BB">$key</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_tables</span><span style="color: #007700">=array();<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_tableNames</span><span style="color: #007700">=array();<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_builder</span><span style="color: #007700">=</span><span style="color: #0000BB">null</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Refreshes the schema.
+This method resets the loaded table metadata and command builder
+so that they can be recreated to reflect the change of schema.</p>
+
+
+<div class="detailHeader" id="renameColumn-detail">
+renameColumn()
+<span class="detailHeaderTag">
+method
+(available since v1.1.6)
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>renameColumn</b>(string $table, string $name, string $newName)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$table</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the table whose column is to be renamed. The name will be properly quoted by the method.</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$name</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the old name of the column. The name will be properly quoted by the method.</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$newName</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the new name of the column. The name will be properly quoted by the method.</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the SQL statement for renaming a DB column.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/db/schema/CDbSchema.php#450">framework/db/schema/CDbSchema.php#450</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">renameColumn</span><span style="color: #007700">(</span><span style="color: #0000BB">$table</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$name</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$newName</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #DD0000">"ALTER&nbsp;TABLE&nbsp;"</span><span style="color: #007700">.</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">quoteTableName</span><span style="color: #007700">(</span><span style="color: #0000BB">$table</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.&nbsp;</span><span style="color: #DD0000">"&nbsp;RENAME&nbsp;COLUMN&nbsp;"</span><span style="color: #007700">.</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">quoteColumnName</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.&nbsp;</span><span style="color: #DD0000">"&nbsp;TO&nbsp;"</span><span style="color: #007700">.</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">quoteColumnName</span><span style="color: #007700">(</span><span style="color: #0000BB">$newName</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Builds a SQL statement for renaming a column.</p>
+
+
+<div class="detailHeader" id="renameTable-detail">
+renameTable()
+<span class="detailHeaderTag">
+method
+(available since v1.1.6)
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>renameTable</b>(string $table, string $newName)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$table</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the table to be renamed. The name will be properly quoted by the method.</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$newName</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the new table name. The name will be properly quoted by the method.</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the SQL statement for renaming a DB table.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/db/schema/CDbSchema.php#383">framework/db/schema/CDbSchema.php#383</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">renameTable</span><span style="color: #007700">(</span><span style="color: #0000BB">$table</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$newName</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #DD0000">'RENAME&nbsp;TABLE&nbsp;'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">quoteTableName</span><span style="color: #007700">(</span><span style="color: #0000BB">$table</span><span style="color: #007700">)&nbsp;.&nbsp;</span><span style="color: #DD0000">'&nbsp;TO&nbsp;'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">quoteTableName</span><span style="color: #007700">(</span><span style="color: #0000BB">$newName</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Builds a SQL statement for renaming a DB table.</p>
+
+
+<div class="detailHeader" id="resetSequence-detail">
+resetSequence()
+<span class="detailHeaderTag">
+method
+(available since v1.1)
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>resetSequence</b>(<a href="CDbTableSchema.html">CDbTableSchema</a> $table, mixed $value=NULL)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$table</td>
+  <td class="paramTypeCol"><a href="CDbTableSchema.html">CDbTableSchema</a></td>
+  <td class="paramDescCol">the table schema whose primary key sequence will be reset</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$value</td>
+  <td class="paramTypeCol">mixed</td>
+  <td class="paramDescCol">the value for the primary key of the next new row inserted. If this is not set,
+the next new row's primary key will have a value 1.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/db/schema/CDbSchema.php#266">framework/db/schema/CDbSchema.php#266</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">resetSequence</span><span style="color: #007700">(</span><span style="color: #0000BB">$table</span><span style="color: #007700">,</span><span style="color: #0000BB">$value</span><span style="color: #007700">=</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />{<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Resets the sequence value of a table's primary key.
+The sequence will be reset such that the primary key of the next new row inserted
+will have the specified value or 1.</p>
+
+
+<div class="detailHeader" id="truncateTable-detail">
+truncateTable()
+<span class="detailHeaderTag">
+method
+(available since v1.1.6)
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>truncateTable</b>(string $table)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$table</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the table to be truncated. The name will be properly quoted by the method.</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the SQL statement for truncating a DB table.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/db/schema/CDbSchema.php#405">framework/db/schema/CDbSchema.php#405</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">truncateTable</span><span style="color: #007700">(</span><span style="color: #0000BB">$table</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #DD0000">"TRUNCATE&nbsp;TABLE&nbsp;"</span><span style="color: #007700">.</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">quoteTableName</span><span style="color: #007700">(</span><span style="color: #0000BB">$table</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Builds a SQL statement for truncating a DB table.</p>
+
+
+</div><!-- end of content -->
+
+<div id="apiFooter">
+Copyright &copy; 2008-2011 by <a href="http://www.yiisoft.com">Yii Software LLC</a><br/>
+All Rights Reserved.<br/>
+</div><!-- end of footer -->
+
+<script type="text/javascript">
+/*<![CDATA[*/
+$("a.toggle").toggle(function(){
+	$(this).text($(this).text().replace(/Hide/,'Show'));
+	$(this).parents(".summary").find(".inherited").hide();
+},function(){
+	$(this).text($(this).text().replace(/Show/,'Hide'));
+	$(this).parents(".summary").find(".inherited").show();
+});
+$(".sourceCode a.show").toggle(function(){
+	$(this).text($(this).text().replace(/show/,'hide'));
+	$(this).parents(".sourceCode").find("div.code").show();
+},function(){
+	$(this).text($(this).text().replace(/hide/,'show'));
+	$(this).parents(".sourceCode").find("div.code").hide();
+});
+$("a.sourceLink").click(function(){
+	$(this).attr('target','_blank');
+});
+/*]]>*/
+</script>
+
+</div><!-- end of page -->
+</body>
+</html>

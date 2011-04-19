@@ -1,0 +1,981 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="language" content="en" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="css/api.css" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<title>CCodeGenerator</title>
+</head>
+
+<body>
+<div id="apiPage">
+
+<div id="apiHeader">
+My Console Application Class Reference
+</div><!-- end of header -->
+
+<div id="content">
+<h1>CCodeGenerator</h1>
+<div id="nav">
+<a href="index.html">All Packages</a>
+| <a href="#properties">Properties</a>
+| <a href="#methods">Methods</a>
+</div>
+
+<table class="summaryTable docClass">
+<colgroup>
+	<col class="col-name" />
+	<col class="col-value" />
+</colgroup>
+<tr>
+  <th>Package</th>
+  <td><a href="index.html#system.gii">system.gii</a></td>
+</tr>
+<tr>
+  <th>Inheritance</th>
+  <td>class CCodeGenerator &raquo;
+<a href="CController.html">CController</a> &raquo;
+<a href="CBaseController.html">CBaseController</a> &raquo;
+<a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr>
+  <th>Since</th>
+  <td>1.1.2</td>
+</tr>
+<tr>
+  <th>Version</th>
+  <td>$Id: CCodeGenerator.php 2799 2011-01-01 19:31:13Z qiang.xue $</td>
+</tr>
+<tr>
+  <th>Source Code</th>
+  <td><a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/gii/CCodeGenerator.php">framework/gii/CCodeGenerator.php</a></td>
+</tr>
+<tr>
+  <th>Author</th>
+  <td>Qiang Xue &lt;qiang.xue@gmail.com&gt;</td>
+</tr>
+</table>
+
+<div id="classDescription">
+CCodeGenerator is the base class for code generator classes.
+<br/><br/>
+CCodeGenerator is a controller that predefines several actions for code generation purpose.
+Derived classes mainly need to configure the <a href="CCodeGenerator.html#codeModel">codeModel</a> property
+override the getSuccessMessage method. The former specifies which
+code model (extending <a href="CCodeModel.html">CCodeModel</a>) that this generator should use,
+while the latter should return a success message to be displayed when
+code files are successfully generated.</div>
+<a name="properties"></a>
+
+<div class="summary docProperty">
+<h2>Public Properties</h2>
+
+<p><a href="#" class="toggle">Hide inherited properties</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-property" />
+	<col class="col-type" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>Property</th><th>Type</th><th>Description</th><th>Defined By</th>
+</tr>
+<tr class="inherited" id="action">
+  <td><a href="CController.html#action-detail">action</a></td>
+  <td><a href="CAction.html">CAction</a></td>
+  <td>the action currently being executed, null if no active action.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="actionParams">
+  <td><a href="CController.html#actionParams-detail">actionParams</a></td>
+  <td>array</td>
+  <td>Returns the request parameters that will be used for action parameter binding.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="cachingStack">
+  <td><a href="CController.html#cachingStack-detail">cachingStack</a></td>
+  <td><a href="CStack.html">CStack</a></td>
+  <td>stack of <a href="COutputCache.html">COutputCache</a> objects</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="clips">
+  <td><a href="CController.html#clips-detail">clips</a></td>
+  <td><a href="CMap.html">CMap</a></td>
+  <td>Returns the list of clips.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr id="codeModel">
+  <td><a href="CCodeGenerator.html#codeModel-detail">codeModel</a></td>
+  <td>string</td>
+  <td>the code model class.</td>
+  <td>CCodeGenerator</td>
+</tr>
+<tr class="inherited" id="defaultAction">
+  <td><a href="CController.html#defaultAction-detail">defaultAction</a></td>
+  <td>string</td>
+  <td>the name of the default action.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="id">
+  <td><a href="CController.html#id-detail">id</a></td>
+  <td>string</td>
+  <td>ID of the controller</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr id="layout">
+  <td><a href="CCodeGenerator.html#layout-detail">layout</a></td>
+  <td>string</td>
+  <td>the layout to be used by the generator.</td>
+  <td>CCodeGenerator</td>
+</tr>
+<tr class="inherited" id="module">
+  <td><a href="CController.html#module-detail">module</a></td>
+  <td><a href="CWebModule.html">CWebModule</a></td>
+  <td>the module that this controller belongs to.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr id="pageTitle">
+  <td><a href="CCodeGenerator.html#pageTitle-detail">pageTitle</a></td>
+  <td>string</td>
+  <td>the page title</td>
+  <td>CCodeGenerator</td>
+</tr>
+<tr class="inherited" id="route">
+  <td><a href="CController.html#route-detail">route</a></td>
+  <td>string</td>
+  <td>the route (module ID, controller ID and action ID) of the current request.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr id="templates">
+  <td><a href="CCodeGenerator.html#templates-detail">templates</a></td>
+  <td>array</td>
+  <td>a list of available code templates (name=>path)</td>
+  <td>CCodeGenerator</td>
+</tr>
+<tr class="inherited" id="uniqueId">
+  <td><a href="CController.html#uniqueId-detail">uniqueId</a></td>
+  <td>string</td>
+  <td>the controller ID that is prefixed with the module ID (if any).</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr id="viewPath">
+  <td><a href="CCodeGenerator.html#viewPath-detail">viewPath</a></td>
+  <td>string</td>
+  <td>Returns the view path of the generator.</td>
+  <td>CCodeGenerator</td>
+</tr>
+</table>
+</div>
+<a name="methods"></a>
+
+<div class="summary docMethod">
+<h2>Public Methods</h2>
+
+<p><a href="#" class="toggle">Hide inherited methods</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-method" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>Method</th><th>Description</th><th>Defined By</th>
+</tr>
+<tr class="inherited" id="__call">
+  <td><a href="CComponent.html#__call-detail">__call()</a></td>
+  <td>Calls the named method which is not a class method.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__construct">
+  <td><a href="CController.html#__construct-detail">__construct()</a></td>
+  <td></td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="__get">
+  <td><a href="CComponent.html#__get-detail">__get()</a></td>
+  <td>Returns a property value, an event handler list or a behavior based on its name.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__isset">
+  <td><a href="CComponent.html#__isset-detail">__isset()</a></td>
+  <td>Checks if a property value is null.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__set">
+  <td><a href="CComponent.html#__set-detail">__set()</a></td>
+  <td>Sets value of a component property.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__unset">
+  <td><a href="CComponent.html#__unset-detail">__unset()</a></td>
+  <td>Sets a component property to be null.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="accessRules">
+  <td><a href="CController.html#accessRules-detail">accessRules()</a></td>
+  <td>Returns the access rules for this controller.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr id="actionCode">
+  <td><a href="CCodeGenerator.html#actionCode-detail">actionCode()</a></td>
+  <td>The code preview action.</td>
+  <td>CCodeGenerator</td>
+</tr>
+<tr id="actionDiff">
+  <td><a href="CCodeGenerator.html#actionDiff-detail">actionDiff()</a></td>
+  <td>The code diff action.</td>
+  <td>CCodeGenerator</td>
+</tr>
+<tr id="actionIndex">
+  <td><a href="CCodeGenerator.html#actionIndex-detail">actionIndex()</a></td>
+  <td>The code generation action.</td>
+  <td>CCodeGenerator</td>
+</tr>
+<tr class="inherited" id="actions">
+  <td><a href="CController.html#actions-detail">actions()</a></td>
+  <td>Returns a list of external action classes.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="asa">
+  <td><a href="CComponent.html#asa-detail">asa()</a></td>
+  <td>Returns the named behavior object.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="attachBehavior">
+  <td><a href="CComponent.html#attachBehavior-detail">attachBehavior()</a></td>
+  <td>Attaches a behavior to this component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="attachBehaviors">
+  <td><a href="CComponent.html#attachBehaviors-detail">attachBehaviors()</a></td>
+  <td>Attaches a list of behaviors to the component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="attachEventHandler">
+  <td><a href="CComponent.html#attachEventHandler-detail">attachEventHandler()</a></td>
+  <td>Attaches an event handler to an event.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="beginCache">
+  <td><a href="CBaseController.html#beginCache-detail">beginCache()</a></td>
+  <td>Begins fragment caching.</td>
+  <td><a href="CBaseController.html">CBaseController</a></td>
+</tr>
+<tr class="inherited" id="beginClip">
+  <td><a href="CBaseController.html#beginClip-detail">beginClip()</a></td>
+  <td>Begins recording a clip.</td>
+  <td><a href="CBaseController.html">CBaseController</a></td>
+</tr>
+<tr class="inherited" id="beginContent">
+  <td><a href="CBaseController.html#beginContent-detail">beginContent()</a></td>
+  <td>Begins the rendering of content that is to be decorated by the specified view.</td>
+  <td><a href="CBaseController.html">CBaseController</a></td>
+</tr>
+<tr class="inherited" id="beginWidget">
+  <td><a href="CBaseController.html#beginWidget-detail">beginWidget()</a></td>
+  <td>Creates a widget and executes it.</td>
+  <td><a href="CBaseController.html">CBaseController</a></td>
+</tr>
+<tr class="inherited" id="behaviors">
+  <td><a href="CController.html#behaviors-detail">behaviors()</a></td>
+  <td>Returns a list of behaviors that this controller should behave as.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="canGetProperty">
+  <td><a href="CComponent.html#canGetProperty-detail">canGetProperty()</a></td>
+  <td>Determines whether a property can be read.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="canSetProperty">
+  <td><a href="CComponent.html#canSetProperty-detail">canSetProperty()</a></td>
+  <td>Determines whether a property can be set.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="clearPageStates">
+  <td><a href="CController.html#clearPageStates-detail">clearPageStates()</a></td>
+  <td>Removes all page states.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="createAbsoluteUrl">
+  <td><a href="CController.html#createAbsoluteUrl-detail">createAbsoluteUrl()</a></td>
+  <td>Creates an absolute URL for the specified action defined in this controller.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="createAction">
+  <td><a href="CController.html#createAction-detail">createAction()</a></td>
+  <td>Creates the action instance based on the action name.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="createUrl">
+  <td><a href="CController.html#createUrl-detail">createUrl()</a></td>
+  <td>Creates a relative URL for the specified action defined in this controller.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="createWidget">
+  <td><a href="CBaseController.html#createWidget-detail">createWidget()</a></td>
+  <td>Creates a widget and initializes it.</td>
+  <td><a href="CBaseController.html">CBaseController</a></td>
+</tr>
+<tr class="inherited" id="detachBehavior">
+  <td><a href="CComponent.html#detachBehavior-detail">detachBehavior()</a></td>
+  <td>Detaches a behavior from the component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="detachBehaviors">
+  <td><a href="CComponent.html#detachBehaviors-detail">detachBehaviors()</a></td>
+  <td>Detaches all behaviors from the component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="detachEventHandler">
+  <td><a href="CComponent.html#detachEventHandler-detail">detachEventHandler()</a></td>
+  <td>Detaches an existing event handler.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="disableBehavior">
+  <td><a href="CComponent.html#disableBehavior-detail">disableBehavior()</a></td>
+  <td>Disables an attached behavior.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="disableBehaviors">
+  <td><a href="CComponent.html#disableBehaviors-detail">disableBehaviors()</a></td>
+  <td>Disables all behaviors attached to this component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="enableBehavior">
+  <td><a href="CComponent.html#enableBehavior-detail">enableBehavior()</a></td>
+  <td>Enables an attached behavior.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="enableBehaviors">
+  <td><a href="CComponent.html#enableBehaviors-detail">enableBehaviors()</a></td>
+  <td>Enables all behaviors attached to this component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="endCache">
+  <td><a href="CBaseController.html#endCache-detail">endCache()</a></td>
+  <td>Ends fragment caching.</td>
+  <td><a href="CBaseController.html">CBaseController</a></td>
+</tr>
+<tr class="inherited" id="endClip">
+  <td><a href="CBaseController.html#endClip-detail">endClip()</a></td>
+  <td>Ends recording a clip.</td>
+  <td><a href="CBaseController.html">CBaseController</a></td>
+</tr>
+<tr class="inherited" id="endContent">
+  <td><a href="CBaseController.html#endContent-detail">endContent()</a></td>
+  <td>Ends the rendering of content.</td>
+  <td><a href="CBaseController.html">CBaseController</a></td>
+</tr>
+<tr class="inherited" id="endWidget">
+  <td><a href="CBaseController.html#endWidget-detail">endWidget()</a></td>
+  <td>Ends the execution of the named widget.</td>
+  <td><a href="CBaseController.html">CBaseController</a></td>
+</tr>
+<tr class="inherited" id="evaluateExpression">
+  <td><a href="CComponent.html#evaluateExpression-detail">evaluateExpression()</a></td>
+  <td>Evaluates a PHP expression or callback under the context of this component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="filterAccessControl">
+  <td><a href="CController.html#filterAccessControl-detail">filterAccessControl()</a></td>
+  <td>The filter method for 'accessControl' filter.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="filterAjaxOnly">
+  <td><a href="CController.html#filterAjaxOnly-detail">filterAjaxOnly()</a></td>
+  <td>The filter method for 'ajaxOnly' filter.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="filterPostOnly">
+  <td><a href="CController.html#filterPostOnly-detail">filterPostOnly()</a></td>
+  <td>The filter method for 'postOnly' filter.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="filters">
+  <td><a href="CController.html#filters-detail">filters()</a></td>
+  <td>Returns the filter configurations.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="forward">
+  <td><a href="CController.html#forward-detail">forward()</a></td>
+  <td>Processes the request using another controller action.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="getAction">
+  <td><a href="CController.html#getAction-detail">getAction()</a></td>
+  <td>Returns the action currently being executed, null if no active action.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="getActionParams">
+  <td><a href="CController.html#getActionParams-detail">getActionParams()</a></td>
+  <td>Returns the request parameters that will be used for action parameter binding.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="getCachingStack">
+  <td><a href="CController.html#getCachingStack-detail">getCachingStack()</a></td>
+  <td>Returns stack of <a href="COutputCache.html">COutputCache</a> objects</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="getClips">
+  <td><a href="CController.html#getClips-detail">getClips()</a></td>
+  <td>Returns the list of clips.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="getEventHandlers">
+  <td><a href="CComponent.html#getEventHandlers-detail">getEventHandlers()</a></td>
+  <td>Returns the list of attached event handlers for an event.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="getId">
+  <td><a href="CController.html#getId-detail">getId()</a></td>
+  <td>Returns ID of the controller</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="getLayoutFile">
+  <td><a href="CController.html#getLayoutFile-detail">getLayoutFile()</a></td>
+  <td>Looks for the layout view script based on the layout name.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="getModule">
+  <td><a href="CController.html#getModule-detail">getModule()</a></td>
+  <td>Returns the module that this controller belongs to. It returns null
+if the controller does not belong to any module</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="getPageState">
+  <td><a href="CController.html#getPageState-detail">getPageState()</a></td>
+  <td>Returns a persistent page state value.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr id="getPageTitle">
+  <td><a href="CCodeGenerator.html#getPageTitle-detail">getPageTitle()</a></td>
+  <td>Returns the page title</td>
+  <td>CCodeGenerator</td>
+</tr>
+<tr class="inherited" id="getRoute">
+  <td><a href="CController.html#getRoute-detail">getRoute()</a></td>
+  <td>Returns the route (module ID, controller ID and action ID) of the current request.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="getUniqueId">
+  <td><a href="CController.html#getUniqueId-detail">getUniqueId()</a></td>
+  <td>Returns the controller ID that is prefixed with the module ID (if any).</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="getViewFile">
+  <td><a href="CController.html#getViewFile-detail">getViewFile()</a></td>
+  <td>Looks for the view file according to the given view name.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr id="getViewPath">
+  <td><a href="CCodeGenerator.html#getViewPath-detail">getViewPath()</a></td>
+  <td>Returns the view path of the generator.</td>
+  <td>CCodeGenerator</td>
+</tr>
+<tr class="inherited" id="hasEvent">
+  <td><a href="CComponent.html#hasEvent-detail">hasEvent()</a></td>
+  <td>Determines whether an event is defined.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="hasEventHandler">
+  <td><a href="CComponent.html#hasEventHandler-detail">hasEventHandler()</a></td>
+  <td>Checks whether the named event has attached handlers.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="hasProperty">
+  <td><a href="CComponent.html#hasProperty-detail">hasProperty()</a></td>
+  <td>Determines whether a property is defined.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="init">
+  <td><a href="CController.html#init-detail">init()</a></td>
+  <td>Initializes the controller.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="invalidActionParams">
+  <td><a href="CController.html#invalidActionParams-detail">invalidActionParams()</a></td>
+  <td>This method is invoked when the request parameters do not satisfy the requirement of the specified action.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="isCachingStackEmpty">
+  <td><a href="CController.html#isCachingStackEmpty-detail">isCachingStackEmpty()</a></td>
+  <td>Returns whether the caching stack is empty.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="missingAction">
+  <td><a href="CController.html#missingAction-detail">missingAction()</a></td>
+  <td>Handles the request whose action is not recognized.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="paginate">
+  <td><a href="CController.html#paginate-detail">paginate()</a></td>
+  <td>Generates pagination information.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="processDynamicOutput">
+  <td><a href="CController.html#processDynamicOutput-detail">processDynamicOutput()</a></td>
+  <td>Postprocesses the dynamic output.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="processOutput">
+  <td><a href="CController.html#processOutput-detail">processOutput()</a></td>
+  <td>Postprocesses the output generated by <a href="CCodeGenerator.html#render">render()</a>.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="raiseEvent">
+  <td><a href="CComponent.html#raiseEvent-detail">raiseEvent()</a></td>
+  <td>Raises an event.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="recordCachingAction">
+  <td><a href="CController.html#recordCachingAction-detail">recordCachingAction()</a></td>
+  <td>Records a method call when an output cache is in effect.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="redirect">
+  <td><a href="CController.html#redirect-detail">redirect()</a></td>
+  <td>Redirects the browser to the specified URL or route (controller/action).</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="refresh">
+  <td><a href="CController.html#refresh-detail">refresh()</a></td>
+  <td>Refreshes the current page.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="render">
+  <td><a href="CController.html#render-detail">render()</a></td>
+  <td>Renders a view with a layout.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="renderDynamic">
+  <td><a href="CController.html#renderDynamic-detail">renderDynamic()</a></td>
+  <td>Renders dynamic content returned by the specified callback.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="renderDynamicInternal">
+  <td><a href="CController.html#renderDynamicInternal-detail">renderDynamicInternal()</a></td>
+  <td>This method is internally used.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="renderFile">
+  <td><a href="CBaseController.html#renderFile-detail">renderFile()</a></td>
+  <td>Renders a view file.</td>
+  <td><a href="CBaseController.html">CBaseController</a></td>
+</tr>
+<tr class="inherited" id="renderInternal">
+  <td><a href="CBaseController.html#renderInternal-detail">renderInternal()</a></td>
+  <td>Renders a view file.</td>
+  <td><a href="CBaseController.html">CBaseController</a></td>
+</tr>
+<tr class="inherited" id="renderPartial">
+  <td><a href="CController.html#renderPartial-detail">renderPartial()</a></td>
+  <td>Renders a view.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="renderText">
+  <td><a href="CController.html#renderText-detail">renderText()</a></td>
+  <td>Renders a static text string.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="resolveViewFile">
+  <td><a href="CController.html#resolveViewFile-detail">resolveViewFile()</a></td>
+  <td>Finds a view file based on its name.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="run">
+  <td><a href="CController.html#run-detail">run()</a></td>
+  <td>Runs the named action.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="runAction">
+  <td><a href="CController.html#runAction-detail">runAction()</a></td>
+  <td>Runs the action after passing through all filters.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="runActionWithFilters">
+  <td><a href="CController.html#runActionWithFilters-detail">runActionWithFilters()</a></td>
+  <td>Runs an action with the specified filters.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="setAction">
+  <td><a href="CController.html#setAction-detail">setAction()</a></td>
+  <td>Sets the action currently being executed.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="setPageState">
+  <td><a href="CController.html#setPageState-detail">setPageState()</a></td>
+  <td>Saves a persistent page state value.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="setPageTitle">
+  <td><a href="CController.html#setPageTitle-detail">setPageTitle()</a></td>
+  <td>Sets the page title.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr id="setViewPath">
+  <td><a href="CCodeGenerator.html#setViewPath-detail">setViewPath()</a></td>
+  <td>Sets the view path of the generator.</td>
+  <td>CCodeGenerator</td>
+</tr>
+<tr class="inherited" id="widget">
+  <td><a href="CBaseController.html#widget-detail">widget()</a></td>
+  <td>Creates a widget and executes it.</td>
+  <td><a href="CBaseController.html">CBaseController</a></td>
+</tr>
+</table>
+</div>
+<div class="summary docMethod">
+<h2>Protected Methods</h2>
+
+<p><a href="#" class="toggle">Hide inherited methods</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-method" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>Method</th><th>Description</th><th>Defined By</th>
+</tr>
+<tr class="inherited" id="afterAction">
+  <td><a href="CController.html#afterAction-detail">afterAction()</a></td>
+  <td>This method is invoked right after an action is executed.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="afterRender">
+  <td><a href="CController.html#afterRender-detail">afterRender()</a></td>
+  <td>This method is invoked after the specified is rendered by calling <a href="CCodeGenerator.html#render">render()</a>.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="beforeAction">
+  <td><a href="CController.html#beforeAction-detail">beforeAction()</a></td>
+  <td>This method is invoked right before an action is to be executed (after all possible filters.)</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="beforeRender">
+  <td><a href="CController.html#beforeRender-detail">beforeRender()</a></td>
+  <td>This method is invoked at the beginning of <a href="CCodeGenerator.html#render">render()</a>.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="createActionFromMap">
+  <td><a href="CController.html#createActionFromMap-detail">createActionFromMap()</a></td>
+  <td>Creates the action instance based on the action map.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="loadPageStates">
+  <td><a href="CController.html#loadPageStates-detail">loadPageStates()</a></td>
+  <td>Loads page states from a hidden input.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr id="prepare">
+  <td><a href="CCodeGenerator.html#prepare-detail">prepare()</a></td>
+  <td>Prepares the code model.</td>
+  <td>CCodeGenerator</td>
+</tr>
+<tr class="inherited" id="replaceDynamicOutput">
+  <td><a href="CController.html#replaceDynamicOutput-detail">replaceDynamicOutput()</a></td>
+  <td>Replaces the dynamic content placeholders with actual content.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="savePageStates">
+  <td><a href="CController.html#savePageStates-detail">savePageStates()</a></td>
+  <td>Saves page states as a base64 string.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+</table>
+</div>
+<a name="events"></a>
+
+<h2>Property Details</h2>
+<div class="detailHeader" id="codeModel-detail">
+codeModel<span class="detailHeaderTag">
+property
+</span>
+</div>
+
+<div class="signature">
+public string <b>$codeModel</b>;</div>
+
+<p>the code model class. This can be either a class name (if it can be autoloaded)
+or a path alias referring to the class file.
+Child classes must configure this property with a concrete value.</p>
+
+
+<div class="detailHeader" id="layout-detail">
+layout<span class="detailHeaderTag">
+property
+</span>
+</div>
+
+<div class="signature">
+public string <b>$layout</b>;</div>
+
+<p>the layout to be used by the generator. Defaults to 'generator'.</p>
+
+
+<div class="detailHeader" id="pageTitle-detail">
+pageTitle<span class="detailHeaderTag">
+property
+</span>
+</div>
+
+<div class="signature">
+public string <a href="CCodeGenerator.html#getPageTitle"><b>getPageTitle</b></a>()<br/>public void <a href="CCodeGenerator.html#setPageTitle"><b>setPageTitle</b></a>(string $value)</div>
+
+<p>the page title</p>
+
+
+<div class="detailHeader" id="templates-detail">
+templates<span class="detailHeaderTag">
+property
+</span>
+</div>
+
+<div class="signature">
+public array <b>$templates</b>;</div>
+
+<p>a list of available code templates (name=>path)</p>
+
+
+<div class="detailHeader" id="viewPath-detail">
+viewPath<span class="detailHeaderTag">
+property
+</span>
+</div>
+
+<div class="signature">
+public string <a href="CCodeGenerator.html#getViewPath"><b>getViewPath</b></a>()<br/>public void <a href="CCodeGenerator.html#setViewPath"><b>setViewPath</b></a>(string $value)</div>
+
+<p>Returns the view path of the generator.
+The "views" directory under the directory containing the generator class file will be returned.</p>
+
+
+<h2>Method Details</h2>
+
+<div class="detailHeader" id="actionCode-detail">
+actionCode()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>actionCode</b>()</div>
+</td></tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/gii/CCodeGenerator.php#77">framework/gii/CCodeGenerator.php#77</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">actionCode</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$model</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">prepare</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;if(isset(</span><span style="color: #0000BB">$_GET</span><span style="color: #007700">[</span><span style="color: #DD0000">'id'</span><span style="color: #007700">])&nbsp;&amp;&amp;&nbsp;isset(</span><span style="color: #0000BB">$model</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">files</span><span style="color: #007700">[</span><span style="color: #0000BB">$_GET</span><span style="color: #007700">[</span><span style="color: #DD0000">'id'</span><span style="color: #007700">]]))<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">renderPartial</span><span style="color: #007700">(</span><span style="color: #DD0000">'/common/code'</span><span style="color: #007700">,&nbsp;array(<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'file'</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">$model</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">files</span><span style="color: #007700">[</span><span style="color: #0000BB">$_GET</span><span style="color: #007700">[</span><span style="color: #DD0000">'id'</span><span style="color: #007700">]],<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;));<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throw&nbsp;new&nbsp;</span><span style="color: #0000BB">CHttpException</span><span style="color: #007700">(</span><span style="color: #0000BB">404</span><span style="color: #007700">,</span><span style="color: #DD0000">'Unable&nbsp;to&nbsp;find&nbsp;the&nbsp;code&nbsp;you&nbsp;requested.'</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>The code preview action.
+This action shows up the specified generated code.</p>
+
+
+<div class="detailHeader" id="actionDiff-detail">
+actionDiff()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>actionDiff</b>()</div>
+</td></tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/gii/CCodeGenerator.php#94">framework/gii/CCodeGenerator.php#94</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">actionDiff</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">Yii</span><span style="color: #007700">::</span><span style="color: #0000BB">import</span><span style="color: #007700">(</span><span style="color: #DD0000">'gii.components.TextDiff'</span><span style="color: #007700">);<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$model</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">prepare</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;if(isset(</span><span style="color: #0000BB">$_GET</span><span style="color: #007700">[</span><span style="color: #DD0000">'id'</span><span style="color: #007700">])&nbsp;&amp;&amp;&nbsp;isset(</span><span style="color: #0000BB">$model</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">files</span><span style="color: #007700">[</span><span style="color: #0000BB">$_GET</span><span style="color: #007700">[</span><span style="color: #DD0000">'id'</span><span style="color: #007700">]]))<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$file</span><span style="color: #007700">=</span><span style="color: #0000BB">$model</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">files</span><span style="color: #007700">[</span><span style="color: #0000BB">$_GET</span><span style="color: #007700">[</span><span style="color: #DD0000">'id'</span><span style="color: #007700">]];<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(!</span><span style="color: #0000BB">in_array</span><span style="color: #007700">(</span><span style="color: #0000BB">$file</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">type</span><span style="color: #007700">,array(</span><span style="color: #DD0000">'php'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'txt'</span><span style="color: #007700">,</span><span style="color: #DD0000">'js'</span><span style="color: #007700">,</span><span style="color: #DD0000">'css'</span><span style="color: #007700">)))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$diff</span><span style="color: #007700">=</span><span style="color: #0000BB">false</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else&nbsp;if(</span><span style="color: #0000BB">$file</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">operation</span><span style="color: #007700">===</span><span style="color: #0000BB">CCodeFile</span><span style="color: #007700">::</span><span style="color: #0000BB">OP_OVERWRITE</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$diff</span><span style="color: #007700">=</span><span style="color: #0000BB">TextDiff</span><span style="color: #007700">::</span><span style="color: #0000BB">compare</span><span style="color: #007700">(</span><span style="color: #0000BB">file_get_contents</span><span style="color: #007700">(</span><span style="color: #0000BB">$file</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">path</span><span style="color: #007700">),&nbsp;</span><span style="color: #0000BB">$file</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">content</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$diff</span><span style="color: #007700">=</span><span style="color: #DD0000">''</span><span style="color: #007700">;<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">renderPartial</span><span style="color: #007700">(</span><span style="color: #DD0000">'/common/diff'</span><span style="color: #007700">,array(<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'file'</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">$file</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'diff'</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">$diff</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;));<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throw&nbsp;new&nbsp;</span><span style="color: #0000BB">CHttpException</span><span style="color: #007700">(</span><span style="color: #0000BB">404</span><span style="color: #007700">,</span><span style="color: #DD0000">'Unable&nbsp;to&nbsp;find&nbsp;the&nbsp;code&nbsp;you&nbsp;requested.'</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>The code diff action.
+This action shows up the difference between the newly generated code and the corresponding existing code.</p>
+
+
+<div class="detailHeader" id="actionIndex-detail">
+actionIndex()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>actionIndex</b>()</div>
+</td></tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/gii/CCodeGenerator.php#59">framework/gii/CCodeGenerator.php#59</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">actionIndex</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$model</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">prepare</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$model</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">files</span><span style="color: #007700">!=array()&nbsp;&amp;&amp;&nbsp;isset(</span><span style="color: #0000BB">$_POST</span><span style="color: #007700">[</span><span style="color: #DD0000">'generate'</span><span style="color: #007700">],&nbsp;</span><span style="color: #0000BB">$_POST</span><span style="color: #007700">[</span><span style="color: #DD0000">'answers'</span><span style="color: #007700">]))<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$model</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">answers</span><span style="color: #007700">=</span><span style="color: #0000BB">$_POST</span><span style="color: #007700">[</span><span style="color: #DD0000">'answers'</span><span style="color: #007700">];<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$model</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">status</span><span style="color: #007700">=</span><span style="color: #0000BB">$model</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">save</span><span style="color: #007700">()&nbsp;?&nbsp;</span><span style="color: #0000BB">CCodeModel</span><span style="color: #007700">::</span><span style="color: #0000BB">STATUS_SUCCESS&nbsp;</span><span style="color: #007700">:&nbsp;</span><span style="color: #0000BB">CCodeModel</span><span style="color: #007700">::</span><span style="color: #0000BB">STATUS_ERROR</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">render</span><span style="color: #007700">(</span><span style="color: #DD0000">'index'</span><span style="color: #007700">,array(<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'model'</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">$model</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;));<br />}</span>
+</span>
+</code></div>
+</div>
+<p>The code generation action.
+This is the action that displays the code generation interface.
+Child classes mainly need to provide the 'index' view for collecting user parameters
+for code generation.</p>
+
+
+<div class="detailHeader" id="getPageTitle-detail">
+getPageTitle()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>getPageTitle</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the page title</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/gii/CCodeGenerator.php#48">framework/gii/CCodeGenerator.php#48</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getPageTitle</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #DD0000">'Gii&nbsp;-&nbsp;'</span><span style="color: #007700">.</span><span style="color: #0000BB">ucfirst</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">id</span><span style="color: #007700">).</span><span style="color: #DD0000">'&nbsp;Generator'</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p></p>
+
+
+<div class="detailHeader" id="getViewPath-detail">
+getViewPath()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>getViewPath</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the view path of the generator</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/gii/CCodeGenerator.php#123">framework/gii/CCodeGenerator.php#123</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getViewPath</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_viewPath</span><span style="color: #007700">===</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$class</span><span style="color: #007700">=new&nbsp;</span><span style="color: #0000BB">ReflectionClass</span><span style="color: #007700">(</span><span style="color: #0000BB">get_class</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">));<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_viewPath</span><span style="color: #007700">=</span><span style="color: #0000BB">dirname</span><span style="color: #007700">(</span><span style="color: #0000BB">$class</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getFileName</span><span style="color: #007700">()).</span><span style="color: #0000BB">DIRECTORY_SEPARATOR</span><span style="color: #007700">.</span><span style="color: #DD0000">'views'</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_viewPath</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Returns the view path of the generator.
+The "views" directory under the directory containing the generator class file will be returned.</p>
+
+
+<div class="detailHeader" id="prepare-detail">
+prepare()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+protected void <b>prepare</b>()</div>
+</td></tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/gii/CCodeGenerator.php#144">framework/gii/CCodeGenerator.php#144</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">protected&nbsp;function&nbsp;</span><span style="color: #0000BB">prepare</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">codeModel</span><span style="color: #007700">===</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throw&nbsp;new&nbsp;</span><span style="color: #0000BB">CException</span><span style="color: #007700">(</span><span style="color: #0000BB">get_class</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">).</span><span style="color: #DD0000">'.codeModel&nbsp;property&nbsp;must&nbsp;be&nbsp;specified.'</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$modelClass</span><span style="color: #007700">=</span><span style="color: #0000BB">Yii</span><span style="color: #007700">::</span><span style="color: #0000BB">import</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">codeModel</span><span style="color: #007700">,</span><span style="color: #0000BB">true</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$model</span><span style="color: #007700">=new&nbsp;</span><span style="color: #0000BB">$modelClass</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$model</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">loadStickyAttributes</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;if(isset(</span><span style="color: #0000BB">$_POST</span><span style="color: #007700">[</span><span style="color: #0000BB">$modelClass</span><span style="color: #007700">]))<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$model</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">attributes</span><span style="color: #007700">=</span><span style="color: #0000BB">$_POST</span><span style="color: #007700">[</span><span style="color: #0000BB">$modelClass</span><span style="color: #007700">];<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$model</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">status</span><span style="color: #007700">=</span><span style="color: #0000BB">CCodeModel</span><span style="color: #007700">::</span><span style="color: #0000BB">STATUS_PREVIEW</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$model</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">validate</span><span style="color: #007700">())<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$model</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">saveStickyAttributes</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$model</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">prepare</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$model</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Prepares the code model.</p>
+
+
+<div class="detailHeader" id="setViewPath-detail">
+setViewPath()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>setViewPath</b>(string $value)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$value</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the view path of the generator.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/gii/CCodeGenerator.php#136">framework/gii/CCodeGenerator.php#136</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">setViewPath</span><span style="color: #007700">(</span><span style="color: #0000BB">$value</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_viewPath</span><span style="color: #007700">=</span><span style="color: #0000BB">$value</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p></p>
+
+
+</div><!-- end of content -->
+
+<div id="apiFooter">
+Copyright &copy; 2008-2011 by <a href="http://www.yiisoft.com">Yii Software LLC</a><br/>
+All Rights Reserved.<br/>
+</div><!-- end of footer -->
+
+<script type="text/javascript">
+/*<![CDATA[*/
+$("a.toggle").toggle(function(){
+	$(this).text($(this).text().replace(/Hide/,'Show'));
+	$(this).parents(".summary").find(".inherited").hide();
+},function(){
+	$(this).text($(this).text().replace(/Show/,'Hide'));
+	$(this).parents(".summary").find(".inherited").show();
+});
+$(".sourceCode a.show").toggle(function(){
+	$(this).text($(this).text().replace(/show/,'hide'));
+	$(this).parents(".sourceCode").find("div.code").show();
+},function(){
+	$(this).text($(this).text().replace(/hide/,'show'));
+	$(this).parents(".sourceCode").find("div.code").hide();
+});
+$("a.sourceLink").click(function(){
+	$(this).attr('target','_blank');
+});
+/*]]>*/
+</script>
+
+</div><!-- end of page -->
+</body>
+</html>

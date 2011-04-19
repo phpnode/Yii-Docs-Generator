@@ -1,0 +1,383 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="language" content="en" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="css/api.css" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<title>IDataProvider</title>
+</head>
+
+<body>
+<div id="apiPage">
+
+<div id="apiHeader">
+My Console Application Class Reference
+</div><!-- end of header -->
+
+<div id="content">
+<h1>IDataProvider</h1>
+<div id="nav">
+<a href="index.html">All Packages</a>
+| <a href="#methods">Methods</a>
+</div>
+
+<table class="summaryTable docClass">
+<colgroup>
+	<col class="col-name" />
+	<col class="col-value" />
+</colgroup>
+<tr>
+  <th>Package</th>
+  <td><a href="index.html#system.web">system.web</a></td>
+</tr>
+<tr>
+  <th>Inheritance</th>
+  <td>interface IDataProvider</td>
+</tr>
+<tr>
+  <th>Subclasses</th>
+  <td><a href="CActiveDataProvider.html">CActiveDataProvider</a>, <a href="CArrayDataProvider.html">CArrayDataProvider</a>, <a href="CDataProvider.html">CDataProvider</a>, <a href="CSqlDataProvider.html">CSqlDataProvider</a></td>
+</tr>
+<tr>
+  <th>Since</th>
+  <td>1.1</td>
+</tr>
+<tr>
+  <th>Version</th>
+  <td>$Id: interfaces.php 3058 2011-03-13 04:20:12Z qiang.xue $</td>
+</tr>
+<tr>
+  <th>Source Code</th>
+  <td><a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/base/interfaces.php">framework/base/interfaces.php</a></td>
+</tr>
+<tr>
+  <th>Author</th>
+  <td>Qiang Xue &lt;qiang.xue@gmail.com&gt;</td>
+</tr>
+</table>
+
+<div id="classDescription">
+IDataProvider is the interface that must be implemented by data provider classes.
+<br/><br/>
+Data providers are components that can feed data for widgets such as data grid, data list.
+Besides providing data, they also support pagination and sorting.</div>
+<a name="properties"></a>
+
+<a name="methods"></a>
+
+<div class="summary docMethod">
+<h2>Public Methods</h2>
+
+<p><a href="#" class="toggle">Hide inherited methods</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-method" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>Method</th><th>Description</th><th>Defined By</th>
+</tr>
+<tr id="getData">
+  <td><a href="IDataProvider.html#getData-detail">getData()</a></td>
+  <td>Returns the data items currently available.</td>
+  <td>IDataProvider</td>
+</tr>
+<tr id="getId">
+  <td><a href="IDataProvider.html#getId-detail">getId()</a></td>
+  <td>Returns the unique ID that identifies the data provider from other data providers.</td>
+  <td>IDataProvider</td>
+</tr>
+<tr id="getItemCount">
+  <td><a href="IDataProvider.html#getItemCount-detail">getItemCount()</a></td>
+  <td>Returns the number of data items in the current page.</td>
+  <td>IDataProvider</td>
+</tr>
+<tr id="getKeys">
+  <td><a href="IDataProvider.html#getKeys-detail">getKeys()</a></td>
+  <td>Returns the key values associated with the data items.</td>
+  <td>IDataProvider</td>
+</tr>
+<tr id="getPagination">
+  <td><a href="IDataProvider.html#getPagination-detail">getPagination()</a></td>
+  <td>Returns the pagination object. If this is false, it means the pagination is disabled.</td>
+  <td>IDataProvider</td>
+</tr>
+<tr id="getSort">
+  <td><a href="IDataProvider.html#getSort-detail">getSort()</a></td>
+  <td>Returns the sorting object. If this is false, it means the sorting is disabled.</td>
+  <td>IDataProvider</td>
+</tr>
+<tr id="getTotalItemCount">
+  <td><a href="IDataProvider.html#getTotalItemCount-detail">getTotalItemCount()</a></td>
+  <td>Returns the total number of data items.</td>
+  <td>IDataProvider</td>
+</tr>
+</table>
+</div>
+<a name="events"></a>
+
+<h2>Method Details</h2>
+
+<div class="detailHeader" id="getData-detail">
+getData()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+abstract public array <b>getData</b>(boolean $refresh=false)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$refresh</td>
+  <td class="paramTypeCol">boolean</td>
+  <td class="paramDescCol">whether the data should be re-fetched from persistent storage.</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">the list of data items currently available in this data provider.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/base/interfaces.php#593">framework/base/interfaces.php#593</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getData</span><span style="color: #007700">(</span><span style="color: #0000BB">$refresh</span><span style="color: #007700">=</span><span style="color: #0000BB">false</span><span style="color: #007700">);</span>
+</span>
+</code></div>
+</div>
+<p>Returns the data items currently available.</p>
+
+
+<div class="detailHeader" id="getId-detail">
+getId()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+abstract public string <b>getId</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the unique ID that identifies the data provider from other data providers.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/base/interfaces.php#572">framework/base/interfaces.php#572</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getId</span><span style="color: #007700">();</span>
+</span>
+</code></div>
+</div>
+<p></p>
+
+
+<div class="detailHeader" id="getItemCount-detail">
+getItemCount()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+abstract public integer <b>getItemCount</b>(boolean $refresh=false)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$refresh</td>
+  <td class="paramTypeCol">boolean</td>
+  <td class="paramDescCol">whether the number of data items should be re-calculated.</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">integer</td>
+  <td class="paramDescCol">the number of data items in the current page.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/base/interfaces.php#580">framework/base/interfaces.php#580</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getItemCount</span><span style="color: #007700">(</span><span style="color: #0000BB">$refresh</span><span style="color: #007700">=</span><span style="color: #0000BB">false</span><span style="color: #007700">);</span>
+</span>
+</code></div>
+</div>
+<p>Returns the number of data items in the current page.
+This is equivalent to <code>count($provider->getData())</code>.
+When <a href="IDataProvider.html#pagination">pagination</a> is set false, this returns the same value as <a href="IDataProvider.html#totalItemCount">totalItemCount</a>.</p>
+
+
+<div class="detailHeader" id="getKeys-detail">
+getKeys()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+abstract public array <b>getKeys</b>(boolean $refresh=false)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$refresh</td>
+  <td class="paramTypeCol">boolean</td>
+  <td class="paramDescCol">whether the keys should be re-calculated.</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">the list of key values corresponding to <a href="IDataProvider.html#data">data</a>. Each data item in <a href="IDataProvider.html#data">data</a>
+is uniquely identified by the corresponding key value in this array.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/base/interfaces.php#600">framework/base/interfaces.php#600</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getKeys</span><span style="color: #007700">(</span><span style="color: #0000BB">$refresh</span><span style="color: #007700">=</span><span style="color: #0000BB">false</span><span style="color: #007700">);</span>
+</span>
+</code></div>
+</div>
+<p>Returns the key values associated with the data items.</p>
+
+
+<div class="detailHeader" id="getPagination-detail">
+getPagination()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+abstract public <a href="CPagination.html">CPagination</a> <b>getPagination</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol"><a href="CPagination.html">CPagination</a></td>
+  <td class="paramDescCol">the pagination object. If this is false, it means the pagination is disabled.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/base/interfaces.php#608">framework/base/interfaces.php#608</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getPagination</span><span style="color: #007700">();</span>
+</span>
+</code></div>
+</div>
+<p></p>
+
+
+<div class="detailHeader" id="getSort-detail">
+getSort()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+abstract public <a href="CSort.html">CSort</a> <b>getSort</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol"><a href="CSort.html">CSort</a></td>
+  <td class="paramDescCol">the sorting object. If this is false, it means the sorting is disabled.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/base/interfaces.php#604">framework/base/interfaces.php#604</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getSort</span><span style="color: #007700">();</span>
+</span>
+</code></div>
+</div>
+<p></p>
+
+
+<div class="detailHeader" id="getTotalItemCount-detail">
+getTotalItemCount()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+abstract public integer <b>getTotalItemCount</b>(boolean $refresh=false)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$refresh</td>
+  <td class="paramTypeCol">boolean</td>
+  <td class="paramDescCol">whether the total number of data items should be re-calculated.</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">integer</td>
+  <td class="paramDescCol">total number of possible data items.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/base/interfaces.php#587">framework/base/interfaces.php#587</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getTotalItemCount</span><span style="color: #007700">(</span><span style="color: #0000BB">$refresh</span><span style="color: #007700">=</span><span style="color: #0000BB">false</span><span style="color: #007700">);</span>
+</span>
+</code></div>
+</div>
+<p>Returns the total number of data items.
+When <a href="IDataProvider.html#pagination">pagination</a> is set false, this returns the same value as <a href="IDataProvider.html#itemCount">itemCount</a>.</p>
+
+
+</div><!-- end of content -->
+
+<div id="apiFooter">
+Copyright &copy; 2008-2011 by <a href="http://www.yiisoft.com">Yii Software LLC</a><br/>
+All Rights Reserved.<br/>
+</div><!-- end of footer -->
+
+<script type="text/javascript">
+/*<![CDATA[*/
+$("a.toggle").toggle(function(){
+	$(this).text($(this).text().replace(/Hide/,'Show'));
+	$(this).parents(".summary").find(".inherited").hide();
+},function(){
+	$(this).text($(this).text().replace(/Show/,'Hide'));
+	$(this).parents(".summary").find(".inherited").show();
+});
+$(".sourceCode a.show").toggle(function(){
+	$(this).text($(this).text().replace(/show/,'hide'));
+	$(this).parents(".sourceCode").find("div.code").show();
+},function(){
+	$(this).text($(this).text().replace(/hide/,'show'));
+	$(this).parents(".sourceCode").find("div.code").hide();
+});
+$("a.sourceLink").click(function(){
+	$(this).attr('target','_blank');
+});
+/*]]>*/
+</script>
+
+</div><!-- end of page -->
+</body>
+</html>

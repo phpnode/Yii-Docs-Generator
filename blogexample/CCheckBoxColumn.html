@@ -1,0 +1,638 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="language" content="en" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="css/api.css" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<title>CCheckBoxColumn</title>
+</head>
+
+<body>
+<div id="apiPage">
+
+<div id="apiHeader">
+My Console Application Class Reference
+</div><!-- end of header -->
+
+<div id="content">
+<h1>CCheckBoxColumn</h1>
+<div id="nav">
+<a href="index.html">All Packages</a>
+| <a href="#properties">Properties</a>
+| <a href="#methods">Methods</a>
+</div>
+
+<table class="summaryTable docClass">
+<colgroup>
+	<col class="col-name" />
+	<col class="col-value" />
+</colgroup>
+<tr>
+  <th>Package</th>
+  <td><a href="index.html#zii.widgets.grid">zii.widgets.grid</a></td>
+</tr>
+<tr>
+  <th>Inheritance</th>
+  <td>class CCheckBoxColumn &raquo;
+<a href="CGridColumn.html">CGridColumn</a> &raquo;
+<a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr>
+  <th>Since</th>
+  <td>1.1</td>
+</tr>
+<tr>
+  <th>Version</th>
+  <td>$Id: CCheckBoxColumn.php 2852 2011-01-14 09:46:46Z mdomba $</td>
+</tr>
+<tr>
+  <th>Source Code</th>
+  <td><a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/zii/widgets/grid/CCheckBoxColumn.php">framework/zii/widgets/grid/CCheckBoxColumn.php</a></td>
+</tr>
+<tr>
+  <th>Author</th>
+  <td>Qiang Xue &lt;qiang.xue@gmail.com&gt;</td>
+</tr>
+</table>
+
+<div id="classDescription">
+CCheckBoxColumn represents a grid view column of checkboxes.
+<br/><br/>
+CCheckBoxColumn supports no selection (read-only), single selection and multiple selection.
+The mode is determined according to <a href="CCheckBoxColumn.html#selectableRows">selectableRows</a>. When in multiple selection mode, the header cell will display
+an additional checkbox, clicking on which will check or uncheck all of the checkboxes in the data cells.
+<br/><br/>
+Additionally selecting a checkbox can select a grid view row (depending on <a href="CGridView.html#selectableRows">CGridView::selectableRows</a> value) if
+<a href="CCheckBoxColumn.html#selectableRows">selectableRows</a> is null (default).
+<br/><br/>
+By default, the checkboxes rendered in data cells will have the values that are the same as
+the key values of the data model. One may change this by setting either <a href="CCheckBoxColumn.html#name">name</a> or
+<a href="CCheckBoxColumn.html#value">value</a>.</div>
+<a name="properties"></a>
+
+<div class="summary docProperty">
+<h2>Public Properties</h2>
+
+<p><a href="#" class="toggle">Hide inherited properties</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-property" />
+	<col class="col-type" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>Property</th><th>Type</th><th>Description</th><th>Defined By</th>
+</tr>
+<tr id="checkBoxHtmlOptions">
+  <td><a href="CCheckBoxColumn.html#checkBoxHtmlOptions-detail">checkBoxHtmlOptions</a></td>
+  <td>array</td>
+  <td>the HTML options for the checkboxes.</td>
+  <td>CCheckBoxColumn</td>
+</tr>
+<tr id="checked">
+  <td><a href="CCheckBoxColumn.html#checked-detail">checked</a></td>
+  <td>string</td>
+  <td>a PHP expression that will be evaluated for every data cell and whose result will
+determine if checkbox for each data cell is checked.</td>
+  <td>CCheckBoxColumn</td>
+</tr>
+<tr class="inherited" id="cssClassExpression">
+  <td><a href="CGridColumn.html#cssClassExpression-detail">cssClassExpression</a></td>
+  <td>string</td>
+  <td>a PHP expression that is evaluated for every data cell and whose result
+is used as the CSS class name for the data cell.</td>
+  <td><a href="CGridColumn.html">CGridColumn</a></td>
+</tr>
+<tr class="inherited" id="footer">
+  <td><a href="CGridColumn.html#footer-detail">footer</a></td>
+  <td>string</td>
+  <td>the footer cell text.</td>
+  <td><a href="CGridColumn.html">CGridColumn</a></td>
+</tr>
+<tr id="footerHtmlOptions">
+  <td><a href="CCheckBoxColumn.html#footerHtmlOptions-detail">footerHtmlOptions</a></td>
+  <td>array</td>
+  <td>the HTML options for the footer cell tag.</td>
+  <td>CCheckBoxColumn</td>
+</tr>
+<tr class="inherited" id="grid">
+  <td><a href="CGridColumn.html#grid-detail">grid</a></td>
+  <td><a href="CGridView.html">CGridView</a></td>
+  <td>the grid view object that owns this column.</td>
+  <td><a href="CGridColumn.html">CGridColumn</a></td>
+</tr>
+<tr class="inherited" id="hasFooter">
+  <td><a href="CGridColumn.html#hasFooter-detail">hasFooter</a></td>
+  <td>boolean</td>
+  <td>whether this column has a footer cell.</td>
+  <td><a href="CGridColumn.html">CGridColumn</a></td>
+</tr>
+<tr class="inherited" id="header">
+  <td><a href="CGridColumn.html#header-detail">header</a></td>
+  <td>string</td>
+  <td>the header cell text.</td>
+  <td><a href="CGridColumn.html">CGridColumn</a></td>
+</tr>
+<tr id="headerHtmlOptions">
+  <td><a href="CCheckBoxColumn.html#headerHtmlOptions-detail">headerHtmlOptions</a></td>
+  <td>array</td>
+  <td>the HTML options for the header cell tag.</td>
+  <td>CCheckBoxColumn</td>
+</tr>
+<tr id="htmlOptions">
+  <td><a href="CCheckBoxColumn.html#htmlOptions-detail">htmlOptions</a></td>
+  <td>array</td>
+  <td>the HTML options for the data cell tags.</td>
+  <td>CCheckBoxColumn</td>
+</tr>
+<tr class="inherited" id="id">
+  <td><a href="CGridColumn.html#id-detail">id</a></td>
+  <td>string</td>
+  <td>the ID of this column.</td>
+  <td><a href="CGridColumn.html">CGridColumn</a></td>
+</tr>
+<tr id="name">
+  <td><a href="CCheckBoxColumn.html#name-detail">name</a></td>
+  <td>string</td>
+  <td>the attribute name of the data model.</td>
+  <td>CCheckBoxColumn</td>
+</tr>
+<tr id="selectableRows">
+  <td><a href="CCheckBoxColumn.html#selectableRows-detail">selectableRows</a></td>
+  <td>integer</td>
+  <td>the number of rows that can be checked.</td>
+  <td>CCheckBoxColumn</td>
+</tr>
+<tr id="value">
+  <td><a href="CCheckBoxColumn.html#value-detail">value</a></td>
+  <td>string</td>
+  <td>a PHP expression that will be evaluated for every data cell and whose result will be rendered
+in each data cell as the checkbox value.</td>
+  <td>CCheckBoxColumn</td>
+</tr>
+<tr class="inherited" id="visible">
+  <td><a href="CGridColumn.html#visible-detail">visible</a></td>
+  <td>boolean</td>
+  <td>whether this column is visible.</td>
+  <td><a href="CGridColumn.html">CGridColumn</a></td>
+</tr>
+</table>
+</div>
+<a name="methods"></a>
+
+<div class="summary docMethod">
+<h2>Public Methods</h2>
+
+<p><a href="#" class="toggle">Hide inherited methods</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-method" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>Method</th><th>Description</th><th>Defined By</th>
+</tr>
+<tr class="inherited" id="__call">
+  <td><a href="CComponent.html#__call-detail">__call()</a></td>
+  <td>Calls the named method which is not a class method.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__construct">
+  <td><a href="CGridColumn.html#__construct-detail">__construct()</a></td>
+  <td>Constructor.</td>
+  <td><a href="CGridColumn.html">CGridColumn</a></td>
+</tr>
+<tr class="inherited" id="__get">
+  <td><a href="CComponent.html#__get-detail">__get()</a></td>
+  <td>Returns a property value, an event handler list or a behavior based on its name.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__isset">
+  <td><a href="CComponent.html#__isset-detail">__isset()</a></td>
+  <td>Checks if a property value is null.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__set">
+  <td><a href="CComponent.html#__set-detail">__set()</a></td>
+  <td>Sets value of a component property.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__unset">
+  <td><a href="CComponent.html#__unset-detail">__unset()</a></td>
+  <td>Sets a component property to be null.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="asa">
+  <td><a href="CComponent.html#asa-detail">asa()</a></td>
+  <td>Returns the named behavior object.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="attachBehavior">
+  <td><a href="CComponent.html#attachBehavior-detail">attachBehavior()</a></td>
+  <td>Attaches a behavior to this component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="attachBehaviors">
+  <td><a href="CComponent.html#attachBehaviors-detail">attachBehaviors()</a></td>
+  <td>Attaches a list of behaviors to the component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="attachEventHandler">
+  <td><a href="CComponent.html#attachEventHandler-detail">attachEventHandler()</a></td>
+  <td>Attaches an event handler to an event.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="canGetProperty">
+  <td><a href="CComponent.html#canGetProperty-detail">canGetProperty()</a></td>
+  <td>Determines whether a property can be read.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="canSetProperty">
+  <td><a href="CComponent.html#canSetProperty-detail">canSetProperty()</a></td>
+  <td>Determines whether a property can be set.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="detachBehavior">
+  <td><a href="CComponent.html#detachBehavior-detail">detachBehavior()</a></td>
+  <td>Detaches a behavior from the component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="detachBehaviors">
+  <td><a href="CComponent.html#detachBehaviors-detail">detachBehaviors()</a></td>
+  <td>Detaches all behaviors from the component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="detachEventHandler">
+  <td><a href="CComponent.html#detachEventHandler-detail">detachEventHandler()</a></td>
+  <td>Detaches an existing event handler.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="disableBehavior">
+  <td><a href="CComponent.html#disableBehavior-detail">disableBehavior()</a></td>
+  <td>Disables an attached behavior.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="disableBehaviors">
+  <td><a href="CComponent.html#disableBehaviors-detail">disableBehaviors()</a></td>
+  <td>Disables all behaviors attached to this component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="enableBehavior">
+  <td><a href="CComponent.html#enableBehavior-detail">enableBehavior()</a></td>
+  <td>Enables an attached behavior.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="enableBehaviors">
+  <td><a href="CComponent.html#enableBehaviors-detail">enableBehaviors()</a></td>
+  <td>Enables all behaviors attached to this component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="evaluateExpression">
+  <td><a href="CComponent.html#evaluateExpression-detail">evaluateExpression()</a></td>
+  <td>Evaluates a PHP expression or callback under the context of this component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="getEventHandlers">
+  <td><a href="CComponent.html#getEventHandlers-detail">getEventHandlers()</a></td>
+  <td>Returns the list of attached event handlers for an event.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="getHasFooter">
+  <td><a href="CGridColumn.html#getHasFooter-detail">getHasFooter()</a></td>
+  <td>Returns whether this column has a footer cell.
+This is determined based on whether <a href="CCheckBoxColumn.html#footer">footer</a> is set.</td>
+  <td><a href="CGridColumn.html">CGridColumn</a></td>
+</tr>
+<tr class="inherited" id="hasEvent">
+  <td><a href="CComponent.html#hasEvent-detail">hasEvent()</a></td>
+  <td>Determines whether an event is defined.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="hasEventHandler">
+  <td><a href="CComponent.html#hasEventHandler-detail">hasEventHandler()</a></td>
+  <td>Checks whether the named event has attached handlers.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="hasProperty">
+  <td><a href="CComponent.html#hasProperty-detail">hasProperty()</a></td>
+  <td>Determines whether a property is defined.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr id="init">
+  <td><a href="CCheckBoxColumn.html#init-detail">init()</a></td>
+  <td>Initializes the column.</td>
+  <td>CCheckBoxColumn</td>
+</tr>
+<tr class="inherited" id="raiseEvent">
+  <td><a href="CComponent.html#raiseEvent-detail">raiseEvent()</a></td>
+  <td>Raises an event.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="renderDataCell">
+  <td><a href="CGridColumn.html#renderDataCell-detail">renderDataCell()</a></td>
+  <td>Renders a data cell.</td>
+  <td><a href="CGridColumn.html">CGridColumn</a></td>
+</tr>
+<tr class="inherited" id="renderFilterCell">
+  <td><a href="CGridColumn.html#renderFilterCell-detail">renderFilterCell()</a></td>
+  <td>Renders the filter cell.</td>
+  <td><a href="CGridColumn.html">CGridColumn</a></td>
+</tr>
+<tr class="inherited" id="renderFooterCell">
+  <td><a href="CGridColumn.html#renderFooterCell-detail">renderFooterCell()</a></td>
+  <td>Renders the footer cell.</td>
+  <td><a href="CGridColumn.html">CGridColumn</a></td>
+</tr>
+<tr class="inherited" id="renderHeaderCell">
+  <td><a href="CGridColumn.html#renderHeaderCell-detail">renderHeaderCell()</a></td>
+  <td>Renders the header cell.</td>
+  <td><a href="CGridColumn.html">CGridColumn</a></td>
+</tr>
+</table>
+</div>
+<div class="summary docMethod">
+<h2>Protected Methods</h2>
+
+<p><a href="#" class="toggle">Hide inherited methods</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-method" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>Method</th><th>Description</th><th>Defined By</th>
+</tr>
+<tr id="renderDataCellContent">
+  <td><a href="CCheckBoxColumn.html#renderDataCellContent-detail">renderDataCellContent()</a></td>
+  <td>Renders the data cell content.</td>
+  <td>CCheckBoxColumn</td>
+</tr>
+<tr class="inherited" id="renderFilterCellContent">
+  <td><a href="CGridColumn.html#renderFilterCellContent-detail">renderFilterCellContent()</a></td>
+  <td>Renders the filter cell content.</td>
+  <td><a href="CGridColumn.html">CGridColumn</a></td>
+</tr>
+<tr class="inherited" id="renderFooterCellContent">
+  <td><a href="CGridColumn.html#renderFooterCellContent-detail">renderFooterCellContent()</a></td>
+  <td>Renders the footer cell content.</td>
+  <td><a href="CGridColumn.html">CGridColumn</a></td>
+</tr>
+<tr id="renderHeaderCellContent">
+  <td><a href="CCheckBoxColumn.html#renderHeaderCellContent-detail">renderHeaderCellContent()</a></td>
+  <td>Renders the header cell content.</td>
+  <td>CCheckBoxColumn</td>
+</tr>
+</table>
+</div>
+<a name="events"></a>
+
+<h2>Property Details</h2>
+<div class="detailHeader" id="checkBoxHtmlOptions-detail">
+checkBoxHtmlOptions<span class="detailHeaderTag">
+property
+</span>
+</div>
+
+<div class="signature">
+public array <b>$checkBoxHtmlOptions</b>;</div>
+
+<p>the HTML options for the checkboxes.</p>
+
+
+<div class="detailHeader" id="checked-detail">
+checked<span class="detailHeaderTag">
+property
+ (available since v1.1.4)
+</span>
+</div>
+
+<div class="signature">
+public string <b>$checked</b>;</div>
+
+<p>a PHP expression that will be evaluated for every data cell and whose result will
+determine if checkbox for each data cell is checked. In this expression, the variable
+<code>$row</code> the row number (zero-based); <code>$data</code> the data model for the row;
+and <code>$this</code> the column object.</p>
+
+
+<div class="detailHeader" id="footerHtmlOptions-detail">
+footerHtmlOptions<span class="detailHeaderTag">
+property
+</span>
+</div>
+
+<div class="signature">
+public array <b>$footerHtmlOptions</b>;</div>
+
+<p>the HTML options for the footer cell tag.</p>
+
+
+<div class="detailHeader" id="headerHtmlOptions-detail">
+headerHtmlOptions<span class="detailHeaderTag">
+property
+</span>
+</div>
+
+<div class="signature">
+public array <b>$headerHtmlOptions</b>;</div>
+
+<p>the HTML options for the header cell tag.</p>
+
+
+<div class="detailHeader" id="htmlOptions-detail">
+htmlOptions<span class="detailHeaderTag">
+property
+</span>
+</div>
+
+<div class="signature">
+public array <b>$htmlOptions</b>;</div>
+
+<p>the HTML options for the data cell tags.</p>
+
+
+<div class="detailHeader" id="name-detail">
+name<span class="detailHeaderTag">
+property
+</span>
+</div>
+
+<div class="signature">
+public string <b>$name</b>;</div>
+
+<p>the attribute name of the data model. The corresponding attribute value will be rendered
+in each data cell as the checkbox value. Note that if <a href="CCheckBoxColumn.html#value">value</a> is specified, this property will be ignored.</p>
+
+<div class="SeeAlso">
+<h4>See Also</h4>
+<ul>
+	<li><a href="CCheckBoxColumn.html#value">value</a></li>
+</ul>
+</div>
+
+<div class="detailHeader" id="selectableRows-detail">
+selectableRows<span class="detailHeaderTag">
+property
+ (available since v1.1.6)
+</span>
+</div>
+
+<div class="signature">
+public integer <b>$selectableRows</b>;</div>
+
+<p>the number of rows that can be checked.
+Possible values:
+<ul>
+<li>0 - the state of the checkbox cannot be changed (read-only mode)</li>
+<li>1 - only one row can be checked. Checking a checkbox has nothing to do with selecting the row</li>
+<li>2 or more - multiple checkboxes can be checked. Checking a checkbox has nothing to do with selecting the row</li>
+<li>null - <a href="CGridView.html#selectableRows">CGridView::selectableRows</a> is used to control how many checkboxes can be checked.
+Cheking a checkbox will also select the row.</li>
+</ul>
+You may also call the JavaScript function <code>$.fn.yiiGridView.getChecked(containerID,columnID)</code>
+to retrieve the key values of the checked rows.</p>
+
+
+<div class="detailHeader" id="value-detail">
+value<span class="detailHeaderTag">
+property
+</span>
+</div>
+
+<div class="signature">
+public string <b>$value</b>;</div>
+
+<p>a PHP expression that will be evaluated for every data cell and whose result will be rendered
+in each data cell as the checkbox value. In this expression, the variable
+<code>$row</code> the row number (zero-based); <code>$data</code> the data model for the row;
+and <code>$this</code> the column object.</p>
+
+
+<h2>Method Details</h2>
+
+<div class="detailHeader" id="init-detail">
+init()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>init</b>()</div>
+</td></tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/zii/widgets/grid/CCheckBoxColumn.php#91">framework/zii/widgets/grid/CCheckBoxColumn.php#91</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">init</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(isset(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">checkBoxHtmlOptions</span><span style="color: #007700">[</span><span style="color: #DD0000">'name'</span><span style="color: #007700">]))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$name</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">checkBoxHtmlOptions</span><span style="color: #007700">[</span><span style="color: #DD0000">'name'</span><span style="color: #007700">];<br />&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$name</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">id</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">substr</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">,-</span><span style="color: #0000BB">2</span><span style="color: #007700">)!==</span><span style="color: #DD0000">'[]'</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$name</span><span style="color: #007700">.=</span><span style="color: #DD0000">'[]'</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">checkBoxHtmlOptions</span><span style="color: #007700">[</span><span style="color: #DD0000">'name'</span><span style="color: #007700">]=</span><span style="color: #0000BB">$name</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$name</span><span style="color: #007700">=</span><span style="color: #0000BB">strtr</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">,array(</span><span style="color: #DD0000">'['</span><span style="color: #007700">=&gt;</span><span style="color: #DD0000">"\\["</span><span style="color: #007700">,</span><span style="color: #DD0000">']'</span><span style="color: #007700">=&gt;</span><span style="color: #DD0000">"\\]"</span><span style="color: #007700">));<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">selectableRows</span><span style="color: #007700">===</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(isset(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">checkBoxHtmlOptions</span><span style="color: #007700">[</span><span style="color: #DD0000">'class'</span><span style="color: #007700">]))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">checkBoxHtmlOptions</span><span style="color: #007700">[</span><span style="color: #DD0000">'class'</span><span style="color: #007700">].=</span><span style="color: #DD0000">'&nbsp;select-on-check'</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">checkBoxHtmlOptions</span><span style="color: #007700">[</span><span style="color: #DD0000">'class'</span><span style="color: #007700">]=</span><span style="color: #DD0000">'select-on-check'</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$cball</span><span style="color: #007700">=</span><span style="color: #0000BB">$cbcode</span><span style="color: #007700">=</span><span style="color: #DD0000">''</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">selectableRows</span><span style="color: #007700">==</span><span style="color: #0000BB">0</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//..&nbsp;read&nbsp;only<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$cbcode</span><span style="color: #007700">=</span><span style="color: #DD0000">"return&nbsp;false;"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;elseif(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">selectableRows</span><span style="color: #007700">==</span><span style="color: #0000BB">1</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//..&nbsp;only&nbsp;one&nbsp;can&nbsp;be&nbsp;checked,&nbsp;uncheck&nbsp;all&nbsp;other<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$cbcode</span><span style="color: #007700">=</span><span style="color: #DD0000">"$(\"input:not(#\"+$(this).attr('id')+\")[name='</span><span style="color: #0000BB">$name</span><span style="color: #DD0000">']\").attr('checked',false);"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//..&nbsp;process&nbsp;check/uncheck&nbsp;all<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$cball</span><span style="color: #007700">=&lt;&lt;&lt;CBALL<br /></span><span style="color: #DD0000">$('#</span><span style="color: #007700">{</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">id</span><span style="color: #007700">}</span><span style="color: #DD0000">_all').live('click',function()&nbsp;{<br />var&nbsp;checked=this.checked;<br />$("input[name='</span><span style="color: #0000BB">$name</span><span style="color: #DD0000">']").each(function()&nbsp;{this.checked=checked;});<br />});<br /><br /></span><span style="color: #007700">CBALL;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$cbcode</span><span style="color: #007700">=</span><span style="color: #DD0000">"$('#</span><span style="color: #007700">{</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">id</span><span style="color: #007700">}</span><span style="color: #DD0000">_all').attr('checked',&nbsp;$(\"input[name='</span><span style="color: #0000BB">$name</span><span style="color: #DD0000">']\").length==$(\"input[name='</span><span style="color: #0000BB">$name</span><span style="color: #DD0000">']:checked\").length);"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$js</span><span style="color: #007700">=</span><span style="color: #0000BB">$cball</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$js</span><span style="color: #007700">.=&lt;&lt;&lt;EOD<br /></span><span style="color: #DD0000">$("input[name='</span><span style="color: #0000BB">$name</span><span style="color: #DD0000">']").live('click',&nbsp;function()&nbsp;{<br /></span><span style="color: #0000BB">$cbcode</span><span style="color: #DD0000"><br />});<br /></span><span style="color: #007700">EOD;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">Yii</span><span style="color: #007700">::</span><span style="color: #0000BB">app</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">getClientScript</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">registerScript</span><span style="color: #007700">(</span><span style="color: #0000BB">__CLASS__</span><span style="color: #007700">.</span><span style="color: #DD0000">'#'</span><span style="color: #007700">.</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">id</span><span style="color: #007700">,</span><span style="color: #0000BB">$js</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Initializes the column.
+This method registers necessary client script for the checkbox column.</p>
+
+
+<div class="detailHeader" id="renderDataCellContent-detail">
+renderDataCellContent()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+protected void <b>renderDataCellContent</b>(integer $row, mixed $data)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$row</td>
+  <td class="paramTypeCol">integer</td>
+  <td class="paramDescCol">the row number (zero-based)</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$data</td>
+  <td class="paramTypeCol">mixed</td>
+  <td class="paramDescCol">the data associated with the row</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/zii/widgets/grid/CCheckBoxColumn.php#167">framework/zii/widgets/grid/CCheckBoxColumn.php#167</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">protected&nbsp;function&nbsp;</span><span style="color: #0000BB">renderDataCellContent</span><span style="color: #007700">(</span><span style="color: #0000BB">$row</span><span style="color: #007700">,</span><span style="color: #0000BB">$data</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">value</span><span style="color: #007700">!==</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$value</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">evaluateExpression</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">value</span><span style="color: #007700">,array(</span><span style="color: #DD0000">'data'</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">$data</span><span style="color: #007700">,</span><span style="color: #DD0000">'row'</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">$row</span><span style="color: #007700">));<br />&nbsp;&nbsp;&nbsp;&nbsp;else&nbsp;if(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">name</span><span style="color: #007700">!==</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$value</span><span style="color: #007700">=</span><span style="color: #0000BB">CHtml</span><span style="color: #007700">::</span><span style="color: #0000BB">value</span><span style="color: #007700">(</span><span style="color: #0000BB">$data</span><span style="color: #007700">,</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">name</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$value</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">grid</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">dataProvider</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">keys</span><span style="color: #007700">[</span><span style="color: #0000BB">$row</span><span style="color: #007700">];<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$checked&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">checked</span><span style="color: #007700">!==</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$checked</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">evaluateExpression</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">checked</span><span style="color: #007700">,array(</span><span style="color: #DD0000">'data'</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">$data</span><span style="color: #007700">,</span><span style="color: #DD0000">'row'</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">$row</span><span style="color: #007700">));<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$options</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">checkBoxHtmlOptions</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$name</span><span style="color: #007700">=</span><span style="color: #0000BB">$options</span><span style="color: #007700">[</span><span style="color: #DD0000">'name'</span><span style="color: #007700">];<br />&nbsp;&nbsp;&nbsp;&nbsp;unset(</span><span style="color: #0000BB">$options</span><span style="color: #007700">[</span><span style="color: #DD0000">'name'</span><span style="color: #007700">]);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$options</span><span style="color: #007700">[</span><span style="color: #DD0000">'value'</span><span style="color: #007700">]=</span><span style="color: #0000BB">$value</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$options</span><span style="color: #007700">[</span><span style="color: #DD0000">'id'</span><span style="color: #007700">]=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">id</span><span style="color: #007700">.</span><span style="color: #DD0000">'_'</span><span style="color: #007700">.</span><span style="color: #0000BB">$row</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">CHtml</span><span style="color: #007700">::</span><span style="color: #0000BB">checkBox</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">,</span><span style="color: #0000BB">$checked</span><span style="color: #007700">,</span><span style="color: #0000BB">$options</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Renders the data cell content.
+This method renders a checkbox in the data cell.</p>
+
+
+<div class="detailHeader" id="renderHeaderCellContent-detail">
+renderHeaderCellContent()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+protected void <b>renderHeaderCellContent</b>()</div>
+</td></tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/zii/widgets/grid/CCheckBoxColumn.php#151">framework/zii/widgets/grid/CCheckBoxColumn.php#151</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">protected&nbsp;function&nbsp;</span><span style="color: #0000BB">renderHeaderCellContent</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">selectableRows</span><span style="color: #007700">===</span><span style="color: #0000BB">null&nbsp;</span><span style="color: #007700">&amp;&amp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">grid</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">selectableRows</span><span style="color: #007700">&gt;</span><span style="color: #0000BB">1</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">CHtml</span><span style="color: #007700">::</span><span style="color: #0000BB">checkBox</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">id</span><span style="color: #007700">.</span><span style="color: #DD0000">'_all'</span><span style="color: #007700">,</span><span style="color: #0000BB">false</span><span style="color: #007700">,array(</span><span style="color: #DD0000">'class'</span><span style="color: #007700">=&gt;</span><span style="color: #DD0000">'select-on-check-all'</span><span style="color: #007700">));<br />&nbsp;&nbsp;&nbsp;&nbsp;else&nbsp;if(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">selectableRows</span><span style="color: #007700">&gt;</span><span style="color: #0000BB">1</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">CHtml</span><span style="color: #007700">::</span><span style="color: #0000BB">checkBox</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">id</span><span style="color: #007700">.</span><span style="color: #DD0000">'_all'</span><span style="color: #007700">,</span><span style="color: #0000BB">false</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">parent</span><span style="color: #007700">::</span><span style="color: #0000BB">renderHeaderCellContent</span><span style="color: #007700">();<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Renders the header cell content.
+This method will render a checkbox in the header when <a href="CCheckBoxColumn.html#selectableRows">selectableRows</a> is greater than 1
+or in case <a href="CCheckBoxColumn.html#selectableRows">selectableRows</a> is null when <a href="CGridView.html#selectableRows">CGridView::selectableRows</a> is greater than 1.</p>
+
+
+</div><!-- end of content -->
+
+<div id="apiFooter">
+Copyright &copy; 2008-2011 by <a href="http://www.yiisoft.com">Yii Software LLC</a><br/>
+All Rights Reserved.<br/>
+</div><!-- end of footer -->
+
+<script type="text/javascript">
+/*<![CDATA[*/
+$("a.toggle").toggle(function(){
+	$(this).text($(this).text().replace(/Hide/,'Show'));
+	$(this).parents(".summary").find(".inherited").hide();
+},function(){
+	$(this).text($(this).text().replace(/Show/,'Hide'));
+	$(this).parents(".summary").find(".inherited").show();
+});
+$(".sourceCode a.show").toggle(function(){
+	$(this).text($(this).text().replace(/show/,'hide'));
+	$(this).parents(".sourceCode").find("div.code").show();
+},function(){
+	$(this).text($(this).text().replace(/hide/,'show'));
+	$(this).parents(".sourceCode").find("div.code").hide();
+});
+$("a.sourceLink").click(function(){
+	$(this).attr('target','_blank');
+});
+/*]]>*/
+</script>
+
+</div><!-- end of page -->
+</body>
+</html>

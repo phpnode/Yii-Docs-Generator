@@ -1,0 +1,699 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="language" content="en" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="css/api.css" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<title>CCookieCollection</title>
+</head>
+
+<body>
+<div id="apiPage">
+
+<div id="apiHeader">
+My Console Application Class Reference
+</div><!-- end of header -->
+
+<div id="content">
+<h1>CCookieCollection</h1>
+<div id="nav">
+<a href="index.html">All Packages</a>
+| <a href="#properties">Properties</a>
+| <a href="#methods">Methods</a>
+</div>
+
+<table class="summaryTable docClass">
+<colgroup>
+	<col class="col-name" />
+	<col class="col-value" />
+</colgroup>
+<tr>
+  <th>Package</th>
+  <td><a href="index.html#system.web">system.web</a></td>
+</tr>
+<tr>
+  <th>Inheritance</th>
+  <td>class CCookieCollection &raquo;
+<a href="CMap.html">CMap</a> &raquo;
+<a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr>
+  <th>Implements</th>
+  <td>Countable, ArrayAccess, Traversable, IteratorAggregate</td>
+</tr>
+<tr>
+  <th>Since</th>
+  <td>1.0</td>
+</tr>
+<tr>
+  <th>Version</th>
+  <td>$Id: CHttpRequest.php 3050 2011-03-12 13:22:11Z qiang.xue $</td>
+</tr>
+<tr>
+  <th>Source Code</th>
+  <td><a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CHttpRequest.php">framework/web/CHttpRequest.php</a></td>
+</tr>
+<tr>
+  <th>Author</th>
+  <td>Qiang Xue &lt;qiang.xue@gmail.com&gt;</td>
+</tr>
+</table>
+
+<div id="classDescription">
+CCookieCollection implements a collection class to store cookies.
+<br/><br/>
+You normally access it via <a href="CHttpRequest.html#getCookies">CHttpRequest::getCookies()</a>.
+<br/><br/>
+Since CCookieCollection extends from <a href="CMap.html">CMap</a>, it can be used
+like an associative array as follows:
+<pre>
+$cookies[$name]=new CHttpCookie($name,$value); // sends a cookie
+$value=$cookies[$name]-&gt;value; // reads a cookie value
+unset($cookies[$name]);  // removes a cookie
+</pre></div>
+<a name="properties"></a>
+
+<div class="summary docProperty">
+<h2>Public Properties</h2>
+
+<p><a href="#" class="toggle">Hide inherited properties</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-property" />
+	<col class="col-type" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>Property</th><th>Type</th><th>Description</th><th>Defined By</th>
+</tr>
+<tr class="inherited" id="count">
+  <td><a href="CMap.html#count-detail">count</a></td>
+  <td>integer</td>
+  <td>Returns the number of items in the map.</td>
+  <td><a href="CMap.html">CMap</a></td>
+</tr>
+<tr class="inherited" id="iterator">
+  <td><a href="CMap.html#iterator-detail">iterator</a></td>
+  <td><a href="CMapIterator.html">CMapIterator</a></td>
+  <td>Returns an iterator for traversing the items in the list.</td>
+  <td><a href="CMap.html">CMap</a></td>
+</tr>
+<tr class="inherited" id="keys">
+  <td><a href="CMap.html#keys-detail">keys</a></td>
+  <td>array</td>
+  <td>the key list</td>
+  <td><a href="CMap.html">CMap</a></td>
+</tr>
+<tr class="inherited" id="readOnly">
+  <td><a href="CMap.html#readOnly-detail">readOnly</a></td>
+  <td>boolean</td>
+  <td>whether this map is read-only or not.</td>
+  <td><a href="CMap.html">CMap</a></td>
+</tr>
+<tr id="request">
+  <td><a href="CCookieCollection.html#request-detail">request</a></td>
+  <td><a href="CHttpRequest.html">CHttpRequest</a></td>
+  <td>the request instance</td>
+  <td>CCookieCollection</td>
+</tr>
+</table>
+</div>
+<div class="summary docProperty">
+<h2>Protected Properties</h2>
+
+<p><a href="#" class="toggle">Hide inherited properties</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-property" />
+	<col class="col-type" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>Property</th><th>Type</th><th>Description</th><th>Defined By</th>
+</tr>
+<tr id="cookies">
+  <td><a href="CCookieCollection.html#cookies-detail">cookies</a></td>
+  <td>array</td>
+  <td>list of validated cookies</td>
+  <td>CCookieCollection</td>
+</tr>
+</table>
+</div>
+<a name="methods"></a>
+
+<div class="summary docMethod">
+<h2>Public Methods</h2>
+
+<p><a href="#" class="toggle">Hide inherited methods</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-method" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>Method</th><th>Description</th><th>Defined By</th>
+</tr>
+<tr class="inherited" id="__call">
+  <td><a href="CComponent.html#__call-detail">__call()</a></td>
+  <td>Calls the named method which is not a class method.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr id="__construct">
+  <td><a href="CCookieCollection.html#__construct-detail">__construct()</a></td>
+  <td>Constructor.</td>
+  <td>CCookieCollection</td>
+</tr>
+<tr class="inherited" id="__get">
+  <td><a href="CComponent.html#__get-detail">__get()</a></td>
+  <td>Returns a property value, an event handler list or a behavior based on its name.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__isset">
+  <td><a href="CComponent.html#__isset-detail">__isset()</a></td>
+  <td>Checks if a property value is null.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__set">
+  <td><a href="CComponent.html#__set-detail">__set()</a></td>
+  <td>Sets value of a component property.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__unset">
+  <td><a href="CComponent.html#__unset-detail">__unset()</a></td>
+  <td>Sets a component property to be null.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr id="add">
+  <td><a href="CCookieCollection.html#add-detail">add()</a></td>
+  <td>Adds a cookie with the specified name.</td>
+  <td>CCookieCollection</td>
+</tr>
+<tr class="inherited" id="asa">
+  <td><a href="CComponent.html#asa-detail">asa()</a></td>
+  <td>Returns the named behavior object.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="attachBehavior">
+  <td><a href="CComponent.html#attachBehavior-detail">attachBehavior()</a></td>
+  <td>Attaches a behavior to this component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="attachBehaviors">
+  <td><a href="CComponent.html#attachBehaviors-detail">attachBehaviors()</a></td>
+  <td>Attaches a list of behaviors to the component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="attachEventHandler">
+  <td><a href="CComponent.html#attachEventHandler-detail">attachEventHandler()</a></td>
+  <td>Attaches an event handler to an event.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="canGetProperty">
+  <td><a href="CComponent.html#canGetProperty-detail">canGetProperty()</a></td>
+  <td>Determines whether a property can be read.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="canSetProperty">
+  <td><a href="CComponent.html#canSetProperty-detail">canSetProperty()</a></td>
+  <td>Determines whether a property can be set.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="clear">
+  <td><a href="CMap.html#clear-detail">clear()</a></td>
+  <td>Removes all items in the map.</td>
+  <td><a href="CMap.html">CMap</a></td>
+</tr>
+<tr class="inherited" id="contains">
+  <td><a href="CMap.html#contains-detail">contains()</a></td>
+  <td></td>
+  <td><a href="CMap.html">CMap</a></td>
+</tr>
+<tr class="inherited" id="copyFrom">
+  <td><a href="CMap.html#copyFrom-detail">copyFrom()</a></td>
+  <td>Copies iterable data into the map.</td>
+  <td><a href="CMap.html">CMap</a></td>
+</tr>
+<tr class="inherited" id="count()">
+  <td><a href="CMap.html#count()-detail">count()</a></td>
+  <td>Returns the number of items in the map.</td>
+  <td><a href="CMap.html">CMap</a></td>
+</tr>
+<tr class="inherited" id="detachBehavior">
+  <td><a href="CComponent.html#detachBehavior-detail">detachBehavior()</a></td>
+  <td>Detaches a behavior from the component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="detachBehaviors">
+  <td><a href="CComponent.html#detachBehaviors-detail">detachBehaviors()</a></td>
+  <td>Detaches all behaviors from the component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="detachEventHandler">
+  <td><a href="CComponent.html#detachEventHandler-detail">detachEventHandler()</a></td>
+  <td>Detaches an existing event handler.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="disableBehavior">
+  <td><a href="CComponent.html#disableBehavior-detail">disableBehavior()</a></td>
+  <td>Disables an attached behavior.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="disableBehaviors">
+  <td><a href="CComponent.html#disableBehaviors-detail">disableBehaviors()</a></td>
+  <td>Disables all behaviors attached to this component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="enableBehavior">
+  <td><a href="CComponent.html#enableBehavior-detail">enableBehavior()</a></td>
+  <td>Enables an attached behavior.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="enableBehaviors">
+  <td><a href="CComponent.html#enableBehaviors-detail">enableBehaviors()</a></td>
+  <td>Enables all behaviors attached to this component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="evaluateExpression">
+  <td><a href="CComponent.html#evaluateExpression-detail">evaluateExpression()</a></td>
+  <td>Evaluates a PHP expression or callback under the context of this component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="getCount">
+  <td><a href="CMap.html#getCount-detail">getCount()</a></td>
+  <td>Returns the number of items in the map.</td>
+  <td><a href="CMap.html">CMap</a></td>
+</tr>
+<tr class="inherited" id="getEventHandlers">
+  <td><a href="CComponent.html#getEventHandlers-detail">getEventHandlers()</a></td>
+  <td>Returns the list of attached event handlers for an event.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="getIterator">
+  <td><a href="CMap.html#getIterator-detail">getIterator()</a></td>
+  <td>Returns an iterator for traversing the items in the list.</td>
+  <td><a href="CMap.html">CMap</a></td>
+</tr>
+<tr class="inherited" id="getKeys">
+  <td><a href="CMap.html#getKeys-detail">getKeys()</a></td>
+  <td>Returns the key list</td>
+  <td><a href="CMap.html">CMap</a></td>
+</tr>
+<tr class="inherited" id="getReadOnly">
+  <td><a href="CMap.html#getReadOnly-detail">getReadOnly()</a></td>
+  <td>Returns whether this map is read-only or not. Defaults to false.</td>
+  <td><a href="CMap.html">CMap</a></td>
+</tr>
+<tr id="getRequest">
+  <td><a href="CCookieCollection.html#getRequest-detail">getRequest()</a></td>
+  <td>Returns the request instance</td>
+  <td>CCookieCollection</td>
+</tr>
+<tr class="inherited" id="hasEvent">
+  <td><a href="CComponent.html#hasEvent-detail">hasEvent()</a></td>
+  <td>Determines whether an event is defined.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="hasEventHandler">
+  <td><a href="CComponent.html#hasEventHandler-detail">hasEventHandler()</a></td>
+  <td>Checks whether the named event has attached handlers.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="hasProperty">
+  <td><a href="CComponent.html#hasProperty-detail">hasProperty()</a></td>
+  <td>Determines whether a property is defined.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="itemAt">
+  <td><a href="CMap.html#itemAt-detail">itemAt()</a></td>
+  <td>Returns the item with the specified key.</td>
+  <td><a href="CMap.html">CMap</a></td>
+</tr>
+<tr class="inherited" id="mergeArray">
+  <td><a href="CMap.html#mergeArray-detail">mergeArray()</a></td>
+  <td>Merges two arrays into one recursively.</td>
+  <td><a href="CMap.html">CMap</a></td>
+</tr>
+<tr class="inherited" id="mergeWith">
+  <td><a href="CMap.html#mergeWith-detail">mergeWith()</a></td>
+  <td>Merges iterable data into the map.</td>
+  <td><a href="CMap.html">CMap</a></td>
+</tr>
+<tr class="inherited" id="offsetExists">
+  <td><a href="CMap.html#offsetExists-detail">offsetExists()</a></td>
+  <td>Returns whether there is an element at the specified offset.</td>
+  <td><a href="CMap.html">CMap</a></td>
+</tr>
+<tr class="inherited" id="offsetGet">
+  <td><a href="CMap.html#offsetGet-detail">offsetGet()</a></td>
+  <td>Returns the element at the specified offset.</td>
+  <td><a href="CMap.html">CMap</a></td>
+</tr>
+<tr class="inherited" id="offsetSet">
+  <td><a href="CMap.html#offsetSet-detail">offsetSet()</a></td>
+  <td>Sets the element at the specified offset.</td>
+  <td><a href="CMap.html">CMap</a></td>
+</tr>
+<tr class="inherited" id="offsetUnset">
+  <td><a href="CMap.html#offsetUnset-detail">offsetUnset()</a></td>
+  <td>Unsets the element at the specified offset.</td>
+  <td><a href="CMap.html">CMap</a></td>
+</tr>
+<tr class="inherited" id="raiseEvent">
+  <td><a href="CComponent.html#raiseEvent-detail">raiseEvent()</a></td>
+  <td>Raises an event.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr id="remove">
+  <td><a href="CCookieCollection.html#remove-detail">remove()</a></td>
+  <td>Removes a cookie with the specified name.</td>
+  <td>CCookieCollection</td>
+</tr>
+<tr class="inherited" id="toArray">
+  <td><a href="CMap.html#toArray-detail">toArray()</a></td>
+  <td></td>
+  <td><a href="CMap.html">CMap</a></td>
+</tr>
+</table>
+</div>
+<div class="summary docMethod">
+<h2>Protected Methods</h2>
+
+<p><a href="#" class="toggle">Hide inherited methods</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-method" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>Method</th><th>Description</th><th>Defined By</th>
+</tr>
+<tr id="addCookie">
+  <td><a href="CCookieCollection.html#addCookie-detail">addCookie()</a></td>
+  <td>Sends a cookie.</td>
+  <td>CCookieCollection</td>
+</tr>
+<tr id="getCookies">
+  <td><a href="CCookieCollection.html#getCookies-detail">getCookies()</a></td>
+  <td>Returns list of validated cookies</td>
+  <td>CCookieCollection</td>
+</tr>
+<tr id="removeCookie">
+  <td><a href="CCookieCollection.html#removeCookie-detail">removeCookie()</a></td>
+  <td>Deletes a cookie.</td>
+  <td>CCookieCollection</td>
+</tr>
+<tr class="inherited" id="setReadOnly">
+  <td><a href="CMap.html#setReadOnly-detail">setReadOnly()</a></td>
+  <td>Sets whether this list is read-only or not</td>
+  <td><a href="CMap.html">CMap</a></td>
+</tr>
+</table>
+</div>
+<a name="events"></a>
+
+<h2>Property Details</h2>
+<div class="detailHeader" id="cookies-detail">
+cookies<span class="detailHeaderTag">
+property
+ <em>read-only</em> </span>
+</div>
+
+<div class="signature">
+protected array <a href="CCookieCollection.html#getCookies"><b>getCookies</b></a>()</div>
+
+<p>list of validated cookies</p>
+
+
+<div class="detailHeader" id="request-detail">
+request<span class="detailHeaderTag">
+property
+ <em>read-only</em> </span>
+</div>
+
+<div class="signature">
+public <a href="CHttpRequest.html">CHttpRequest</a> <a href="CCookieCollection.html#getRequest"><b>getRequest</b></a>()</div>
+
+<p>the request instance</p>
+
+
+<h2>Method Details</h2>
+
+<div class="detailHeader" id="__construct-detail">
+__construct()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>__construct</b>(<a href="CHttpRequest.html">CHttpRequest</a> $request)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$request</td>
+  <td class="paramTypeCol"><a href="CHttpRequest.html">CHttpRequest</a></td>
+  <td class="paramDescCol">owner of this collection.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CHttpRequest.php#897">framework/web/CHttpRequest.php#897</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">__construct</span><span style="color: #007700">(</span><span style="color: #0000BB">CHttpRequest&nbsp;$request</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_request</span><span style="color: #007700">=</span><span style="color: #0000BB">$request</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">copyfrom</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getCookies</span><span style="color: #007700">());<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_initialized</span><span style="color: #007700">=</span><span style="color: #0000BB">true</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Constructor.</p>
+
+
+<div class="detailHeader" id="add-detail">
+add()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>add</b>(mixed $name, <a href="CHttpCookie.html">CHttpCookie</a> $cookie)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$name</td>
+  <td class="paramTypeCol">mixed</td>
+  <td class="paramDescCol">Cookie name.</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$cookie</td>
+  <td class="paramTypeCol"><a href="CHttpCookie.html">CHttpCookie</a></td>
+  <td class="paramDescCol">Cookie object.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CHttpRequest.php#943">framework/web/CHttpRequest.php#943</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">add</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">,</span><span style="color: #0000BB">$cookie</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$cookie&nbsp;</span><span style="color: #007700">instanceof&nbsp;</span><span style="color: #0000BB">CHttpCookie</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">remove</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">parent</span><span style="color: #007700">::</span><span style="color: #0000BB">add</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">,</span><span style="color: #0000BB">$cookie</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_initialized</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">addCookie</span><span style="color: #007700">(</span><span style="color: #0000BB">$cookie</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throw&nbsp;new&nbsp;</span><span style="color: #0000BB">CException</span><span style="color: #007700">(</span><span style="color: #0000BB">Yii</span><span style="color: #007700">::</span><span style="color: #0000BB">t</span><span style="color: #007700">(</span><span style="color: #DD0000">'yii'</span><span style="color: #007700">,</span><span style="color: #DD0000">'CHttpCookieCollection&nbsp;can&nbsp;only&nbsp;hold&nbsp;CHttpCookie&nbsp;objects.'</span><span style="color: #007700">));<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Adds a cookie with the specified name.
+This overrides the parent implementation by performing additional
+operations for each newly added CHttpCookie object.</p>
+
+
+<div class="detailHeader" id="addCookie-detail">
+addCookie()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+protected void <b>addCookie</b>(<a href="CHttpCookie.html">CHttpCookie</a> $cookie)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$cookie</td>
+  <td class="paramTypeCol"><a href="CHttpCookie.html">CHttpCookie</a></td>
+  <td class="paramDescCol">cook to be sent</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CHttpRequest.php#977">framework/web/CHttpRequest.php#977</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">protected&nbsp;function&nbsp;</span><span style="color: #0000BB">addCookie</span><span style="color: #007700">(</span><span style="color: #0000BB">$cookie</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$value</span><span style="color: #007700">=</span><span style="color: #0000BB">$cookie</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">value</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_request</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">enableCookieValidation</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$value</span><span style="color: #007700">=</span><span style="color: #0000BB">Yii</span><span style="color: #007700">::</span><span style="color: #0000BB">app</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">getSecurityManager</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">hashData</span><span style="color: #007700">(</span><span style="color: #0000BB">serialize</span><span style="color: #007700">(</span><span style="color: #0000BB">$value</span><span style="color: #007700">));<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">version_compare</span><span style="color: #007700">(</span><span style="color: #0000BB">PHP_VERSION</span><span style="color: #007700">,</span><span style="color: #DD0000">'5.2.0'</span><span style="color: #007700">,</span><span style="color: #DD0000">'&gt;='</span><span style="color: #007700">))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">setcookie</span><span style="color: #007700">(</span><span style="color: #0000BB">$cookie</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">name</span><span style="color: #007700">,</span><span style="color: #0000BB">$value</span><span style="color: #007700">,</span><span style="color: #0000BB">$cookie</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">expire</span><span style="color: #007700">,</span><span style="color: #0000BB">$cookie</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">path</span><span style="color: #007700">,</span><span style="color: #0000BB">$cookie</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">domain</span><span style="color: #007700">,</span><span style="color: #0000BB">$cookie</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">secure</span><span style="color: #007700">,</span><span style="color: #0000BB">$cookie</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">httpOnly</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">setcookie</span><span style="color: #007700">(</span><span style="color: #0000BB">$cookie</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">name</span><span style="color: #007700">,</span><span style="color: #0000BB">$value</span><span style="color: #007700">,</span><span style="color: #0000BB">$cookie</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">expire</span><span style="color: #007700">,</span><span style="color: #0000BB">$cookie</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">path</span><span style="color: #007700">,</span><span style="color: #0000BB">$cookie</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">domain</span><span style="color: #007700">,</span><span style="color: #0000BB">$cookie</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">secure</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Sends a cookie.</p>
+
+
+<div class="detailHeader" id="getCookies-detail">
+getCookies()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+protected array <b>getCookies</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">list of validated cookies</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CHttpRequest.php#915">framework/web/CHttpRequest.php#915</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">protected&nbsp;function&nbsp;</span><span style="color: #0000BB">getCookies</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$cookies</span><span style="color: #007700">=array();<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_request</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">enableCookieValidation</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$sm</span><span style="color: #007700">=</span><span style="color: #0000BB">Yii</span><span style="color: #007700">::</span><span style="color: #0000BB">app</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">getSecurityManager</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;foreach(</span><span style="color: #0000BB">$_COOKIE&nbsp;</span><span style="color: #007700">as&nbsp;</span><span style="color: #0000BB">$name</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">$value</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">is_string</span><span style="color: #007700">(</span><span style="color: #0000BB">$value</span><span style="color: #007700">)&nbsp;&amp;&amp;&nbsp;(</span><span style="color: #0000BB">$value</span><span style="color: #007700">=</span><span style="color: #0000BB">$sm</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">validateData</span><span style="color: #007700">(</span><span style="color: #0000BB">$value</span><span style="color: #007700">))!==</span><span style="color: #0000BB">false</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$cookies</span><span style="color: #007700">[</span><span style="color: #0000BB">$name</span><span style="color: #007700">]=new&nbsp;</span><span style="color: #0000BB">CHttpCookie</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">,@</span><span style="color: #0000BB">unserialize</span><span style="color: #007700">(</span><span style="color: #0000BB">$value</span><span style="color: #007700">));<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;foreach(</span><span style="color: #0000BB">$_COOKIE&nbsp;</span><span style="color: #007700">as&nbsp;</span><span style="color: #0000BB">$name</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">$value</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$cookies</span><span style="color: #007700">[</span><span style="color: #0000BB">$name</span><span style="color: #007700">]=new&nbsp;</span><span style="color: #0000BB">CHttpCookie</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">,</span><span style="color: #0000BB">$value</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$cookies</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p></p>
+
+
+<div class="detailHeader" id="getRequest-detail">
+getRequest()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public <a href="CHttpRequest.html">CHttpRequest</a> <b>getRequest</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol"><a href="CHttpRequest.html">CHttpRequest</a></td>
+  <td class="paramDescCol">the request instance</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CHttpRequest.php#907">framework/web/CHttpRequest.php#907</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getRequest</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_request</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p></p>
+
+
+<div class="detailHeader" id="remove-detail">
+remove()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public <a href="CHttpCookie.html">CHttpCookie</a> <b>remove</b>(mixed $name)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$name</td>
+  <td class="paramTypeCol">mixed</td>
+  <td class="paramDescCol">Cookie name.</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol"><a href="CHttpCookie.html">CHttpCookie</a></td>
+  <td class="paramDescCol">The removed cookie object.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CHttpRequest.php#963">framework/web/CHttpRequest.php#963</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">remove</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if((</span><span style="color: #0000BB">$cookie</span><span style="color: #007700">=</span><span style="color: #0000BB">parent</span><span style="color: #007700">::</span><span style="color: #0000BB">remove</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">))!==</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_initialized</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">removeCookie</span><span style="color: #007700">(</span><span style="color: #0000BB">$cookie</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$cookie</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Removes a cookie with the specified name.
+This overrides the parent implementation by performing additional
+cleanup work when removing a CHttpCookie object.</p>
+
+
+<div class="detailHeader" id="removeCookie-detail">
+removeCookie()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+protected void <b>removeCookie</b>(<a href="CHttpCookie.html">CHttpCookie</a> $cookie)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$cookie</td>
+  <td class="paramTypeCol"><a href="CHttpCookie.html">CHttpCookie</a></td>
+  <td class="paramDescCol">cook to be deleted</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CHttpRequest.php#992">framework/web/CHttpRequest.php#992</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">protected&nbsp;function&nbsp;</span><span style="color: #0000BB">removeCookie</span><span style="color: #007700">(</span><span style="color: #0000BB">$cookie</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">version_compare</span><span style="color: #007700">(</span><span style="color: #0000BB">PHP_VERSION</span><span style="color: #007700">,</span><span style="color: #DD0000">'5.2.0'</span><span style="color: #007700">,</span><span style="color: #DD0000">'&gt;='</span><span style="color: #007700">))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">setcookie</span><span style="color: #007700">(</span><span style="color: #0000BB">$cookie</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">name</span><span style="color: #007700">,</span><span style="color: #0000BB">null</span><span style="color: #007700">,</span><span style="color: #0000BB">0</span><span style="color: #007700">,</span><span style="color: #0000BB">$cookie</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">path</span><span style="color: #007700">,</span><span style="color: #0000BB">$cookie</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">domain</span><span style="color: #007700">,</span><span style="color: #0000BB">$cookie</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">secure</span><span style="color: #007700">,</span><span style="color: #0000BB">$cookie</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">httpOnly</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">setcookie</span><span style="color: #007700">(</span><span style="color: #0000BB">$cookie</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">name</span><span style="color: #007700">,</span><span style="color: #0000BB">null</span><span style="color: #007700">,</span><span style="color: #0000BB">0</span><span style="color: #007700">,</span><span style="color: #0000BB">$cookie</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">path</span><span style="color: #007700">,</span><span style="color: #0000BB">$cookie</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">domain</span><span style="color: #007700">,</span><span style="color: #0000BB">$cookie</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">secure</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Deletes a cookie.</p>
+
+
+</div><!-- end of content -->
+
+<div id="apiFooter">
+Copyright &copy; 2008-2011 by <a href="http://www.yiisoft.com">Yii Software LLC</a><br/>
+All Rights Reserved.<br/>
+</div><!-- end of footer -->
+
+<script type="text/javascript">
+/*<![CDATA[*/
+$("a.toggle").toggle(function(){
+	$(this).text($(this).text().replace(/Hide/,'Show'));
+	$(this).parents(".summary").find(".inherited").hide();
+},function(){
+	$(this).text($(this).text().replace(/Show/,'Hide'));
+	$(this).parents(".summary").find(".inherited").show();
+});
+$(".sourceCode a.show").toggle(function(){
+	$(this).text($(this).text().replace(/show/,'hide'));
+	$(this).parents(".sourceCode").find("div.code").show();
+},function(){
+	$(this).text($(this).text().replace(/hide/,'show'));
+	$(this).parents(".sourceCode").find("div.code").hide();
+});
+$("a.sourceLink").click(function(){
+	$(this).attr('target','_blank');
+});
+/*]]>*/
+</script>
+
+</div><!-- end of page -->
+</body>
+</html>

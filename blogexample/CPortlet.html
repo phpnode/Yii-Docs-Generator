@@ -1,0 +1,682 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="language" content="en" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="css/api.css" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<title>CPortlet</title>
+</head>
+
+<body>
+<div id="apiPage">
+
+<div id="apiHeader">
+My Console Application Class Reference
+</div><!-- end of header -->
+
+<div id="content">
+<h1>CPortlet</h1>
+<div id="nav">
+<a href="index.html">All Packages</a>
+| <a href="#properties">Properties</a>
+| <a href="#methods">Methods</a>
+</div>
+
+<table class="summaryTable docClass">
+<colgroup>
+	<col class="col-name" />
+	<col class="col-value" />
+</colgroup>
+<tr>
+  <th>Package</th>
+  <td><a href="index.html#zii.widgets">zii.widgets</a></td>
+</tr>
+<tr>
+  <th>Inheritance</th>
+  <td>class CPortlet &raquo;
+<a href="CWidget.html">CWidget</a> &raquo;
+<a href="CBaseController.html">CBaseController</a> &raquo;
+<a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr>
+  <th>Subclasses</th>
+  <td><a href="RecentComments.html">RecentComments</a>, <a href="TagCloud.html">TagCloud</a>, <a href="UserMenu.html">UserMenu</a></td>
+</tr>
+<tr>
+  <th>Since</th>
+  <td>1.1</td>
+</tr>
+<tr>
+  <th>Version</th>
+  <td>$Id: CPortlet.php 2799 2011-01-01 19:31:13Z qiang.xue $</td>
+</tr>
+<tr>
+  <th>Source Code</th>
+  <td><a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/zii/widgets/CPortlet.php">framework/zii/widgets/CPortlet.php</a></td>
+</tr>
+<tr>
+  <th>Author</th>
+  <td>Qiang Xue &lt;qiang.xue@gmail.com&gt;</td>
+</tr>
+</table>
+
+<div id="classDescription">
+CPortlet is the base class for portlet widgets.
+<br/><br/>
+A portlet displays a fragment of content, usually in terms of a block
+on the side bars of a Web page.
+<br/><br/>
+To specify the content of the portlet, override the <a href="CPortlet.html#renderContent">renderContent</a>
+method, or insert the content code between the <a href="CController.html#beginWidget">CController::beginWidget</a>
+and <a href="CController.html#endWidget">CController::endWidget</a> calls. For example,
+<br/><br/>
+<pre>
+&lt;?php $this-&gt;beginWidget('zii.widgets.CPortlet'); ?&gt;
+    ...insert content here...
+&lt;?php $this-&gt;endWidget(); ?&gt;
+</pre>
+<br/><br/>
+A portlet also has an optional <a href="CPortlet.html#title">title</a>. One may also override <a href="CPortlet.html#renderDecoration">renderDecoration</a>
+to further customize the decorative display of a portlet (e.g. adding min/max buttons).</div>
+<a name="properties"></a>
+
+<div class="summary docProperty">
+<h2>Public Properties</h2>
+
+<p><a href="#" class="toggle">Hide inherited properties</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-property" />
+	<col class="col-type" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>Property</th><th>Type</th><th>Description</th><th>Defined By</th>
+</tr>
+<tr class="inherited" id="actionPrefix">
+  <td><a href="CWidget.html#actionPrefix-detail">actionPrefix</a></td>
+  <td>string</td>
+  <td>the prefix to the IDs of the <a href="CPortlet.html#actions">actions</a>.</td>
+  <td><a href="CWidget.html">CWidget</a></td>
+</tr>
+<tr id="contentCssClass">
+  <td><a href="CPortlet.html#contentCssClass-detail">contentCssClass</a></td>
+  <td>string</td>
+  <td>the CSS class for the content container tag.</td>
+  <td>CPortlet</td>
+</tr>
+<tr class="inherited" id="controller">
+  <td><a href="CWidget.html#controller-detail">controller</a></td>
+  <td><a href="CController.html">CController</a></td>
+  <td>Returns the controller that this widget belongs to.</td>
+  <td><a href="CWidget.html">CWidget</a></td>
+</tr>
+<tr id="decorationCssClass">
+  <td><a href="CPortlet.html#decorationCssClass-detail">decorationCssClass</a></td>
+  <td>string</td>
+  <td>the CSS class for the decoration container tag.</td>
+  <td>CPortlet</td>
+</tr>
+<tr id="hideOnEmpty">
+  <td><a href="CPortlet.html#hideOnEmpty-detail">hideOnEmpty</a></td>
+  <td>boolean</td>
+  <td>whether to hide the portlet when the body content is empty.</td>
+  <td>CPortlet</td>
+</tr>
+<tr id="htmlOptions">
+  <td><a href="CPortlet.html#htmlOptions-detail">htmlOptions</a></td>
+  <td>array</td>
+  <td>the HTML attributes for the portlet container tag.</td>
+  <td>CPortlet</td>
+</tr>
+<tr class="inherited" id="id">
+  <td><a href="CWidget.html#id-detail">id</a></td>
+  <td>string</td>
+  <td>Returns the ID of the widget or generates a new one if requested.</td>
+  <td><a href="CWidget.html">CWidget</a></td>
+</tr>
+<tr class="inherited" id="owner">
+  <td><a href="CWidget.html#owner-detail">owner</a></td>
+  <td><a href="CBaseController.html">CBaseController</a></td>
+  <td>Returns the owner/creator of this widget.</td>
+  <td><a href="CWidget.html">CWidget</a></td>
+</tr>
+<tr class="inherited" id="skin">
+  <td><a href="CWidget.html#skin-detail">skin</a></td>
+  <td>mixed</td>
+  <td>the name of the skin to be used by this widget.</td>
+  <td><a href="CWidget.html">CWidget</a></td>
+</tr>
+<tr id="tagName">
+  <td><a href="CPortlet.html#tagName-detail">tagName</a></td>
+  <td>string</td>
+  <td>the tag name for the portlet container tag.</td>
+  <td>CPortlet</td>
+</tr>
+<tr id="title">
+  <td><a href="CPortlet.html#title-detail">title</a></td>
+  <td>string</td>
+  <td>the title of the portlet.</td>
+  <td>CPortlet</td>
+</tr>
+<tr id="titleCssClass">
+  <td><a href="CPortlet.html#titleCssClass-detail">titleCssClass</a></td>
+  <td>string</td>
+  <td>the CSS class for the portlet title tag.</td>
+  <td>CPortlet</td>
+</tr>
+<tr class="inherited" id="viewPath">
+  <td><a href="CWidget.html#viewPath-detail">viewPath</a></td>
+  <td>string</td>
+  <td>Returns the directory containing the view files for this widget.</td>
+  <td><a href="CWidget.html">CWidget</a></td>
+</tr>
+</table>
+</div>
+<a name="methods"></a>
+
+<div class="summary docMethod">
+<h2>Public Methods</h2>
+
+<p><a href="#" class="toggle">Hide inherited methods</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-method" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>Method</th><th>Description</th><th>Defined By</th>
+</tr>
+<tr class="inherited" id="__call">
+  <td><a href="CComponent.html#__call-detail">__call()</a></td>
+  <td>Calls the named method which is not a class method.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__construct">
+  <td><a href="CWidget.html#__construct-detail">__construct()</a></td>
+  <td>Constructor.</td>
+  <td><a href="CWidget.html">CWidget</a></td>
+</tr>
+<tr class="inherited" id="__get">
+  <td><a href="CComponent.html#__get-detail">__get()</a></td>
+  <td>Returns a property value, an event handler list or a behavior based on its name.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__isset">
+  <td><a href="CComponent.html#__isset-detail">__isset()</a></td>
+  <td>Checks if a property value is null.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__set">
+  <td><a href="CComponent.html#__set-detail">__set()</a></td>
+  <td>Sets value of a component property.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__unset">
+  <td><a href="CComponent.html#__unset-detail">__unset()</a></td>
+  <td>Sets a component property to be null.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="actions">
+  <td><a href="CWidget.html#actions-detail">actions()</a></td>
+  <td>Returns a list of actions that are used by this widget.</td>
+  <td><a href="CWidget.html">CWidget</a></td>
+</tr>
+<tr class="inherited" id="asa">
+  <td><a href="CComponent.html#asa-detail">asa()</a></td>
+  <td>Returns the named behavior object.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="attachBehavior">
+  <td><a href="CComponent.html#attachBehavior-detail">attachBehavior()</a></td>
+  <td>Attaches a behavior to this component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="attachBehaviors">
+  <td><a href="CComponent.html#attachBehaviors-detail">attachBehaviors()</a></td>
+  <td>Attaches a list of behaviors to the component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="attachEventHandler">
+  <td><a href="CComponent.html#attachEventHandler-detail">attachEventHandler()</a></td>
+  <td>Attaches an event handler to an event.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="beginCache">
+  <td><a href="CBaseController.html#beginCache-detail">beginCache()</a></td>
+  <td>Begins fragment caching.</td>
+  <td><a href="CBaseController.html">CBaseController</a></td>
+</tr>
+<tr class="inherited" id="beginClip">
+  <td><a href="CBaseController.html#beginClip-detail">beginClip()</a></td>
+  <td>Begins recording a clip.</td>
+  <td><a href="CBaseController.html">CBaseController</a></td>
+</tr>
+<tr class="inherited" id="beginContent">
+  <td><a href="CBaseController.html#beginContent-detail">beginContent()</a></td>
+  <td>Begins the rendering of content that is to be decorated by the specified view.</td>
+  <td><a href="CBaseController.html">CBaseController</a></td>
+</tr>
+<tr class="inherited" id="beginWidget">
+  <td><a href="CBaseController.html#beginWidget-detail">beginWidget()</a></td>
+  <td>Creates a widget and executes it.</td>
+  <td><a href="CBaseController.html">CBaseController</a></td>
+</tr>
+<tr class="inherited" id="canGetProperty">
+  <td><a href="CComponent.html#canGetProperty-detail">canGetProperty()</a></td>
+  <td>Determines whether a property can be read.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="canSetProperty">
+  <td><a href="CComponent.html#canSetProperty-detail">canSetProperty()</a></td>
+  <td>Determines whether a property can be set.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="createWidget">
+  <td><a href="CBaseController.html#createWidget-detail">createWidget()</a></td>
+  <td>Creates a widget and initializes it.</td>
+  <td><a href="CBaseController.html">CBaseController</a></td>
+</tr>
+<tr class="inherited" id="detachBehavior">
+  <td><a href="CComponent.html#detachBehavior-detail">detachBehavior()</a></td>
+  <td>Detaches a behavior from the component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="detachBehaviors">
+  <td><a href="CComponent.html#detachBehaviors-detail">detachBehaviors()</a></td>
+  <td>Detaches all behaviors from the component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="detachEventHandler">
+  <td><a href="CComponent.html#detachEventHandler-detail">detachEventHandler()</a></td>
+  <td>Detaches an existing event handler.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="disableBehavior">
+  <td><a href="CComponent.html#disableBehavior-detail">disableBehavior()</a></td>
+  <td>Disables an attached behavior.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="disableBehaviors">
+  <td><a href="CComponent.html#disableBehaviors-detail">disableBehaviors()</a></td>
+  <td>Disables all behaviors attached to this component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="enableBehavior">
+  <td><a href="CComponent.html#enableBehavior-detail">enableBehavior()</a></td>
+  <td>Enables an attached behavior.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="enableBehaviors">
+  <td><a href="CComponent.html#enableBehaviors-detail">enableBehaviors()</a></td>
+  <td>Enables all behaviors attached to this component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="endCache">
+  <td><a href="CBaseController.html#endCache-detail">endCache()</a></td>
+  <td>Ends fragment caching.</td>
+  <td><a href="CBaseController.html">CBaseController</a></td>
+</tr>
+<tr class="inherited" id="endClip">
+  <td><a href="CBaseController.html#endClip-detail">endClip()</a></td>
+  <td>Ends recording a clip.</td>
+  <td><a href="CBaseController.html">CBaseController</a></td>
+</tr>
+<tr class="inherited" id="endContent">
+  <td><a href="CBaseController.html#endContent-detail">endContent()</a></td>
+  <td>Ends the rendering of content.</td>
+  <td><a href="CBaseController.html">CBaseController</a></td>
+</tr>
+<tr class="inherited" id="endWidget">
+  <td><a href="CBaseController.html#endWidget-detail">endWidget()</a></td>
+  <td>Ends the execution of the named widget.</td>
+  <td><a href="CBaseController.html">CBaseController</a></td>
+</tr>
+<tr class="inherited" id="evaluateExpression">
+  <td><a href="CComponent.html#evaluateExpression-detail">evaluateExpression()</a></td>
+  <td>Evaluates a PHP expression or callback under the context of this component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="getController">
+  <td><a href="CWidget.html#getController-detail">getController()</a></td>
+  <td>Returns the controller that this widget belongs to.</td>
+  <td><a href="CWidget.html">CWidget</a></td>
+</tr>
+<tr class="inherited" id="getEventHandlers">
+  <td><a href="CComponent.html#getEventHandlers-detail">getEventHandlers()</a></td>
+  <td>Returns the list of attached event handlers for an event.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="getId">
+  <td><a href="CWidget.html#getId-detail">getId()</a></td>
+  <td>Returns the ID of the widget or generates a new one if requested.</td>
+  <td><a href="CWidget.html">CWidget</a></td>
+</tr>
+<tr class="inherited" id="getOwner">
+  <td><a href="CWidget.html#getOwner-detail">getOwner()</a></td>
+  <td>Returns the owner/creator of this widget.</td>
+  <td><a href="CWidget.html">CWidget</a></td>
+</tr>
+<tr class="inherited" id="getViewFile">
+  <td><a href="CWidget.html#getViewFile-detail">getViewFile()</a></td>
+  <td>Looks for the view script file according to the view name.</td>
+  <td><a href="CWidget.html">CWidget</a></td>
+</tr>
+<tr class="inherited" id="getViewPath">
+  <td><a href="CWidget.html#getViewPath-detail">getViewPath()</a></td>
+  <td>Returns the directory containing the view files for this widget.</td>
+  <td><a href="CWidget.html">CWidget</a></td>
+</tr>
+<tr class="inherited" id="hasEvent">
+  <td><a href="CComponent.html#hasEvent-detail">hasEvent()</a></td>
+  <td>Determines whether an event is defined.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="hasEventHandler">
+  <td><a href="CComponent.html#hasEventHandler-detail">hasEventHandler()</a></td>
+  <td>Checks whether the named event has attached handlers.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="hasProperty">
+  <td><a href="CComponent.html#hasProperty-detail">hasProperty()</a></td>
+  <td>Determines whether a property is defined.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr id="init">
+  <td><a href="CPortlet.html#init-detail">init()</a></td>
+  <td>Initializes the widget.</td>
+  <td>CPortlet</td>
+</tr>
+<tr class="inherited" id="raiseEvent">
+  <td><a href="CComponent.html#raiseEvent-detail">raiseEvent()</a></td>
+  <td>Raises an event.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="render">
+  <td><a href="CWidget.html#render-detail">render()</a></td>
+  <td>Renders a view.</td>
+  <td><a href="CWidget.html">CWidget</a></td>
+</tr>
+<tr class="inherited" id="renderFile">
+  <td><a href="CBaseController.html#renderFile-detail">renderFile()</a></td>
+  <td>Renders a view file.</td>
+  <td><a href="CBaseController.html">CBaseController</a></td>
+</tr>
+<tr class="inherited" id="renderInternal">
+  <td><a href="CBaseController.html#renderInternal-detail">renderInternal()</a></td>
+  <td>Renders a view file.</td>
+  <td><a href="CBaseController.html">CBaseController</a></td>
+</tr>
+<tr id="run">
+  <td><a href="CPortlet.html#run-detail">run()</a></td>
+  <td>Renders the content of the portlet.</td>
+  <td>CPortlet</td>
+</tr>
+<tr class="inherited" id="setId">
+  <td><a href="CWidget.html#setId-detail">setId()</a></td>
+  <td>Sets the ID of the widget.</td>
+  <td><a href="CWidget.html">CWidget</a></td>
+</tr>
+<tr class="inherited" id="widget">
+  <td><a href="CBaseController.html#widget-detail">widget()</a></td>
+  <td>Creates a widget and executes it.</td>
+  <td><a href="CBaseController.html">CBaseController</a></td>
+</tr>
+</table>
+</div>
+<div class="summary docMethod">
+<h2>Protected Methods</h2>
+
+<p><a href="#" class="toggle">Hide inherited methods</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-method" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>Method</th><th>Description</th><th>Defined By</th>
+</tr>
+<tr id="renderContent">
+  <td><a href="CPortlet.html#renderContent-detail">renderContent()</a></td>
+  <td>Renders the content of the portlet.</td>
+  <td>CPortlet</td>
+</tr>
+<tr id="renderDecoration">
+  <td><a href="CPortlet.html#renderDecoration-detail">renderDecoration()</a></td>
+  <td>Renders the decoration for the portlet.</td>
+  <td>CPortlet</td>
+</tr>
+</table>
+</div>
+<a name="events"></a>
+
+<h2>Property Details</h2>
+<div class="detailHeader" id="contentCssClass-detail">
+contentCssClass<span class="detailHeaderTag">
+property
+</span>
+</div>
+
+<div class="signature">
+public string <b>$contentCssClass</b>;</div>
+
+<p>the CSS class for the content container tag. Defaults to 'portlet-content'.</p>
+
+
+<div class="detailHeader" id="decorationCssClass-detail">
+decorationCssClass<span class="detailHeaderTag">
+property
+</span>
+</div>
+
+<div class="signature">
+public string <b>$decorationCssClass</b>;</div>
+
+<p>the CSS class for the decoration container tag. Defaults to 'portlet-decoration'.</p>
+
+
+<div class="detailHeader" id="hideOnEmpty-detail">
+hideOnEmpty<span class="detailHeaderTag">
+property
+ (available since v1.1.4)
+</span>
+</div>
+
+<div class="signature">
+public boolean <b>$hideOnEmpty</b>;</div>
+
+<p>whether to hide the portlet when the body content is empty. Defaults to true.</p>
+
+
+<div class="detailHeader" id="htmlOptions-detail">
+htmlOptions<span class="detailHeaderTag">
+property
+</span>
+</div>
+
+<div class="signature">
+public array <b>$htmlOptions</b>;</div>
+
+<p>the HTML attributes for the portlet container tag.</p>
+
+
+<div class="detailHeader" id="tagName-detail">
+tagName<span class="detailHeaderTag">
+property
+</span>
+</div>
+
+<div class="signature">
+public string <b>$tagName</b>;</div>
+
+<p>the tag name for the portlet container tag. Defaults to 'div'.</p>
+
+
+<div class="detailHeader" id="title-detail">
+title<span class="detailHeaderTag">
+property
+</span>
+</div>
+
+<div class="signature">
+public string <b>$title</b>;</div>
+
+<p>the title of the portlet. Defaults to null.
+When this is not set, Decoration will not be displayed.
+Note that the title will not be HTML-encoded when rendering.</p>
+
+
+<div class="detailHeader" id="titleCssClass-detail">
+titleCssClass<span class="detailHeaderTag">
+property
+</span>
+</div>
+
+<div class="signature">
+public string <b>$titleCssClass</b>;</div>
+
+<p>the CSS class for the portlet title tag. Defaults to 'portlet-title'.</p>
+
+
+<h2>Method Details</h2>
+
+<div class="detailHeader" id="init-detail">
+init()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>init</b>()</div>
+</td></tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/zii/widgets/CPortlet.php#76">framework/zii/widgets/CPortlet.php#76</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">init</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">ob_start</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">ob_implicit_flush</span><span style="color: #007700">(</span><span style="color: #0000BB">false</span><span style="color: #007700">);<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">htmlOptions</span><span style="color: #007700">[</span><span style="color: #DD0000">'id'</span><span style="color: #007700">]=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getId</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">CHtml</span><span style="color: #007700">::</span><span style="color: #0000BB">openTag</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">tagName</span><span style="color: #007700">,</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">htmlOptions</span><span style="color: #007700">).</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">renderDecoration</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"&lt;div&nbsp;class=\"</span><span style="color: #007700">{</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">contentCssClass</span><span style="color: #007700">}</span><span style="color: #DD0000">\"&gt;\n"</span><span style="color: #007700">;<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_openTag</span><span style="color: #007700">=</span><span style="color: #0000BB">ob_get_contents</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">ob_clean</span><span style="color: #007700">();<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Initializes the widget.
+This renders the open tags needed by the portlet.
+It also renders the decoration, if any.</p>
+
+
+<div class="detailHeader" id="renderContent-detail">
+renderContent()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+protected void <b>renderContent</b>()</div>
+</td></tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/zii/widgets/CPortlet.php#123">framework/zii/widgets/CPortlet.php#123</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">protected&nbsp;function&nbsp;</span><span style="color: #0000BB">renderContent</span><span style="color: #007700">()<br />{<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Renders the content of the portlet.
+Child classes should override this method to render the actual content.</p>
+
+
+<div class="detailHeader" id="renderDecoration-detail">
+renderDecoration()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+protected void <b>renderDecoration</b>()</div>
+</td></tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/zii/widgets/CPortlet.php#109">framework/zii/widgets/CPortlet.php#109</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">protected&nbsp;function&nbsp;</span><span style="color: #0000BB">renderDecoration</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">title</span><span style="color: #007700">!==</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"&lt;div&nbsp;class=\"</span><span style="color: #007700">{</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">decorationCssClass</span><span style="color: #007700">}</span><span style="color: #DD0000">\"&gt;\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"&lt;div&nbsp;class=\"</span><span style="color: #007700">{</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">titleCssClass</span><span style="color: #007700">}</span><span style="color: #DD0000">\"&gt;</span><span style="color: #007700">{</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">title</span><span style="color: #007700">}</span><span style="color: #DD0000">&lt;/div&gt;\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"&lt;/div&gt;\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Renders the decoration for the portlet.
+The default implementation will render the title if it is set.</p>
+
+
+<div class="detailHeader" id="run-detail">
+run()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>run</b>()</div>
+</td></tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/zii/widgets/CPortlet.php#93">framework/zii/widgets/CPortlet.php#93</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">run</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">renderContent</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$content</span><span style="color: #007700">=</span><span style="color: #0000BB">ob_get_clean</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">hideOnEmpty&nbsp;</span><span style="color: #007700">&amp;&amp;&nbsp;</span><span style="color: #0000BB">trim</span><span style="color: #007700">(</span><span style="color: #0000BB">$content</span><span style="color: #007700">)===</span><span style="color: #DD0000">''</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return;<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_openTag</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">$content</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"&lt;/div&gt;\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">CHtml</span><span style="color: #007700">::</span><span style="color: #0000BB">closeTag</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">tagName</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Renders the content of the portlet.</p>
+
+
+</div><!-- end of content -->
+
+<div id="apiFooter">
+Copyright &copy; 2008-2011 by <a href="http://www.yiisoft.com">Yii Software LLC</a><br/>
+All Rights Reserved.<br/>
+</div><!-- end of footer -->
+
+<script type="text/javascript">
+/*<![CDATA[*/
+$("a.toggle").toggle(function(){
+	$(this).text($(this).text().replace(/Hide/,'Show'));
+	$(this).parents(".summary").find(".inherited").hide();
+},function(){
+	$(this).text($(this).text().replace(/Show/,'Hide'));
+	$(this).parents(".summary").find(".inherited").show();
+});
+$(".sourceCode a.show").toggle(function(){
+	$(this).text($(this).text().replace(/show/,'hide'));
+	$(this).parents(".sourceCode").find("div.code").show();
+},function(){
+	$(this).text($(this).text().replace(/hide/,'show'));
+	$(this).parents(".sourceCode").find("div.code").hide();
+});
+$("a.sourceLink").click(function(){
+	$(this).attr('target','_blank');
+});
+/*]]>*/
+</script>
+
+</div><!-- end of page -->
+</body>
+</html>

@@ -1,0 +1,784 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="language" content="en" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="css/api.css" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<title>CValidator</title>
+</head>
+
+<body>
+<div id="apiPage">
+
+<div id="apiHeader">
+My Console Application Class Reference
+</div><!-- end of header -->
+
+<div id="content">
+<h1>CValidator</h1>
+<div id="nav">
+<a href="index.html">All Packages</a>
+| <a href="#properties">Properties</a>
+| <a href="#methods">Methods</a>
+</div>
+
+<table class="summaryTable docClass">
+<colgroup>
+	<col class="col-name" />
+	<col class="col-value" />
+</colgroup>
+<tr>
+  <th>Package</th>
+  <td><a href="index.html#system.validators">system.validators</a></td>
+</tr>
+<tr>
+  <th>Inheritance</th>
+  <td>abstract class CValidator &raquo;
+<a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr>
+  <th>Subclasses</th>
+  <td><a href="CBooleanValidator.html">CBooleanValidator</a>, <a href="CCaptchaValidator.html">CCaptchaValidator</a>, <a href="CCompareValidator.html">CCompareValidator</a>, <a href="CDateValidator.html">CDateValidator</a>, <a href="CDefaultValueValidator.html">CDefaultValueValidator</a>, <a href="CEmailValidator.html">CEmailValidator</a>, <a href="CExistValidator.html">CExistValidator</a>, <a href="CFileValidator.html">CFileValidator</a>, <a href="CFilterValidator.html">CFilterValidator</a>, <a href="CInlineValidator.html">CInlineValidator</a>, <a href="CNumberValidator.html">CNumberValidator</a>, <a href="CRangeValidator.html">CRangeValidator</a>, <a href="CRegularExpressionValidator.html">CRegularExpressionValidator</a>, <a href="CRequiredValidator.html">CRequiredValidator</a>, <a href="CSafeValidator.html">CSafeValidator</a>, <a href="CStringValidator.html">CStringValidator</a>, <a href="CTypeValidator.html">CTypeValidator</a>, <a href="CUniqueValidator.html">CUniqueValidator</a>, <a href="CUnsafeValidator.html">CUnsafeValidator</a>, <a href="CUrlValidator.html">CUrlValidator</a></td>
+</tr>
+<tr>
+  <th>Since</th>
+  <td>1.0</td>
+</tr>
+<tr>
+  <th>Version</th>
+  <td>$Id: CValidator.php 3160 2011-04-03 01:08:23Z qiang.xue $</td>
+</tr>
+<tr>
+  <th>Source Code</th>
+  <td><a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/validators/CValidator.php">framework/validators/CValidator.php</a></td>
+</tr>
+<tr>
+  <th>Author</th>
+  <td>Qiang Xue &lt;qiang.xue@gmail.com&gt;</td>
+</tr>
+</table>
+
+<div id="classDescription">
+CValidator is the base class for all validators.
+<br/><br/>
+Child classes must implement the <a href="CValidator.html#validateAttribute">validateAttribute</a> method.
+<br/><br/>
+The following properties are defined in CValidator:
+<ul>
+<li><a href="CValidator.html#attributes">attributes</a>: array, list of attributes to be validated;</li>
+<li><a href="CValidator.html#message">message</a>: string, the customized error message. The message
+  may contain placeholders that will be replaced with the actual content.
+  For example, the "{attribute}" placeholder will be replaced with the label
+  of the problematic attribute. Different validators may define additional
+  placeholders.</li>
+<li><a href="CValidator.html#on">on</a>: string, in which scenario should the validator be in effect.
+  This is used to match the 'on' parameter supplied when calling <a href="CModel.html#validate">CModel::validate</a>.</li>
+</ul>
+<br/><br/>
+When using <a href="CValidator.html#createValidator">createValidator</a> to create a validator, the following aliases
+are recognized as the corresponding built-in validator classes:
+<ul>
+<li>required: <a href="CRequiredValidator.html">CRequiredValidator</a></li>
+<li>filter: <a href="CFilterValidator.html">CFilterValidator</a></li>
+<li>match: <a href="CRegularExpressionValidator.html">CRegularExpressionValidator</a></li>
+<li>email: <a href="CEmailValidator.html">CEmailValidator</a></li>
+<li>url: <a href="CUrlValidator.html">CUrlValidator</a></li>
+<li>unique: <a href="CUniqueValidator.html">CUniqueValidator</a></li>
+<li>compare: <a href="CCompareValidator.html">CCompareValidator</a></li>
+<li>length: <a href="CStringValidator.html">CStringValidator</a></li>
+<li>in: <a href="CRangeValidator.html">CRangeValidator</a></li>
+<li>numerical: <a href="CNumberValidator.html">CNumberValidator</a></li>
+<li>captcha: <a href="CCaptchaValidator.html">CCaptchaValidator</a></li>
+<li>type: <a href="CTypeValidator.html">CTypeValidator</a></li>
+<li>file: <a href="CFileValidator.html">CFileValidator</a></li>
+<li>default: <a href="CDefaultValueValidator.html">CDefaultValueValidator</a></li>
+<li>exist: <a href="CExistValidator.html">CExistValidator</a></li>
+<li>boolean: <a href="CBooleanValidator.html">CBooleanValidator</a></li>
+<li>date: <a href="CDateValidator.html">CDateValidator</a></li>
+<li>safe: <a href="CSafeValidator.html">CSafeValidator</a></li>
+<li>unsafe: <a href="CUnsafeValidator.html">CUnsafeValidator</a></li>
+</ul></div>
+<a name="properties"></a>
+
+<div class="summary docProperty">
+<h2>Public Properties</h2>
+
+<p><a href="#" class="toggle">Hide inherited properties</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-property" />
+	<col class="col-type" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>Property</th><th>Type</th><th>Description</th><th>Defined By</th>
+</tr>
+<tr id="attributes">
+  <td><a href="CValidator.html#attributes-detail">attributes</a></td>
+  <td>array</td>
+  <td>list of attributes to be validated.</td>
+  <td>CValidator</td>
+</tr>
+<tr id="builtInValidators">
+  <td><a href="CValidator.html#builtInValidators-detail">builtInValidators</a></td>
+  <td>array</td>
+  <td>list of built-in validators (name=>class)</td>
+  <td>CValidator</td>
+</tr>
+<tr id="enableClientValidation">
+  <td><a href="CValidator.html#enableClientValidation-detail">enableClientValidation</a></td>
+  <td>boolean</td>
+  <td>whether to perform client-side validation.</td>
+  <td>CValidator</td>
+</tr>
+<tr id="message">
+  <td><a href="CValidator.html#message-detail">message</a></td>
+  <td>string</td>
+  <td>the user-defined error message.</td>
+  <td>CValidator</td>
+</tr>
+<tr id="on">
+  <td><a href="CValidator.html#on-detail">on</a></td>
+  <td>array</td>
+  <td>list of scenarios that the validator should be applied.</td>
+  <td>CValidator</td>
+</tr>
+<tr id="safe">
+  <td><a href="CValidator.html#safe-detail">safe</a></td>
+  <td>boolean</td>
+  <td>whether attributes listed with this validator should be considered safe for massive assignment.</td>
+  <td>CValidator</td>
+</tr>
+<tr id="skipOnError">
+  <td><a href="CValidator.html#skipOnError-detail">skipOnError</a></td>
+  <td>boolean</td>
+  <td>whether this validation rule should be skipped if when there is already a validation
+error for the current attribute.</td>
+  <td>CValidator</td>
+</tr>
+</table>
+</div>
+<a name="methods"></a>
+
+<div class="summary docMethod">
+<h2>Public Methods</h2>
+
+<p><a href="#" class="toggle">Hide inherited methods</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-method" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>Method</th><th>Description</th><th>Defined By</th>
+</tr>
+<tr class="inherited" id="__call">
+  <td><a href="CComponent.html#__call-detail">__call()</a></td>
+  <td>Calls the named method which is not a class method.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__get">
+  <td><a href="CComponent.html#__get-detail">__get()</a></td>
+  <td>Returns a property value, an event handler list or a behavior based on its name.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__isset">
+  <td><a href="CComponent.html#__isset-detail">__isset()</a></td>
+  <td>Checks if a property value is null.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__set">
+  <td><a href="CComponent.html#__set-detail">__set()</a></td>
+  <td>Sets value of a component property.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__unset">
+  <td><a href="CComponent.html#__unset-detail">__unset()</a></td>
+  <td>Sets a component property to be null.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr id="applyTo">
+  <td><a href="CValidator.html#applyTo-detail">applyTo()</a></td>
+  <td>Returns a value indicating whether the validator applies to the specified scenario.</td>
+  <td>CValidator</td>
+</tr>
+<tr class="inherited" id="asa">
+  <td><a href="CComponent.html#asa-detail">asa()</a></td>
+  <td>Returns the named behavior object.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="attachBehavior">
+  <td><a href="CComponent.html#attachBehavior-detail">attachBehavior()</a></td>
+  <td>Attaches a behavior to this component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="attachBehaviors">
+  <td><a href="CComponent.html#attachBehaviors-detail">attachBehaviors()</a></td>
+  <td>Attaches a list of behaviors to the component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="attachEventHandler">
+  <td><a href="CComponent.html#attachEventHandler-detail">attachEventHandler()</a></td>
+  <td>Attaches an event handler to an event.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="canGetProperty">
+  <td><a href="CComponent.html#canGetProperty-detail">canGetProperty()</a></td>
+  <td>Determines whether a property can be read.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="canSetProperty">
+  <td><a href="CComponent.html#canSetProperty-detail">canSetProperty()</a></td>
+  <td>Determines whether a property can be set.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr id="clientValidateAttribute">
+  <td><a href="CValidator.html#clientValidateAttribute-detail">clientValidateAttribute()</a></td>
+  <td>Returns the JavaScript needed for performing client-side validation.</td>
+  <td>CValidator</td>
+</tr>
+<tr id="createValidator">
+  <td><a href="CValidator.html#createValidator-detail">createValidator()</a></td>
+  <td>Creates a validator object.</td>
+  <td>CValidator</td>
+</tr>
+<tr class="inherited" id="detachBehavior">
+  <td><a href="CComponent.html#detachBehavior-detail">detachBehavior()</a></td>
+  <td>Detaches a behavior from the component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="detachBehaviors">
+  <td><a href="CComponent.html#detachBehaviors-detail">detachBehaviors()</a></td>
+  <td>Detaches all behaviors from the component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="detachEventHandler">
+  <td><a href="CComponent.html#detachEventHandler-detail">detachEventHandler()</a></td>
+  <td>Detaches an existing event handler.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="disableBehavior">
+  <td><a href="CComponent.html#disableBehavior-detail">disableBehavior()</a></td>
+  <td>Disables an attached behavior.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="disableBehaviors">
+  <td><a href="CComponent.html#disableBehaviors-detail">disableBehaviors()</a></td>
+  <td>Disables all behaviors attached to this component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="enableBehavior">
+  <td><a href="CComponent.html#enableBehavior-detail">enableBehavior()</a></td>
+  <td>Enables an attached behavior.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="enableBehaviors">
+  <td><a href="CComponent.html#enableBehaviors-detail">enableBehaviors()</a></td>
+  <td>Enables all behaviors attached to this component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="evaluateExpression">
+  <td><a href="CComponent.html#evaluateExpression-detail">evaluateExpression()</a></td>
+  <td>Evaluates a PHP expression or callback under the context of this component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="getEventHandlers">
+  <td><a href="CComponent.html#getEventHandlers-detail">getEventHandlers()</a></td>
+  <td>Returns the list of attached event handlers for an event.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="hasEvent">
+  <td><a href="CComponent.html#hasEvent-detail">hasEvent()</a></td>
+  <td>Determines whether an event is defined.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="hasEventHandler">
+  <td><a href="CComponent.html#hasEventHandler-detail">hasEventHandler()</a></td>
+  <td>Checks whether the named event has attached handlers.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="hasProperty">
+  <td><a href="CComponent.html#hasProperty-detail">hasProperty()</a></td>
+  <td>Determines whether a property is defined.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="raiseEvent">
+  <td><a href="CComponent.html#raiseEvent-detail">raiseEvent()</a></td>
+  <td>Raises an event.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr id="validate">
+  <td><a href="CValidator.html#validate-detail">validate()</a></td>
+  <td>Validates the specified object.</td>
+  <td>CValidator</td>
+</tr>
+</table>
+</div>
+<div class="summary docMethod">
+<h2>Protected Methods</h2>
+
+<p><a href="#" class="toggle">Hide inherited methods</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-method" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>Method</th><th>Description</th><th>Defined By</th>
+</tr>
+<tr id="addError">
+  <td><a href="CValidator.html#addError-detail">addError()</a></td>
+  <td>Adds an error about the specified attribute to the active record.</td>
+  <td>CValidator</td>
+</tr>
+<tr id="isEmpty">
+  <td><a href="CValidator.html#isEmpty-detail">isEmpty()</a></td>
+  <td>Checks if the given value is empty.</td>
+  <td>CValidator</td>
+</tr>
+<tr id="validateAttribute">
+  <td><a href="CValidator.html#validateAttribute-detail">validateAttribute()</a></td>
+  <td>Validates a single attribute.</td>
+  <td>CValidator</td>
+</tr>
+</table>
+</div>
+<a name="events"></a>
+
+<h2>Property Details</h2>
+<div class="detailHeader" id="attributes-detail">
+attributes<span class="detailHeaderTag">
+property
+</span>
+</div>
+
+<div class="signature">
+public array <b>$attributes</b>;</div>
+
+<p>list of attributes to be validated.</p>
+
+
+<div class="detailHeader" id="builtInValidators-detail">
+builtInValidators<span class="detailHeaderTag">
+property
+</span>
+</div>
+
+<div class="signature">
+public static array <b>$builtInValidators</b>;</div>
+
+<p>list of built-in validators (name=>class)</p>
+
+
+<div class="detailHeader" id="enableClientValidation-detail">
+enableClientValidation<span class="detailHeaderTag">
+property
+ (available since v1.1.7)
+</span>
+</div>
+
+<div class="signature">
+public boolean <b>$enableClientValidation</b>;</div>
+
+<p>whether to perform client-side validation. Defaults to true.
+Please refer to <a href="CActiveForm.html#enableClientValidation">CActiveForm::enableClientValidation</a> for more details about client-side validation.</p>
+
+
+<div class="detailHeader" id="message-detail">
+message<span class="detailHeaderTag">
+property
+</span>
+</div>
+
+<div class="signature">
+public string <b>$message</b>;</div>
+
+<p>the user-defined error message. Different validators may define various
+placeholders in the message that are to be replaced with actual values. All validators
+recognize "{attribute}" placeholder, which will be replaced with the label of the attribute.</p>
+
+
+<div class="detailHeader" id="on-detail">
+on<span class="detailHeaderTag">
+property
+</span>
+</div>
+
+<div class="signature">
+public array <b>$on</b>;</div>
+
+<p>list of scenarios that the validator should be applied.
+Each array value refers to a scenario name with the same name as its array key.</p>
+
+
+<div class="detailHeader" id="safe-detail">
+safe<span class="detailHeaderTag">
+property
+ (available since v1.1.4)
+</span>
+</div>
+
+<div class="signature">
+public boolean <b>$safe</b>;</div>
+
+<p>whether attributes listed with this validator should be considered safe for massive assignment.
+Defaults to true.</p>
+
+
+<div class="detailHeader" id="skipOnError-detail">
+skipOnError<span class="detailHeaderTag">
+property
+ (available since v1.1.1)
+</span>
+</div>
+
+<div class="signature">
+public boolean <b>$skipOnError</b>;</div>
+
+<p>whether this validation rule should be skipped if when there is already a validation
+error for the current attribute. Defaults to false.</p>
+
+
+<h2>Method Details</h2>
+
+<div class="detailHeader" id="addError-detail">
+addError()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+protected void <b>addError</b>(<a href="CModel.html">CModel</a> $object, string $attribute, string $message, array $params=array (
+))</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$object</td>
+  <td class="paramTypeCol"><a href="CModel.html">CModel</a></td>
+  <td class="paramDescCol">the data object being validated</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$attribute</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the attribute being validated</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$message</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the error message</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$params</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">values for the placeholders in the error message</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/validators/CValidator.php#238">framework/validators/CValidator.php#238</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">protected&nbsp;function&nbsp;</span><span style="color: #0000BB">addError</span><span style="color: #007700">(</span><span style="color: #0000BB">$object</span><span style="color: #007700">,</span><span style="color: #0000BB">$attribute</span><span style="color: #007700">,</span><span style="color: #0000BB">$message</span><span style="color: #007700">,</span><span style="color: #0000BB">$params</span><span style="color: #007700">=array())<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$params</span><span style="color: #007700">[</span><span style="color: #DD0000">'{attribute}'</span><span style="color: #007700">]=</span><span style="color: #0000BB">$object</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getAttributeLabel</span><span style="color: #007700">(</span><span style="color: #0000BB">$attribute</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$object</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">addError</span><span style="color: #007700">(</span><span style="color: #0000BB">$attribute</span><span style="color: #007700">,</span><span style="color: #0000BB">strtr</span><span style="color: #007700">(</span><span style="color: #0000BB">$message</span><span style="color: #007700">,</span><span style="color: #0000BB">$params</span><span style="color: #007700">));<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Adds an error about the specified attribute to the active record.
+This is a helper method that performs message selection and internationalization.</p>
+
+
+<div class="detailHeader" id="applyTo-detail">
+applyTo()
+<span class="detailHeaderTag">
+method
+(available since v1.0.2)
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public boolean <b>applyTo</b>(string $scenario)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$scenario</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">scenario name</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">boolean</td>
+  <td class="paramDescCol">whether the validator applies to the specified scenario.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/validators/CValidator.php#225">framework/validators/CValidator.php#225</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">applyTo</span><span style="color: #007700">(</span><span style="color: #0000BB">$scenario</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;empty(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">on</span><span style="color: #007700">)&nbsp;||&nbsp;isset(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">on</span><span style="color: #007700">[</span><span style="color: #0000BB">$scenario</span><span style="color: #007700">]);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Returns a value indicating whether the validator applies to the specified scenario.
+A validator applies to a scenario as long as any of the following conditions is met:
+<ul>
+<li>the validator's "on" property is empty</li>
+<li>the validator's "on" property contains the specified scenario</li>
+</ul></p>
+
+
+<div class="detailHeader" id="clientValidateAttribute-detail">
+clientValidateAttribute()
+<span class="detailHeaderTag">
+method
+(available since v1.1.7)
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>clientValidateAttribute</b>(<a href="CModel.html">CModel</a> $object, string $attribute)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$object</td>
+  <td class="paramTypeCol"><a href="CModel.html">CModel</a></td>
+  <td class="paramDescCol">the data object being validated</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$attribute</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the name of the attribute to be validated.</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the client-side validation script. Null if the validator does not support client-side validation.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/validators/CValidator.php#210">framework/validators/CValidator.php#210</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">clientValidateAttribute</span><span style="color: #007700">(</span><span style="color: #0000BB">$object</span><span style="color: #007700">,</span><span style="color: #0000BB">$attribute</span><span style="color: #007700">)<br />{<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Returns the JavaScript needed for performing client-side validation.
+Do not override this method if the validator does not support client-side validation.
+Two predefined JavaScript variables can be used:
+<ul>
+<li>value: the value to be validated</li>
+<li>messages: an array used to hold the validation error messages for the value</li>
+</ul></p>
+
+<div class="SeeAlso">
+<h4>See Also</h4>
+<ul>
+	<li><a href="CActiveForm.html#enableClientValidation">CActiveForm::enableClientValidation</a></li>
+</ul>
+</div>
+
+<div class="detailHeader" id="createValidator-detail">
+createValidator()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public static CValidator <b>createValidator</b>(string $name, <a href="CModel.html">CModel</a> $object, mixed $attributes, array $params=array (
+))</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$name</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the name or class of the validator</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$object</td>
+  <td class="paramTypeCol"><a href="CModel.html">CModel</a></td>
+  <td class="paramDescCol">the data object being validated that may contain the inline validation method</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$attributes</td>
+  <td class="paramTypeCol">mixed</td>
+  <td class="paramDescCol">list of attributes to be validated. This can be either an array of
+the attribute names or a string of comma-separated attribute names.</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$params</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">initial values to be applied to the validator properties</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">CValidator</td>
+  <td class="paramDescCol">the validator</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/validators/CValidator.php#136">framework/validators/CValidator.php#136</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;static&nbsp;function&nbsp;</span><span style="color: #0000BB">createValidator</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">,</span><span style="color: #0000BB">$object</span><span style="color: #007700">,</span><span style="color: #0000BB">$attributes</span><span style="color: #007700">,</span><span style="color: #0000BB">$params</span><span style="color: #007700">=array())<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">is_string</span><span style="color: #007700">(</span><span style="color: #0000BB">$attributes</span><span style="color: #007700">))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$attributes</span><span style="color: #007700">=</span><span style="color: #0000BB">preg_split</span><span style="color: #007700">(</span><span style="color: #DD0000">'/[\s,]+/'</span><span style="color: #007700">,</span><span style="color: #0000BB">$attributes</span><span style="color: #007700">,-</span><span style="color: #0000BB">1</span><span style="color: #007700">,</span><span style="color: #0000BB">PREG_SPLIT_NO_EMPTY</span><span style="color: #007700">);<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;if(isset(</span><span style="color: #0000BB">$params</span><span style="color: #007700">[</span><span style="color: #DD0000">'on'</span><span style="color: #007700">]))<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">is_array</span><span style="color: #007700">(</span><span style="color: #0000BB">$params</span><span style="color: #007700">[</span><span style="color: #DD0000">'on'</span><span style="color: #007700">]))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$on</span><span style="color: #007700">=</span><span style="color: #0000BB">$params</span><span style="color: #007700">[</span><span style="color: #DD0000">'on'</span><span style="color: #007700">];<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$on</span><span style="color: #007700">=</span><span style="color: #0000BB">preg_split</span><span style="color: #007700">(</span><span style="color: #DD0000">'/[\s,]+/'</span><span style="color: #007700">,</span><span style="color: #0000BB">$params</span><span style="color: #007700">[</span><span style="color: #DD0000">'on'</span><span style="color: #007700">],-</span><span style="color: #0000BB">1</span><span style="color: #007700">,</span><span style="color: #0000BB">PREG_SPLIT_NO_EMPTY</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$on</span><span style="color: #007700">=array();<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">method_exists</span><span style="color: #007700">(</span><span style="color: #0000BB">$object</span><span style="color: #007700">,</span><span style="color: #0000BB">$name</span><span style="color: #007700">))<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$validator</span><span style="color: #007700">=new&nbsp;</span><span style="color: #0000BB">CInlineValidator</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$validator</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">attributes</span><span style="color: #007700">=</span><span style="color: #0000BB">$attributes</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$validator</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">method</span><span style="color: #007700">=</span><span style="color: #0000BB">$name</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$validator</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">params</span><span style="color: #007700">=</span><span style="color: #0000BB">$params</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(isset(</span><span style="color: #0000BB">$params</span><span style="color: #007700">[</span><span style="color: #DD0000">'skipOnError'</span><span style="color: #007700">]))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$validator</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">skipOnError</span><span style="color: #007700">=</span><span style="color: #0000BB">$params</span><span style="color: #007700">[</span><span style="color: #DD0000">'skipOnError'</span><span style="color: #007700">];<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$params</span><span style="color: #007700">[</span><span style="color: #DD0000">'attributes'</span><span style="color: #007700">]=</span><span style="color: #0000BB">$attributes</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(isset(</span><span style="color: #0000BB">self</span><span style="color: #007700">::</span><span style="color: #0000BB">$builtInValidators</span><span style="color: #007700">[</span><span style="color: #0000BB">$name</span><span style="color: #007700">]))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$className</span><span style="color: #007700">=</span><span style="color: #0000BB">Yii</span><span style="color: #007700">::</span><span style="color: #0000BB">import</span><span style="color: #007700">(</span><span style="color: #0000BB">self</span><span style="color: #007700">::</span><span style="color: #0000BB">$builtInValidators</span><span style="color: #007700">[</span><span style="color: #0000BB">$name</span><span style="color: #007700">],</span><span style="color: #0000BB">true</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$className</span><span style="color: #007700">=</span><span style="color: #0000BB">Yii</span><span style="color: #007700">::</span><span style="color: #0000BB">import</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">,</span><span style="color: #0000BB">true</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$validator</span><span style="color: #007700">=new&nbsp;</span><span style="color: #0000BB">$className</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;foreach(</span><span style="color: #0000BB">$params&nbsp;</span><span style="color: #007700">as&nbsp;</span><span style="color: #0000BB">$name</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">$value</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$validator</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">$name</span><span style="color: #007700">=</span><span style="color: #0000BB">$value</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$validator</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">on</span><span style="color: #007700">=empty(</span><span style="color: #0000BB">$on</span><span style="color: #007700">)&nbsp;?&nbsp;array()&nbsp;:&nbsp;</span><span style="color: #0000BB">array_combine</span><span style="color: #007700">(</span><span style="color: #0000BB">$on</span><span style="color: #007700">,</span><span style="color: #0000BB">$on</span><span style="color: #007700">);<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$validator</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Creates a validator object.</p>
+
+
+<div class="detailHeader" id="isEmpty-detail">
+isEmpty()
+<span class="detailHeaderTag">
+method
+(available since v1.0.9)
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+protected boolean <b>isEmpty</b>(mixed $value, boolean $trim=false)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$value</td>
+  <td class="paramTypeCol">mixed</td>
+  <td class="paramDescCol">the value to be checked</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$trim</td>
+  <td class="paramTypeCol">boolean</td>
+  <td class="paramDescCol">whether to perform trimming before checking if the string is empty. Defaults to false.</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">boolean</td>
+  <td class="paramDescCol">whether the value is empty</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/validators/CValidator.php#253">framework/validators/CValidator.php#253</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">protected&nbsp;function&nbsp;</span><span style="color: #0000BB">isEmpty</span><span style="color: #007700">(</span><span style="color: #0000BB">$value</span><span style="color: #007700">,</span><span style="color: #0000BB">$trim</span><span style="color: #007700">=</span><span style="color: #0000BB">false</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$value</span><span style="color: #007700">===</span><span style="color: #0000BB">null&nbsp;</span><span style="color: #007700">||&nbsp;</span><span style="color: #0000BB">$value</span><span style="color: #007700">===array()&nbsp;||&nbsp;</span><span style="color: #0000BB">$value</span><span style="color: #007700">===</span><span style="color: #DD0000">''&nbsp;</span><span style="color: #007700">||&nbsp;</span><span style="color: #0000BB">$trim&nbsp;</span><span style="color: #007700">&amp;&amp;&nbsp;</span><span style="color: #0000BB">is_scalar</span><span style="color: #007700">(</span><span style="color: #0000BB">$value</span><span style="color: #007700">)&nbsp;&amp;&amp;&nbsp;</span><span style="color: #0000BB">trim</span><span style="color: #007700">(</span><span style="color: #0000BB">$value</span><span style="color: #007700">)===</span><span style="color: #DD0000">''</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Checks if the given value is empty.
+A value is considered empty if it is null, an empty array, or the trimmed result is an empty string.
+Note that this method is different from PHP empty(). It will return false when the value is 0.</p>
+
+
+<div class="detailHeader" id="validate-detail">
+validate()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>validate</b>(<a href="CModel.html">CModel</a> $object, array $attributes=NULL)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$object</td>
+  <td class="paramTypeCol"><a href="CModel.html">CModel</a></td>
+  <td class="paramDescCol">the data object being validated</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$attributes</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">the list of attributes to be validated. Defaults to null,
+meaning every attribute listed in <a href="CValidator.html#attributes">attributes</a> will be validated.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/validators/CValidator.php#183">framework/validators/CValidator.php#183</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">validate</span><span style="color: #007700">(</span><span style="color: #0000BB">$object</span><span style="color: #007700">,</span><span style="color: #0000BB">$attributes</span><span style="color: #007700">=</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">is_array</span><span style="color: #007700">(</span><span style="color: #0000BB">$attributes</span><span style="color: #007700">))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$attributes</span><span style="color: #007700">=</span><span style="color: #0000BB">array_intersect</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">attributes</span><span style="color: #007700">,</span><span style="color: #0000BB">$attributes</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$attributes</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">attributes</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;foreach(</span><span style="color: #0000BB">$attributes&nbsp;</span><span style="color: #007700">as&nbsp;</span><span style="color: #0000BB">$attribute</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(!</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">skipOnError&nbsp;</span><span style="color: #007700">||&nbsp;!</span><span style="color: #0000BB">$object</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">hasErrors</span><span style="color: #007700">(</span><span style="color: #0000BB">$attribute</span><span style="color: #007700">))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">validateAttribute</span><span style="color: #007700">(</span><span style="color: #0000BB">$object</span><span style="color: #007700">,</span><span style="color: #0000BB">$attribute</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Validates the specified object.</p>
+
+
+<div class="detailHeader" id="validateAttribute-detail">
+validateAttribute()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+abstract protected void <b>validateAttribute</b>(<a href="CModel.html">CModel</a> $object, string $attribute)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$object</td>
+  <td class="paramTypeCol"><a href="CModel.html">CModel</a></td>
+  <td class="paramDescCol">the data object being validated</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$attribute</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the name of the attribute to be validated.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/validators/CValidator.php#124">framework/validators/CValidator.php#124</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">abstract&nbsp;protected&nbsp;function&nbsp;</span><span style="color: #0000BB">validateAttribute</span><span style="color: #007700">(</span><span style="color: #0000BB">$object</span><span style="color: #007700">,</span><span style="color: #0000BB">$attribute</span><span style="color: #007700">);</span>
+</span>
+</code></div>
+</div>
+<p>Validates a single attribute.
+This method should be overridden by child classes.</p>
+
+
+</div><!-- end of content -->
+
+<div id="apiFooter">
+Copyright &copy; 2008-2011 by <a href="http://www.yiisoft.com">Yii Software LLC</a><br/>
+All Rights Reserved.<br/>
+</div><!-- end of footer -->
+
+<script type="text/javascript">
+/*<![CDATA[*/
+$("a.toggle").toggle(function(){
+	$(this).text($(this).text().replace(/Hide/,'Show'));
+	$(this).parents(".summary").find(".inherited").hide();
+},function(){
+	$(this).text($(this).text().replace(/Show/,'Hide'));
+	$(this).parents(".summary").find(".inherited").show();
+});
+$(".sourceCode a.show").toggle(function(){
+	$(this).text($(this).text().replace(/show/,'hide'));
+	$(this).parents(".sourceCode").find("div.code").show();
+},function(){
+	$(this).text($(this).text().replace(/hide/,'show'));
+	$(this).parents(".sourceCode").find("div.code").hide();
+});
+$("a.sourceLink").click(function(){
+	$(this).attr('target','_blank');
+});
+/*]]>*/
+</script>
+
+</div><!-- end of page -->
+</body>
+</html>

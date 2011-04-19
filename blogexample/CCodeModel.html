@@ -1,0 +1,1528 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="language" content="en" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="css/api.css" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<title>CCodeModel</title>
+</head>
+
+<body>
+<div id="apiPage">
+
+<div id="apiHeader">
+My Console Application Class Reference
+</div><!-- end of header -->
+
+<div id="content">
+<h1>CCodeModel</h1>
+<div id="nav">
+<a href="index.html">All Packages</a>
+| <a href="#properties">Properties</a>
+| <a href="#methods">Methods</a>
+| <a href="#events">Events</a>
+</div>
+
+<table class="summaryTable docClass">
+<colgroup>
+	<col class="col-name" />
+	<col class="col-value" />
+</colgroup>
+<tr>
+  <th>Package</th>
+  <td><a href="index.html#system.gii">system.gii</a></td>
+</tr>
+<tr>
+  <th>Inheritance</th>
+  <td>abstract class CCodeModel &raquo;
+<a href="CFormModel.html">CFormModel</a> &raquo;
+<a href="CModel.html">CModel</a> &raquo;
+<a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr>
+  <th>Implements</th>
+  <td>IteratorAggregate, Traversable, ArrayAccess</td>
+</tr>
+<tr>
+  <th>Since</th>
+  <td>1.1.2</td>
+</tr>
+<tr>
+  <th>Version</th>
+  <td>$Id: CCodeModel.php 2799 2011-01-01 19:31:13Z qiang.xue $</td>
+</tr>
+<tr>
+  <th>Source Code</th>
+  <td><a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/gii/CCodeModel.php">framework/gii/CCodeModel.php</a></td>
+</tr>
+<tr>
+  <th>Author</th>
+  <td>Qiang Xue &lt;qiang.xue@gmail.com&gt;</td>
+</tr>
+</table>
+
+<div id="classDescription">
+CCodeModel is the base class for model classes that are used to generate code.
+<br/><br/>
+Each code generator should have at least one code model class that extends from this class.
+The purpose of a code model is to represent user-supplied parameters and use them to
+generate customized code.
+<br/><br/>
+Derived classes should implement the <a href="CCodeModel.html#prepare">prepare</a> method whose main task is to
+fill up the <a href="CCodeModel.html#files">files</a> property based on the user parameters.
+<br/><br/>
+The <a href="CCodeModel.html#files">files</a> property should be filled with a set of <a href="CCodeFile.html">CCodeFile</a> instances,
+each representing a single code file to be generated.
+<br/><br/>
+CCodeModel implements the feature of "sticky attributes". A sticky attribute is an attribute
+that can remember its last valid value, even if the user closes his browser window
+and reopen it. To declare an attribute is sticky, simply list it in a validation rule with
+the validator name being "sticky".</div>
+<a name="properties"></a>
+
+<div class="summary docProperty">
+<h2>Public Properties</h2>
+
+<p><a href="#" class="toggle">Hide inherited properties</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-property" />
+	<col class="col-type" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>Property</th><th>Type</th><th>Description</th><th>Defined By</th>
+</tr>
+<tr id="answers">
+  <td><a href="CCodeModel.html#answers-detail">answers</a></td>
+  <td>array</td>
+  <td>user confirmations on whether to overwrite existing code files with the newly generated ones.</td>
+  <td>CCodeModel</td>
+</tr>
+<tr class="inherited" id="attributes">
+  <td><a href="CModel.html#attributes-detail">attributes</a></td>
+  <td>array</td>
+  <td>Returns all attribute values.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr class="inherited" id="errors">
+  <td><a href="CModel.html#errors-detail">errors</a></td>
+  <td>array</td>
+  <td>Returns the errors for all attribute or a single attribute.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr id="files">
+  <td><a href="CCodeModel.html#files-detail">files</a></td>
+  <td>array</td>
+  <td>a list of <a href="CCodeFile.html">CCodeFile</a> objects that represent the code files to be generated.</td>
+  <td>CCodeModel</td>
+</tr>
+<tr class="inherited" id="iterator">
+  <td><a href="CModel.html#iterator-detail">iterator</a></td>
+  <td><a href="CMapIterator.html">CMapIterator</a></td>
+  <td>Returns an iterator for traversing the attributes in the model.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr class="inherited" id="safeAttributeNames">
+  <td><a href="CModel.html#safeAttributeNames-detail">safeAttributeNames</a></td>
+  <td>array</td>
+  <td>Returns the attribute names that are safe to be massively assigned.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr class="inherited" id="scenario">
+  <td><a href="CModel.html#scenario-detail">scenario</a></td>
+  <td>string</td>
+  <td>Returns the scenario that this model is used in.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr id="status">
+  <td><a href="CCodeModel.html#status-detail">status</a></td>
+  <td>integer</td>
+  <td>the status of this model.</td>
+  <td>CCodeModel</td>
+</tr>
+<tr id="stickyFile">
+  <td><a href="CCodeModel.html#stickyFile-detail">stickyFile</a></td>
+  <td>string</td>
+  <td>the file path that stores the sticky attribute values.</td>
+  <td>CCodeModel</td>
+</tr>
+<tr id="template">
+  <td><a href="CCodeModel.html#template-detail">template</a></td>
+  <td>string</td>
+  <td>the name of the code template that the user has selected.</td>
+  <td>CCodeModel</td>
+</tr>
+<tr id="templatePath">
+  <td><a href="CCodeModel.html#templatePath-detail">templatePath</a></td>
+  <td>string</td>
+  <td>the directory that contains the template files.</td>
+  <td>CCodeModel</td>
+</tr>
+<tr id="templates">
+  <td><a href="CCodeModel.html#templates-detail">templates</a></td>
+  <td>array</td>
+  <td>Returns a list of available code templates (name=>directory).</td>
+  <td>CCodeModel</td>
+</tr>
+<tr class="inherited" id="validatorList">
+  <td><a href="CModel.html#validatorList-detail">validatorList</a></td>
+  <td><a href="CList.html">CList</a></td>
+  <td>Returns all the validators declared in the model.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr class="inherited" id="validators">
+  <td><a href="CModel.html#validators-detail">validators</a></td>
+  <td>array</td>
+  <td>Returns the validators applicable to the current <a href="CCodeModel.html#scenario">scenario</a>.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+</table>
+</div>
+<a name="methods"></a>
+
+<div class="summary docMethod">
+<h2>Public Methods</h2>
+
+<p><a href="#" class="toggle">Hide inherited methods</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-method" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>Method</th><th>Description</th><th>Defined By</th>
+</tr>
+<tr class="inherited" id="__call">
+  <td><a href="CComponent.html#__call-detail">__call()</a></td>
+  <td>Calls the named method which is not a class method.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__construct">
+  <td><a href="CFormModel.html#__construct-detail">__construct()</a></td>
+  <td>Constructor.</td>
+  <td><a href="CFormModel.html">CFormModel</a></td>
+</tr>
+<tr class="inherited" id="__get">
+  <td><a href="CComponent.html#__get-detail">__get()</a></td>
+  <td>Returns a property value, an event handler list or a behavior based on its name.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__isset">
+  <td><a href="CComponent.html#__isset-detail">__isset()</a></td>
+  <td>Checks if a property value is null.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__set">
+  <td><a href="CComponent.html#__set-detail">__set()</a></td>
+  <td>Sets value of a component property.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__unset">
+  <td><a href="CComponent.html#__unset-detail">__unset()</a></td>
+  <td>Sets a component property to be null.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="addError">
+  <td><a href="CModel.html#addError-detail">addError()</a></td>
+  <td>Adds a new error to the specified attribute.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr class="inherited" id="addErrors">
+  <td><a href="CModel.html#addErrors-detail">addErrors()</a></td>
+  <td>Adds a list of errors.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr class="inherited" id="asa">
+  <td><a href="CComponent.html#asa-detail">asa()</a></td>
+  <td>Returns the named behavior object.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="attachBehavior">
+  <td><a href="CComponent.html#attachBehavior-detail">attachBehavior()</a></td>
+  <td>Attaches a behavior to this component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="attachBehaviors">
+  <td><a href="CComponent.html#attachBehaviors-detail">attachBehaviors()</a></td>
+  <td>Attaches a list of behaviors to the component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="attachEventHandler">
+  <td><a href="CComponent.html#attachEventHandler-detail">attachEventHandler()</a></td>
+  <td>Attaches an event handler to an event.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr id="attributeLabels">
+  <td><a href="CCodeModel.html#attributeLabels-detail">attributeLabels()</a></td>
+  <td>Declares the model attribute labels.</td>
+  <td>CCodeModel</td>
+</tr>
+<tr class="inherited" id="attributeNames">
+  <td><a href="CFormModel.html#attributeNames-detail">attributeNames()</a></td>
+  <td>Returns the list of attribute names.</td>
+  <td><a href="CFormModel.html">CFormModel</a></td>
+</tr>
+<tr class="inherited" id="behaviors">
+  <td><a href="CModel.html#behaviors-detail">behaviors()</a></td>
+  <td>Returns a list of behaviors that this model should behave as.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr class="inherited" id="canGetProperty">
+  <td><a href="CComponent.html#canGetProperty-detail">canGetProperty()</a></td>
+  <td>Determines whether a property can be read.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="canSetProperty">
+  <td><a href="CComponent.html#canSetProperty-detail">canSetProperty()</a></td>
+  <td>Determines whether a property can be set.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr id="class2id">
+  <td><a href="CCodeModel.html#class2id-detail">class2id()</a></td>
+  <td>Converts a class name into a HTML ID.</td>
+  <td>CCodeModel</td>
+</tr>
+<tr id="class2name">
+  <td><a href="CCodeModel.html#class2name-detail">class2name()</a></td>
+  <td>Converts a class name into space-separated words.</td>
+  <td>CCodeModel</td>
+</tr>
+<tr id="class2var">
+  <td><a href="CCodeModel.html#class2var-detail">class2var()</a></td>
+  <td>Converts a class name into a variable name with the first letter in lower case.</td>
+  <td>CCodeModel</td>
+</tr>
+<tr id="classExists">
+  <td><a href="CCodeModel.html#classExists-detail">classExists()</a></td>
+  <td>Checks if the named class exists (in a case sensitive manner).</td>
+  <td>CCodeModel</td>
+</tr>
+<tr class="inherited" id="clearErrors">
+  <td><a href="CModel.html#clearErrors-detail">clearErrors()</a></td>
+  <td>Removes errors for all attributes or a single attribute.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr id="confirmed">
+  <td><a href="CCodeModel.html#confirmed-detail">confirmed()</a></td>
+  <td></td>
+  <td>CCodeModel</td>
+</tr>
+<tr class="inherited" id="createValidators">
+  <td><a href="CModel.html#createValidators-detail">createValidators()</a></td>
+  <td>Creates validator objects based on the specification in <a href="CCodeModel.html#rules">rules</a>.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr class="inherited" id="detachBehavior">
+  <td><a href="CComponent.html#detachBehavior-detail">detachBehavior()</a></td>
+  <td>Detaches a behavior from the component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="detachBehaviors">
+  <td><a href="CComponent.html#detachBehaviors-detail">detachBehaviors()</a></td>
+  <td>Detaches all behaviors from the component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="detachEventHandler">
+  <td><a href="CComponent.html#detachEventHandler-detail">detachEventHandler()</a></td>
+  <td>Detaches an existing event handler.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="disableBehavior">
+  <td><a href="CComponent.html#disableBehavior-detail">disableBehavior()</a></td>
+  <td>Disables an attached behavior.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="disableBehaviors">
+  <td><a href="CComponent.html#disableBehaviors-detail">disableBehaviors()</a></td>
+  <td>Disables all behaviors attached to this component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="enableBehavior">
+  <td><a href="CComponent.html#enableBehavior-detail">enableBehavior()</a></td>
+  <td>Enables an attached behavior.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="enableBehaviors">
+  <td><a href="CComponent.html#enableBehaviors-detail">enableBehaviors()</a></td>
+  <td>Enables all behaviors attached to this component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr id="errorMessage">
+  <td><a href="CCodeModel.html#errorMessage-detail">errorMessage()</a></td>
+  <td>Returns the message to be displayed when some error occurred during code file saving.</td>
+  <td>CCodeModel</td>
+</tr>
+<tr class="inherited" id="evaluateExpression">
+  <td><a href="CComponent.html#evaluateExpression-detail">evaluateExpression()</a></td>
+  <td>Evaluates a PHP expression or callback under the context of this component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="generateAttributeLabel">
+  <td><a href="CModel.html#generateAttributeLabel-detail">generateAttributeLabel()</a></td>
+  <td>Generates a user friendly attribute label.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr class="inherited" id="getAttributeLabel">
+  <td><a href="CModel.html#getAttributeLabel-detail">getAttributeLabel()</a></td>
+  <td>Returns the text label for the specified attribute.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr class="inherited" id="getAttributes">
+  <td><a href="CModel.html#getAttributes-detail">getAttributes()</a></td>
+  <td>Returns all attribute values.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr class="inherited" id="getError">
+  <td><a href="CModel.html#getError-detail">getError()</a></td>
+  <td>Returns the first error of the specified attribute.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr class="inherited" id="getErrors">
+  <td><a href="CModel.html#getErrors-detail">getErrors()</a></td>
+  <td>Returns the errors for all attribute or a single attribute.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr class="inherited" id="getEventHandlers">
+  <td><a href="CComponent.html#getEventHandlers-detail">getEventHandlers()</a></td>
+  <td>Returns the list of attached event handlers for an event.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="getIterator">
+  <td><a href="CModel.html#getIterator-detail">getIterator()</a></td>
+  <td>Returns an iterator for traversing the attributes in the model.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr class="inherited" id="getSafeAttributeNames">
+  <td><a href="CModel.html#getSafeAttributeNames-detail">getSafeAttributeNames()</a></td>
+  <td>Returns the attribute names that are safe to be massively assigned.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr class="inherited" id="getScenario">
+  <td><a href="CModel.html#getScenario-detail">getScenario()</a></td>
+  <td>Returns the scenario that this model is used in.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr id="getStickyFile">
+  <td><a href="CCodeModel.html#getStickyFile-detail">getStickyFile()</a></td>
+  <td>Returns the file path that stores the sticky attribute values.</td>
+  <td>CCodeModel</td>
+</tr>
+<tr id="getTemplatePath">
+  <td><a href="CCodeModel.html#getTemplatePath-detail">getTemplatePath()</a></td>
+  <td>Returns the directory that contains the template files.</td>
+  <td>CCodeModel</td>
+</tr>
+<tr id="getTemplates">
+  <td><a href="CCodeModel.html#getTemplates-detail">getTemplates()</a></td>
+  <td>Returns a list of available code templates (name=>directory).</td>
+  <td>CCodeModel</td>
+</tr>
+<tr class="inherited" id="getValidatorList">
+  <td><a href="CModel.html#getValidatorList-detail">getValidatorList()</a></td>
+  <td>Returns all the validators declared in the model.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr class="inherited" id="getValidators">
+  <td><a href="CModel.html#getValidators-detail">getValidators()</a></td>
+  <td>Returns the validators applicable to the current <a href="CCodeModel.html#scenario">scenario</a>.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr class="inherited" id="hasErrors">
+  <td><a href="CModel.html#hasErrors-detail">hasErrors()</a></td>
+  <td>Returns a value indicating whether there is any validation error.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr class="inherited" id="hasEvent">
+  <td><a href="CComponent.html#hasEvent-detail">hasEvent()</a></td>
+  <td>Determines whether an event is defined.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="hasEventHandler">
+  <td><a href="CComponent.html#hasEventHandler-detail">hasEventHandler()</a></td>
+  <td>Checks whether the named event has attached handlers.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="hasProperty">
+  <td><a href="CComponent.html#hasProperty-detail">hasProperty()</a></td>
+  <td>Determines whether a property is defined.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="init">
+  <td><a href="CFormModel.html#init-detail">init()</a></td>
+  <td>Initializes this model.</td>
+  <td><a href="CFormModel.html">CFormModel</a></td>
+</tr>
+<tr class="inherited" id="isAttributeRequired">
+  <td><a href="CModel.html#isAttributeRequired-detail">isAttributeRequired()</a></td>
+  <td>Returns a value indicating whether the attribute is required.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr class="inherited" id="isAttributeSafe">
+  <td><a href="CModel.html#isAttributeSafe-detail">isAttributeSafe()</a></td>
+  <td>Returns a value indicating whether the attribute is safe for massive assignments.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr id="loadStickyAttributes">
+  <td><a href="CCodeModel.html#loadStickyAttributes-detail">loadStickyAttributes()</a></td>
+  <td>Loads sticky attributes from a file and populates them into the model.</td>
+  <td>CCodeModel</td>
+</tr>
+<tr class="inherited" id="offsetExists">
+  <td><a href="CModel.html#offsetExists-detail">offsetExists()</a></td>
+  <td>Returns whether there is an element at the specified offset.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr class="inherited" id="offsetGet">
+  <td><a href="CModel.html#offsetGet-detail">offsetGet()</a></td>
+  <td>Returns the element at the specified offset.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr class="inherited" id="offsetSet">
+  <td><a href="CModel.html#offsetSet-detail">offsetSet()</a></td>
+  <td>Sets the element at the specified offset.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr class="inherited" id="offsetUnset">
+  <td><a href="CModel.html#offsetUnset-detail">offsetUnset()</a></td>
+  <td>Unsets the element at the specified offset.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr class="inherited" id="onAfterConstruct">
+  <td><a href="CModel.html#onAfterConstruct-detail">onAfterConstruct()</a></td>
+  <td>This event is raised after the model instance is created by new operator.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr class="inherited" id="onAfterValidate">
+  <td><a href="CModel.html#onAfterValidate-detail">onAfterValidate()</a></td>
+  <td>This event is raised after the validation is performed.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr class="inherited" id="onBeforeValidate">
+  <td><a href="CModel.html#onBeforeValidate-detail">onBeforeValidate()</a></td>
+  <td>This event is raised before the validation is performed.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr class="inherited" id="onUnsafeAttribute">
+  <td><a href="CModel.html#onUnsafeAttribute-detail">onUnsafeAttribute()</a></td>
+  <td>This method is invoked when an unsafe attribute is being massively assigned.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr id="pluralize">
+  <td><a href="CCodeModel.html#pluralize-detail">pluralize()</a></td>
+  <td>Converts a word to its plural form.</td>
+  <td>CCodeModel</td>
+</tr>
+<tr id="prepare">
+  <td><a href="CCodeModel.html#prepare-detail">prepare()</a></td>
+  <td>Prepares the code files to be generated.</td>
+  <td>CCodeModel</td>
+</tr>
+<tr class="inherited" id="raiseEvent">
+  <td><a href="CComponent.html#raiseEvent-detail">raiseEvent()</a></td>
+  <td>Raises an event.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr id="render">
+  <td><a href="CCodeModel.html#render-detail">render()</a></td>
+  <td>Generates the code using the specified code template file.</td>
+  <td>CCodeModel</td>
+</tr>
+<tr id="renderResults">
+  <td><a href="CCodeModel.html#renderResults-detail">renderResults()</a></td>
+  <td></td>
+  <td>CCodeModel</td>
+</tr>
+<tr id="requiredTemplates">
+  <td><a href="CCodeModel.html#requiredTemplates-detail">requiredTemplates()</a></td>
+  <td>Returns a list of code templates that are required.</td>
+  <td>CCodeModel</td>
+</tr>
+<tr id="rules">
+  <td><a href="CCodeModel.html#rules-detail">rules()</a></td>
+  <td>Declares the model validation rules.</td>
+  <td>CCodeModel</td>
+</tr>
+<tr id="save">
+  <td><a href="CCodeModel.html#save-detail">save()</a></td>
+  <td>Saves the generated code into files.</td>
+  <td>CCodeModel</td>
+</tr>
+<tr id="saveStickyAttributes">
+  <td><a href="CCodeModel.html#saveStickyAttributes-detail">saveStickyAttributes()</a></td>
+  <td>Saves sticky attributes into a file.</td>
+  <td>CCodeModel</td>
+</tr>
+<tr class="inherited" id="setAttributes">
+  <td><a href="CModel.html#setAttributes-detail">setAttributes()</a></td>
+  <td>Sets the attribute values in a massive way.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr class="inherited" id="setScenario">
+  <td><a href="CModel.html#setScenario-detail">setScenario()</a></td>
+  <td>Sets the scenario for the model.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr id="sticky">
+  <td><a href="CCodeModel.html#sticky-detail">sticky()</a></td>
+  <td>The "sticky" validator.</td>
+  <td>CCodeModel</td>
+</tr>
+<tr id="successMessage">
+  <td><a href="CCodeModel.html#successMessage-detail">successMessage()</a></td>
+  <td>Returns the message to be displayed when the newly generated code is saved successfully.</td>
+  <td>CCodeModel</td>
+</tr>
+<tr class="inherited" id="unsetAttributes">
+  <td><a href="CModel.html#unsetAttributes-detail">unsetAttributes()</a></td>
+  <td>Unsets the attributes.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr class="inherited" id="validate">
+  <td><a href="CModel.html#validate-detail">validate()</a></td>
+  <td>Performs the validation.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr id="validateReservedWord">
+  <td><a href="CCodeModel.html#validateReservedWord-detail">validateReservedWord()</a></td>
+  <td>Validates an attribute to make sure it is not taking a PHP reserved keyword.</td>
+  <td>CCodeModel</td>
+</tr>
+<tr id="validateTemplate">
+  <td><a href="CCodeModel.html#validateTemplate-detail">validateTemplate()</a></td>
+  <td>Validates the template selection.</td>
+  <td>CCodeModel</td>
+</tr>
+</table>
+</div>
+<div class="summary docMethod">
+<h2>Protected Methods</h2>
+
+<p><a href="#" class="toggle">Hide inherited methods</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-method" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>Method</th><th>Description</th><th>Defined By</th>
+</tr>
+<tr class="inherited" id="afterConstruct">
+  <td><a href="CModel.html#afterConstruct-detail">afterConstruct()</a></td>
+  <td>This method is invoked after a model instance is created by new operator.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr class="inherited" id="afterValidate">
+  <td><a href="CModel.html#afterValidate-detail">afterValidate()</a></td>
+  <td>This method is invoked after validation ends.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr class="inherited" id="beforeValidate">
+  <td><a href="CModel.html#beforeValidate-detail">beforeValidate()</a></td>
+  <td>This method is invoked before validation starts.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+</table>
+</div>
+<a name="events"></a>
+
+<div class="summary docEvent">
+<h2>Events</h2>
+
+<p><a href="#" class="toggle">Hide inherited events</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-event" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>Event</th><th>Description</th><th>Defined By</th>
+</tr>
+<tr class="inherited" id="onAfterConstruct">
+  <td><a href="CModel.html#onAfterConstruct-detail">onAfterConstruct</a></td>
+  <td>This event is raised after the model instance is created by new operator.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr class="inherited" id="onBeforeValidate">
+  <td><a href="CModel.html#onBeforeValidate-detail">onBeforeValidate</a></td>
+  <td>This event is raised before the validation is performed.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr class="inherited" id="onAfterValidate">
+  <td><a href="CModel.html#onAfterValidate-detail">onAfterValidate</a></td>
+  <td>This event is raised after the validation is performed.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr class="inherited" id="onUnsafeAttribute">
+  <td><a href="CModel.html#onUnsafeAttribute-detail">onUnsafeAttribute</a></td>
+  <td>This method is invoked when an unsafe attribute is being massively assigned.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+</table>
+</div>
+<h2>Property Details</h2>
+<div class="detailHeader" id="answers-detail">
+answers<span class="detailHeaderTag">
+property
+</span>
+</div>
+
+<div class="signature">
+public array <b>$answers</b>;</div>
+
+<p>user confirmations on whether to overwrite existing code files with the newly generated ones.
+The value of this property is internally managed by this class and <a href="CCodeGenerator.html">CCodeGenerator</a>.</p>
+
+
+<div class="detailHeader" id="files-detail">
+files<span class="detailHeaderTag">
+property
+</span>
+</div>
+
+<div class="signature">
+public array <b>$files</b>;</div>
+
+<p>a list of <a href="CCodeFile.html">CCodeFile</a> objects that represent the code files to be generated.
+The <a href="CCodeModel.html#prepare">prepare()</a> method is responsible to populate this property.</p>
+
+
+<div class="detailHeader" id="status-detail">
+status<span class="detailHeaderTag">
+property
+</span>
+</div>
+
+<div class="signature">
+public integer <b>$status</b>;</div>
+
+<p>the status of this model. T
+The value of this property is internally managed by <a href="CCodeGenerator.html">CCodeGenerator</a>.</p>
+
+
+<div class="detailHeader" id="stickyFile-detail">
+stickyFile<span class="detailHeaderTag">
+property
+ <em>read-only</em> </span>
+</div>
+
+<div class="signature">
+public string <a href="CCodeModel.html#getStickyFile"><b>getStickyFile</b></a>()</div>
+
+<p>the file path that stores the sticky attribute values.</p>
+
+
+<div class="detailHeader" id="template-detail">
+template<span class="detailHeaderTag">
+property
+</span>
+</div>
+
+<div class="signature">
+public string <b>$template</b>;</div>
+
+<p>the name of the code template that the user has selected.
+The value of this property is internally managed by this class and <a href="CCodeGenerator.html">CCodeGenerator</a>.</p>
+
+
+<div class="detailHeader" id="templatePath-detail">
+templatePath<span class="detailHeaderTag">
+property
+ <em>read-only</em> </span>
+</div>
+
+<div class="signature">
+public string <a href="CCodeModel.html#getTemplatePath"><b>getTemplatePath</b></a>()</div>
+
+<p>the directory that contains the template files.</p>
+
+
+<div class="detailHeader" id="templates-detail">
+templates<span class="detailHeaderTag">
+property
+ <em>read-only</em> </span>
+</div>
+
+<div class="signature">
+public array <a href="CCodeModel.html#getTemplates"><b>getTemplates</b></a>()</div>
+
+<p>Returns a list of available code templates (name=>directory).
+This method simply returns the <a href="CCodeGenerator.html#templates">CCodeGenerator::templates</a> property value.</p>
+
+
+<h2>Method Details</h2>
+
+<div class="detailHeader" id="attributeLabels-detail">
+attributeLabels()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public array <b>attributeLabels</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">the attribute labels</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/gii/CCodeModel.php#133">framework/gii/CCodeModel.php#133</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">attributeLabels</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;array(<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'template'</span><span style="color: #007700">=&gt;</span><span style="color: #DD0000">'Code&nbsp;Template'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Declares the model attribute labels.
+Child classes must override this method in the following format:
+<pre>
+return array_merge(parent::attributeLabels(), array(
+    ...labels for the child class attributes...
+));
+</pre></p>
+
+
+<div class="detailHeader" id="class2id-detail">
+class2id()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>class2id</b>(string $name)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$name</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the string to be converted</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the resulting ID</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/gii/CCodeModel.php#347">framework/gii/CCodeModel.php#347</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">class2id</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">trim</span><span style="color: #007700">(</span><span style="color: #0000BB">strtolower</span><span style="color: #007700">(</span><span style="color: #0000BB">str_replace</span><span style="color: #007700">(</span><span style="color: #DD0000">'_'</span><span style="color: #007700">,</span><span style="color: #DD0000">'-'</span><span style="color: #007700">,</span><span style="color: #0000BB">preg_replace</span><span style="color: #007700">(</span><span style="color: #DD0000">'/(?&lt;![A-Z])[A-Z]/'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'-\0'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$name</span><span style="color: #007700">))),</span><span style="color: #DD0000">'-'</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Converts a class name into a HTML ID.
+For example, 'PostTag' will be converted as 'post-tag'.</p>
+
+
+<div class="detailHeader" id="class2name-detail">
+class2name()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>class2name</b>(string $name, boolean $ucwords=true)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$name</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the string to be converted</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$ucwords</td>
+  <td class="paramTypeCol">boolean</td>
+  <td class="paramDescCol">whether to capitalize the first letter in each word</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the resulting words</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/gii/CCodeModel.php#359">framework/gii/CCodeModel.php#359</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">class2name</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">,</span><span style="color: #0000BB">$ucwords</span><span style="color: #007700">=</span><span style="color: #0000BB">true</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$result</span><span style="color: #007700">=</span><span style="color: #0000BB">trim</span><span style="color: #007700">(</span><span style="color: #0000BB">strtolower</span><span style="color: #007700">(</span><span style="color: #0000BB">str_replace</span><span style="color: #007700">(</span><span style="color: #DD0000">'_'</span><span style="color: #007700">,</span><span style="color: #DD0000">'&nbsp;'</span><span style="color: #007700">,</span><span style="color: #0000BB">preg_replace</span><span style="color: #007700">(</span><span style="color: #DD0000">'/(?&lt;![A-Z])[A-Z]/'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'&nbsp;\0'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$name</span><span style="color: #007700">))));<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$ucwords&nbsp;</span><span style="color: #007700">?&nbsp;</span><span style="color: #0000BB">ucwords</span><span style="color: #007700">(</span><span style="color: #0000BB">$result</span><span style="color: #007700">)&nbsp;:&nbsp;</span><span style="color: #0000BB">$result</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Converts a class name into space-separated words.
+For example, 'PostTag' will be converted as 'Post Tag'.</p>
+
+
+<div class="detailHeader" id="class2var-detail">
+class2var()
+<span class="detailHeaderTag">
+method
+(available since v1.1.4)
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>class2var</b>(string $name)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$name</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the class name</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the variable name converted from the class name</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/gii/CCodeModel.php#372">framework/gii/CCodeModel.php#372</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">class2var</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$name</span><span style="color: #007700">[</span><span style="color: #0000BB">0</span><span style="color: #007700">]=</span><span style="color: #0000BB">strtolower</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">[</span><span style="color: #0000BB">0</span><span style="color: #007700">]);<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$name</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Converts a class name into a variable name with the first letter in lower case.
+This method is provided because lcfirst() PHP function is only available for PHP 5.3+.</p>
+
+
+<div class="detailHeader" id="classExists-detail">
+classExists()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public boolean <b>classExists</b>(string $name)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$name</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">class name to be checked</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">boolean</td>
+  <td class="paramDescCol">whether the class exists</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/gii/CCodeModel.php#118">framework/gii/CCodeModel.php#118</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">classExists</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">class_exists</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">,</span><span style="color: #0000BB">false</span><span style="color: #007700">)&nbsp;&amp;&amp;&nbsp;</span><span style="color: #0000BB">in_array</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">get_declared_classes</span><span style="color: #007700">());<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Checks if the named class exists (in a case sensitive manner).</p>
+
+
+<div class="detailHeader" id="confirmed-detail">
+confirmed()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>confirmed</b>(<a href="CCodeFile.html">CCodeFile</a> $file)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$file</td>
+  <td class="paramTypeCol"><a href="CCodeFile.html">CCodeFile</a></td>
+  <td class="paramDescCol">whether the code file should be saved</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/gii/CCodeModel.php#214">framework/gii/CCodeModel.php#214</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">confirmed</span><span style="color: #007700">(</span><span style="color: #0000BB">$file</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">answers</span><span style="color: #007700">===</span><span style="color: #0000BB">null&nbsp;</span><span style="color: #007700">&amp;&amp;&nbsp;</span><span style="color: #0000BB">$file</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">operation</span><span style="color: #007700">===</span><span style="color: #0000BB">CCodeFile</span><span style="color: #007700">::</span><span style="color: #0000BB">OP_NEW<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">||&nbsp;</span><span style="color: #0000BB">is_array</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">answers</span><span style="color: #007700">)&nbsp;&amp;&amp;&nbsp;isset(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">answers</span><span style="color: #007700">[</span><span style="color: #0000BB">md5</span><span style="color: #007700">(</span><span style="color: #0000BB">$file</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">path</span><span style="color: #007700">)]);<br />}</span>
+</span>
+</code></div>
+</div>
+<p></p>
+
+
+<div class="detailHeader" id="errorMessage-detail">
+errorMessage()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>errorMessage</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the message to be displayed when some error occurred during code file saving.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/gii/CCodeModel.php#180">framework/gii/CCodeModel.php#180</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">errorMessage</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #DD0000">'There&nbsp;was&nbsp;some&nbsp;error&nbsp;when&nbsp;generating&nbsp;the&nbsp;code.&nbsp;Please&nbsp;check&nbsp;the&nbsp;following&nbsp;messages.'</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Returns the message to be displayed when some error occurred during code file saving.
+Child classes should override this method if the message needs to be customized.</p>
+
+
+<div class="detailHeader" id="getStickyFile-detail">
+getStickyFile()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>getStickyFile</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the file path that stores the sticky attribute values.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/gii/CCodeModel.php#311">framework/gii/CCodeModel.php#311</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getStickyFile</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">Yii</span><span style="color: #007700">::</span><span style="color: #0000BB">app</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">runtimePath</span><span style="color: #007700">.</span><span style="color: #DD0000">'/gii-'</span><span style="color: #007700">.</span><span style="color: #0000BB">Yii</span><span style="color: #007700">::</span><span style="color: #0000BB">getVersion</span><span style="color: #007700">().</span><span style="color: #DD0000">'/'</span><span style="color: #007700">.</span><span style="color: #0000BB">get_class</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">).</span><span style="color: #DD0000">'.php'</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p></p>
+
+
+<div class="detailHeader" id="getTemplatePath-detail">
+getTemplatePath()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>getTemplatePath</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the directory that contains the template files.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/gii/CCodeModel.php#199">framework/gii/CCodeModel.php#199</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getTemplatePath</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$templates</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getTemplates</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;if(isset(</span><span style="color: #0000BB">$templates</span><span style="color: #007700">[</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">template</span><span style="color: #007700">]))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$templates</span><span style="color: #007700">[</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">template</span><span style="color: #007700">];<br />&nbsp;&nbsp;&nbsp;&nbsp;else&nbsp;if(empty(</span><span style="color: #0000BB">$templates</span><span style="color: #007700">))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throw&nbsp;new&nbsp;</span><span style="color: #0000BB">CHttpException</span><span style="color: #007700">(</span><span style="color: #0000BB">500</span><span style="color: #007700">,</span><span style="color: #DD0000">'No&nbsp;templates&nbsp;are&nbsp;available.'</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throw&nbsp;new&nbsp;</span><span style="color: #0000BB">CHttpException</span><span style="color: #007700">(</span><span style="color: #0000BB">500</span><span style="color: #007700">,</span><span style="color: #DD0000">'Invalid&nbsp;template&nbsp;selection.'</span><span style="color: #007700">);<br /><br />}</span>
+</span>
+</code></div>
+</div>
+<p></p>
+
+
+<div class="detailHeader" id="getTemplates-detail">
+getTemplates()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public array <b>getTemplates</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">a list of available code templates (name=>directory).</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/gii/CCodeModel.php#190">framework/gii/CCodeModel.php#190</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getTemplates</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">Yii</span><span style="color: #007700">::</span><span style="color: #0000BB">app</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">controller</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">templates</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Returns a list of available code templates (name=>directory).
+This method simply returns the <a href="CCodeGenerator.html#templates">CCodeGenerator::templates</a> property value.</p>
+
+
+<div class="detailHeader" id="loadStickyAttributes-detail">
+loadStickyAttributes()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>loadStickyAttributes</b>()</div>
+</td></tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/gii/CCodeModel.php#279">framework/gii/CCodeModel.php#279</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">loadStickyAttributes</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_stickyAttributes</span><span style="color: #007700">=array();<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$path</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getStickyFile</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">is_file</span><span style="color: #007700">(</span><span style="color: #0000BB">$path</span><span style="color: #007700">))<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$result</span><span style="color: #007700">=@include(</span><span style="color: #0000BB">$path</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">is_array</span><span style="color: #007700">(</span><span style="color: #0000BB">$result</span><span style="color: #007700">))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_stickyAttributes</span><span style="color: #007700">=</span><span style="color: #0000BB">$result</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;foreach(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_stickyAttributes&nbsp;</span><span style="color: #007700">as&nbsp;</span><span style="color: #0000BB">$name</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">$value</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">property_exists</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">,</span><span style="color: #0000BB">$name</span><span style="color: #007700">)&nbsp;||&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">canSetProperty</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">$name</span><span style="color: #007700">=</span><span style="color: #0000BB">$value</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Loads sticky attributes from a file and populates them into the model.</p>
+
+
+<div class="detailHeader" id="pluralize-detail">
+pluralize()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>pluralize</b>(string $name)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$name</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the word to be pluralized</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the pluralized word</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/gii/CCodeModel.php#323">framework/gii/CCodeModel.php#323</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">pluralize</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$rules</span><span style="color: #007700">=array(<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'/(x|ch|ss|sh|us|as|is|os)$/i'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'\1es'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'/(?:([^f])fe|([lr])f)$/i'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'\1\2ves'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'/(m)an$/i'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'\1en'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'/(child)$/i'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'\1ren'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'/(r|t)y$/i'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'\1ies'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'/s$/'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'s'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;);<br />&nbsp;&nbsp;&nbsp;&nbsp;foreach(</span><span style="color: #0000BB">$rules&nbsp;</span><span style="color: #007700">as&nbsp;</span><span style="color: #0000BB">$rule</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">$replacement</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">preg_match</span><span style="color: #007700">(</span><span style="color: #0000BB">$rule</span><span style="color: #007700">,</span><span style="color: #0000BB">$name</span><span style="color: #007700">))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">preg_replace</span><span style="color: #007700">(</span><span style="color: #0000BB">$rule</span><span style="color: #007700">,</span><span style="color: #0000BB">$replacement</span><span style="color: #007700">,</span><span style="color: #0000BB">$name</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$name</span><span style="color: #007700">.</span><span style="color: #DD0000">'s'</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Converts a word to its plural form.
+Note that this is for English only!
+For example, 'apple' will become 'apples', and 'child' will become 'children'.</p>
+
+
+<div class="detailHeader" id="prepare-detail">
+prepare()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+abstract public void <b>prepare</b>()</div>
+</td></tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/gii/CCodeModel.php#69">framework/gii/CCodeModel.php#69</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">abstract&nbsp;public&nbsp;function&nbsp;</span><span style="color: #0000BB">prepare</span><span style="color: #007700">();</span>
+</span>
+</code></div>
+</div>
+<p>Prepares the code files to be generated.
+This is the main method that child classes should implement. It should contain the logic
+that populates the <a href="CCodeModel.html#files">files</a> property with a list of code files to be generated.</p>
+
+
+<div class="detailHeader" id="render-detail">
+render()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>render</b>(string $templateFile, array $_params_=NULL)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$templateFile</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the code template file path</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$_params_</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">a set of parameters to be extracted and made available in the code template</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the generated code</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/gii/CCodeModel.php#227">framework/gii/CCodeModel.php#227</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">render</span><span style="color: #007700">(</span><span style="color: #0000BB">$templateFile</span><span style="color: #007700">,</span><span style="color: #0000BB">$_params_</span><span style="color: #007700">=</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(!</span><span style="color: #0000BB">is_file</span><span style="color: #007700">(</span><span style="color: #0000BB">$templateFile</span><span style="color: #007700">))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throw&nbsp;new&nbsp;</span><span style="color: #0000BB">CException</span><span style="color: #007700">(</span><span style="color: #DD0000">"The&nbsp;template&nbsp;file&nbsp;'</span><span style="color: #0000BB">$templateFile</span><span style="color: #DD0000">'&nbsp;does&nbsp;not&nbsp;exist."</span><span style="color: #007700">);<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">is_array</span><span style="color: #007700">(</span><span style="color: #0000BB">$_params_</span><span style="color: #007700">))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">extract</span><span style="color: #007700">(</span><span style="color: #0000BB">$_params_</span><span style="color: #007700">,</span><span style="color: #0000BB">EXTR_PREFIX_SAME</span><span style="color: #007700">,</span><span style="color: #DD0000">'params'</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$params</span><span style="color: #007700">=</span><span style="color: #0000BB">$_params_</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">ob_start</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">ob_implicit_flush</span><span style="color: #007700">(</span><span style="color: #0000BB">false</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;require(</span><span style="color: #0000BB">$templateFile</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">ob_get_clean</span><span style="color: #007700">();<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Generates the code using the specified code template file.
+This method is manly used in generate to generate code.</p>
+
+
+<div class="detailHeader" id="renderResults-detail">
+renderResults()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>renderResults</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the code generation result log.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/gii/CCodeModel.php#245">framework/gii/CCodeModel.php#245</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">renderResults</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$output</span><span style="color: #007700">=</span><span style="color: #DD0000">'Generating&nbsp;code&nbsp;using&nbsp;template&nbsp;"'</span><span style="color: #007700">.</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">templatePath</span><span style="color: #007700">.</span><span style="color: #DD0000">"\"...\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;foreach(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">files&nbsp;</span><span style="color: #007700">as&nbsp;</span><span style="color: #0000BB">$file</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$file</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">error</span><span style="color: #007700">!==</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$output</span><span style="color: #007700">.=</span><span style="color: #DD0000">"&lt;span&nbsp;class=\"error\"&gt;generating&nbsp;</span><span style="color: #007700">{</span><span style="color: #0000BB">$file</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">relativePath</span><span style="color: #007700">}</span><span style="color: #DD0000">&lt;br/&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">{</span><span style="color: #0000BB">$file</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">error</span><span style="color: #007700">}</span><span style="color: #DD0000">&lt;/span&gt;\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else&nbsp;if(</span><span style="color: #0000BB">$file</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">operation</span><span style="color: #007700">===</span><span style="color: #0000BB">CCodeFile</span><span style="color: #007700">::</span><span style="color: #0000BB">OP_NEW&nbsp;</span><span style="color: #007700">&amp;&amp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">confirmed</span><span style="color: #007700">(</span><span style="color: #0000BB">$file</span><span style="color: #007700">))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$output</span><span style="color: #007700">.=</span><span style="color: #DD0000">'&nbsp;generated&nbsp;'</span><span style="color: #007700">.</span><span style="color: #0000BB">$file</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">relativePath</span><span style="color: #007700">.</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else&nbsp;if(</span><span style="color: #0000BB">$file</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">operation</span><span style="color: #007700">===</span><span style="color: #0000BB">CCodeFile</span><span style="color: #007700">::</span><span style="color: #0000BB">OP_OVERWRITE&nbsp;</span><span style="color: #007700">&amp;&amp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">confirmed</span><span style="color: #007700">(</span><span style="color: #0000BB">$file</span><span style="color: #007700">))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$output</span><span style="color: #007700">.=</span><span style="color: #DD0000">'&nbsp;overwrote&nbsp;'</span><span style="color: #007700">.</span><span style="color: #0000BB">$file</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">relativePath</span><span style="color: #007700">.</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$output</span><span style="color: #007700">.=</span><span style="color: #DD0000">'&nbsp;&nbsp;&nbsp;skipped&nbsp;'</span><span style="color: #007700">.</span><span style="color: #0000BB">$file</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">relativePath</span><span style="color: #007700">.</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$output</span><span style="color: #007700">.=</span><span style="color: #DD0000">"done!\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$output</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p></p>
+
+
+<div class="detailHeader" id="requiredTemplates-detail">
+requiredTemplates()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public array <b>requiredTemplates</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">list of code templates that are required. They should be file paths
+relative to <a href="CCodeModel.html#templatePath">templatePath</a>.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/gii/CCodeModel.php#146">framework/gii/CCodeModel.php#146</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">requiredTemplates</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;array();<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Returns a list of code templates that are required.
+Derived classes usually should override this method.</p>
+
+
+<div class="detailHeader" id="rules-detail">
+rules()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public array <b>rules</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">validation rules</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/gii/CCodeModel.php#81">framework/gii/CCodeModel.php#81</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">rules</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;array(<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array(</span><span style="color: #DD0000">'template'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'required'</span><span style="color: #007700">),<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array(</span><span style="color: #DD0000">'template'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'validateTemplate'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'skipOnError'</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">true</span><span style="color: #007700">),<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array(</span><span style="color: #DD0000">'template'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'sticky'</span><span style="color: #007700">),<br />&nbsp;&nbsp;&nbsp;&nbsp;);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Declares the model validation rules.
+Child classes must override this method in the following format:
+<pre>
+return array_merge(parent::rules(), array(
+    ...rules for the child class...
+));
+</pre></p>
+
+
+<div class="detailHeader" id="save-detail">
+save()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>save</b>()</div>
+</td></tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/gii/CCodeModel.php#154">framework/gii/CCodeModel.php#154</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">save</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$result</span><span style="color: #007700">=</span><span style="color: #0000BB">true</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;foreach(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">files&nbsp;</span><span style="color: #007700">as&nbsp;</span><span style="color: #0000BB">$file</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">confirmed</span><span style="color: #007700">(</span><span style="color: #0000BB">$file</span><span style="color: #007700">))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$result</span><span style="color: #007700">=</span><span style="color: #0000BB">$file</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">save</span><span style="color: #007700">()&nbsp;&amp;&amp;&nbsp;</span><span style="color: #0000BB">$result</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$result</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Saves the generated code into files.</p>
+
+
+<div class="detailHeader" id="saveStickyAttributes-detail">
+saveStickyAttributes()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>saveStickyAttributes</b>()</div>
+</td></tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/gii/CCodeModel.php#301">framework/gii/CCodeModel.php#301</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">saveStickyAttributes</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$path</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getStickyFile</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;@</span><span style="color: #0000BB">mkdir</span><span style="color: #007700">(</span><span style="color: #0000BB">dirname</span><span style="color: #007700">(</span><span style="color: #0000BB">$path</span><span style="color: #007700">),</span><span style="color: #0000BB">0755</span><span style="color: #007700">,</span><span style="color: #0000BB">true</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">file_put_contents</span><span style="color: #007700">(</span><span style="color: #0000BB">$path</span><span style="color: #007700">,</span><span style="color: #DD0000">"&lt;?php\nreturn&nbsp;"</span><span style="color: #007700">.</span><span style="color: #0000BB">var_export</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_stickyAttributes</span><span style="color: #007700">,</span><span style="color: #0000BB">true</span><span style="color: #007700">).</span><span style="color: #DD0000">";\n"</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Saves sticky attributes into a file.</p>
+
+
+<div class="detailHeader" id="sticky-detail">
+sticky()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>sticky</b>(string $attribute, array $params)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$attribute</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the attribute to be validated</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$params</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">the validation parameters</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/gii/CCodeModel.php#270">framework/gii/CCodeModel.php#270</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">sticky</span><span style="color: #007700">(</span><span style="color: #0000BB">$attribute</span><span style="color: #007700">,</span><span style="color: #0000BB">$params</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(!</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">hasErrors</span><span style="color: #007700">())<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_stickyAttributes</span><span style="color: #007700">[</span><span style="color: #0000BB">$attribute</span><span style="color: #007700">]=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">$attribute</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>The "sticky" validator.
+This validator does not really validate the attributes.
+It actually saves the attribute value in a file to make it sticky.</p>
+
+
+<div class="detailHeader" id="successMessage-detail">
+successMessage()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>successMessage</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the message to be displayed when the newly generated code is saved successfully.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/gii/CCodeModel.php#170">framework/gii/CCodeModel.php#170</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">successMessage</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #DD0000">'The&nbsp;code&nbsp;has&nbsp;been&nbsp;generated&nbsp;successfully.'</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Returns the message to be displayed when the newly generated code is saved successfully.
+Child classes should override this method if the message needs to be customized.</p>
+
+
+<div class="detailHeader" id="validateReservedWord-detail">
+validateReservedWord()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>validateReservedWord</b>(string $attribute, array $params)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$attribute</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the attribute to be validated</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$params</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">validation parameters</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/gii/CCodeModel.php#383">framework/gii/CCodeModel.php#383</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">validateReservedWord</span><span style="color: #007700">(</span><span style="color: #0000BB">$attribute</span><span style="color: #007700">,</span><span style="color: #0000BB">$params</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;static&nbsp;</span><span style="color: #0000BB">$keywords</span><span style="color: #007700">=array(<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'__class__'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'__dir__'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'__file__'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'__function__'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'__line__'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'__method__'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'__namespace__'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'abstract'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'and'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'array'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'as'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'break'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'case'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'catch'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'cfunction'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'class'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'clone'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'const'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'continue'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'declare'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'default'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'die'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'do'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'echo'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'else'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'elseif'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'empty'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'enddeclare'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'endfor'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'endforeach'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'endif'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'endswitch'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'endwhile'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'eval'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'exception'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'exit'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'extends'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'final'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'final'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'for'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'foreach'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'function'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'global'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'goto'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'if'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'implements'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'include'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'include_once'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'instanceof'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'interface'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'isset'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'list'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'namespace'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'new'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'old_function'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'or'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'parent'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'php_user_filter'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'print'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'private'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'protected'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'public'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'require'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'require_once'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'return'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'static'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'switch'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'this'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'throw'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'try'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'unset'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'use'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'var'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'while'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'xor'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$value</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">$attribute</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">in_array</span><span style="color: #007700">(</span><span style="color: #0000BB">strtolower</span><span style="color: #007700">(</span><span style="color: #0000BB">$value</span><span style="color: #007700">),</span><span style="color: #0000BB">$keywords</span><span style="color: #007700">))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">addError</span><span style="color: #007700">(</span><span style="color: #0000BB">$attribute</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getAttributeLabel</span><span style="color: #007700">(</span><span style="color: #0000BB">$attribute</span><span style="color: #007700">).</span><span style="color: #DD0000">'&nbsp;cannot&nbsp;take&nbsp;a&nbsp;reserved&nbsp;PHP&nbsp;keyword.'</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Validates an attribute to make sure it is not taking a PHP reserved keyword.</p>
+
+
+<div class="detailHeader" id="validateTemplate-detail">
+validateTemplate()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>validateTemplate</b>(string $attribute, array $params)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$attribute</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the attribute to be validated</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$params</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">validation parameters</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/gii/CCodeModel.php#97">framework/gii/CCodeModel.php#97</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">validateTemplate</span><span style="color: #007700">(</span><span style="color: #0000BB">$attribute</span><span style="color: #007700">,</span><span style="color: #0000BB">$params</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$templates</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">templates</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;if(!isset(</span><span style="color: #0000BB">$templates</span><span style="color: #007700">[</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">template</span><span style="color: #007700">]))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">addError</span><span style="color: #007700">(</span><span style="color: #DD0000">'template'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'Invalid&nbsp;template&nbsp;selection.'</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$templatePath</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">templatePath</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;foreach(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">requiredTemplates</span><span style="color: #007700">()&nbsp;as&nbsp;</span><span style="color: #0000BB">$template</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(!</span><span style="color: #0000BB">is_file</span><span style="color: #007700">(</span><span style="color: #0000BB">$templatePath</span><span style="color: #007700">.</span><span style="color: #DD0000">'/'</span><span style="color: #007700">.</span><span style="color: #0000BB">$template</span><span style="color: #007700">))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">addError</span><span style="color: #007700">(</span><span style="color: #DD0000">'template'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"Unable&nbsp;to&nbsp;find&nbsp;the&nbsp;required&nbsp;code&nbsp;template&nbsp;file&nbsp;'</span><span style="color: #0000BB">$template</span><span style="color: #DD0000">'."</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Validates the template selection.
+This method validates whether the user selects an existing template
+and the template contains all required template files as specified in <a href="CCodeModel.html#requiredTemplates">requiredTemplates</a>.</p>
+
+
+</div><!-- end of content -->
+
+<div id="apiFooter">
+Copyright &copy; 2008-2011 by <a href="http://www.yiisoft.com">Yii Software LLC</a><br/>
+All Rights Reserved.<br/>
+</div><!-- end of footer -->
+
+<script type="text/javascript">
+/*<![CDATA[*/
+$("a.toggle").toggle(function(){
+	$(this).text($(this).text().replace(/Hide/,'Show'));
+	$(this).parents(".summary").find(".inherited").hide();
+},function(){
+	$(this).text($(this).text().replace(/Show/,'Hide'));
+	$(this).parents(".summary").find(".inherited").show();
+});
+$(".sourceCode a.show").toggle(function(){
+	$(this).text($(this).text().replace(/show/,'hide'));
+	$(this).parents(".sourceCode").find("div.code").show();
+},function(){
+	$(this).text($(this).text().replace(/hide/,'show'));
+	$(this).parents(".sourceCode").find("div.code").hide();
+});
+$("a.sourceLink").click(function(){
+	$(this).attr('target','_blank');
+});
+/*]]>*/
+</script>
+
+</div><!-- end of page -->
+</body>
+</html>

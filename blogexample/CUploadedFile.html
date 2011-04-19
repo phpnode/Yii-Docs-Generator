@@ -1,0 +1,1111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="language" content="en" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="css/api.css" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<title>CUploadedFile</title>
+</head>
+
+<body>
+<div id="apiPage">
+
+<div id="apiHeader">
+My Console Application Class Reference
+</div><!-- end of header -->
+
+<div id="content">
+<h1>CUploadedFile</h1>
+<div id="nav">
+<a href="index.html">All Packages</a>
+| <a href="#properties">Properties</a>
+| <a href="#methods">Methods</a>
+</div>
+
+<table class="summaryTable docClass">
+<colgroup>
+	<col class="col-name" />
+	<col class="col-value" />
+</colgroup>
+<tr>
+  <th>Package</th>
+  <td><a href="index.html#system.web">system.web</a></td>
+</tr>
+<tr>
+  <th>Inheritance</th>
+  <td>class CUploadedFile &raquo;
+<a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr>
+  <th>Since</th>
+  <td>1.0</td>
+</tr>
+<tr>
+  <th>Version</th>
+  <td>$Id: CUploadedFile.php 2799 2011-01-01 19:31:13Z qiang.xue $</td>
+</tr>
+<tr>
+  <th>Source Code</th>
+  <td><a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CUploadedFile.php">framework/web/CUploadedFile.php</a></td>
+</tr>
+<tr>
+  <th>Author</th>
+  <td>Qiang Xue &lt;qiang.xue@gmail.com&gt;</td>
+</tr>
+</table>
+
+<div id="classDescription">
+CUploadedFile represents the information for an uploaded file.
+<br/><br/>
+Call <a href="CUploadedFile.html#getInstance">getInstance</a> to retrieve the instance of an uploaded file,
+and then use <a href="CUploadedFile.html#saveAs">saveAs</a> to save it on the server.
+You may also query other information about the file, including <a href="CUploadedFile.html#name">name</a>,
+<a href="CUploadedFile.html#tempName">tempName</a>, <a href="CUploadedFile.html#type">type</a>, <a href="CUploadedFile.html#size">size</a> and <a href="CUploadedFile.html#error">error</a>.</div>
+<a name="properties"></a>
+
+<div class="summary docProperty">
+<h2>Public Properties</h2>
+
+<p><a href="#" class="toggle">Hide inherited properties</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-property" />
+	<col class="col-type" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>Property</th><th>Type</th><th>Description</th><th>Defined By</th>
+</tr>
+<tr id="error">
+  <td><a href="CUploadedFile.html#error-detail">error</a></td>
+  <td>integer</td>
+  <td>Returns an error code describing the status of this file uploading.</td>
+  <td>CUploadedFile</td>
+</tr>
+<tr id="extensionName">
+  <td><a href="CUploadedFile.html#extensionName-detail">extensionName</a></td>
+  <td>string</td>
+  <td>the file extension name for <a href="CUploadedFile.html#name">name</a>.</td>
+  <td>CUploadedFile</td>
+</tr>
+<tr id="hasError">
+  <td><a href="CUploadedFile.html#hasError-detail">hasError</a></td>
+  <td>boolean</td>
+  <td>whether there is an error with the uploaded file.</td>
+  <td>CUploadedFile</td>
+</tr>
+<tr id="name">
+  <td><a href="CUploadedFile.html#name-detail">name</a></td>
+  <td>string</td>
+  <td>the original name of the file being uploaded</td>
+  <td>CUploadedFile</td>
+</tr>
+<tr id="size">
+  <td><a href="CUploadedFile.html#size-detail">size</a></td>
+  <td>integer</td>
+  <td>the actual size of the uploaded file in bytes</td>
+  <td>CUploadedFile</td>
+</tr>
+<tr id="tempName">
+  <td><a href="CUploadedFile.html#tempName-detail">tempName</a></td>
+  <td>string</td>
+  <td>the path of the uploaded file on the server.</td>
+  <td>CUploadedFile</td>
+</tr>
+<tr id="type">
+  <td><a href="CUploadedFile.html#type-detail">type</a></td>
+  <td>string</td>
+  <td>the MIME-type of the uploaded file (such as "image/gif").</td>
+  <td>CUploadedFile</td>
+</tr>
+</table>
+</div>
+<a name="methods"></a>
+
+<div class="summary docMethod">
+<h2>Public Methods</h2>
+
+<p><a href="#" class="toggle">Hide inherited methods</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-method" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>Method</th><th>Description</th><th>Defined By</th>
+</tr>
+<tr class="inherited" id="__call">
+  <td><a href="CComponent.html#__call-detail">__call()</a></td>
+  <td>Calls the named method which is not a class method.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__get">
+  <td><a href="CComponent.html#__get-detail">__get()</a></td>
+  <td>Returns a property value, an event handler list or a behavior based on its name.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__isset">
+  <td><a href="CComponent.html#__isset-detail">__isset()</a></td>
+  <td>Checks if a property value is null.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__set">
+  <td><a href="CComponent.html#__set-detail">__set()</a></td>
+  <td>Sets value of a component property.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr id="__toString">
+  <td><a href="CUploadedFile.html#__toString-detail">__toString()</a></td>
+  <td>String output.</td>
+  <td>CUploadedFile</td>
+</tr>
+<tr class="inherited" id="__unset">
+  <td><a href="CComponent.html#__unset-detail">__unset()</a></td>
+  <td>Sets a component property to be null.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="asa">
+  <td><a href="CComponent.html#asa-detail">asa()</a></td>
+  <td>Returns the named behavior object.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="attachBehavior">
+  <td><a href="CComponent.html#attachBehavior-detail">attachBehavior()</a></td>
+  <td>Attaches a behavior to this component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="attachBehaviors">
+  <td><a href="CComponent.html#attachBehaviors-detail">attachBehaviors()</a></td>
+  <td>Attaches a list of behaviors to the component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="attachEventHandler">
+  <td><a href="CComponent.html#attachEventHandler-detail">attachEventHandler()</a></td>
+  <td>Attaches an event handler to an event.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="canGetProperty">
+  <td><a href="CComponent.html#canGetProperty-detail">canGetProperty()</a></td>
+  <td>Determines whether a property can be read.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="canSetProperty">
+  <td><a href="CComponent.html#canSetProperty-detail">canSetProperty()</a></td>
+  <td>Determines whether a property can be set.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="detachBehavior">
+  <td><a href="CComponent.html#detachBehavior-detail">detachBehavior()</a></td>
+  <td>Detaches a behavior from the component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="detachBehaviors">
+  <td><a href="CComponent.html#detachBehaviors-detail">detachBehaviors()</a></td>
+  <td>Detaches all behaviors from the component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="detachEventHandler">
+  <td><a href="CComponent.html#detachEventHandler-detail">detachEventHandler()</a></td>
+  <td>Detaches an existing event handler.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="disableBehavior">
+  <td><a href="CComponent.html#disableBehavior-detail">disableBehavior()</a></td>
+  <td>Disables an attached behavior.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="disableBehaviors">
+  <td><a href="CComponent.html#disableBehaviors-detail">disableBehaviors()</a></td>
+  <td>Disables all behaviors attached to this component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="enableBehavior">
+  <td><a href="CComponent.html#enableBehavior-detail">enableBehavior()</a></td>
+  <td>Enables an attached behavior.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="enableBehaviors">
+  <td><a href="CComponent.html#enableBehaviors-detail">enableBehaviors()</a></td>
+  <td>Enables all behaviors attached to this component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="evaluateExpression">
+  <td><a href="CComponent.html#evaluateExpression-detail">evaluateExpression()</a></td>
+  <td>Evaluates a PHP expression or callback under the context of this component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr id="getError">
+  <td><a href="CUploadedFile.html#getError-detail">getError()</a></td>
+  <td>Returns an error code describing the status of this file uploading.</td>
+  <td>CUploadedFile</td>
+</tr>
+<tr class="inherited" id="getEventHandlers">
+  <td><a href="CComponent.html#getEventHandlers-detail">getEventHandlers()</a></td>
+  <td>Returns the list of attached event handlers for an event.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr id="getExtensionName">
+  <td><a href="CUploadedFile.html#getExtensionName-detail">getExtensionName()</a></td>
+  <td>Returns the file extension name for <a href="CUploadedFile.html#name">name</a>.
+The extension name does not include the dot character. An empty string
+is returned if <a href="CUploadedFile.html#name">name</a> does not have an extension name.</td>
+  <td>CUploadedFile</td>
+</tr>
+<tr id="getHasError">
+  <td><a href="CUploadedFile.html#getHasError-detail">getHasError()</a></td>
+  <td>Returns whether there is an error with the uploaded file.
+Check <a href="CUploadedFile.html#error">error</a> for detailed error code information.</td>
+  <td>CUploadedFile</td>
+</tr>
+<tr id="getInstance">
+  <td><a href="CUploadedFile.html#getInstance-detail">getInstance()</a></td>
+  <td>Returns an instance of the specified uploaded file.</td>
+  <td>CUploadedFile</td>
+</tr>
+<tr id="getInstanceByName">
+  <td><a href="CUploadedFile.html#getInstanceByName-detail">getInstanceByName()</a></td>
+  <td>Returns an instance of the specified uploaded file.</td>
+  <td>CUploadedFile</td>
+</tr>
+<tr id="getInstances">
+  <td><a href="CUploadedFile.html#getInstances-detail">getInstances()</a></td>
+  <td>Returns all uploaded files for the given model attribute.</td>
+  <td>CUploadedFile</td>
+</tr>
+<tr id="getInstancesByName">
+  <td><a href="CUploadedFile.html#getInstancesByName-detail">getInstancesByName()</a></td>
+  <td>Returns an array of instances for the specified array name.</td>
+  <td>CUploadedFile</td>
+</tr>
+<tr id="getName">
+  <td><a href="CUploadedFile.html#getName-detail">getName()</a></td>
+  <td>Returns the original name of the file being uploaded</td>
+  <td>CUploadedFile</td>
+</tr>
+<tr id="getSize">
+  <td><a href="CUploadedFile.html#getSize-detail">getSize()</a></td>
+  <td>Returns the actual size of the uploaded file in bytes</td>
+  <td>CUploadedFile</td>
+</tr>
+<tr id="getTempName">
+  <td><a href="CUploadedFile.html#getTempName-detail">getTempName()</a></td>
+  <td>Returns the path of the uploaded file on the server.
+Note, this is a temporary file which will be automatically deleted by PHP
+after the current request is processed.</td>
+  <td>CUploadedFile</td>
+</tr>
+<tr id="getType">
+  <td><a href="CUploadedFile.html#getType-detail">getType()</a></td>
+  <td>Returns the MIME-type of the uploaded file (such as "image/gif").
+Since this MIME type is not checked on the server side, do not take this value for granted.
+Instead, use <a href="CFileHelper.html#getMimeType">CFileHelper::getMimeType</a> to determine the exact MIME type.</td>
+  <td>CUploadedFile</td>
+</tr>
+<tr class="inherited" id="hasEvent">
+  <td><a href="CComponent.html#hasEvent-detail">hasEvent()</a></td>
+  <td>Determines whether an event is defined.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="hasEventHandler">
+  <td><a href="CComponent.html#hasEventHandler-detail">hasEventHandler()</a></td>
+  <td>Checks whether the named event has attached handlers.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="hasProperty">
+  <td><a href="CComponent.html#hasProperty-detail">hasProperty()</a></td>
+  <td>Determines whether a property is defined.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="raiseEvent">
+  <td><a href="CComponent.html#raiseEvent-detail">raiseEvent()</a></td>
+  <td>Raises an event.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr id="reset">
+  <td><a href="CUploadedFile.html#reset-detail">reset()</a></td>
+  <td>Cleans up the loaded CUploadedFile instances.</td>
+  <td>CUploadedFile</td>
+</tr>
+<tr id="saveAs">
+  <td><a href="CUploadedFile.html#saveAs-detail">saveAs()</a></td>
+  <td>Saves the uploaded file.</td>
+  <td>CUploadedFile</td>
+</tr>
+</table>
+</div>
+<div class="summary docMethod">
+<h2>Protected Methods</h2>
+
+<p><a href="#" class="toggle">Hide inherited methods</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-method" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>Method</th><th>Description</th><th>Defined By</th>
+</tr>
+<tr id="__construct">
+  <td><a href="CUploadedFile.html#__construct-detail">__construct()</a></td>
+  <td>Constructor.</td>
+  <td>CUploadedFile</td>
+</tr>
+<tr id="collectFilesRecursive">
+  <td><a href="CUploadedFile.html#collectFilesRecursive-detail">collectFilesRecursive()</a></td>
+  <td>Processes incoming files for <a href="CUploadedFile.html#getInstanceByName">getInstanceByName</a>.</td>
+  <td>CUploadedFile</td>
+</tr>
+<tr id="prefetchFiles">
+  <td><a href="CUploadedFile.html#prefetchFiles-detail">prefetchFiles()</a></td>
+  <td>Initially processes $_FILES superglobal for easier use.</td>
+  <td>CUploadedFile</td>
+</tr>
+</table>
+</div>
+<a name="events"></a>
+
+<h2>Property Details</h2>
+<div class="detailHeader" id="error-detail">
+error<span class="detailHeaderTag">
+property
+ <em>read-only</em> </span>
+</div>
+
+<div class="signature">
+public integer <a href="CUploadedFile.html#getError"><b>getError</b></a>()</div>
+
+<p>Returns an error code describing the status of this file uploading.</p>
+
+<div class="SeeAlso">
+<h4>See Also</h4>
+<ul>
+	<li><a href="http://www.php.net/manual/en/features.file-upload.errors.php">http://www.php.net/manual/en/features.file-upload.errors.php</a></li>
+</ul>
+</div>
+
+<div class="detailHeader" id="extensionName-detail">
+extensionName<span class="detailHeaderTag">
+property
+ <em>read-only</em> </span>
+</div>
+
+<div class="signature">
+public string <a href="CUploadedFile.html#getExtensionName"><b>getExtensionName</b></a>()</div>
+
+<p>the file extension name for <a href="CUploadedFile.html#name">name</a>.
+The extension name does not include the dot character. An empty string
+is returned if <a href="CUploadedFile.html#name">name</a> does not have an extension name.</p>
+
+
+<div class="detailHeader" id="hasError-detail">
+hasError<span class="detailHeaderTag">
+property
+ <em>read-only</em> </span>
+</div>
+
+<div class="signature">
+public boolean <a href="CUploadedFile.html#getHasError"><b>getHasError</b></a>()</div>
+
+<p>whether there is an error with the uploaded file.
+Check <a href="CUploadedFile.html#error">error</a> for detailed error code information.</p>
+
+
+<div class="detailHeader" id="name-detail">
+name<span class="detailHeaderTag">
+property
+ <em>read-only</em> </span>
+</div>
+
+<div class="signature">
+public string <a href="CUploadedFile.html#getName"><b>getName</b></a>()</div>
+
+<p>the original name of the file being uploaded</p>
+
+
+<div class="detailHeader" id="size-detail">
+size<span class="detailHeaderTag">
+property
+ <em>read-only</em> </span>
+</div>
+
+<div class="signature">
+public integer <a href="CUploadedFile.html#getSize"><b>getSize</b></a>()</div>
+
+<p>the actual size of the uploaded file in bytes</p>
+
+
+<div class="detailHeader" id="tempName-detail">
+tempName<span class="detailHeaderTag">
+property
+ <em>read-only</em> </span>
+</div>
+
+<div class="signature">
+public string <a href="CUploadedFile.html#getTempName"><b>getTempName</b></a>()</div>
+
+<p>the path of the uploaded file on the server.
+Note, this is a temporary file which will be automatically deleted by PHP
+after the current request is processed.</p>
+
+
+<div class="detailHeader" id="type-detail">
+type<span class="detailHeaderTag">
+property
+ <em>read-only</em> </span>
+</div>
+
+<div class="signature">
+public string <a href="CUploadedFile.html#getType"><b>getType</b></a>()</div>
+
+<p>the MIME-type of the uploaded file (such as "image/gif").
+Since this MIME type is not checked on the server side, do not take this value for granted.
+Instead, use <a href="CFileHelper.html#getMimeType">CFileHelper::getMimeType</a> to determine the exact MIME type.</p>
+
+
+<h2>Method Details</h2>
+
+<div class="detailHeader" id="__construct-detail">
+__construct()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+protected void <b>__construct</b>(string $name, string $tempName, string $type, integer $size, integer $error)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$name</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the original name of the file being uploaded</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$tempName</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the path of the uploaded file on the server.</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$type</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the MIME-type of the uploaded file (such as "image/gif").</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$size</td>
+  <td class="paramTypeCol">integer</td>
+  <td class="paramDescCol">the actual size of the uploaded file in bytes</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$error</td>
+  <td class="paramTypeCol">integer</td>
+  <td class="paramDescCol">the error code</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CUploadedFile.php#150">framework/web/CUploadedFile.php#150</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">protected&nbsp;function&nbsp;</span><span style="color: #0000BB">__construct</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">,</span><span style="color: #0000BB">$tempName</span><span style="color: #007700">,</span><span style="color: #0000BB">$type</span><span style="color: #007700">,</span><span style="color: #0000BB">$size</span><span style="color: #007700">,</span><span style="color: #0000BB">$error</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_name</span><span style="color: #007700">=</span><span style="color: #0000BB">$name</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_tempName</span><span style="color: #007700">=</span><span style="color: #0000BB">$tempName</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_type</span><span style="color: #007700">=</span><span style="color: #0000BB">$type</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_size</span><span style="color: #007700">=</span><span style="color: #0000BB">$size</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_error</span><span style="color: #007700">=</span><span style="color: #0000BB">$error</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Constructor.
+Use <a href="CUploadedFile.html#getInstance">getInstance</a> to get an instance of an uploaded file.</p>
+
+
+<div class="detailHeader" id="__toString-detail">
+__toString()
+<span class="detailHeaderTag">
+method
+(available since v1.0.2)
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>__toString</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the string representation of the object</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CUploadedFile.php#166">framework/web/CUploadedFile.php#166</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">__toString</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_name</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>String output.
+This is PHP magic method that returns string representation of an object.
+The implementation here returns the uploaded file's name.</p>
+
+
+<div class="detailHeader" id="collectFilesRecursive-detail">
+collectFilesRecursive()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+protected static void <b>collectFilesRecursive</b>(string $key, mixed $names, mixed $tmp_names, mixed $types, mixed $sizes, mixed $errors)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$key</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">key for identifiing uploaded file: class name and subarray indexes</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$names</td>
+  <td class="paramTypeCol">mixed</td>
+  <td class="paramDescCol">file names provided by PHP</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$tmp_names</td>
+  <td class="paramTypeCol">mixed</td>
+  <td class="paramDescCol">temporary file names provided by PHP</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$types</td>
+  <td class="paramTypeCol">mixed</td>
+  <td class="paramDescCol">filetypes provided by PHP</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$sizes</td>
+  <td class="paramTypeCol">mixed</td>
+  <td class="paramDescCol">file sizes provided by PHP</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$errors</td>
+  <td class="paramTypeCol">mixed</td>
+  <td class="paramDescCol">uploading issues provided by PHP</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CUploadedFile.php#130">framework/web/CUploadedFile.php#130</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">protected&nbsp;static&nbsp;function&nbsp;</span><span style="color: #0000BB">collectFilesRecursive</span><span style="color: #007700">(</span><span style="color: #0000BB">$key</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$names</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$tmp_names</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$types</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$sizes</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$errors</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">is_array</span><span style="color: #007700">(</span><span style="color: #0000BB">$names</span><span style="color: #007700">))<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;foreach(</span><span style="color: #0000BB">$names&nbsp;</span><span style="color: #007700">as&nbsp;</span><span style="color: #0000BB">$item</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">$name</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">self</span><span style="color: #007700">::</span><span style="color: #0000BB">collectFilesRecursive</span><span style="color: #007700">(</span><span style="color: #0000BB">$key</span><span style="color: #007700">.</span><span style="color: #DD0000">'['</span><span style="color: #007700">.</span><span style="color: #0000BB">$item</span><span style="color: #007700">.</span><span style="color: #DD0000">']'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$names</span><span style="color: #007700">[</span><span style="color: #0000BB">$item</span><span style="color: #007700">],&nbsp;</span><span style="color: #0000BB">$tmp_names</span><span style="color: #007700">[</span><span style="color: #0000BB">$item</span><span style="color: #007700">],&nbsp;</span><span style="color: #0000BB">$types</span><span style="color: #007700">[</span><span style="color: #0000BB">$item</span><span style="color: #007700">],&nbsp;</span><span style="color: #0000BB">$sizes</span><span style="color: #007700">[</span><span style="color: #0000BB">$item</span><span style="color: #007700">],&nbsp;</span><span style="color: #0000BB">$errors</span><span style="color: #007700">[</span><span style="color: #0000BB">$item</span><span style="color: #007700">]);<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">self</span><span style="color: #007700">::</span><span style="color: #0000BB">$_files</span><span style="color: #007700">[</span><span style="color: #0000BB">$key</span><span style="color: #007700">]&nbsp;=&nbsp;new&nbsp;</span><span style="color: #0000BB">CUploadedFile</span><span style="color: #007700">(</span><span style="color: #0000BB">$names</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$tmp_names</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$types</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$sizes</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$errors</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Processes incoming files for <a href="CUploadedFile.html#getInstanceByName">getInstanceByName</a>.</p>
+
+
+<div class="detailHeader" id="getError-detail">
+getError()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public integer <b>getError</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">integer</td>
+  <td class="paramDescCol">the error code</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CUploadedFile.php#234">framework/web/CUploadedFile.php#234</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getError</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_error</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Returns an error code describing the status of this file uploading.</p>
+
+<div class="SeeAlso">
+<h4>See Also</h4>
+<ul>
+	<li><a href="http://www.php.net/manual/en/features.file-upload.errors.php">http://www.php.net/manual/en/features.file-upload.errors.php</a></li>
+</ul>
+</div>
+
+<div class="detailHeader" id="getExtensionName-detail">
+getExtensionName()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>getExtensionName</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the file extension name for <a href="CUploadedFile.html#name">name</a>.
+The extension name does not include the dot character. An empty string
+is returned if <a href="CUploadedFile.html#name">name</a> does not have an extension name.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CUploadedFile.php#253">framework/web/CUploadedFile.php#253</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getExtensionName</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if((</span><span style="color: #0000BB">$pos</span><span style="color: #007700">=</span><span style="color: #0000BB">strrpos</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_name</span><span style="color: #007700">,</span><span style="color: #DD0000">'.'</span><span style="color: #007700">))!==</span><span style="color: #0000BB">false</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;(string)</span><span style="color: #0000BB">substr</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_name</span><span style="color: #007700">,</span><span style="color: #0000BB">$pos</span><span style="color: #007700">+</span><span style="color: #0000BB">1</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #DD0000">''</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p></p>
+
+
+<div class="detailHeader" id="getHasError-detail">
+getHasError()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public boolean <b>getHasError</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">boolean</td>
+  <td class="paramDescCol">whether there is an error with the uploaded file.
+Check <a href="CUploadedFile.html#error">error</a> for detailed error code information.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CUploadedFile.php#243">framework/web/CUploadedFile.php#243</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getHasError</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_error</span><span style="color: #007700">!=</span><span style="color: #0000BB">UPLOAD_ERR_OK</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p></p>
+
+
+<div class="detailHeader" id="getInstance-detail">
+getInstance()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public static CUploadedFile <b>getInstance</b>(<a href="CModel.html">CModel</a> $model, string $attribute)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$model</td>
+  <td class="paramTypeCol"><a href="CModel.html">CModel</a></td>
+  <td class="paramDescCol">the model instance</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$attribute</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the attribute name. For tabular file uploading, this can be in the format of "[$i]attributeName", where $i stands for an integer index.</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">CUploadedFile</td>
+  <td class="paramDescCol">the instance of the uploaded file.
+Null is returned if no file is uploaded for the specified model attribute.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CUploadedFile.php#43">framework/web/CUploadedFile.php#43</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;static&nbsp;function&nbsp;</span><span style="color: #0000BB">getInstance</span><span style="color: #007700">(</span><span style="color: #0000BB">$model</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$attribute</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">self</span><span style="color: #007700">::</span><span style="color: #0000BB">getInstanceByName</span><span style="color: #007700">(</span><span style="color: #0000BB">CHtml</span><span style="color: #007700">::</span><span style="color: #0000BB">resolveName</span><span style="color: #007700">(</span><span style="color: #0000BB">$model</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$attribute</span><span style="color: #007700">));<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Returns an instance of the specified uploaded file.
+The file should be uploaded using <a href="CHtml.html#activeFileField">CHtml::activeFileField</a>.</p>
+
+<div class="SeeAlso">
+<h4>See Also</h4>
+<ul>
+	<li><a href="CUploadedFile.html#getInstanceByName">getInstanceByName</a></li>
+</ul>
+</div>
+
+<div class="detailHeader" id="getInstanceByName-detail">
+getInstanceByName()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public static CUploadedFile <b>getInstanceByName</b>(string $name)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$name</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the name of the file input field.</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">CUploadedFile</td>
+  <td class="paramDescCol">the instance of the uploaded file.
+Null is returned if no file is uploaded for the specified name.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CUploadedFile.php#67">framework/web/CUploadedFile.php#67</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;static&nbsp;function&nbsp;</span><span style="color: #0000BB">getInstanceByName</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">null</span><span style="color: #007700">===</span><span style="color: #0000BB">self</span><span style="color: #007700">::</span><span style="color: #0000BB">$_files</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">self</span><span style="color: #007700">::</span><span style="color: #0000BB">prefetchFiles</span><span style="color: #007700">();<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;isset(</span><span style="color: #0000BB">self</span><span style="color: #007700">::</span><span style="color: #0000BB">$_files</span><span style="color: #007700">[</span><span style="color: #0000BB">$name</span><span style="color: #007700">])&nbsp;&amp;&amp;&nbsp;</span><span style="color: #0000BB">self</span><span style="color: #007700">::</span><span style="color: #0000BB">$_files</span><span style="color: #007700">[</span><span style="color: #0000BB">$name</span><span style="color: #007700">]-&gt;</span><span style="color: #0000BB">getError</span><span style="color: #007700">()!=</span><span style="color: #0000BB">UPLOAD_ERR_NO_FILE&nbsp;</span><span style="color: #007700">?&nbsp;</span><span style="color: #0000BB">self</span><span style="color: #007700">::</span><span style="color: #0000BB">$_files</span><span style="color: #007700">[</span><span style="color: #0000BB">$name</span><span style="color: #007700">]&nbsp;:&nbsp;</span><span style="color: #0000BB">null</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Returns an instance of the specified uploaded file.
+The name can be a plain string or a string like an array element (e.g. 'Post[imageFile]', or 'Post[0][imageFile]').</p>
+
+
+<div class="detailHeader" id="getInstances-detail">
+getInstances()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public static array <b>getInstances</b>(<a href="CModel.html">CModel</a> $model, string $attribute)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$model</td>
+  <td class="paramTypeCol"><a href="CModel.html">CModel</a></td>
+  <td class="paramDescCol">the model instance</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$attribute</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the attribute name. For tabular file uploading, this can be in the format of "[$i]attributeName", where $i stands for an integer index.</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">array of CUploadedFile objects.
+Empty array is returned if no available file was found for the given attribute.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CUploadedFile.php#55">framework/web/CUploadedFile.php#55</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;static&nbsp;function&nbsp;</span><span style="color: #0000BB">getInstances</span><span style="color: #007700">(</span><span style="color: #0000BB">$model</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$attribute</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">self</span><span style="color: #007700">::</span><span style="color: #0000BB">getInstancesByName</span><span style="color: #007700">(</span><span style="color: #0000BB">CHtml</span><span style="color: #007700">::</span><span style="color: #0000BB">resolveName</span><span style="color: #007700">(</span><span style="color: #0000BB">$model</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$attribute</span><span style="color: #007700">));<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Returns all uploaded files for the given model attribute.</p>
+
+
+<div class="detailHeader" id="getInstancesByName-detail">
+getInstancesByName()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public static array <b>getInstancesByName</b>(string $name)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$name</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the name of the array of files</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">the array of CUploadedFile objects. Empty array is returned
+if no adequate upload was found. Please note that this array will contain
+all files from all subarrays regardless how deeply nested they are.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CUploadedFile.php#85">framework/web/CUploadedFile.php#85</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;static&nbsp;function&nbsp;</span><span style="color: #0000BB">getInstancesByName</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">null</span><span style="color: #007700">===</span><span style="color: #0000BB">self</span><span style="color: #007700">::</span><span style="color: #0000BB">$_files</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">self</span><span style="color: #007700">::</span><span style="color: #0000BB">prefetchFiles</span><span style="color: #007700">();<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$len</span><span style="color: #007700">=</span><span style="color: #0000BB">strlen</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$results</span><span style="color: #007700">=array();<br />&nbsp;&nbsp;&nbsp;&nbsp;foreach(</span><span style="color: #0000BB">array_keys</span><span style="color: #007700">(</span><span style="color: #0000BB">self</span><span style="color: #007700">::</span><span style="color: #0000BB">$_files</span><span style="color: #007700">)&nbsp;as&nbsp;</span><span style="color: #0000BB">$key</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">0</span><span style="color: #007700">===</span><span style="color: #0000BB">strncmp</span><span style="color: #007700">(</span><span style="color: #0000BB">$key</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$name</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$len</span><span style="color: #007700">)&nbsp;&amp;&amp;&nbsp;</span><span style="color: #0000BB">self</span><span style="color: #007700">::</span><span style="color: #0000BB">$_files</span><span style="color: #007700">[</span><span style="color: #0000BB">$key</span><span style="color: #007700">]-&gt;</span><span style="color: #0000BB">getError</span><span style="color: #007700">()!=</span><span style="color: #0000BB">UPLOAD_ERR_NO_FILE</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$results</span><span style="color: #007700">[]&nbsp;=&nbsp;</span><span style="color: #0000BB">self</span><span style="color: #007700">::</span><span style="color: #0000BB">$_files</span><span style="color: #007700">[</span><span style="color: #0000BB">$key</span><span style="color: #007700">];<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$results</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Returns an array of instances for the specified array name.
+<br/><br/>
+If multiple files were uploaded and saved as 'Files[0]', 'Files[1]',
+'Files[n]'..., you can have them all by passing 'Files' as array name.</p>
+
+
+<div class="detailHeader" id="getName-detail">
+getName()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>getName</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the original name of the file being uploaded</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CUploadedFile.php#196">framework/web/CUploadedFile.php#196</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getName</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_name</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p></p>
+
+
+<div class="detailHeader" id="getSize-detail">
+getSize()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public integer <b>getSize</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">integer</td>
+  <td class="paramDescCol">the actual size of the uploaded file in bytes</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CUploadedFile.php#224">framework/web/CUploadedFile.php#224</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getSize</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_size</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p></p>
+
+
+<div class="detailHeader" id="getTempName-detail">
+getTempName()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>getTempName</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the path of the uploaded file on the server.
+Note, this is a temporary file which will be automatically deleted by PHP
+after the current request is processed.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CUploadedFile.php#206">framework/web/CUploadedFile.php#206</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getTempName</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_tempName</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p></p>
+
+
+<div class="detailHeader" id="getType-detail">
+getType()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>getType</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the MIME-type of the uploaded file (such as "image/gif").
+Since this MIME type is not checked on the server side, do not take this value for granted.
+Instead, use <a href="CFileHelper.html#getMimeType">CFileHelper::getMimeType</a> to determine the exact MIME type.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CUploadedFile.php#216">framework/web/CUploadedFile.php#216</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getType</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_type</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p></p>
+
+
+<div class="detailHeader" id="prefetchFiles-detail">
+prefetchFiles()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+protected static void <b>prefetchFiles</b>()</div>
+</td></tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CUploadedFile.php#112">framework/web/CUploadedFile.php#112</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">protected&nbsp;static&nbsp;function&nbsp;</span><span style="color: #0000BB">prefetchFiles</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">self</span><span style="color: #007700">::</span><span style="color: #0000BB">$_files&nbsp;</span><span style="color: #007700">=&nbsp;array();<br />&nbsp;&nbsp;&nbsp;&nbsp;if(!isset(</span><span style="color: #0000BB">$_FILES</span><span style="color: #007700">)&nbsp;||&nbsp;!</span><span style="color: #0000BB">is_array</span><span style="color: #007700">(</span><span style="color: #0000BB">$_FILES</span><span style="color: #007700">))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return;<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;foreach(</span><span style="color: #0000BB">$_FILES&nbsp;</span><span style="color: #007700">as&nbsp;</span><span style="color: #0000BB">$class</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">$info</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">self</span><span style="color: #007700">::</span><span style="color: #0000BB">collectFilesRecursive</span><span style="color: #007700">(</span><span style="color: #0000BB">$class</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$info</span><span style="color: #007700">[</span><span style="color: #DD0000">'name'</span><span style="color: #007700">],&nbsp;</span><span style="color: #0000BB">$info</span><span style="color: #007700">[</span><span style="color: #DD0000">'tmp_name'</span><span style="color: #007700">],&nbsp;</span><span style="color: #0000BB">$info</span><span style="color: #007700">[</span><span style="color: #DD0000">'type'</span><span style="color: #007700">],&nbsp;</span><span style="color: #0000BB">$info</span><span style="color: #007700">[</span><span style="color: #DD0000">'size'</span><span style="color: #007700">],&nbsp;</span><span style="color: #0000BB">$info</span><span style="color: #007700">[</span><span style="color: #DD0000">'error'</span><span style="color: #007700">]);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Initially processes $_FILES superglobal for easier use.
+Only for internal usage.</p>
+
+
+<div class="detailHeader" id="reset-detail">
+reset()
+<span class="detailHeaderTag">
+method
+(available since v1.1.4)
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public static void <b>reset</b>()</div>
+</td></tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CUploadedFile.php#103">framework/web/CUploadedFile.php#103</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;static&nbsp;function&nbsp;</span><span style="color: #0000BB">reset</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">self</span><span style="color: #007700">::</span><span style="color: #0000BB">$_files</span><span style="color: #007700">=</span><span style="color: #0000BB">null</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Cleans up the loaded CUploadedFile instances.
+This method is mainly used by test scripts to set up a fixture.</p>
+
+
+<div class="detailHeader" id="saveAs-detail">
+saveAs()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public boolean <b>saveAs</b>(string $file, boolean $deleteTempFile=true)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$file</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the file path used to save the uploaded file</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$deleteTempFile</td>
+  <td class="paramTypeCol">boolean</td>
+  <td class="paramDescCol">whether to delete the temporary file after saving.
+If true, you will not be able to save the uploaded file again in the current request.</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">boolean</td>
+  <td class="paramDescCol">true whether the file is saved successfully</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CUploadedFile.php#178">framework/web/CUploadedFile.php#178</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">saveAs</span><span style="color: #007700">(</span><span style="color: #0000BB">$file</span><span style="color: #007700">,</span><span style="color: #0000BB">$deleteTempFile</span><span style="color: #007700">=</span><span style="color: #0000BB">true</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_error</span><span style="color: #007700">==</span><span style="color: #0000BB">UPLOAD_ERR_OK</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$deleteTempFile</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">move_uploaded_file</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_tempName</span><span style="color: #007700">,</span><span style="color: #0000BB">$file</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else&nbsp;if(</span><span style="color: #0000BB">is_uploaded_file</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_tempName</span><span style="color: #007700">))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">copy</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_tempName</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$file</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Saves the uploaded file.</p>
+
+
+</div><!-- end of content -->
+
+<div id="apiFooter">
+Copyright &copy; 2008-2011 by <a href="http://www.yiisoft.com">Yii Software LLC</a><br/>
+All Rights Reserved.<br/>
+</div><!-- end of footer -->
+
+<script type="text/javascript">
+/*<![CDATA[*/
+$("a.toggle").toggle(function(){
+	$(this).text($(this).text().replace(/Hide/,'Show'));
+	$(this).parents(".summary").find(".inherited").hide();
+},function(){
+	$(this).text($(this).text().replace(/Show/,'Hide'));
+	$(this).parents(".summary").find(".inherited").show();
+});
+$(".sourceCode a.show").toggle(function(){
+	$(this).text($(this).text().replace(/show/,'hide'));
+	$(this).parents(".sourceCode").find("div.code").show();
+},function(){
+	$(this).text($(this).text().replace(/hide/,'show'));
+	$(this).parents(".sourceCode").find("div.code").hide();
+});
+$("a.sourceLink").click(function(){
+	$(this).attr('target','_blank');
+});
+/*]]>*/
+</script>
+
+</div><!-- end of page -->
+</body>
+</html>

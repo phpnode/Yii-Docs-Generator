@@ -1,0 +1,466 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="language" content="en" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="css/api.css" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<title>CTypedMap</title>
+</head>
+
+<body>
+<div id="apiPage">
+
+<div id="apiHeader">
+My Console Application Class Reference
+</div><!-- end of header -->
+
+<div id="content">
+<h1>CTypedMap</h1>
+<div id="nav">
+<a href="index.html">All Packages</a>
+| <a href="#properties">Properties</a>
+| <a href="#methods">Methods</a>
+</div>
+
+<table class="summaryTable docClass">
+<colgroup>
+	<col class="col-name" />
+	<col class="col-value" />
+</colgroup>
+<tr>
+  <th>Package</th>
+  <td><a href="index.html#system.collections">system.collections</a></td>
+</tr>
+<tr>
+  <th>Inheritance</th>
+  <td>class CTypedMap &raquo;
+<a href="CMap.html">CMap</a> &raquo;
+<a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr>
+  <th>Implements</th>
+  <td>Countable, ArrayAccess, Traversable, IteratorAggregate</td>
+</tr>
+<tr>
+  <th>Since</th>
+  <td>1.0</td>
+</tr>
+<tr>
+  <th>Version</th>
+  <td>$Id: CTypedMap.php 3001 2011-02-24 16:42:44Z alexander.makarow $</td>
+</tr>
+<tr>
+  <th>Source Code</th>
+  <td><a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/collections/CTypedMap.php">framework/collections/CTypedMap.php</a></td>
+</tr>
+<tr>
+  <th>Author</th>
+  <td>Qiang Xue &lt;qiang.xue@gmail.com&gt;</td>
+</tr>
+</table>
+
+<div id="classDescription">
+CTypedMap represents a map whose items are of the certain type.
+<br/><br/>
+CTypedMap extends <a href="CMap.html">CMap</a> by making sure that the elements to be
+added to the list is of certain class type.</div>
+<a name="properties"></a>
+
+<div class="summary docProperty">
+<h2>Public Properties</h2>
+
+<p><a href="#" class="toggle">Hide inherited properties</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-property" />
+	<col class="col-type" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>Property</th><th>Type</th><th>Description</th><th>Defined By</th>
+</tr>
+<tr class="inherited" id="count">
+  <td><a href="CMap.html#count-detail">count</a></td>
+  <td>integer</td>
+  <td>Returns the number of items in the map.</td>
+  <td><a href="CMap.html">CMap</a></td>
+</tr>
+<tr class="inherited" id="iterator">
+  <td><a href="CMap.html#iterator-detail">iterator</a></td>
+  <td><a href="CMapIterator.html">CMapIterator</a></td>
+  <td>Returns an iterator for traversing the items in the list.</td>
+  <td><a href="CMap.html">CMap</a></td>
+</tr>
+<tr class="inherited" id="keys">
+  <td><a href="CMap.html#keys-detail">keys</a></td>
+  <td>array</td>
+  <td>the key list</td>
+  <td><a href="CMap.html">CMap</a></td>
+</tr>
+<tr class="inherited" id="readOnly">
+  <td><a href="CMap.html#readOnly-detail">readOnly</a></td>
+  <td>boolean</td>
+  <td>whether this map is read-only or not.</td>
+  <td><a href="CMap.html">CMap</a></td>
+</tr>
+</table>
+</div>
+<a name="methods"></a>
+
+<div class="summary docMethod">
+<h2>Public Methods</h2>
+
+<p><a href="#" class="toggle">Hide inherited methods</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-method" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>Method</th><th>Description</th><th>Defined By</th>
+</tr>
+<tr class="inherited" id="__call">
+  <td><a href="CComponent.html#__call-detail">__call()</a></td>
+  <td>Calls the named method which is not a class method.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr id="__construct">
+  <td><a href="CTypedMap.html#__construct-detail">__construct()</a></td>
+  <td>Constructor.</td>
+  <td>CTypedMap</td>
+</tr>
+<tr class="inherited" id="__get">
+  <td><a href="CComponent.html#__get-detail">__get()</a></td>
+  <td>Returns a property value, an event handler list or a behavior based on its name.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__isset">
+  <td><a href="CComponent.html#__isset-detail">__isset()</a></td>
+  <td>Checks if a property value is null.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__set">
+  <td><a href="CComponent.html#__set-detail">__set()</a></td>
+  <td>Sets value of a component property.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__unset">
+  <td><a href="CComponent.html#__unset-detail">__unset()</a></td>
+  <td>Sets a component property to be null.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr id="add">
+  <td><a href="CTypedMap.html#add-detail">add()</a></td>
+  <td>Adds an item into the map.</td>
+  <td>CTypedMap</td>
+</tr>
+<tr class="inherited" id="asa">
+  <td><a href="CComponent.html#asa-detail">asa()</a></td>
+  <td>Returns the named behavior object.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="attachBehavior">
+  <td><a href="CComponent.html#attachBehavior-detail">attachBehavior()</a></td>
+  <td>Attaches a behavior to this component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="attachBehaviors">
+  <td><a href="CComponent.html#attachBehaviors-detail">attachBehaviors()</a></td>
+  <td>Attaches a list of behaviors to the component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="attachEventHandler">
+  <td><a href="CComponent.html#attachEventHandler-detail">attachEventHandler()</a></td>
+  <td>Attaches an event handler to an event.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="canGetProperty">
+  <td><a href="CComponent.html#canGetProperty-detail">canGetProperty()</a></td>
+  <td>Determines whether a property can be read.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="canSetProperty">
+  <td><a href="CComponent.html#canSetProperty-detail">canSetProperty()</a></td>
+  <td>Determines whether a property can be set.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="clear">
+  <td><a href="CMap.html#clear-detail">clear()</a></td>
+  <td>Removes all items in the map.</td>
+  <td><a href="CMap.html">CMap</a></td>
+</tr>
+<tr class="inherited" id="contains">
+  <td><a href="CMap.html#contains-detail">contains()</a></td>
+  <td></td>
+  <td><a href="CMap.html">CMap</a></td>
+</tr>
+<tr class="inherited" id="copyFrom">
+  <td><a href="CMap.html#copyFrom-detail">copyFrom()</a></td>
+  <td>Copies iterable data into the map.</td>
+  <td><a href="CMap.html">CMap</a></td>
+</tr>
+<tr class="inherited" id="count()">
+  <td><a href="CMap.html#count()-detail">count()</a></td>
+  <td>Returns the number of items in the map.</td>
+  <td><a href="CMap.html">CMap</a></td>
+</tr>
+<tr class="inherited" id="detachBehavior">
+  <td><a href="CComponent.html#detachBehavior-detail">detachBehavior()</a></td>
+  <td>Detaches a behavior from the component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="detachBehaviors">
+  <td><a href="CComponent.html#detachBehaviors-detail">detachBehaviors()</a></td>
+  <td>Detaches all behaviors from the component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="detachEventHandler">
+  <td><a href="CComponent.html#detachEventHandler-detail">detachEventHandler()</a></td>
+  <td>Detaches an existing event handler.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="disableBehavior">
+  <td><a href="CComponent.html#disableBehavior-detail">disableBehavior()</a></td>
+  <td>Disables an attached behavior.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="disableBehaviors">
+  <td><a href="CComponent.html#disableBehaviors-detail">disableBehaviors()</a></td>
+  <td>Disables all behaviors attached to this component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="enableBehavior">
+  <td><a href="CComponent.html#enableBehavior-detail">enableBehavior()</a></td>
+  <td>Enables an attached behavior.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="enableBehaviors">
+  <td><a href="CComponent.html#enableBehaviors-detail">enableBehaviors()</a></td>
+  <td>Enables all behaviors attached to this component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="evaluateExpression">
+  <td><a href="CComponent.html#evaluateExpression-detail">evaluateExpression()</a></td>
+  <td>Evaluates a PHP expression or callback under the context of this component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="getCount">
+  <td><a href="CMap.html#getCount-detail">getCount()</a></td>
+  <td>Returns the number of items in the map.</td>
+  <td><a href="CMap.html">CMap</a></td>
+</tr>
+<tr class="inherited" id="getEventHandlers">
+  <td><a href="CComponent.html#getEventHandlers-detail">getEventHandlers()</a></td>
+  <td>Returns the list of attached event handlers for an event.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="getIterator">
+  <td><a href="CMap.html#getIterator-detail">getIterator()</a></td>
+  <td>Returns an iterator for traversing the items in the list.</td>
+  <td><a href="CMap.html">CMap</a></td>
+</tr>
+<tr class="inherited" id="getKeys">
+  <td><a href="CMap.html#getKeys-detail">getKeys()</a></td>
+  <td>Returns the key list</td>
+  <td><a href="CMap.html">CMap</a></td>
+</tr>
+<tr class="inherited" id="getReadOnly">
+  <td><a href="CMap.html#getReadOnly-detail">getReadOnly()</a></td>
+  <td>Returns whether this map is read-only or not. Defaults to false.</td>
+  <td><a href="CMap.html">CMap</a></td>
+</tr>
+<tr class="inherited" id="hasEvent">
+  <td><a href="CComponent.html#hasEvent-detail">hasEvent()</a></td>
+  <td>Determines whether an event is defined.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="hasEventHandler">
+  <td><a href="CComponent.html#hasEventHandler-detail">hasEventHandler()</a></td>
+  <td>Checks whether the named event has attached handlers.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="hasProperty">
+  <td><a href="CComponent.html#hasProperty-detail">hasProperty()</a></td>
+  <td>Determines whether a property is defined.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="itemAt">
+  <td><a href="CMap.html#itemAt-detail">itemAt()</a></td>
+  <td>Returns the item with the specified key.</td>
+  <td><a href="CMap.html">CMap</a></td>
+</tr>
+<tr class="inherited" id="mergeArray">
+  <td><a href="CMap.html#mergeArray-detail">mergeArray()</a></td>
+  <td>Merges two arrays into one recursively.</td>
+  <td><a href="CMap.html">CMap</a></td>
+</tr>
+<tr class="inherited" id="mergeWith">
+  <td><a href="CMap.html#mergeWith-detail">mergeWith()</a></td>
+  <td>Merges iterable data into the map.</td>
+  <td><a href="CMap.html">CMap</a></td>
+</tr>
+<tr class="inherited" id="offsetExists">
+  <td><a href="CMap.html#offsetExists-detail">offsetExists()</a></td>
+  <td>Returns whether there is an element at the specified offset.</td>
+  <td><a href="CMap.html">CMap</a></td>
+</tr>
+<tr class="inherited" id="offsetGet">
+  <td><a href="CMap.html#offsetGet-detail">offsetGet()</a></td>
+  <td>Returns the element at the specified offset.</td>
+  <td><a href="CMap.html">CMap</a></td>
+</tr>
+<tr class="inherited" id="offsetSet">
+  <td><a href="CMap.html#offsetSet-detail">offsetSet()</a></td>
+  <td>Sets the element at the specified offset.</td>
+  <td><a href="CMap.html">CMap</a></td>
+</tr>
+<tr class="inherited" id="offsetUnset">
+  <td><a href="CMap.html#offsetUnset-detail">offsetUnset()</a></td>
+  <td>Unsets the element at the specified offset.</td>
+  <td><a href="CMap.html">CMap</a></td>
+</tr>
+<tr class="inherited" id="raiseEvent">
+  <td><a href="CComponent.html#raiseEvent-detail">raiseEvent()</a></td>
+  <td>Raises an event.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="remove">
+  <td><a href="CMap.html#remove-detail">remove()</a></td>
+  <td>Removes an item from the map by its key.</td>
+  <td><a href="CMap.html">CMap</a></td>
+</tr>
+<tr class="inherited" id="toArray">
+  <td><a href="CMap.html#toArray-detail">toArray()</a></td>
+  <td></td>
+  <td><a href="CMap.html">CMap</a></td>
+</tr>
+</table>
+</div>
+<div class="summary docMethod">
+<h2>Protected Methods</h2>
+
+<p><a href="#" class="toggle">Hide inherited methods</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-method" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>Method</th><th>Description</th><th>Defined By</th>
+</tr>
+<tr class="inherited" id="setReadOnly">
+  <td><a href="CMap.html#setReadOnly-detail">setReadOnly()</a></td>
+  <td>Sets whether this list is read-only or not</td>
+  <td><a href="CMap.html">CMap</a></td>
+</tr>
+</table>
+</div>
+<a name="events"></a>
+
+<h2>Method Details</h2>
+
+<div class="detailHeader" id="__construct-detail">
+__construct()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>__construct</b>(string $type)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$type</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">class type</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/collections/CTypedMap.php#30">framework/collections/CTypedMap.php#30</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">__construct</span><span style="color: #007700">(</span><span style="color: #0000BB">$type</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_type</span><span style="color: #007700">=</span><span style="color: #0000BB">$type</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Constructor.</p>
+
+
+<div class="detailHeader" id="add-detail">
+add()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>add</b>(integer $index, mixed $item)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$index</td>
+  <td class="paramTypeCol">integer</td>
+  <td class="paramDescCol">the specified position.</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$item</td>
+  <td class="paramTypeCol">mixed</td>
+  <td class="paramDescCol">new item</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/collections/CTypedMap.php#44">framework/collections/CTypedMap.php#44</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">add</span><span style="color: #007700">(</span><span style="color: #0000BB">$index</span><span style="color: #007700">,</span><span style="color: #0000BB">$item</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$item&nbsp;</span><span style="color: #007700">instanceof&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_type</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">parent</span><span style="color: #007700">::</span><span style="color: #0000BB">add</span><span style="color: #007700">(</span><span style="color: #0000BB">$index</span><span style="color: #007700">,</span><span style="color: #0000BB">$item</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throw&nbsp;new&nbsp;</span><span style="color: #0000BB">CException</span><span style="color: #007700">(</span><span style="color: #0000BB">Yii</span><span style="color: #007700">::</span><span style="color: #0000BB">t</span><span style="color: #007700">(</span><span style="color: #DD0000">'yii'</span><span style="color: #007700">,</span><span style="color: #DD0000">'CTypedMap&lt;{type}&gt;&nbsp;can&nbsp;only&nbsp;hold&nbsp;objects&nbsp;of&nbsp;{type}&nbsp;class.'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array(</span><span style="color: #DD0000">'{type}'</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_type</span><span style="color: #007700">)));<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Adds an item into the map.
+This method overrides the parent implementation by
+checking the item to be inserted is of certain type.</p>
+
+
+</div><!-- end of content -->
+
+<div id="apiFooter">
+Copyright &copy; 2008-2011 by <a href="http://www.yiisoft.com">Yii Software LLC</a><br/>
+All Rights Reserved.<br/>
+</div><!-- end of footer -->
+
+<script type="text/javascript">
+/*<![CDATA[*/
+$("a.toggle").toggle(function(){
+	$(this).text($(this).text().replace(/Hide/,'Show'));
+	$(this).parents(".summary").find(".inherited").hide();
+},function(){
+	$(this).text($(this).text().replace(/Show/,'Hide'));
+	$(this).parents(".summary").find(".inherited").show();
+});
+$(".sourceCode a.show").toggle(function(){
+	$(this).text($(this).text().replace(/show/,'hide'));
+	$(this).parents(".sourceCode").find("div.code").show();
+},function(){
+	$(this).text($(this).text().replace(/hide/,'show'));
+	$(this).parents(".sourceCode").find("div.code").hide();
+});
+$("a.sourceLink").click(function(){
+	$(this).attr('target','_blank');
+});
+/*]]>*/
+</script>
+
+</div><!-- end of page -->
+</body>
+</html>

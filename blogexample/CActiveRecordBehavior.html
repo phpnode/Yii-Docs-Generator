@@ -1,0 +1,571 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="language" content="en" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="css/api.css" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<title>CActiveRecordBehavior</title>
+</head>
+
+<body>
+<div id="apiPage">
+
+<div id="apiHeader">
+My Console Application Class Reference
+</div><!-- end of header -->
+
+<div id="content">
+<h1>CActiveRecordBehavior</h1>
+<div id="nav">
+<a href="index.html">All Packages</a>
+| <a href="#properties">Properties</a>
+| <a href="#methods">Methods</a>
+</div>
+
+<table class="summaryTable docClass">
+<colgroup>
+	<col class="col-name" />
+	<col class="col-value" />
+</colgroup>
+<tr>
+  <th>Package</th>
+  <td><a href="index.html#system.db.ar">system.db.ar</a></td>
+</tr>
+<tr>
+  <th>Inheritance</th>
+  <td>class CActiveRecordBehavior &raquo;
+<a href="CModelBehavior.html">CModelBehavior</a> &raquo;
+<a href="CBehavior.html">CBehavior</a> &raquo;
+<a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr>
+  <th>Implements</th>
+  <td><a href="IBehavior.html">IBehavior</a></td>
+</tr>
+<tr>
+  <th>Subclasses</th>
+  <td><a href="CTimestampBehavior.html">CTimestampBehavior</a></td>
+</tr>
+<tr>
+  <th>Since</th>
+  <td>1.0.2</td>
+</tr>
+<tr>
+  <th>Version</th>
+  <td>$Id: CActiveRecordBehavior.php 2799 2011-01-01 19:31:13Z qiang.xue $</td>
+</tr>
+<tr>
+  <th>Source Code</th>
+  <td><a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/db/ar/CActiveRecordBehavior.php">framework/db/ar/CActiveRecordBehavior.php</a></td>
+</tr>
+<tr>
+  <th>Author</th>
+  <td>Qiang Xue &lt;qiang.xue@gmail.com&gt;</td>
+</tr>
+</table>
+
+<div id="classDescription">
+CActiveRecordBehavior is the base class for behaviors that can be attached to <a href="CActiveRecord.html">CActiveRecord</a>.
+Compared with <a href="CModelBehavior.html">CModelBehavior</a>, CActiveRecordBehavior attaches to more events
+that are only defined by <a href="CActiveRecord.html">CActiveRecord</a>.</div>
+<a name="properties"></a>
+
+<div class="summary docProperty">
+<h2>Public Properties</h2>
+
+<p><a href="#" class="toggle">Hide inherited properties</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-property" />
+	<col class="col-type" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>Property</th><th>Type</th><th>Description</th><th>Defined By</th>
+</tr>
+<tr class="inherited" id="enabled">
+  <td><a href="CBehavior.html#enabled-detail">enabled</a></td>
+  <td>boolean</td>
+  <td>whether this behavior is enabled</td>
+  <td><a href="CBehavior.html">CBehavior</a></td>
+</tr>
+<tr class="inherited" id="owner">
+  <td><a href="CBehavior.html#owner-detail">owner</a></td>
+  <td><a href="CComponent.html">CComponent</a></td>
+  <td>the owner component that this behavior is attached to.</td>
+  <td><a href="CBehavior.html">CBehavior</a></td>
+</tr>
+</table>
+</div>
+<a name="methods"></a>
+
+<div class="summary docMethod">
+<h2>Public Methods</h2>
+
+<p><a href="#" class="toggle">Hide inherited methods</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-method" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>Method</th><th>Description</th><th>Defined By</th>
+</tr>
+<tr class="inherited" id="__call">
+  <td><a href="CComponent.html#__call-detail">__call()</a></td>
+  <td>Calls the named method which is not a class method.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__get">
+  <td><a href="CComponent.html#__get-detail">__get()</a></td>
+  <td>Returns a property value, an event handler list or a behavior based on its name.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__isset">
+  <td><a href="CComponent.html#__isset-detail">__isset()</a></td>
+  <td>Checks if a property value is null.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__set">
+  <td><a href="CComponent.html#__set-detail">__set()</a></td>
+  <td>Sets value of a component property.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__unset">
+  <td><a href="CComponent.html#__unset-detail">__unset()</a></td>
+  <td>Sets a component property to be null.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="afterConstruct">
+  <td><a href="CModelBehavior.html#afterConstruct-detail">afterConstruct()</a></td>
+  <td>Responds to <a href="CModel.html#onAfterConstruct">CModel::onAfterConstruct</a> event.</td>
+  <td><a href="CModelBehavior.html">CModelBehavior</a></td>
+</tr>
+<tr id="afterDelete">
+  <td><a href="CActiveRecordBehavior.html#afterDelete-detail">afterDelete()</a></td>
+  <td>Responds to <a href="CActiveRecord.html#onAfterDelete">CActiveRecord::onAfterDelete</a> event.</td>
+  <td>CActiveRecordBehavior</td>
+</tr>
+<tr id="afterFind">
+  <td><a href="CActiveRecordBehavior.html#afterFind-detail">afterFind()</a></td>
+  <td>Responds to <a href="CActiveRecord.html#onAfterFind">CActiveRecord::onAfterFind</a> event.</td>
+  <td>CActiveRecordBehavior</td>
+</tr>
+<tr id="afterSave">
+  <td><a href="CActiveRecordBehavior.html#afterSave-detail">afterSave()</a></td>
+  <td>Responds to <a href="CActiveRecord.html#onAfterSave">CActiveRecord::onAfterSave</a> event.</td>
+  <td>CActiveRecordBehavior</td>
+</tr>
+<tr class="inherited" id="afterValidate">
+  <td><a href="CModelBehavior.html#afterValidate-detail">afterValidate()</a></td>
+  <td>Responds to <a href="CModel.html#onAfterValidate">CModel::onAfterValidate</a> event.</td>
+  <td><a href="CModelBehavior.html">CModelBehavior</a></td>
+</tr>
+<tr class="inherited" id="asa">
+  <td><a href="CComponent.html#asa-detail">asa()</a></td>
+  <td>Returns the named behavior object.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="attach">
+  <td><a href="CBehavior.html#attach-detail">attach()</a></td>
+  <td>Attaches the behavior object to the component.</td>
+  <td><a href="CBehavior.html">CBehavior</a></td>
+</tr>
+<tr class="inherited" id="attachBehavior">
+  <td><a href="CComponent.html#attachBehavior-detail">attachBehavior()</a></td>
+  <td>Attaches a behavior to this component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="attachBehaviors">
+  <td><a href="CComponent.html#attachBehaviors-detail">attachBehaviors()</a></td>
+  <td>Attaches a list of behaviors to the component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="attachEventHandler">
+  <td><a href="CComponent.html#attachEventHandler-detail">attachEventHandler()</a></td>
+  <td>Attaches an event handler to an event.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr id="beforeDelete">
+  <td><a href="CActiveRecordBehavior.html#beforeDelete-detail">beforeDelete()</a></td>
+  <td>Responds to <a href="CActiveRecord.html#onBeforeDelete">CActiveRecord::onBeforeDelete</a> event.</td>
+  <td>CActiveRecordBehavior</td>
+</tr>
+<tr id="beforeFind">
+  <td><a href="CActiveRecordBehavior.html#beforeFind-detail">beforeFind()</a></td>
+  <td>Responds to <a href="CActiveRecord.html#onBeforeFind">CActiveRecord::onBeforeFind</a> event.</td>
+  <td>CActiveRecordBehavior</td>
+</tr>
+<tr id="beforeSave">
+  <td><a href="CActiveRecordBehavior.html#beforeSave-detail">beforeSave()</a></td>
+  <td>Responds to <a href="CActiveRecord.html#onBeforeSave">CActiveRecord::onBeforeSave</a> event.</td>
+  <td>CActiveRecordBehavior</td>
+</tr>
+<tr class="inherited" id="beforeValidate">
+  <td><a href="CModelBehavior.html#beforeValidate-detail">beforeValidate()</a></td>
+  <td>Responds to <a href="CModel.html#onBeforeValidate">CModel::onBeforeValidate</a> event.</td>
+  <td><a href="CModelBehavior.html">CModelBehavior</a></td>
+</tr>
+<tr class="inherited" id="canGetProperty">
+  <td><a href="CComponent.html#canGetProperty-detail">canGetProperty()</a></td>
+  <td>Determines whether a property can be read.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="canSetProperty">
+  <td><a href="CComponent.html#canSetProperty-detail">canSetProperty()</a></td>
+  <td>Determines whether a property can be set.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="detach">
+  <td><a href="CBehavior.html#detach-detail">detach()</a></td>
+  <td>Detaches the behavior object from the component.</td>
+  <td><a href="CBehavior.html">CBehavior</a></td>
+</tr>
+<tr class="inherited" id="detachBehavior">
+  <td><a href="CComponent.html#detachBehavior-detail">detachBehavior()</a></td>
+  <td>Detaches a behavior from the component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="detachBehaviors">
+  <td><a href="CComponent.html#detachBehaviors-detail">detachBehaviors()</a></td>
+  <td>Detaches all behaviors from the component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="detachEventHandler">
+  <td><a href="CComponent.html#detachEventHandler-detail">detachEventHandler()</a></td>
+  <td>Detaches an existing event handler.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="disableBehavior">
+  <td><a href="CComponent.html#disableBehavior-detail">disableBehavior()</a></td>
+  <td>Disables an attached behavior.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="disableBehaviors">
+  <td><a href="CComponent.html#disableBehaviors-detail">disableBehaviors()</a></td>
+  <td>Disables all behaviors attached to this component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="enableBehavior">
+  <td><a href="CComponent.html#enableBehavior-detail">enableBehavior()</a></td>
+  <td>Enables an attached behavior.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="enableBehaviors">
+  <td><a href="CComponent.html#enableBehaviors-detail">enableBehaviors()</a></td>
+  <td>Enables all behaviors attached to this component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="evaluateExpression">
+  <td><a href="CComponent.html#evaluateExpression-detail">evaluateExpression()</a></td>
+  <td>Evaluates a PHP expression or callback under the context of this component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr id="events">
+  <td><a href="CActiveRecordBehavior.html#events-detail">events()</a></td>
+  <td>Declares events and the corresponding event handler methods.</td>
+  <td>CActiveRecordBehavior</td>
+</tr>
+<tr class="inherited" id="getEnabled">
+  <td><a href="CBehavior.html#getEnabled-detail">getEnabled()</a></td>
+  <td>Returns whether this behavior is enabled</td>
+  <td><a href="CBehavior.html">CBehavior</a></td>
+</tr>
+<tr class="inherited" id="getEventHandlers">
+  <td><a href="CComponent.html#getEventHandlers-detail">getEventHandlers()</a></td>
+  <td>Returns the list of attached event handlers for an event.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="getOwner">
+  <td><a href="CBehavior.html#getOwner-detail">getOwner()</a></td>
+  <td>Returns the owner component that this behavior is attached to.</td>
+  <td><a href="CBehavior.html">CBehavior</a></td>
+</tr>
+<tr class="inherited" id="hasEvent">
+  <td><a href="CComponent.html#hasEvent-detail">hasEvent()</a></td>
+  <td>Determines whether an event is defined.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="hasEventHandler">
+  <td><a href="CComponent.html#hasEventHandler-detail">hasEventHandler()</a></td>
+  <td>Checks whether the named event has attached handlers.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="hasProperty">
+  <td><a href="CComponent.html#hasProperty-detail">hasProperty()</a></td>
+  <td>Determines whether a property is defined.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="raiseEvent">
+  <td><a href="CComponent.html#raiseEvent-detail">raiseEvent()</a></td>
+  <td>Raises an event.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="setEnabled">
+  <td><a href="CBehavior.html#setEnabled-detail">setEnabled()</a></td>
+  <td>Sets whether this behavior is enabled</td>
+  <td><a href="CBehavior.html">CBehavior</a></td>
+</tr>
+</table>
+</div>
+<a name="events"></a>
+
+<h2>Method Details</h2>
+
+<div class="detailHeader" id="afterDelete-detail">
+afterDelete()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>afterDelete</b>(<a href="CEvent.html">CEvent</a> $event)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$event</td>
+  <td class="paramTypeCol"><a href="CEvent.html">CEvent</a></td>
+  <td class="paramDescCol">event parameter</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/db/ar/CActiveRecordBehavior.php#75">framework/db/ar/CActiveRecordBehavior.php#75</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">afterDelete</span><span style="color: #007700">(</span><span style="color: #0000BB">$event</span><span style="color: #007700">)<br />{<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Responds to <a href="CActiveRecord.html#onAfterDelete">CActiveRecord::onAfterDelete</a> event.
+Overrides this method if you want to handle the corresponding event of the <a href="CBehavior.html#owner">owner</a>.</p>
+
+
+<div class="detailHeader" id="afterFind-detail">
+afterFind()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>afterFind</b>(<a href="CEvent.html">CEvent</a> $event)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$event</td>
+  <td class="paramTypeCol"><a href="CEvent.html">CEvent</a></td>
+  <td class="paramDescCol">event parameter</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/db/ar/CActiveRecordBehavior.php#94">framework/db/ar/CActiveRecordBehavior.php#94</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">afterFind</span><span style="color: #007700">(</span><span style="color: #0000BB">$event</span><span style="color: #007700">)<br />{<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Responds to <a href="CActiveRecord.html#onAfterFind">CActiveRecord::onAfterFind</a> event.
+Overrides this method if you want to handle the corresponding event of the <a href="CBehavior.html#owner">owner</a>.</p>
+
+
+<div class="detailHeader" id="afterSave-detail">
+afterSave()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>afterSave</b>(<a href="CModelEvent.html">CModelEvent</a> $event)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$event</td>
+  <td class="paramTypeCol"><a href="CModelEvent.html">CModelEvent</a></td>
+  <td class="paramDescCol">event parameter</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/db/ar/CActiveRecordBehavior.php#56">framework/db/ar/CActiveRecordBehavior.php#56</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">afterSave</span><span style="color: #007700">(</span><span style="color: #0000BB">$event</span><span style="color: #007700">)<br />{<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Responds to <a href="CActiveRecord.html#onAfterSave">CActiveRecord::onAfterSave</a> event.
+Overrides this method if you want to handle the corresponding event of the <a href="CBehavior.html#owner">owner</a>.</p>
+
+
+<div class="detailHeader" id="beforeDelete-detail">
+beforeDelete()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>beforeDelete</b>(<a href="CEvent.html">CEvent</a> $event)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$event</td>
+  <td class="paramTypeCol"><a href="CEvent.html">CEvent</a></td>
+  <td class="paramDescCol">event parameter</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/db/ar/CActiveRecordBehavior.php#66">framework/db/ar/CActiveRecordBehavior.php#66</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">beforeDelete</span><span style="color: #007700">(</span><span style="color: #0000BB">$event</span><span style="color: #007700">)<br />{<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Responds to <a href="CActiveRecord.html#onBeforeDelete">CActiveRecord::onBeforeDelete</a> event.
+Overrides this method if you want to handle the corresponding event of the <a href="CBehavior.html#owner">owner</a>.
+You may set <a href="CModelEvent.html#isValid">CModelEvent::isValid</a> to be false to quit the deletion process.</p>
+
+
+<div class="detailHeader" id="beforeFind-detail">
+beforeFind()
+<span class="detailHeaderTag">
+method
+(available since v1.0.9)
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>beforeFind</b>(<a href="CEvent.html">CEvent</a> $event)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$event</td>
+  <td class="paramTypeCol"><a href="CEvent.html">CEvent</a></td>
+  <td class="paramDescCol">event parameter</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/db/ar/CActiveRecordBehavior.php#85">framework/db/ar/CActiveRecordBehavior.php#85</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">beforeFind</span><span style="color: #007700">(</span><span style="color: #0000BB">$event</span><span style="color: #007700">)<br />{<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Responds to <a href="CActiveRecord.html#onBeforeFind">CActiveRecord::onBeforeFind</a> event.
+Overrides this method if you want to handle the corresponding event of the <a href="CBehavior.html#owner">owner</a>.</p>
+
+
+<div class="detailHeader" id="beforeSave-detail">
+beforeSave()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>beforeSave</b>(<a href="CModelEvent.html">CModelEvent</a> $event)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$event</td>
+  <td class="paramTypeCol"><a href="CModelEvent.html">CModelEvent</a></td>
+  <td class="paramDescCol">event parameter</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/db/ar/CActiveRecordBehavior.php#47">framework/db/ar/CActiveRecordBehavior.php#47</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">beforeSave</span><span style="color: #007700">(</span><span style="color: #0000BB">$event</span><span style="color: #007700">)<br />{<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Responds to <a href="CActiveRecord.html#onBeforeSave">CActiveRecord::onBeforeSave</a> event.
+Overrides this method if you want to handle the corresponding event of the <a href="CBehavior.html#owner">owner</a>.
+You may set <a href="CModelEvent.html#isValid">CModelEvent::isValid</a> to be false to quit the saving process.</p>
+
+
+<div class="detailHeader" id="events-detail">
+events()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public array <b>events</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">events (array keys) and the corresponding event handler methods (array values).</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/db/ar/CActiveRecordBehavior.php#29">framework/db/ar/CActiveRecordBehavior.php#29</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">events</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">array_merge</span><span style="color: #007700">(</span><span style="color: #0000BB">parent</span><span style="color: #007700">::</span><span style="color: #0000BB">events</span><span style="color: #007700">(),&nbsp;array(<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'onBeforeSave'</span><span style="color: #007700">=&gt;</span><span style="color: #DD0000">'beforeSave'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'onAfterSave'</span><span style="color: #007700">=&gt;</span><span style="color: #DD0000">'afterSave'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'onBeforeDelete'</span><span style="color: #007700">=&gt;</span><span style="color: #DD0000">'beforeDelete'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'onAfterDelete'</span><span style="color: #007700">=&gt;</span><span style="color: #DD0000">'afterDelete'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'onBeforeFind'</span><span style="color: #007700">=&gt;</span><span style="color: #DD0000">'beforeFind'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'onAfterFind'</span><span style="color: #007700">=&gt;</span><span style="color: #DD0000">'afterFind'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;));<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Declares events and the corresponding event handler methods.
+If you override this method, make sure you merge the parent result to the return value.</p>
+
+<div class="SeeAlso">
+<h4>See Also</h4>
+<ul>
+	<li><a href="CBehavior.html#events">CBehavior::events</a></li>
+</ul>
+</div>
+
+</div><!-- end of content -->
+
+<div id="apiFooter">
+Copyright &copy; 2008-2011 by <a href="http://www.yiisoft.com">Yii Software LLC</a><br/>
+All Rights Reserved.<br/>
+</div><!-- end of footer -->
+
+<script type="text/javascript">
+/*<![CDATA[*/
+$("a.toggle").toggle(function(){
+	$(this).text($(this).text().replace(/Hide/,'Show'));
+	$(this).parents(".summary").find(".inherited").hide();
+},function(){
+	$(this).text($(this).text().replace(/Show/,'Hide'));
+	$(this).parents(".summary").find(".inherited").show();
+});
+$(".sourceCode a.show").toggle(function(){
+	$(this).text($(this).text().replace(/show/,'hide'));
+	$(this).parents(".sourceCode").find("div.code").show();
+},function(){
+	$(this).text($(this).text().replace(/hide/,'show'));
+	$(this).parents(".sourceCode").find("div.code").hide();
+});
+$("a.sourceLink").click(function(){
+	$(this).attr('target','_blank');
+});
+/*]]>*/
+</script>
+
+</div><!-- end of page -->
+</body>
+</html>

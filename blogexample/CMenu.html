@@ -1,0 +1,952 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="language" content="en" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="css/api.css" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<title>CMenu</title>
+</head>
+
+<body>
+<div id="apiPage">
+
+<div id="apiHeader">
+My Console Application Class Reference
+</div><!-- end of header -->
+
+<div id="content">
+<h1>CMenu</h1>
+<div id="nav">
+<a href="index.html">All Packages</a>
+| <a href="#properties">Properties</a>
+| <a href="#methods">Methods</a>
+</div>
+
+<table class="summaryTable docClass">
+<colgroup>
+	<col class="col-name" />
+	<col class="col-value" />
+</colgroup>
+<tr>
+  <th>Package</th>
+  <td><a href="index.html#zii.widgets">zii.widgets</a></td>
+</tr>
+<tr>
+  <th>Inheritance</th>
+  <td>class CMenu &raquo;
+<a href="CWidget.html">CWidget</a> &raquo;
+<a href="CBaseController.html">CBaseController</a> &raquo;
+<a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr>
+  <th>Since</th>
+  <td>1.1</td>
+</tr>
+<tr>
+  <th>Version</th>
+  <td>$Id: CMenu.php 3034 2011-03-08 18:22:29Z qiang.xue $</td>
+</tr>
+<tr>
+  <th>Source Code</th>
+  <td><a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/zii/widgets/CMenu.php">framework/zii/widgets/CMenu.php</a></td>
+</tr>
+<tr>
+  <th>Authors</th>
+  <td>Jonah Turnquist &lt;poppitypop@gmail.com&gt;, Qiang Xue &lt;qiang.xue@gmail.com&gt;</td>
+</tr>
+</table>
+
+<div id="classDescription">
+CMenu displays a multi-level menu using nested HTML lists.
+<br/><br/>
+The main property of CMenu is <a href="CMenu.html#items">items</a>, which specifies the possible items in the menu.
+A menu item has three main properties: visible, active and items. The "visible" property
+specifies whether the menu item is currently visible. The "active" property specifies whether
+the menu item is currently selected. And the "items" property specifies the child menu items.
+<br/><br/>
+The following example shows how to use CMenu:
+<pre>
+$this-&gt;widget('zii.widgets.CMenu', array(
+    'items'=&gt;array(
+        // Important: you need to specify url as 'controller/action',
+        // not just as 'controller' even if default acion is used.
+        array('label'=&gt;'Home', 'url'=&gt;array('site/index')),
+        array('label'=&gt;'Products', 'url'=&gt;array('product/index'), 'items'=&gt;array(
+            array('label'=&gt;'New Arrivals', 'url'=&gt;array('product/new', 'tag'=&gt;'new')),
+            array('label'=&gt;'Most Popular', 'url'=&gt;array('product/index', 'tag'=&gt;'popular')),
+        )),
+        array('label'=&gt;'Login', 'url'=&gt;array('site/login'), 'visible'=&gt;Yii::app()-&gt;user-&gt;isGuest),
+    ),
+));
+</pre></div>
+<a name="properties"></a>
+
+<div class="summary docProperty">
+<h2>Public Properties</h2>
+
+<p><a href="#" class="toggle">Hide inherited properties</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-property" />
+	<col class="col-type" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>Property</th><th>Type</th><th>Description</th><th>Defined By</th>
+</tr>
+<tr class="inherited" id="actionPrefix">
+  <td><a href="CWidget.html#actionPrefix-detail">actionPrefix</a></td>
+  <td>string</td>
+  <td>the prefix to the IDs of the <a href="CMenu.html#actions">actions</a>.</td>
+  <td><a href="CWidget.html">CWidget</a></td>
+</tr>
+<tr id="activateItems">
+  <td><a href="CMenu.html#activateItems-detail">activateItems</a></td>
+  <td>boolean</td>
+  <td>whether to automatically activate items according to whether their route setting
+matches the currently requested route.</td>
+  <td>CMenu</td>
+</tr>
+<tr id="activateParents">
+  <td><a href="CMenu.html#activateParents-detail">activateParents</a></td>
+  <td>boolean</td>
+  <td>whether to activate parent menu items when one of the corresponding child menu items is active.</td>
+  <td>CMenu</td>
+</tr>
+<tr id="activeCssClass">
+  <td><a href="CMenu.html#activeCssClass-detail">activeCssClass</a></td>
+  <td>string</td>
+  <td>the CSS class to be appended to the active menu item.</td>
+  <td>CMenu</td>
+</tr>
+<tr class="inherited" id="controller">
+  <td><a href="CWidget.html#controller-detail">controller</a></td>
+  <td><a href="CController.html">CController</a></td>
+  <td>Returns the controller that this widget belongs to.</td>
+  <td><a href="CWidget.html">CWidget</a></td>
+</tr>
+<tr id="encodeLabel">
+  <td><a href="CMenu.html#encodeLabel-detail">encodeLabel</a></td>
+  <td>boolean</td>
+  <td>whether the labels for menu items should be HTML-encoded.</td>
+  <td>CMenu</td>
+</tr>
+<tr id="firstItemCssClass">
+  <td><a href="CMenu.html#firstItemCssClass-detail">firstItemCssClass</a></td>
+  <td>string</td>
+  <td>the CSS class that will be assigned to the first item in the main menu or each submenu.</td>
+  <td>CMenu</td>
+</tr>
+<tr id="hideEmptyItems">
+  <td><a href="CMenu.html#hideEmptyItems-detail">hideEmptyItems</a></td>
+  <td>boolean</td>
+  <td>whether to hide empty menu items.</td>
+  <td>CMenu</td>
+</tr>
+<tr id="htmlOptions">
+  <td><a href="CMenu.html#htmlOptions-detail">htmlOptions</a></td>
+  <td>array</td>
+  <td>HTML attributes for the menu's root container tag</td>
+  <td>CMenu</td>
+</tr>
+<tr class="inherited" id="id">
+  <td><a href="CWidget.html#id-detail">id</a></td>
+  <td>string</td>
+  <td>Returns the ID of the widget or generates a new one if requested.</td>
+  <td><a href="CWidget.html">CWidget</a></td>
+</tr>
+<tr id="itemTemplate">
+  <td><a href="CMenu.html#itemTemplate-detail">itemTemplate</a></td>
+  <td>string</td>
+  <td>the template used to render an individual menu item.</td>
+  <td>CMenu</td>
+</tr>
+<tr id="items">
+  <td><a href="CMenu.html#items-detail">items</a></td>
+  <td>array</td>
+  <td>list of menu items.</td>
+  <td>CMenu</td>
+</tr>
+<tr id="lastItemCssClass">
+  <td><a href="CMenu.html#lastItemCssClass-detail">lastItemCssClass</a></td>
+  <td>string</td>
+  <td>the CSS class that will be assigned to the last item in the main menu or each submenu.</td>
+  <td>CMenu</td>
+</tr>
+<tr id="linkLabelWrapper">
+  <td><a href="CMenu.html#linkLabelWrapper-detail">linkLabelWrapper</a></td>
+  <td>string</td>
+  <td>the HTML element name that will be used to wrap the label of all menu links.</td>
+  <td>CMenu</td>
+</tr>
+<tr class="inherited" id="owner">
+  <td><a href="CWidget.html#owner-detail">owner</a></td>
+  <td><a href="CBaseController.html">CBaseController</a></td>
+  <td>Returns the owner/creator of this widget.</td>
+  <td><a href="CWidget.html">CWidget</a></td>
+</tr>
+<tr class="inherited" id="skin">
+  <td><a href="CWidget.html#skin-detail">skin</a></td>
+  <td>mixed</td>
+  <td>the name of the skin to be used by this widget.</td>
+  <td><a href="CWidget.html">CWidget</a></td>
+</tr>
+<tr id="submenuHtmlOptions">
+  <td><a href="CMenu.html#submenuHtmlOptions-detail">submenuHtmlOptions</a></td>
+  <td>array</td>
+  <td>HTML attributes for the submenu's container tag.</td>
+  <td>CMenu</td>
+</tr>
+<tr class="inherited" id="viewPath">
+  <td><a href="CWidget.html#viewPath-detail">viewPath</a></td>
+  <td>string</td>
+  <td>Returns the directory containing the view files for this widget.</td>
+  <td><a href="CWidget.html">CWidget</a></td>
+</tr>
+</table>
+</div>
+<a name="methods"></a>
+
+<div class="summary docMethod">
+<h2>Public Methods</h2>
+
+<p><a href="#" class="toggle">Hide inherited methods</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-method" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>Method</th><th>Description</th><th>Defined By</th>
+</tr>
+<tr class="inherited" id="__call">
+  <td><a href="CComponent.html#__call-detail">__call()</a></td>
+  <td>Calls the named method which is not a class method.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__construct">
+  <td><a href="CWidget.html#__construct-detail">__construct()</a></td>
+  <td>Constructor.</td>
+  <td><a href="CWidget.html">CWidget</a></td>
+</tr>
+<tr class="inherited" id="__get">
+  <td><a href="CComponent.html#__get-detail">__get()</a></td>
+  <td>Returns a property value, an event handler list or a behavior based on its name.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__isset">
+  <td><a href="CComponent.html#__isset-detail">__isset()</a></td>
+  <td>Checks if a property value is null.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__set">
+  <td><a href="CComponent.html#__set-detail">__set()</a></td>
+  <td>Sets value of a component property.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__unset">
+  <td><a href="CComponent.html#__unset-detail">__unset()</a></td>
+  <td>Sets a component property to be null.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="actions">
+  <td><a href="CWidget.html#actions-detail">actions()</a></td>
+  <td>Returns a list of actions that are used by this widget.</td>
+  <td><a href="CWidget.html">CWidget</a></td>
+</tr>
+<tr class="inherited" id="asa">
+  <td><a href="CComponent.html#asa-detail">asa()</a></td>
+  <td>Returns the named behavior object.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="attachBehavior">
+  <td><a href="CComponent.html#attachBehavior-detail">attachBehavior()</a></td>
+  <td>Attaches a behavior to this component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="attachBehaviors">
+  <td><a href="CComponent.html#attachBehaviors-detail">attachBehaviors()</a></td>
+  <td>Attaches a list of behaviors to the component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="attachEventHandler">
+  <td><a href="CComponent.html#attachEventHandler-detail">attachEventHandler()</a></td>
+  <td>Attaches an event handler to an event.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="beginCache">
+  <td><a href="CBaseController.html#beginCache-detail">beginCache()</a></td>
+  <td>Begins fragment caching.</td>
+  <td><a href="CBaseController.html">CBaseController</a></td>
+</tr>
+<tr class="inherited" id="beginClip">
+  <td><a href="CBaseController.html#beginClip-detail">beginClip()</a></td>
+  <td>Begins recording a clip.</td>
+  <td><a href="CBaseController.html">CBaseController</a></td>
+</tr>
+<tr class="inherited" id="beginContent">
+  <td><a href="CBaseController.html#beginContent-detail">beginContent()</a></td>
+  <td>Begins the rendering of content that is to be decorated by the specified view.</td>
+  <td><a href="CBaseController.html">CBaseController</a></td>
+</tr>
+<tr class="inherited" id="beginWidget">
+  <td><a href="CBaseController.html#beginWidget-detail">beginWidget()</a></td>
+  <td>Creates a widget and executes it.</td>
+  <td><a href="CBaseController.html">CBaseController</a></td>
+</tr>
+<tr class="inherited" id="canGetProperty">
+  <td><a href="CComponent.html#canGetProperty-detail">canGetProperty()</a></td>
+  <td>Determines whether a property can be read.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="canSetProperty">
+  <td><a href="CComponent.html#canSetProperty-detail">canSetProperty()</a></td>
+  <td>Determines whether a property can be set.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="createWidget">
+  <td><a href="CBaseController.html#createWidget-detail">createWidget()</a></td>
+  <td>Creates a widget and initializes it.</td>
+  <td><a href="CBaseController.html">CBaseController</a></td>
+</tr>
+<tr class="inherited" id="detachBehavior">
+  <td><a href="CComponent.html#detachBehavior-detail">detachBehavior()</a></td>
+  <td>Detaches a behavior from the component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="detachBehaviors">
+  <td><a href="CComponent.html#detachBehaviors-detail">detachBehaviors()</a></td>
+  <td>Detaches all behaviors from the component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="detachEventHandler">
+  <td><a href="CComponent.html#detachEventHandler-detail">detachEventHandler()</a></td>
+  <td>Detaches an existing event handler.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="disableBehavior">
+  <td><a href="CComponent.html#disableBehavior-detail">disableBehavior()</a></td>
+  <td>Disables an attached behavior.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="disableBehaviors">
+  <td><a href="CComponent.html#disableBehaviors-detail">disableBehaviors()</a></td>
+  <td>Disables all behaviors attached to this component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="enableBehavior">
+  <td><a href="CComponent.html#enableBehavior-detail">enableBehavior()</a></td>
+  <td>Enables an attached behavior.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="enableBehaviors">
+  <td><a href="CComponent.html#enableBehaviors-detail">enableBehaviors()</a></td>
+  <td>Enables all behaviors attached to this component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="endCache">
+  <td><a href="CBaseController.html#endCache-detail">endCache()</a></td>
+  <td>Ends fragment caching.</td>
+  <td><a href="CBaseController.html">CBaseController</a></td>
+</tr>
+<tr class="inherited" id="endClip">
+  <td><a href="CBaseController.html#endClip-detail">endClip()</a></td>
+  <td>Ends recording a clip.</td>
+  <td><a href="CBaseController.html">CBaseController</a></td>
+</tr>
+<tr class="inherited" id="endContent">
+  <td><a href="CBaseController.html#endContent-detail">endContent()</a></td>
+  <td>Ends the rendering of content.</td>
+  <td><a href="CBaseController.html">CBaseController</a></td>
+</tr>
+<tr class="inherited" id="endWidget">
+  <td><a href="CBaseController.html#endWidget-detail">endWidget()</a></td>
+  <td>Ends the execution of the named widget.</td>
+  <td><a href="CBaseController.html">CBaseController</a></td>
+</tr>
+<tr class="inherited" id="evaluateExpression">
+  <td><a href="CComponent.html#evaluateExpression-detail">evaluateExpression()</a></td>
+  <td>Evaluates a PHP expression or callback under the context of this component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="getController">
+  <td><a href="CWidget.html#getController-detail">getController()</a></td>
+  <td>Returns the controller that this widget belongs to.</td>
+  <td><a href="CWidget.html">CWidget</a></td>
+</tr>
+<tr class="inherited" id="getEventHandlers">
+  <td><a href="CComponent.html#getEventHandlers-detail">getEventHandlers()</a></td>
+  <td>Returns the list of attached event handlers for an event.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="getId">
+  <td><a href="CWidget.html#getId-detail">getId()</a></td>
+  <td>Returns the ID of the widget or generates a new one if requested.</td>
+  <td><a href="CWidget.html">CWidget</a></td>
+</tr>
+<tr class="inherited" id="getOwner">
+  <td><a href="CWidget.html#getOwner-detail">getOwner()</a></td>
+  <td>Returns the owner/creator of this widget.</td>
+  <td><a href="CWidget.html">CWidget</a></td>
+</tr>
+<tr class="inherited" id="getViewFile">
+  <td><a href="CWidget.html#getViewFile-detail">getViewFile()</a></td>
+  <td>Looks for the view script file according to the view name.</td>
+  <td><a href="CWidget.html">CWidget</a></td>
+</tr>
+<tr class="inherited" id="getViewPath">
+  <td><a href="CWidget.html#getViewPath-detail">getViewPath()</a></td>
+  <td>Returns the directory containing the view files for this widget.</td>
+  <td><a href="CWidget.html">CWidget</a></td>
+</tr>
+<tr class="inherited" id="hasEvent">
+  <td><a href="CComponent.html#hasEvent-detail">hasEvent()</a></td>
+  <td>Determines whether an event is defined.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="hasEventHandler">
+  <td><a href="CComponent.html#hasEventHandler-detail">hasEventHandler()</a></td>
+  <td>Checks whether the named event has attached handlers.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="hasProperty">
+  <td><a href="CComponent.html#hasProperty-detail">hasProperty()</a></td>
+  <td>Determines whether a property is defined.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr id="init">
+  <td><a href="CMenu.html#init-detail">init()</a></td>
+  <td>Initializes the menu widget.</td>
+  <td>CMenu</td>
+</tr>
+<tr class="inherited" id="raiseEvent">
+  <td><a href="CComponent.html#raiseEvent-detail">raiseEvent()</a></td>
+  <td>Raises an event.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="render">
+  <td><a href="CWidget.html#render-detail">render()</a></td>
+  <td>Renders a view.</td>
+  <td><a href="CWidget.html">CWidget</a></td>
+</tr>
+<tr class="inherited" id="renderFile">
+  <td><a href="CBaseController.html#renderFile-detail">renderFile()</a></td>
+  <td>Renders a view file.</td>
+  <td><a href="CBaseController.html">CBaseController</a></td>
+</tr>
+<tr class="inherited" id="renderInternal">
+  <td><a href="CBaseController.html#renderInternal-detail">renderInternal()</a></td>
+  <td>Renders a view file.</td>
+  <td><a href="CBaseController.html">CBaseController</a></td>
+</tr>
+<tr id="run">
+  <td><a href="CMenu.html#run-detail">run()</a></td>
+  <td>Calls <a href="CMenu.html#renderMenu">renderMenu</a> to render the menu.</td>
+  <td>CMenu</td>
+</tr>
+<tr class="inherited" id="setId">
+  <td><a href="CWidget.html#setId-detail">setId()</a></td>
+  <td>Sets the ID of the widget.</td>
+  <td><a href="CWidget.html">CWidget</a></td>
+</tr>
+<tr class="inherited" id="widget">
+  <td><a href="CBaseController.html#widget-detail">widget()</a></td>
+  <td>Creates a widget and executes it.</td>
+  <td><a href="CBaseController.html">CBaseController</a></td>
+</tr>
+</table>
+</div>
+<div class="summary docMethod">
+<h2>Protected Methods</h2>
+
+<p><a href="#" class="toggle">Hide inherited methods</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-method" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>Method</th><th>Description</th><th>Defined By</th>
+</tr>
+<tr id="isItemActive">
+  <td><a href="CMenu.html#isItemActive-detail">isItemActive()</a></td>
+  <td>Checks whether a menu item is active.</td>
+  <td>CMenu</td>
+</tr>
+<tr id="normalizeItems">
+  <td><a href="CMenu.html#normalizeItems-detail">normalizeItems()</a></td>
+  <td>Normalizes the <a href="CMenu.html#items">items</a> property so that the 'active' state is properly identified for every menu item.</td>
+  <td>CMenu</td>
+</tr>
+<tr id="renderMenu">
+  <td><a href="CMenu.html#renderMenu-detail">renderMenu()</a></td>
+  <td>Renders the menu items.</td>
+  <td>CMenu</td>
+</tr>
+<tr id="renderMenuItem">
+  <td><a href="CMenu.html#renderMenuItem-detail">renderMenuItem()</a></td>
+  <td>Renders the content of a menu item.</td>
+  <td>CMenu</td>
+</tr>
+<tr id="renderMenuRecursive">
+  <td><a href="CMenu.html#renderMenuRecursive-detail">renderMenuRecursive()</a></td>
+  <td>Recursively renders the menu items.</td>
+  <td>CMenu</td>
+</tr>
+</table>
+</div>
+<a name="events"></a>
+
+<h2>Property Details</h2>
+<div class="detailHeader" id="activateItems-detail">
+activateItems<span class="detailHeaderTag">
+property
+ (available since v1.1.3)
+</span>
+</div>
+
+<div class="signature">
+public boolean <b>$activateItems</b>;</div>
+
+<p>whether to automatically activate items according to whether their route setting
+matches the currently requested route. Defaults to true.</p>
+
+
+<div class="detailHeader" id="activateParents-detail">
+activateParents<span class="detailHeaderTag">
+property
+</span>
+</div>
+
+<div class="signature">
+public boolean <b>$activateParents</b>;</div>
+
+<p>whether to activate parent menu items when one of the corresponding child menu items is active.
+The activated parent menu items will also have its CSS classes appended with <a href="CMenu.html#activeCssClass">activeCssClass</a>.
+Defaults to false.</p>
+
+
+<div class="detailHeader" id="activeCssClass-detail">
+activeCssClass<span class="detailHeaderTag">
+property
+</span>
+</div>
+
+<div class="signature">
+public string <b>$activeCssClass</b>;</div>
+
+<p>the CSS class to be appended to the active menu item. Defaults to 'active'.
+If empty, the CSS class of menu items will not be changed.</p>
+
+
+<div class="detailHeader" id="encodeLabel-detail">
+encodeLabel<span class="detailHeaderTag">
+property
+</span>
+</div>
+
+<div class="signature">
+public boolean <b>$encodeLabel</b>;</div>
+
+<p>whether the labels for menu items should be HTML-encoded. Defaults to true.</p>
+
+
+<div class="detailHeader" id="firstItemCssClass-detail">
+firstItemCssClass<span class="detailHeaderTag">
+property
+ (available since v1.1.4)
+</span>
+</div>
+
+<div class="signature">
+public string <b>$firstItemCssClass</b>;</div>
+
+<p>the CSS class that will be assigned to the first item in the main menu or each submenu.
+Defaults to null, meaning no such CSS class will be assigned.</p>
+
+
+<div class="detailHeader" id="hideEmptyItems-detail">
+hideEmptyItems<span class="detailHeaderTag">
+property
+</span>
+</div>
+
+<div class="signature">
+public boolean <b>$hideEmptyItems</b>;</div>
+
+<p>whether to hide empty menu items. An empty menu item is one whose 'url' option is not
+set and which doesn't contain visible child menu items. Defaults to true.</p>
+
+
+<div class="detailHeader" id="htmlOptions-detail">
+htmlOptions<span class="detailHeaderTag">
+property
+</span>
+</div>
+
+<div class="signature">
+public array <b>$htmlOptions</b>;</div>
+
+<p>HTML attributes for the menu's root container tag</p>
+
+
+<div class="detailHeader" id="itemTemplate-detail">
+itemTemplate<span class="detailHeaderTag">
+property
+ (available since v1.1.1)
+</span>
+</div>
+
+<div class="signature">
+public string <b>$itemTemplate</b>;</div>
+
+<p>the template used to render an individual menu item. In this template,
+the token "{menu}" will be replaced with the corresponding menu link or text.
+If this property is not set, each menu will be rendered without any decoration.
+This property will be overridden by the 'template' option set in individual menu items via {@items}.</p>
+
+
+<div class="detailHeader" id="items-detail">
+items<span class="detailHeaderTag">
+property
+</span>
+</div>
+
+<div class="signature">
+public array <b>$items</b>;</div>
+
+<p>list of menu items. Each menu item is specified as an array of name-value pairs.
+Possible option names include the following:
+<ul>
+<li>label: string, optional, specifies the menu item label. When <a href="CMenu.html#encodeLabel">encodeLabel</a> is true, the label
+will be HTML-encoded. If the label is not specified, it defaults to an empty string.</li>
+<li>url: string or array, optional, specifies the URL of the menu item. It is passed to <a href="CHtml.html#normalizeUrl">CHtml::normalizeUrl</a>
+to generate a valid URL. If this is not set, the menu item will be rendered as a span text.</li>
+<li>visible: boolean, optional, whether this menu item is visible. Defaults to true.
+This can be used to control the visibility of menu items based on user permissions.</li>
+<li>items: array, optional, specifies the sub-menu items. Its format is the same as the parent items.</li>
+<li>active: boolean, optional, whether this menu item is in active state (currently selected).
+If a menu item is active and activeClass is not empty, its CSS class will be appended with activeClass.
+If this option is not set, the menu item will be set active automatically when the current request
+is triggered by url. Note that the GET parameters not specified in the 'url' option will be ignored.</li>
+<li>template: string, optional, the template used to render this menu item.
+When this option is set, it will override the global setting <a href="CMenu.html#itemTemplate">itemTemplate</a>.
+Please see <a href="CMenu.html#itemTemplate">itemTemplate</a> for more details. This option has been available since version 1.1.1.</li>
+<li>linkOptions: array, optional, additional HTML attributes to be rendered for the link or span tag of the menu item.</li>
+<li>itemOptions: array, optional, additional HTML attributes to be rendered for the container tag of the menu item.</li>
+<li>submenuOptions: array, optional, additional HTML attributes to be rendered for the container of the submenu if this menu item has one.
+When this option is set, the <a href="CMenu.html#submenuHtmlOptions">submenuHtmlOptions</a> property will be ignored for this particular submenu.
+This option has been available since version 1.1.6.</li>
+</ul></p>
+
+
+<div class="detailHeader" id="lastItemCssClass-detail">
+lastItemCssClass<span class="detailHeaderTag">
+property
+ (available since v1.1.4)
+</span>
+</div>
+
+<div class="signature">
+public string <b>$lastItemCssClass</b>;</div>
+
+<p>the CSS class that will be assigned to the last item in the main menu or each submenu.
+Defaults to null, meaning no such CSS class will be assigned.</p>
+
+
+<div class="detailHeader" id="linkLabelWrapper-detail">
+linkLabelWrapper<span class="detailHeaderTag">
+property
+ (available since v1.1.4)
+</span>
+</div>
+
+<div class="signature">
+public string <b>$linkLabelWrapper</b>;</div>
+
+<p>the HTML element name that will be used to wrap the label of all menu links.
+For example, if this property is set as 'span', a menu item may be rendered as
+&lt;li&gt;&lt;a href="url"&gt;&lt;span&gt;label&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+This is useful when implementing menu items using the sliding window technique.
+Defaults to null, meaning no wrapper tag will be generated.</p>
+
+
+<div class="detailHeader" id="submenuHtmlOptions-detail">
+submenuHtmlOptions<span class="detailHeaderTag">
+property
+</span>
+</div>
+
+<div class="signature">
+public array <b>$submenuHtmlOptions</b>;</div>
+
+<p>HTML attributes for the submenu's container tag.</p>
+
+
+<h2>Method Details</h2>
+
+<div class="detailHeader" id="init-detail">
+init()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>init</b>()</div>
+</td></tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/zii/widgets/CMenu.php#140">framework/zii/widgets/CMenu.php#140</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">init</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">htmlOptions</span><span style="color: #007700">[</span><span style="color: #DD0000">'id'</span><span style="color: #007700">]=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getId</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$route</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getController</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">getRoute</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">items</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">normalizeItems</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">items</span><span style="color: #007700">,</span><span style="color: #0000BB">$route</span><span style="color: #007700">,</span><span style="color: #0000BB">$hasActiveChild</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Initializes the menu widget.
+This method mainly normalizes the <a href="CMenu.html#items">items</a> property.
+If this method is overridden, make sure the parent implementation is invoked.</p>
+
+
+<div class="detailHeader" id="isItemActive-detail">
+isItemActive()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+protected boolean <b>isItemActive</b>(array $item, string $route)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$item</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">the menu item to be checked</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$route</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the route of the current request</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">boolean</td>
+  <td class="paramDescCol">whether the menu item is active</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/zii/widgets/CMenu.php#284">framework/zii/widgets/CMenu.php#284</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">protected&nbsp;function&nbsp;</span><span style="color: #0000BB">isItemActive</span><span style="color: #007700">(</span><span style="color: #0000BB">$item</span><span style="color: #007700">,</span><span style="color: #0000BB">$route</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(isset(</span><span style="color: #0000BB">$item</span><span style="color: #007700">[</span><span style="color: #DD0000">'url'</span><span style="color: #007700">])&nbsp;&amp;&amp;&nbsp;</span><span style="color: #0000BB">is_array</span><span style="color: #007700">(</span><span style="color: #0000BB">$item</span><span style="color: #007700">[</span><span style="color: #DD0000">'url'</span><span style="color: #007700">])&nbsp;&amp;&amp;&nbsp;!</span><span style="color: #0000BB">strcasecmp</span><span style="color: #007700">(</span><span style="color: #0000BB">trim</span><span style="color: #007700">(</span><span style="color: #0000BB">$item</span><span style="color: #007700">[</span><span style="color: #DD0000">'url'</span><span style="color: #007700">][</span><span style="color: #0000BB">0</span><span style="color: #007700">],</span><span style="color: #DD0000">'/'</span><span style="color: #007700">),</span><span style="color: #0000BB">$route</span><span style="color: #007700">))<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">count</span><span style="color: #007700">(</span><span style="color: #0000BB">$item</span><span style="color: #007700">[</span><span style="color: #DD0000">'url'</span><span style="color: #007700">])&gt;</span><span style="color: #0000BB">1</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;foreach(</span><span style="color: #0000BB">array_splice</span><span style="color: #007700">(</span><span style="color: #0000BB">$item</span><span style="color: #007700">[</span><span style="color: #DD0000">'url'</span><span style="color: #007700">],</span><span style="color: #0000BB">1</span><span style="color: #007700">)&nbsp;as&nbsp;</span><span style="color: #0000BB">$name</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">$value</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(!isset(</span><span style="color: #0000BB">$_GET</span><span style="color: #007700">[</span><span style="color: #0000BB">$name</span><span style="color: #007700">])&nbsp;||&nbsp;</span><span style="color: #0000BB">$_GET</span><span style="color: #007700">[</span><span style="color: #0000BB">$name</span><span style="color: #007700">]!=</span><span style="color: #0000BB">$value</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Checks whether a menu item is active.
+This is done by checking if the currently requested URL is generated by the 'url' option
+of the menu item. Note that the GET parameters not specified in the 'url' option will be ignored.</p>
+
+
+<div class="detailHeader" id="normalizeItems-detail">
+normalizeItems()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+protected array <b>normalizeItems</b>(array $items, string $route, boolean &$active)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$items</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">the items to be normalized.</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$route</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the route of the current request.</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$active</td>
+  <td class="paramTypeCol">boolean</td>
+  <td class="paramDescCol">whether there is an active child menu item.</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">the normalized menu items</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/zii/widgets/CMenu.php#243">framework/zii/widgets/CMenu.php#243</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">protected&nbsp;function&nbsp;</span><span style="color: #0000BB">normalizeItems</span><span style="color: #007700">(</span><span style="color: #0000BB">$items</span><span style="color: #007700">,</span><span style="color: #0000BB">$route</span><span style="color: #007700">,&amp;</span><span style="color: #0000BB">$active</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;foreach(</span><span style="color: #0000BB">$items&nbsp;</span><span style="color: #007700">as&nbsp;</span><span style="color: #0000BB">$i</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">$item</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(isset(</span><span style="color: #0000BB">$item</span><span style="color: #007700">[</span><span style="color: #DD0000">'visible'</span><span style="color: #007700">])&nbsp;&amp;&amp;&nbsp;!</span><span style="color: #0000BB">$item</span><span style="color: #007700">[</span><span style="color: #DD0000">'visible'</span><span style="color: #007700">])<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;unset(</span><span style="color: #0000BB">$items</span><span style="color: #007700">[</span><span style="color: #0000BB">$i</span><span style="color: #007700">]);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;continue;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(!isset(</span><span style="color: #0000BB">$item</span><span style="color: #007700">[</span><span style="color: #DD0000">'label'</span><span style="color: #007700">]))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$item</span><span style="color: #007700">[</span><span style="color: #DD0000">'label'</span><span style="color: #007700">]=</span><span style="color: #DD0000">''</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">encodeLabel</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$items</span><span style="color: #007700">[</span><span style="color: #0000BB">$i</span><span style="color: #007700">][</span><span style="color: #DD0000">'label'</span><span style="color: #007700">]=</span><span style="color: #0000BB">CHtml</span><span style="color: #007700">::</span><span style="color: #0000BB">encode</span><span style="color: #007700">(</span><span style="color: #0000BB">$item</span><span style="color: #007700">[</span><span style="color: #DD0000">'label'</span><span style="color: #007700">]);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$hasActiveChild</span><span style="color: #007700">=</span><span style="color: #0000BB">false</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(isset(</span><span style="color: #0000BB">$item</span><span style="color: #007700">[</span><span style="color: #DD0000">'items'</span><span style="color: #007700">]))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$items</span><span style="color: #007700">[</span><span style="color: #0000BB">$i</span><span style="color: #007700">][</span><span style="color: #DD0000">'items'</span><span style="color: #007700">]=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">normalizeItems</span><span style="color: #007700">(</span><span style="color: #0000BB">$item</span><span style="color: #007700">[</span><span style="color: #DD0000">'items'</span><span style="color: #007700">],</span><span style="color: #0000BB">$route</span><span style="color: #007700">,</span><span style="color: #0000BB">$hasActiveChild</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(empty(</span><span style="color: #0000BB">$items</span><span style="color: #007700">[</span><span style="color: #0000BB">$i</span><span style="color: #007700">][</span><span style="color: #DD0000">'items'</span><span style="color: #007700">])&nbsp;&amp;&amp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">hideEmptyItems</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;unset(</span><span style="color: #0000BB">$items</span><span style="color: #007700">[</span><span style="color: #0000BB">$i</span><span style="color: #007700">][</span><span style="color: #DD0000">'items'</span><span style="color: #007700">]);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(!isset(</span><span style="color: #0000BB">$item</span><span style="color: #007700">[</span><span style="color: #DD0000">'active'</span><span style="color: #007700">]))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">activateParents&nbsp;</span><span style="color: #007700">&amp;&amp;&nbsp;</span><span style="color: #0000BB">$hasActiveChild&nbsp;</span><span style="color: #007700">||&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">activateItems&nbsp;</span><span style="color: #007700">&amp;&amp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">isItemActive</span><span style="color: #007700">(</span><span style="color: #0000BB">$item</span><span style="color: #007700">,</span><span style="color: #0000BB">$route</span><span style="color: #007700">))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$active</span><span style="color: #007700">=</span><span style="color: #0000BB">$items</span><span style="color: #007700">[</span><span style="color: #0000BB">$i</span><span style="color: #007700">][</span><span style="color: #DD0000">'active'</span><span style="color: #007700">]=</span><span style="color: #0000BB">true</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$items</span><span style="color: #007700">[</span><span style="color: #0000BB">$i</span><span style="color: #007700">][</span><span style="color: #DD0000">'active'</span><span style="color: #007700">]=</span><span style="color: #0000BB">false</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else&nbsp;if(</span><span style="color: #0000BB">$item</span><span style="color: #007700">[</span><span style="color: #DD0000">'active'</span><span style="color: #007700">])<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$active</span><span style="color: #007700">=</span><span style="color: #0000BB">true</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">array_values</span><span style="color: #007700">(</span><span style="color: #0000BB">$items</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Normalizes the <a href="CMenu.html#items">items</a> property so that the 'active' state is properly identified for every menu item.</p>
+
+
+<div class="detailHeader" id="renderMenu-detail">
+renderMenu()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+protected void <b>renderMenu</b>(array $items)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$items</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">menu items. Each menu item will be an array with at least two elements: 'label' and 'active'.
+It may have three other optional elements: 'items', 'linkOptions' and 'itemOptions'.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/zii/widgets/CMenu.php#160">framework/zii/widgets/CMenu.php#160</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">protected&nbsp;function&nbsp;</span><span style="color: #0000BB">renderMenu</span><span style="color: #007700">(</span><span style="color: #0000BB">$items</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">count</span><span style="color: #007700">(</span><span style="color: #0000BB">$items</span><span style="color: #007700">))<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">CHtml</span><span style="color: #007700">::</span><span style="color: #0000BB">openTag</span><span style="color: #007700">(</span><span style="color: #DD0000">'ul'</span><span style="color: #007700">,</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">htmlOptions</span><span style="color: #007700">).</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">renderMenuRecursive</span><span style="color: #007700">(</span><span style="color: #0000BB">$items</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">CHtml</span><span style="color: #007700">::</span><span style="color: #0000BB">closeTag</span><span style="color: #007700">(</span><span style="color: #DD0000">'ul'</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Renders the menu items.</p>
+
+
+<div class="detailHeader" id="renderMenuItem-detail">
+renderMenuItem()
+<span class="detailHeaderTag">
+method
+(available since v1.1.6)
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+protected void <b>renderMenuItem</b>(array $item)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$item</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">the menu item to be rendered. Please see <a href="CMenu.html#items">items</a> on what data might be in the item.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/zii/widgets/CMenu.php#225">framework/zii/widgets/CMenu.php#225</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">protected&nbsp;function&nbsp;</span><span style="color: #0000BB">renderMenuItem</span><span style="color: #007700">(</span><span style="color: #0000BB">$item</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(isset(</span><span style="color: #0000BB">$item</span><span style="color: #007700">[</span><span style="color: #DD0000">'url'</span><span style="color: #007700">]))<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$label</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">linkLabelWrapper</span><span style="color: #007700">===</span><span style="color: #0000BB">null&nbsp;</span><span style="color: #007700">?&nbsp;</span><span style="color: #0000BB">$item</span><span style="color: #007700">[</span><span style="color: #DD0000">'label'</span><span style="color: #007700">]&nbsp;:&nbsp;</span><span style="color: #DD0000">'&lt;'</span><span style="color: #007700">.</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">linkLabelWrapper</span><span style="color: #007700">.</span><span style="color: #DD0000">'&gt;'</span><span style="color: #007700">.</span><span style="color: #0000BB">$item</span><span style="color: #007700">[</span><span style="color: #DD0000">'label'</span><span style="color: #007700">].</span><span style="color: #DD0000">'&lt;/'</span><span style="color: #007700">.</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">linkLabelWrapper</span><span style="color: #007700">.</span><span style="color: #DD0000">'&gt;'</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">CHtml</span><span style="color: #007700">::</span><span style="color: #0000BB">link</span><span style="color: #007700">(</span><span style="color: #0000BB">$label</span><span style="color: #007700">,</span><span style="color: #0000BB">$item</span><span style="color: #007700">[</span><span style="color: #DD0000">'url'</span><span style="color: #007700">],isset(</span><span style="color: #0000BB">$item</span><span style="color: #007700">[</span><span style="color: #DD0000">'linkOptions'</span><span style="color: #007700">])&nbsp;?&nbsp;</span><span style="color: #0000BB">$item</span><span style="color: #007700">[</span><span style="color: #DD0000">'linkOptions'</span><span style="color: #007700">]&nbsp;:&nbsp;array());<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">CHtml</span><span style="color: #007700">::</span><span style="color: #0000BB">tag</span><span style="color: #007700">(</span><span style="color: #DD0000">'span'</span><span style="color: #007700">,isset(</span><span style="color: #0000BB">$item</span><span style="color: #007700">[</span><span style="color: #DD0000">'linkOptions'</span><span style="color: #007700">])&nbsp;?&nbsp;</span><span style="color: #0000BB">$item</span><span style="color: #007700">[</span><span style="color: #DD0000">'linkOptions'</span><span style="color: #007700">]&nbsp;:&nbsp;array(),&nbsp;</span><span style="color: #0000BB">$item</span><span style="color: #007700">[</span><span style="color: #DD0000">'label'</span><span style="color: #007700">]);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Renders the content of a menu item.
+Note that the container and the sub-menus are not rendered here.</p>
+
+
+<div class="detailHeader" id="renderMenuRecursive-detail">
+renderMenuRecursive()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+protected void <b>renderMenuRecursive</b>(array $items)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$items</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">the menu items to be rendered recursively</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/zii/widgets/CMenu.php#174">framework/zii/widgets/CMenu.php#174</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">protected&nbsp;function&nbsp;</span><span style="color: #0000BB">renderMenuRecursive</span><span style="color: #007700">(</span><span style="color: #0000BB">$items</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$count</span><span style="color: #007700">=</span><span style="color: #0000BB">0</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$n</span><span style="color: #007700">=</span><span style="color: #0000BB">count</span><span style="color: #007700">(</span><span style="color: #0000BB">$items</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;foreach(</span><span style="color: #0000BB">$items&nbsp;</span><span style="color: #007700">as&nbsp;</span><span style="color: #0000BB">$item</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$count</span><span style="color: #007700">++;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$options</span><span style="color: #007700">=isset(</span><span style="color: #0000BB">$item</span><span style="color: #007700">[</span><span style="color: #DD0000">'itemOptions'</span><span style="color: #007700">])&nbsp;?&nbsp;</span><span style="color: #0000BB">$item</span><span style="color: #007700">[</span><span style="color: #DD0000">'itemOptions'</span><span style="color: #007700">]&nbsp;:&nbsp;array();<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$class</span><span style="color: #007700">=array();<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$item</span><span style="color: #007700">[</span><span style="color: #DD0000">'active'</span><span style="color: #007700">]&nbsp;&amp;&amp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">activeCssClass</span><span style="color: #007700">!=</span><span style="color: #DD0000">''</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$class</span><span style="color: #007700">[]=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">activeCssClass</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$count</span><span style="color: #007700">===</span><span style="color: #0000BB">1&nbsp;</span><span style="color: #007700">&amp;&amp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">firstItemCssClass</span><span style="color: #007700">!=</span><span style="color: #DD0000">''</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$class</span><span style="color: #007700">[]=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">firstItemCssClass</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$count</span><span style="color: #007700">===</span><span style="color: #0000BB">$n&nbsp;</span><span style="color: #007700">&amp;&amp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">lastItemCssClass</span><span style="color: #007700">!=</span><span style="color: #DD0000">''</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$class</span><span style="color: #007700">[]=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">lastItemCssClass</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$class</span><span style="color: #007700">!==array())<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(empty(</span><span style="color: #0000BB">$options</span><span style="color: #007700">[</span><span style="color: #DD0000">'class'</span><span style="color: #007700">]))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$options</span><span style="color: #007700">[</span><span style="color: #DD0000">'class'</span><span style="color: #007700">]=</span><span style="color: #0000BB">implode</span><span style="color: #007700">(</span><span style="color: #DD0000">'&nbsp;'</span><span style="color: #007700">,</span><span style="color: #0000BB">$class</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$options</span><span style="color: #007700">[</span><span style="color: #DD0000">'class'</span><span style="color: #007700">].=</span><span style="color: #DD0000">'&nbsp;'</span><span style="color: #007700">.</span><span style="color: #0000BB">implode</span><span style="color: #007700">(</span><span style="color: #DD0000">'&nbsp;'</span><span style="color: #007700">,</span><span style="color: #0000BB">$class</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">CHtml</span><span style="color: #007700">::</span><span style="color: #0000BB">openTag</span><span style="color: #007700">(</span><span style="color: #DD0000">'li'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$options</span><span style="color: #007700">);<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$menu</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">renderMenuItem</span><span style="color: #007700">(</span><span style="color: #0000BB">$item</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(isset(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">itemTemplate</span><span style="color: #007700">)&nbsp;||&nbsp;isset(</span><span style="color: #0000BB">$item</span><span style="color: #007700">[</span><span style="color: #DD0000">'template'</span><span style="color: #007700">]))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$template</span><span style="color: #007700">=isset(</span><span style="color: #0000BB">$item</span><span style="color: #007700">[</span><span style="color: #DD0000">'template'</span><span style="color: #007700">])&nbsp;?&nbsp;</span><span style="color: #0000BB">$item</span><span style="color: #007700">[</span><span style="color: #DD0000">'template'</span><span style="color: #007700">]&nbsp;:&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">itemTemplate</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">strtr</span><span style="color: #007700">(</span><span style="color: #0000BB">$template</span><span style="color: #007700">,array(</span><span style="color: #DD0000">'{menu}'</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">$menu</span><span style="color: #007700">));<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">$menu</span><span style="color: #007700">;<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(isset(</span><span style="color: #0000BB">$item</span><span style="color: #007700">[</span><span style="color: #DD0000">'items'</span><span style="color: #007700">])&nbsp;&amp;&amp;&nbsp;</span><span style="color: #0000BB">count</span><span style="color: #007700">(</span><span style="color: #0000BB">$item</span><span style="color: #007700">[</span><span style="color: #DD0000">'items'</span><span style="color: #007700">]))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">.</span><span style="color: #0000BB">CHtml</span><span style="color: #007700">::</span><span style="color: #0000BB">openTag</span><span style="color: #007700">(</span><span style="color: #DD0000">'ul'</span><span style="color: #007700">,isset(</span><span style="color: #0000BB">$item</span><span style="color: #007700">[</span><span style="color: #DD0000">'submenuOptions'</span><span style="color: #007700">])&nbsp;?&nbsp;</span><span style="color: #0000BB">$item</span><span style="color: #007700">[</span><span style="color: #DD0000">'submenuOptions'</span><span style="color: #007700">]&nbsp;:&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">submenuHtmlOptions</span><span style="color: #007700">).</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">renderMenuRecursive</span><span style="color: #007700">(</span><span style="color: #0000BB">$item</span><span style="color: #007700">[</span><span style="color: #DD0000">'items'</span><span style="color: #007700">]);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">CHtml</span><span style="color: #007700">::</span><span style="color: #0000BB">closeTag</span><span style="color: #007700">(</span><span style="color: #DD0000">'ul'</span><span style="color: #007700">).</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">CHtml</span><span style="color: #007700">::</span><span style="color: #0000BB">closeTag</span><span style="color: #007700">(</span><span style="color: #DD0000">'li'</span><span style="color: #007700">).</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Recursively renders the menu items.</p>
+
+
+<div class="detailHeader" id="run-detail">
+run()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>run</b>()</div>
+</td></tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/zii/widgets/CMenu.php#150">framework/zii/widgets/CMenu.php#150</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">run</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">renderMenu</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">items</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Calls <a href="CMenu.html#renderMenu">renderMenu</a> to render the menu.</p>
+
+
+</div><!-- end of content -->
+
+<div id="apiFooter">
+Copyright &copy; 2008-2011 by <a href="http://www.yiisoft.com">Yii Software LLC</a><br/>
+All Rights Reserved.<br/>
+</div><!-- end of footer -->
+
+<script type="text/javascript">
+/*<![CDATA[*/
+$("a.toggle").toggle(function(){
+	$(this).text($(this).text().replace(/Hide/,'Show'));
+	$(this).parents(".summary").find(".inherited").hide();
+},function(){
+	$(this).text($(this).text().replace(/Show/,'Hide'));
+	$(this).parents(".summary").find(".inherited").show();
+});
+$(".sourceCode a.show").toggle(function(){
+	$(this).text($(this).text().replace(/show/,'hide'));
+	$(this).parents(".sourceCode").find("div.code").show();
+},function(){
+	$(this).text($(this).text().replace(/hide/,'show'));
+	$(this).parents(".sourceCode").find("div.code").hide();
+});
+$("a.sourceLink").click(function(){
+	$(this).attr('target','_blank');
+});
+/*]]>*/
+</script>
+
+</div><!-- end of page -->
+</body>
+</html>

@@ -1,0 +1,2817 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="language" content="en" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="css/api.css" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<title>CHttpRequest</title>
+</head>
+
+<body>
+<div id="apiPage">
+
+<div id="apiHeader">
+My Console Application Class Reference
+</div><!-- end of header -->
+
+<div id="content">
+<h1>CHttpRequest</h1>
+<div id="nav">
+<a href="index.html">All Packages</a>
+| <a href="#properties">Properties</a>
+| <a href="#methods">Methods</a>
+</div>
+
+<table class="summaryTable docClass">
+<colgroup>
+	<col class="col-name" />
+	<col class="col-value" />
+</colgroup>
+<tr>
+  <th>Package</th>
+  <td><a href="index.html#system.web">system.web</a></td>
+</tr>
+<tr>
+  <th>Inheritance</th>
+  <td>class CHttpRequest &raquo;
+<a href="CApplicationComponent.html">CApplicationComponent</a> &raquo;
+<a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr>
+  <th>Implements</th>
+  <td><a href="IApplicationComponent.html">IApplicationComponent</a></td>
+</tr>
+<tr>
+  <th>Since</th>
+  <td>1.0</td>
+</tr>
+<tr>
+  <th>Version</th>
+  <td>$Id: CHttpRequest.php 3050 2011-03-12 13:22:11Z qiang.xue $</td>
+</tr>
+<tr>
+  <th>Source Code</th>
+  <td><a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CHttpRequest.php">framework/web/CHttpRequest.php</a></td>
+</tr>
+<tr>
+  <th>Author</th>
+  <td>Qiang Xue &lt;qiang.xue@gmail.com&gt;</td>
+</tr>
+</table>
+
+<div id="classDescription">
+CHttpRequest encapsulates the $_SERVER variable and resolves its inconsistency among different Web servers.
+<br/><br/>
+CHttpRequest also manages the cookies sent from and sent to the user.
+By setting <a href="CHttpRequest.html#enableCookieValidation">enableCookieValidation</a> to true,
+cookies sent from the user will be validated to see if they are tampered.
+The property <a href="CHttpRequest.html#getCookies">cookies</a> returns the collection of cookies.
+For more details, see <a href="CCookieCollection.html">CCookieCollection</a>.
+<br/><br/>
+CHttpRequest is a default application component loaded by <a href="CWebApplication.html">CWebApplication</a>. It can be
+accessed via <a href="CWebApplication.html#getRequest">CWebApplication::getRequest()</a>.</div>
+<a name="properties"></a>
+
+<div class="summary docProperty">
+<h2>Public Properties</h2>
+
+<p><a href="#" class="toggle">Hide inherited properties</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-property" />
+	<col class="col-type" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>Property</th><th>Type</th><th>Description</th><th>Defined By</th>
+</tr>
+<tr id="acceptTypes">
+  <td><a href="CHttpRequest.html#acceptTypes-detail">acceptTypes</a></td>
+  <td>string</td>
+  <td>Returns user browser accept types, null if not present.</td>
+  <td>CHttpRequest</td>
+</tr>
+<tr id="baseUrl">
+  <td><a href="CHttpRequest.html#baseUrl-detail">baseUrl</a></td>
+  <td>string</td>
+  <td>Returns the relative URL for the application.</td>
+  <td>CHttpRequest</td>
+</tr>
+<tr class="inherited" id="behaviors">
+  <td><a href="CApplicationComponent.html#behaviors-detail">behaviors</a></td>
+  <td>array</td>
+  <td>the behaviors that should be attached to this component.</td>
+  <td><a href="CApplicationComponent.html">CApplicationComponent</a></td>
+</tr>
+<tr id="browser">
+  <td><a href="CHttpRequest.html#browser-detail">browser</a></td>
+  <td>array</td>
+  <td>Returns information about the capabilities of user browser.</td>
+  <td>CHttpRequest</td>
+</tr>
+<tr id="cookies">
+  <td><a href="CHttpRequest.html#cookies-detail">cookies</a></td>
+  <td><a href="CCookieCollection.html">CCookieCollection</a></td>
+  <td>Returns the cookie collection.</td>
+  <td>CHttpRequest</td>
+</tr>
+<tr id="csrfCookie">
+  <td><a href="CHttpRequest.html#csrfCookie-detail">csrfCookie</a></td>
+  <td>array</td>
+  <td>the property values (in name-value pairs) used to initialize the CSRF cookie.</td>
+  <td>CHttpRequest</td>
+</tr>
+<tr id="csrfToken">
+  <td><a href="CHttpRequest.html#csrfToken-detail">csrfToken</a></td>
+  <td>string</td>
+  <td>Returns the random token used to perform CSRF validation.</td>
+  <td>CHttpRequest</td>
+</tr>
+<tr id="csrfTokenName">
+  <td><a href="CHttpRequest.html#csrfTokenName-detail">csrfTokenName</a></td>
+  <td>string</td>
+  <td>the name of the token used to prevent CSRF.</td>
+  <td>CHttpRequest</td>
+</tr>
+<tr id="enableCookieValidation">
+  <td><a href="CHttpRequest.html#enableCookieValidation-detail">enableCookieValidation</a></td>
+  <td>boolean</td>
+  <td>whether cookies should be validated to ensure they are not tampered.</td>
+  <td>CHttpRequest</td>
+</tr>
+<tr id="enableCsrfValidation">
+  <td><a href="CHttpRequest.html#enableCsrfValidation-detail">enableCsrfValidation</a></td>
+  <td>boolean</td>
+  <td>whether to enable CSRF (Cross-Site Request Forgery) validation.</td>
+  <td>CHttpRequest</td>
+</tr>
+<tr id="hostInfo">
+  <td><a href="CHttpRequest.html#hostInfo-detail">hostInfo</a></td>
+  <td>string</td>
+  <td>Returns the schema and host part of the application URL.</td>
+  <td>CHttpRequest</td>
+</tr>
+<tr id="isAjaxRequest">
+  <td><a href="CHttpRequest.html#isAjaxRequest-detail">isAjaxRequest</a></td>
+  <td>boolean</td>
+  <td>Returns whether this is an AJAX (XMLHttpRequest) request.</td>
+  <td>CHttpRequest</td>
+</tr>
+<tr id="isDeleteRequest">
+  <td><a href="CHttpRequest.html#isDeleteRequest-detail">isDeleteRequest</a></td>
+  <td>boolean</td>
+  <td>Returns whether this is a DELETE request.</td>
+  <td>CHttpRequest</td>
+</tr>
+<tr class="inherited" id="isInitialized">
+  <td><a href="CApplicationComponent.html#isInitialized-detail">isInitialized</a></td>
+  <td>boolean</td>
+  <td>Checks if this application component bas been initialized.</td>
+  <td><a href="CApplicationComponent.html">CApplicationComponent</a></td>
+</tr>
+<tr id="isPostRequest">
+  <td><a href="CHttpRequest.html#isPostRequest-detail">isPostRequest</a></td>
+  <td>boolean</td>
+  <td>Returns whether this is a POST request.</td>
+  <td>CHttpRequest</td>
+</tr>
+<tr id="isPutRequest">
+  <td><a href="CHttpRequest.html#isPutRequest-detail">isPutRequest</a></td>
+  <td>boolean</td>
+  <td>Returns whether this is a PUT request.</td>
+  <td>CHttpRequest</td>
+</tr>
+<tr id="isSecureConnection">
+  <td><a href="CHttpRequest.html#isSecureConnection-detail">isSecureConnection</a></td>
+  <td>boolean</td>
+  <td>Return if the request is sent via secure channel (https).</td>
+  <td>CHttpRequest</td>
+</tr>
+<tr id="pathInfo">
+  <td><a href="CHttpRequest.html#pathInfo-detail">pathInfo</a></td>
+  <td>string</td>
+  <td>Returns the path info of the currently requested URL.</td>
+  <td>CHttpRequest</td>
+</tr>
+<tr id="port">
+  <td><a href="CHttpRequest.html#port-detail">port</a></td>
+  <td>integer</td>
+  <td>Returns the port to use for insecure requests.</td>
+  <td>CHttpRequest</td>
+</tr>
+<tr id="preferredLanguage">
+  <td><a href="CHttpRequest.html#preferredLanguage-detail">preferredLanguage</a></td>
+  <td>string</td>
+  <td>Returns the user preferred language.</td>
+  <td>CHttpRequest</td>
+</tr>
+<tr id="queryString">
+  <td><a href="CHttpRequest.html#queryString-detail">queryString</a></td>
+  <td>string</td>
+  <td>Returns part of the request URL that is after the question mark.</td>
+  <td>CHttpRequest</td>
+</tr>
+<tr id="requestType">
+  <td><a href="CHttpRequest.html#requestType-detail">requestType</a></td>
+  <td>string</td>
+  <td>Returns the request type, such as GET, POST, HEAD, PUT, DELETE.</td>
+  <td>CHttpRequest</td>
+</tr>
+<tr id="requestUri">
+  <td><a href="CHttpRequest.html#requestUri-detail">requestUri</a></td>
+  <td>string</td>
+  <td>Returns the request URI portion for the currently requested URL.</td>
+  <td>CHttpRequest</td>
+</tr>
+<tr id="scriptFile">
+  <td><a href="CHttpRequest.html#scriptFile-detail">scriptFile</a></td>
+  <td>string</td>
+  <td>Returns entry script file path.</td>
+  <td>CHttpRequest</td>
+</tr>
+<tr id="scriptUrl">
+  <td><a href="CHttpRequest.html#scriptUrl-detail">scriptUrl</a></td>
+  <td>string</td>
+  <td>Returns the relative URL of the entry script.</td>
+  <td>CHttpRequest</td>
+</tr>
+<tr id="securePort">
+  <td><a href="CHttpRequest.html#securePort-detail">securePort</a></td>
+  <td>integer</td>
+  <td>Returns the port to use for secure requests.</td>
+  <td>CHttpRequest</td>
+</tr>
+<tr id="serverName">
+  <td><a href="CHttpRequest.html#serverName-detail">serverName</a></td>
+  <td>string</td>
+  <td>Returns the server name.</td>
+  <td>CHttpRequest</td>
+</tr>
+<tr id="serverPort">
+  <td><a href="CHttpRequest.html#serverPort-detail">serverPort</a></td>
+  <td>integer</td>
+  <td>Returns the server port number.</td>
+  <td>CHttpRequest</td>
+</tr>
+<tr id="url">
+  <td><a href="CHttpRequest.html#url-detail">url</a></td>
+  <td>string</td>
+  <td>Returns the currently requested URL.</td>
+  <td>CHttpRequest</td>
+</tr>
+<tr id="urlReferrer">
+  <td><a href="CHttpRequest.html#urlReferrer-detail">urlReferrer</a></td>
+  <td>string</td>
+  <td>Returns the URL referrer, null if not present</td>
+  <td>CHttpRequest</td>
+</tr>
+<tr id="userAgent">
+  <td><a href="CHttpRequest.html#userAgent-detail">userAgent</a></td>
+  <td>string</td>
+  <td>Returns the user agent, null if not present.</td>
+  <td>CHttpRequest</td>
+</tr>
+<tr id="userHost">
+  <td><a href="CHttpRequest.html#userHost-detail">userHost</a></td>
+  <td>string</td>
+  <td>Returns the user host name, null if it cannot be determined.</td>
+  <td>CHttpRequest</td>
+</tr>
+<tr id="userHostAddress">
+  <td><a href="CHttpRequest.html#userHostAddress-detail">userHostAddress</a></td>
+  <td>string</td>
+  <td>Returns the user IP address.</td>
+  <td>CHttpRequest</td>
+</tr>
+</table>
+</div>
+<div class="summary docProperty">
+<h2>Protected Properties</h2>
+
+<p><a href="#" class="toggle">Hide inherited properties</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-property" />
+	<col class="col-type" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>Property</th><th>Type</th><th>Description</th><th>Defined By</th>
+</tr>
+<tr id="restParams">
+  <td><a href="CHttpRequest.html#restParams-detail">restParams</a></td>
+  <td>array</td>
+  <td>Returns the PUT or DELETE request parameters.</td>
+  <td>CHttpRequest</td>
+</tr>
+</table>
+</div>
+<a name="methods"></a>
+
+<div class="summary docMethod">
+<h2>Public Methods</h2>
+
+<p><a href="#" class="toggle">Hide inherited methods</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-method" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>Method</th><th>Description</th><th>Defined By</th>
+</tr>
+<tr class="inherited" id="__call">
+  <td><a href="CComponent.html#__call-detail">__call()</a></td>
+  <td>Calls the named method which is not a class method.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__get">
+  <td><a href="CComponent.html#__get-detail">__get()</a></td>
+  <td>Returns a property value, an event handler list or a behavior based on its name.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__isset">
+  <td><a href="CComponent.html#__isset-detail">__isset()</a></td>
+  <td>Checks if a property value is null.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__set">
+  <td><a href="CComponent.html#__set-detail">__set()</a></td>
+  <td>Sets value of a component property.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__unset">
+  <td><a href="CComponent.html#__unset-detail">__unset()</a></td>
+  <td>Sets a component property to be null.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="asa">
+  <td><a href="CComponent.html#asa-detail">asa()</a></td>
+  <td>Returns the named behavior object.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="attachBehavior">
+  <td><a href="CComponent.html#attachBehavior-detail">attachBehavior()</a></td>
+  <td>Attaches a behavior to this component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="attachBehaviors">
+  <td><a href="CComponent.html#attachBehaviors-detail">attachBehaviors()</a></td>
+  <td>Attaches a list of behaviors to the component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="attachEventHandler">
+  <td><a href="CComponent.html#attachEventHandler-detail">attachEventHandler()</a></td>
+  <td>Attaches an event handler to an event.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="canGetProperty">
+  <td><a href="CComponent.html#canGetProperty-detail">canGetProperty()</a></td>
+  <td>Determines whether a property can be read.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="canSetProperty">
+  <td><a href="CComponent.html#canSetProperty-detail">canSetProperty()</a></td>
+  <td>Determines whether a property can be set.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="detachBehavior">
+  <td><a href="CComponent.html#detachBehavior-detail">detachBehavior()</a></td>
+  <td>Detaches a behavior from the component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="detachBehaviors">
+  <td><a href="CComponent.html#detachBehaviors-detail">detachBehaviors()</a></td>
+  <td>Detaches all behaviors from the component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="detachEventHandler">
+  <td><a href="CComponent.html#detachEventHandler-detail">detachEventHandler()</a></td>
+  <td>Detaches an existing event handler.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="disableBehavior">
+  <td><a href="CComponent.html#disableBehavior-detail">disableBehavior()</a></td>
+  <td>Disables an attached behavior.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="disableBehaviors">
+  <td><a href="CComponent.html#disableBehaviors-detail">disableBehaviors()</a></td>
+  <td>Disables all behaviors attached to this component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="enableBehavior">
+  <td><a href="CComponent.html#enableBehavior-detail">enableBehavior()</a></td>
+  <td>Enables an attached behavior.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="enableBehaviors">
+  <td><a href="CComponent.html#enableBehaviors-detail">enableBehaviors()</a></td>
+  <td>Enables all behaviors attached to this component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="evaluateExpression">
+  <td><a href="CComponent.html#evaluateExpression-detail">evaluateExpression()</a></td>
+  <td>Evaluates a PHP expression or callback under the context of this component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr id="getAcceptTypes">
+  <td><a href="CHttpRequest.html#getAcceptTypes-detail">getAcceptTypes()</a></td>
+  <td>Returns user browser accept types, null if not present.</td>
+  <td>CHttpRequest</td>
+</tr>
+<tr id="getBaseUrl">
+  <td><a href="CHttpRequest.html#getBaseUrl-detail">getBaseUrl()</a></td>
+  <td>Returns the relative URL for the application.</td>
+  <td>CHttpRequest</td>
+</tr>
+<tr id="getBrowser">
+  <td><a href="CHttpRequest.html#getBrowser-detail">getBrowser()</a></td>
+  <td>Returns information about the capabilities of user browser.</td>
+  <td>CHttpRequest</td>
+</tr>
+<tr id="getCookies">
+  <td><a href="CHttpRequest.html#getCookies-detail">getCookies()</a></td>
+  <td>Returns the cookie collection.</td>
+  <td>CHttpRequest</td>
+</tr>
+<tr id="getCsrfToken">
+  <td><a href="CHttpRequest.html#getCsrfToken-detail">getCsrfToken()</a></td>
+  <td>Returns the random token used to perform CSRF validation.</td>
+  <td>CHttpRequest</td>
+</tr>
+<tr id="getDelete">
+  <td><a href="CHttpRequest.html#getDelete-detail">getDelete()</a></td>
+  <td>Returns the named DELETE parameter value.</td>
+  <td>CHttpRequest</td>
+</tr>
+<tr class="inherited" id="getEventHandlers">
+  <td><a href="CComponent.html#getEventHandlers-detail">getEventHandlers()</a></td>
+  <td>Returns the list of attached event handlers for an event.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr id="getHostInfo">
+  <td><a href="CHttpRequest.html#getHostInfo-detail">getHostInfo()</a></td>
+  <td>Returns the schema and host part of the application URL.</td>
+  <td>CHttpRequest</td>
+</tr>
+<tr id="getIsAjaxRequest">
+  <td><a href="CHttpRequest.html#getIsAjaxRequest-detail">getIsAjaxRequest()</a></td>
+  <td>Returns whether this is an AJAX (XMLHttpRequest) request.</td>
+  <td>CHttpRequest</td>
+</tr>
+<tr id="getIsDeleteRequest">
+  <td><a href="CHttpRequest.html#getIsDeleteRequest-detail">getIsDeleteRequest()</a></td>
+  <td>Returns whether this is a DELETE request.</td>
+  <td>CHttpRequest</td>
+</tr>
+<tr class="inherited" id="getIsInitialized">
+  <td><a href="CApplicationComponent.html#getIsInitialized-detail">getIsInitialized()</a></td>
+  <td>Checks if this application component bas been initialized.</td>
+  <td><a href="CApplicationComponent.html">CApplicationComponent</a></td>
+</tr>
+<tr id="getIsPostRequest">
+  <td><a href="CHttpRequest.html#getIsPostRequest-detail">getIsPostRequest()</a></td>
+  <td>Returns whether this is a POST request.</td>
+  <td>CHttpRequest</td>
+</tr>
+<tr id="getIsPutRequest">
+  <td><a href="CHttpRequest.html#getIsPutRequest-detail">getIsPutRequest()</a></td>
+  <td>Returns whether this is a PUT request.</td>
+  <td>CHttpRequest</td>
+</tr>
+<tr id="getIsSecureConnection">
+  <td><a href="CHttpRequest.html#getIsSecureConnection-detail">getIsSecureConnection()</a></td>
+  <td>Return if the request is sent via secure channel (https).</td>
+  <td>CHttpRequest</td>
+</tr>
+<tr id="getParam">
+  <td><a href="CHttpRequest.html#getParam-detail">getParam()</a></td>
+  <td>Returns the named GET or POST parameter value.</td>
+  <td>CHttpRequest</td>
+</tr>
+<tr id="getPathInfo">
+  <td><a href="CHttpRequest.html#getPathInfo-detail">getPathInfo()</a></td>
+  <td>Returns the path info of the currently requested URL.</td>
+  <td>CHttpRequest</td>
+</tr>
+<tr id="getPort">
+  <td><a href="CHttpRequest.html#getPort-detail">getPort()</a></td>
+  <td>Returns the port to use for insecure requests.</td>
+  <td>CHttpRequest</td>
+</tr>
+<tr id="getPost">
+  <td><a href="CHttpRequest.html#getPost-detail">getPost()</a></td>
+  <td>Returns the named POST parameter value.</td>
+  <td>CHttpRequest</td>
+</tr>
+<tr id="getPreferredLanguage">
+  <td><a href="CHttpRequest.html#getPreferredLanguage-detail">getPreferredLanguage()</a></td>
+  <td>Returns the user preferred language.</td>
+  <td>CHttpRequest</td>
+</tr>
+<tr id="getPut">
+  <td><a href="CHttpRequest.html#getPut-detail">getPut()</a></td>
+  <td>Returns the named PUT parameter value.</td>
+  <td>CHttpRequest</td>
+</tr>
+<tr id="getQuery">
+  <td><a href="CHttpRequest.html#getQuery-detail">getQuery()</a></td>
+  <td>Returns the named GET parameter value.</td>
+  <td>CHttpRequest</td>
+</tr>
+<tr id="getQueryString">
+  <td><a href="CHttpRequest.html#getQueryString-detail">getQueryString()</a></td>
+  <td>Returns part of the request URL that is after the question mark.</td>
+  <td>CHttpRequest</td>
+</tr>
+<tr id="getRequestType">
+  <td><a href="CHttpRequest.html#getRequestType-detail">getRequestType()</a></td>
+  <td>Returns the request type, such as GET, POST, HEAD, PUT, DELETE.</td>
+  <td>CHttpRequest</td>
+</tr>
+<tr id="getRequestUri">
+  <td><a href="CHttpRequest.html#getRequestUri-detail">getRequestUri()</a></td>
+  <td>Returns the request URI portion for the currently requested URL.</td>
+  <td>CHttpRequest</td>
+</tr>
+<tr id="getScriptFile">
+  <td><a href="CHttpRequest.html#getScriptFile-detail">getScriptFile()</a></td>
+  <td>Returns entry script file path.</td>
+  <td>CHttpRequest</td>
+</tr>
+<tr id="getScriptUrl">
+  <td><a href="CHttpRequest.html#getScriptUrl-detail">getScriptUrl()</a></td>
+  <td>Returns the relative URL of the entry script.</td>
+  <td>CHttpRequest</td>
+</tr>
+<tr id="getSecurePort">
+  <td><a href="CHttpRequest.html#getSecurePort-detail">getSecurePort()</a></td>
+  <td>Returns the port to use for secure requests.</td>
+  <td>CHttpRequest</td>
+</tr>
+<tr id="getServerName">
+  <td><a href="CHttpRequest.html#getServerName-detail">getServerName()</a></td>
+  <td>Returns the server name.</td>
+  <td>CHttpRequest</td>
+</tr>
+<tr id="getServerPort">
+  <td><a href="CHttpRequest.html#getServerPort-detail">getServerPort()</a></td>
+  <td>Returns the server port number.</td>
+  <td>CHttpRequest</td>
+</tr>
+<tr id="getUrl">
+  <td><a href="CHttpRequest.html#getUrl-detail">getUrl()</a></td>
+  <td>Returns the currently requested URL.</td>
+  <td>CHttpRequest</td>
+</tr>
+<tr id="getUrlReferrer">
+  <td><a href="CHttpRequest.html#getUrlReferrer-detail">getUrlReferrer()</a></td>
+  <td>Returns the URL referrer, null if not present</td>
+  <td>CHttpRequest</td>
+</tr>
+<tr id="getUserAgent">
+  <td><a href="CHttpRequest.html#getUserAgent-detail">getUserAgent()</a></td>
+  <td>Returns the user agent, null if not present.</td>
+  <td>CHttpRequest</td>
+</tr>
+<tr id="getUserHost">
+  <td><a href="CHttpRequest.html#getUserHost-detail">getUserHost()</a></td>
+  <td>Returns the user host name, null if it cannot be determined.</td>
+  <td>CHttpRequest</td>
+</tr>
+<tr id="getUserHostAddress">
+  <td><a href="CHttpRequest.html#getUserHostAddress-detail">getUserHostAddress()</a></td>
+  <td>Returns the user IP address.</td>
+  <td>CHttpRequest</td>
+</tr>
+<tr class="inherited" id="hasEvent">
+  <td><a href="CComponent.html#hasEvent-detail">hasEvent()</a></td>
+  <td>Determines whether an event is defined.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="hasEventHandler">
+  <td><a href="CComponent.html#hasEventHandler-detail">hasEventHandler()</a></td>
+  <td>Checks whether the named event has attached handlers.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="hasProperty">
+  <td><a href="CComponent.html#hasProperty-detail">hasProperty()</a></td>
+  <td>Determines whether a property is defined.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr id="init">
+  <td><a href="CHttpRequest.html#init-detail">init()</a></td>
+  <td>Initializes the application component.</td>
+  <td>CHttpRequest</td>
+</tr>
+<tr class="inherited" id="raiseEvent">
+  <td><a href="CComponent.html#raiseEvent-detail">raiseEvent()</a></td>
+  <td>Raises an event.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr id="redirect">
+  <td><a href="CHttpRequest.html#redirect-detail">redirect()</a></td>
+  <td>Redirects the browser to the specified URL.</td>
+  <td>CHttpRequest</td>
+</tr>
+<tr id="sendFile">
+  <td><a href="CHttpRequest.html#sendFile-detail">sendFile()</a></td>
+  <td>Sends a file to user.</td>
+  <td>CHttpRequest</td>
+</tr>
+<tr id="setBaseUrl">
+  <td><a href="CHttpRequest.html#setBaseUrl-detail">setBaseUrl()</a></td>
+  <td>Sets the relative URL for the application.</td>
+  <td>CHttpRequest</td>
+</tr>
+<tr id="setHostInfo">
+  <td><a href="CHttpRequest.html#setHostInfo-detail">setHostInfo()</a></td>
+  <td>Sets the schema and host part of the application URL.</td>
+  <td>CHttpRequest</td>
+</tr>
+<tr id="setPort">
+  <td><a href="CHttpRequest.html#setPort-detail">setPort()</a></td>
+  <td>Sets the port to use for insecure requests.</td>
+  <td>CHttpRequest</td>
+</tr>
+<tr id="setScriptUrl">
+  <td><a href="CHttpRequest.html#setScriptUrl-detail">setScriptUrl()</a></td>
+  <td>Sets the relative URL for the application entry script.</td>
+  <td>CHttpRequest</td>
+</tr>
+<tr id="setSecurePort">
+  <td><a href="CHttpRequest.html#setSecurePort-detail">setSecurePort()</a></td>
+  <td>Sets the port to use for secure requests.</td>
+  <td>CHttpRequest</td>
+</tr>
+<tr id="stripSlashes">
+  <td><a href="CHttpRequest.html#stripSlashes-detail">stripSlashes()</a></td>
+  <td>Strips slashes from input data.</td>
+  <td>CHttpRequest</td>
+</tr>
+<tr id="validateCsrfToken">
+  <td><a href="CHttpRequest.html#validateCsrfToken-detail">validateCsrfToken()</a></td>
+  <td>Performs the CSRF validation.</td>
+  <td>CHttpRequest</td>
+</tr>
+<tr id="xSendFile">
+  <td><a href="CHttpRequest.html#xSendFile-detail">xSendFile()</a></td>
+  <td>Sends existing file to a browser as a download using x-sendfile.</td>
+  <td>CHttpRequest</td>
+</tr>
+</table>
+</div>
+<div class="summary docMethod">
+<h2>Protected Methods</h2>
+
+<p><a href="#" class="toggle">Hide inherited methods</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-method" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>Method</th><th>Description</th><th>Defined By</th>
+</tr>
+<tr id="createCsrfCookie">
+  <td><a href="CHttpRequest.html#createCsrfCookie-detail">createCsrfCookie()</a></td>
+  <td>Creates a cookie with a randomly generated CSRF token.</td>
+  <td>CHttpRequest</td>
+</tr>
+<tr id="getRestParams">
+  <td><a href="CHttpRequest.html#getRestParams-detail">getRestParams()</a></td>
+  <td>Returns the PUT or DELETE request parameters.</td>
+  <td>CHttpRequest</td>
+</tr>
+<tr id="normalizeRequest">
+  <td><a href="CHttpRequest.html#normalizeRequest-detail">normalizeRequest()</a></td>
+  <td>Normalizes the request data.</td>
+  <td>CHttpRequest</td>
+</tr>
+</table>
+</div>
+<a name="events"></a>
+
+<h2>Property Details</h2>
+<div class="detailHeader" id="acceptTypes-detail">
+acceptTypes<span class="detailHeaderTag">
+property
+ <em>read-only</em> </span>
+</div>
+
+<div class="signature">
+public string <a href="CHttpRequest.html#getAcceptTypes"><b>getAcceptTypes</b></a>()</div>
+
+<p>Returns user browser accept types, null if not present.</p>
+
+
+<div class="detailHeader" id="baseUrl-detail">
+baseUrl<span class="detailHeaderTag">
+property
+</span>
+</div>
+
+<div class="signature">
+public string <a href="CHttpRequest.html#getBaseUrl"><b>getBaseUrl</b></a>(boolean $absolute=false)<br/>public void <a href="CHttpRequest.html#setBaseUrl"><b>setBaseUrl</b></a>(string $value)</div>
+
+<p>Returns the relative URL for the application.
+This is similar to <a href="CHttpRequest.html#getScriptUrl">scriptUrl</a> except that
+it does not have the script file name, and the ending slashes are stripped off.</p>
+
+<div class="SeeAlso">
+<h4>See Also</h4>
+<ul>
+	<li><a href="CHttpRequest.html#setScriptUrl">setScriptUrl</a></li>
+</ul>
+</div>
+
+<div class="detailHeader" id="browser-detail">
+browser<span class="detailHeaderTag">
+property
+ <em>read-only</em> </span>
+</div>
+
+<div class="signature">
+public array <a href="CHttpRequest.html#getBrowser"><b>getBrowser</b></a>(string $userAgent=NULL)</div>
+
+<p>Returns information about the capabilities of user browser.</p>
+
+<div class="SeeAlso">
+<h4>See Also</h4>
+<ul>
+	<li><a href="http://www.php.net/manual/en/function.get-browser.php">http://www.php.net/manual/en/function.get-browser.php</a></li>
+</ul>
+</div>
+
+<div class="detailHeader" id="cookies-detail">
+cookies<span class="detailHeaderTag">
+property
+ <em>read-only</em> </span>
+</div>
+
+<div class="signature">
+public <a href="CCookieCollection.html">CCookieCollection</a> <a href="CHttpRequest.html#getCookies"><b>getCookies</b></a>()</div>
+
+<p>Returns the cookie collection.
+The result can be used like an associative array. Adding <a href="CHttpCookie.html">CHttpCookie</a> objects
+to the collection will send the cookies to the client; and removing the objects
+from the collection will delete those cookies on the client.</p>
+
+
+<div class="detailHeader" id="csrfCookie-detail">
+csrfCookie<span class="detailHeaderTag">
+property
+</span>
+</div>
+
+<div class="signature">
+public array <b>$csrfCookie</b>;</div>
+
+<p>the property values (in name-value pairs) used to initialize the CSRF cookie.
+Any property of <a href="CHttpCookie.html">CHttpCookie</a> may be initialized.
+This property is effective only when <a href="CHttpRequest.html#enableCsrfValidation">enableCsrfValidation</a> is true.</p>
+
+
+<div class="detailHeader" id="csrfToken-detail">
+csrfToken<span class="detailHeaderTag">
+property
+ <em>read-only</em> </span>
+</div>
+
+<div class="signature">
+public string <a href="CHttpRequest.html#getCsrfToken"><b>getCsrfToken</b></a>()</div>
+
+<p>Returns the random token used to perform CSRF validation.
+The token will be read from cookie first. If not found, a new token
+will be generated.</p>
+
+<div class="SeeAlso">
+<h4>See Also</h4>
+<ul>
+	<li><a href="CHttpRequest.html#enableCsrfValidation">enableCsrfValidation</a></li>
+</ul>
+</div>
+
+<div class="detailHeader" id="csrfTokenName-detail">
+csrfTokenName<span class="detailHeaderTag">
+property
+</span>
+</div>
+
+<div class="signature">
+public string <b>$csrfTokenName</b>;</div>
+
+<p>the name of the token used to prevent CSRF. Defaults to 'YII_CSRF_TOKEN'.
+This property is effectively only when <a href="CHttpRequest.html#enableCsrfValidation">enableCsrfValidation</a> is true.</p>
+
+
+<div class="detailHeader" id="enableCookieValidation-detail">
+enableCookieValidation<span class="detailHeaderTag">
+property
+</span>
+</div>
+
+<div class="signature">
+public boolean <b>$enableCookieValidation</b>;</div>
+
+<p>whether cookies should be validated to ensure they are not tampered. Defaults to false.</p>
+
+
+<div class="detailHeader" id="enableCsrfValidation-detail">
+enableCsrfValidation<span class="detailHeaderTag">
+property
+</span>
+</div>
+
+<div class="signature">
+public boolean <b>$enableCsrfValidation</b>;</div>
+
+<p>whether to enable CSRF (Cross-Site Request Forgery) validation. Defaults to false.
+By setting this property to true, forms submitted to an Yii Web application must be originated
+from the same application. If not, a 400 HTTP exception will be raised.
+Note, this feature requires that the user client accepts cookie.
+You also need to use <a href="CHtml.html#form">CHtml::form</a> or <a href="CHtml.html#statefulForm">CHtml::statefulForm</a> to generate
+the needed HTML forms in your pages.</p>
+
+<div class="SeeAlso">
+<h4>See Also</h4>
+<ul>
+	<li><a href="http://seclab.stanford.edu/websec/csrf/csrf.pdf">http://seclab.stanford.edu/websec/csrf/csrf.pdf</a></li>
+</ul>
+</div>
+
+<div class="detailHeader" id="hostInfo-detail">
+hostInfo<span class="detailHeaderTag">
+property
+</span>
+</div>
+
+<div class="signature">
+public string <a href="CHttpRequest.html#getHostInfo"><b>getHostInfo</b></a>(string $schema='')<br/>public void <a href="CHttpRequest.html#setHostInfo"><b>setHostInfo</b></a>(string $value)</div>
+
+<p>Returns the schema and host part of the application URL.
+The returned URL does not have an ending slash.
+By default this is determined based on the user request information.
+You may explicitly specify it by setting the <a href="CHttpRequest.html#setHostInfo">hostInfo</a> property.</p>
+
+<div class="SeeAlso">
+<h4>See Also</h4>
+<ul>
+	<li><a href="CHttpRequest.html#setHostInfo">setHostInfo</a></li>
+</ul>
+</div>
+
+<div class="detailHeader" id="isAjaxRequest-detail">
+isAjaxRequest<span class="detailHeaderTag">
+property
+ <em>read-only</em> </span>
+</div>
+
+<div class="signature">
+public boolean <a href="CHttpRequest.html#getIsAjaxRequest"><b>getIsAjaxRequest</b></a>()</div>
+
+<p>Returns whether this is an AJAX (XMLHttpRequest) request.</p>
+
+
+<div class="detailHeader" id="isDeleteRequest-detail">
+isDeleteRequest<span class="detailHeaderTag">
+property
+ <em>read-only</em>  (available since v1.1.7)
+</span>
+</div>
+
+<div class="signature">
+public boolean <a href="CHttpRequest.html#getIsDeleteRequest"><b>getIsDeleteRequest</b></a>()</div>
+
+<p>Returns whether this is a DELETE request.</p>
+
+
+<div class="detailHeader" id="isPostRequest-detail">
+isPostRequest<span class="detailHeaderTag">
+property
+ <em>read-only</em> </span>
+</div>
+
+<div class="signature">
+public boolean <a href="CHttpRequest.html#getIsPostRequest"><b>getIsPostRequest</b></a>()</div>
+
+<p>Returns whether this is a POST request.</p>
+
+
+<div class="detailHeader" id="isPutRequest-detail">
+isPutRequest<span class="detailHeaderTag">
+property
+ <em>read-only</em>  (available since v1.1.7)
+</span>
+</div>
+
+<div class="signature">
+public boolean <a href="CHttpRequest.html#getIsPutRequest"><b>getIsPutRequest</b></a>()</div>
+
+<p>Returns whether this is a PUT request.</p>
+
+
+<div class="detailHeader" id="isSecureConnection-detail">
+isSecureConnection<span class="detailHeaderTag">
+property
+ <em>read-only</em> </span>
+</div>
+
+<div class="signature">
+public boolean <a href="CHttpRequest.html#getIsSecureConnection"><b>getIsSecureConnection</b></a>()</div>
+
+<p>Return if the request is sent via secure channel (https).</p>
+
+
+<div class="detailHeader" id="pathInfo-detail">
+pathInfo<span class="detailHeaderTag">
+property
+ <em>read-only</em> </span>
+</div>
+
+<div class="signature">
+public string <a href="CHttpRequest.html#getPathInfo"><b>getPathInfo</b></a>()</div>
+
+<p>Returns the path info of the currently requested URL.
+This refers to the part that is after the entry script and before the question mark.
+The starting and ending slashes are stripped off.</p>
+
+
+<div class="detailHeader" id="port-detail">
+port<span class="detailHeaderTag">
+property
+ (available since v1.1.3)
+</span>
+</div>
+
+<div class="signature">
+public integer <a href="CHttpRequest.html#getPort"><b>getPort</b></a>()<br/>public void <a href="CHttpRequest.html#setPort"><b>setPort</b></a>(integer $value)</div>
+
+<p>Returns the port to use for insecure requests.
+Defaults to 80, or the port specified by the server if the current
+request is insecure.
+You may explicitly specify it by setting the <a href="CHttpRequest.html#setPort">port</a> property.</p>
+
+<div class="SeeAlso">
+<h4>See Also</h4>
+<ul>
+	<li><a href="CHttpRequest.html#setPort">setPort</a></li>
+</ul>
+</div>
+
+<div class="detailHeader" id="preferredLanguage-detail">
+preferredLanguage<span class="detailHeaderTag">
+property
+ <em>read-only</em> </span>
+</div>
+
+<div class="signature">
+public string <a href="CHttpRequest.html#getPreferredLanguage"><b>getPreferredLanguage</b></a>()</div>
+
+<p>Returns the user preferred language.
+The returned language ID will be canonicalized using <a href="CLocale.html#getCanonicalID">CLocale::getCanonicalID</a>.
+This method returns false if the user does not have language preference.</p>
+
+
+<div class="detailHeader" id="queryString-detail">
+queryString<span class="detailHeaderTag">
+property
+ <em>read-only</em> </span>
+</div>
+
+<div class="signature">
+public string <a href="CHttpRequest.html#getQueryString"><b>getQueryString</b></a>()</div>
+
+<p>Returns part of the request URL that is after the question mark.</p>
+
+
+<div class="detailHeader" id="requestType-detail">
+requestType<span class="detailHeaderTag">
+property
+ <em>read-only</em> </span>
+</div>
+
+<div class="signature">
+public string <a href="CHttpRequest.html#getRequestType"><b>getRequestType</b></a>()</div>
+
+<p>Returns the request type, such as GET, POST, HEAD, PUT, DELETE.</p>
+
+
+<div class="detailHeader" id="requestUri-detail">
+requestUri<span class="detailHeaderTag">
+property
+ <em>read-only</em>  (available since v1.0.1)
+</span>
+</div>
+
+<div class="signature">
+public string <a href="CHttpRequest.html#getRequestUri"><b>getRequestUri</b></a>()</div>
+
+<p>Returns the request URI portion for the currently requested URL.
+This refers to the portion that is after the <a href="CHttpRequest.html#hostInfo">host info</a> part.
+It includes the <a href="CHttpRequest.html#queryString">query string</a> part if any.
+The implementation of this method referenced Zend_Controller_Request_Http in Zend Framework.</p>
+
+
+<div class="detailHeader" id="restParams-detail">
+restParams<span class="detailHeaderTag">
+property
+ <em>read-only</em>  (available since v1.1.7)
+</span>
+</div>
+
+<div class="signature">
+protected array <a href="CHttpRequest.html#getRestParams"><b>getRestParams</b></a>()</div>
+
+<p>Returns the PUT or DELETE request parameters.</p>
+
+
+<div class="detailHeader" id="scriptFile-detail">
+scriptFile<span class="detailHeaderTag">
+property
+ <em>read-only</em> </span>
+</div>
+
+<div class="signature">
+public string <a href="CHttpRequest.html#getScriptFile"><b>getScriptFile</b></a>()</div>
+
+<p>Returns entry script file path.</p>
+
+
+<div class="detailHeader" id="scriptUrl-detail">
+scriptUrl<span class="detailHeaderTag">
+property
+</span>
+</div>
+
+<div class="signature">
+public string <a href="CHttpRequest.html#getScriptUrl"><b>getScriptUrl</b></a>()<br/>public void <a href="CHttpRequest.html#setScriptUrl"><b>setScriptUrl</b></a>(string $value)</div>
+
+<p>Returns the relative URL of the entry script.
+The implementation of this method referenced Zend_Controller_Request_Http in Zend Framework.</p>
+
+
+<div class="detailHeader" id="securePort-detail">
+securePort<span class="detailHeaderTag">
+property
+ (available since v1.1.3)
+</span>
+</div>
+
+<div class="signature">
+public integer <a href="CHttpRequest.html#getSecurePort"><b>getSecurePort</b></a>()<br/>public void <a href="CHttpRequest.html#setSecurePort"><b>setSecurePort</b></a>(integer $value)</div>
+
+<p>Returns the port to use for secure requests.
+Defaults to 443, or the port specified by the server if the current
+request is secure.
+You may explicitly specify it by setting the <a href="CHttpRequest.html#setSecurePort">securePort</a> property.</p>
+
+<div class="SeeAlso">
+<h4>See Also</h4>
+<ul>
+	<li><a href="CHttpRequest.html#setSecurePort">setSecurePort</a></li>
+</ul>
+</div>
+
+<div class="detailHeader" id="serverName-detail">
+serverName<span class="detailHeaderTag">
+property
+ <em>read-only</em> </span>
+</div>
+
+<div class="signature">
+public string <a href="CHttpRequest.html#getServerName"><b>getServerName</b></a>()</div>
+
+<p>Returns the server name.</p>
+
+
+<div class="detailHeader" id="serverPort-detail">
+serverPort<span class="detailHeaderTag">
+property
+ <em>read-only</em> </span>
+</div>
+
+<div class="signature">
+public integer <a href="CHttpRequest.html#getServerPort"><b>getServerPort</b></a>()</div>
+
+<p>Returns the server port number.</p>
+
+
+<div class="detailHeader" id="url-detail">
+url<span class="detailHeaderTag">
+property
+ <em>read-only</em> </span>
+</div>
+
+<div class="signature">
+public string <a href="CHttpRequest.html#getUrl"><b>getUrl</b></a>()</div>
+
+<p>Returns the currently requested URL.
+This is the same as <a href="CHttpRequest.html#getRequestUri">getRequestUri</a>.</p>
+
+
+<div class="detailHeader" id="urlReferrer-detail">
+urlReferrer<span class="detailHeaderTag">
+property
+ <em>read-only</em> </span>
+</div>
+
+<div class="signature">
+public string <a href="CHttpRequest.html#getUrlReferrer"><b>getUrlReferrer</b></a>()</div>
+
+<p>Returns the URL referrer, null if not present</p>
+
+
+<div class="detailHeader" id="userAgent-detail">
+userAgent<span class="detailHeaderTag">
+property
+ <em>read-only</em> </span>
+</div>
+
+<div class="signature">
+public string <a href="CHttpRequest.html#getUserAgent"><b>getUserAgent</b></a>()</div>
+
+<p>Returns the user agent, null if not present.</p>
+
+
+<div class="detailHeader" id="userHost-detail">
+userHost<span class="detailHeaderTag">
+property
+ <em>read-only</em> </span>
+</div>
+
+<div class="signature">
+public string <a href="CHttpRequest.html#getUserHost"><b>getUserHost</b></a>()</div>
+
+<p>Returns the user host name, null if it cannot be determined.</p>
+
+
+<div class="detailHeader" id="userHostAddress-detail">
+userHostAddress<span class="detailHeaderTag">
+property
+ <em>read-only</em> </span>
+</div>
+
+<div class="signature">
+public string <a href="CHttpRequest.html#getUserHostAddress"><b>getUserHostAddress</b></a>()</div>
+
+<p>Returns the user IP address.</p>
+
+
+<h2>Method Details</h2>
+
+<div class="detailHeader" id="createCsrfCookie-detail">
+createCsrfCookie()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+protected <a href="CHttpCookie.html">CHttpCookie</a> <b>createCsrfCookie</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol"><a href="CHttpCookie.html">CHttpCookie</a></td>
+  <td class="paramDescCol">the generated cookie</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CHttpRequest.php#829">framework/web/CHttpRequest.php#829</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">protected&nbsp;function&nbsp;</span><span style="color: #0000BB">createCsrfCookie</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$cookie</span><span style="color: #007700">=new&nbsp;</span><span style="color: #0000BB">CHttpCookie</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">csrfTokenName</span><span style="color: #007700">,</span><span style="color: #0000BB">sha1</span><span style="color: #007700">(</span><span style="color: #0000BB">uniqid</span><span style="color: #007700">(</span><span style="color: #0000BB">mt_rand</span><span style="color: #007700">(),</span><span style="color: #0000BB">true</span><span style="color: #007700">)));<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">is_array</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">csrfCookie</span><span style="color: #007700">))<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;foreach(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">csrfCookie&nbsp;</span><span style="color: #007700">as&nbsp;</span><span style="color: #0000BB">$name</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">$value</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$cookie</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">$name</span><span style="color: #007700">=</span><span style="color: #0000BB">$value</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$cookie</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Creates a cookie with a randomly generated CSRF token.
+Initial values specified in <a href="CHttpRequest.html#csrfCookie">csrfCookie</a> will be applied
+to the generated cookie.</p>
+
+<div class="SeeAlso">
+<h4>See Also</h4>
+<ul>
+	<li><a href="CHttpRequest.html#enableCsrfValidation">enableCsrfValidation</a></li>
+</ul>
+</div>
+
+<div class="detailHeader" id="getAcceptTypes-detail">
+getAcceptTypes()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>getAcceptTypes</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">user browser accept types, null if not present</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CHttpRequest.php#563">framework/web/CHttpRequest.php#563</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getAcceptTypes</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;isset(</span><span style="color: #0000BB">$_SERVER</span><span style="color: #007700">[</span><span style="color: #DD0000">'HTTP_ACCEPT'</span><span style="color: #007700">])?</span><span style="color: #0000BB">$_SERVER</span><span style="color: #007700">[</span><span style="color: #DD0000">'HTTP_ACCEPT'</span><span style="color: #007700">]:</span><span style="color: #0000BB">null</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Returns user browser accept types, null if not present.</p>
+
+
+<div class="detailHeader" id="getBaseUrl-detail">
+getBaseUrl()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>getBaseUrl</b>(boolean $absolute=false)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$absolute</td>
+  <td class="paramTypeCol">boolean</td>
+  <td class="paramDescCol">whether to return an absolute URL. Defaults to false, meaning returning a relative one.
+This parameter has been available since 1.0.2.</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the relative URL for the application</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CHttpRequest.php#285">framework/web/CHttpRequest.php#285</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getBaseUrl</span><span style="color: #007700">(</span><span style="color: #0000BB">$absolute</span><span style="color: #007700">=</span><span style="color: #0000BB">false</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_baseUrl</span><span style="color: #007700">===</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_baseUrl</span><span style="color: #007700">=</span><span style="color: #0000BB">rtrim</span><span style="color: #007700">(</span><span style="color: #0000BB">dirname</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getScriptUrl</span><span style="color: #007700">()),</span><span style="color: #DD0000">'\\/'</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$absolute&nbsp;</span><span style="color: #007700">?&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getHostInfo</span><span style="color: #007700">()&nbsp;.&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_baseUrl&nbsp;</span><span style="color: #007700">:&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_baseUrl</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Returns the relative URL for the application.
+This is similar to <a href="CHttpRequest.html#getScriptUrl">scriptUrl</a> except that
+it does not have the script file name, and the ending slashes are stripped off.</p>
+
+<div class="SeeAlso">
+<h4>See Also</h4>
+<ul>
+	<li><a href="CHttpRequest.html#setScriptUrl">setScriptUrl</a></li>
+</ul>
+</div>
+
+<div class="detailHeader" id="getBrowser-detail">
+getBrowser()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public array <b>getBrowser</b>(string $userAgent=NULL)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$userAgent</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the user agent to be analyzed. Defaults to null, meaning using the
+current User-Agent HTTP header information.</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">user browser capabilities.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CHttpRequest.php#554">framework/web/CHttpRequest.php#554</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getBrowser</span><span style="color: #007700">(</span><span style="color: #0000BB">$userAgent</span><span style="color: #007700">=</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">get_browser</span><span style="color: #007700">(</span><span style="color: #0000BB">$userAgent</span><span style="color: #007700">,</span><span style="color: #0000BB">true</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Returns information about the capabilities of user browser.</p>
+
+<div class="SeeAlso">
+<h4>See Also</h4>
+<ul>
+	<li><a href="http://www.php.net/manual/en/function.get-browser.php">http://www.php.net/manual/en/function.get-browser.php</a></li>
+</ul>
+</div>
+
+<div class="detailHeader" id="getCookies-detail">
+getCookies()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public <a href="CCookieCollection.html">CCookieCollection</a> <b>getCookies</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol"><a href="CCookieCollection.html">CCookieCollection</a></td>
+  <td class="paramDescCol">the cookie collection.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CHttpRequest.php#637">framework/web/CHttpRequest.php#637</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getCookies</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_cookies</span><span style="color: #007700">!==</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_cookies</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_cookies</span><span style="color: #007700">=new&nbsp;</span><span style="color: #0000BB">CCookieCollection</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Returns the cookie collection.
+The result can be used like an associative array. Adding <a href="CHttpCookie.html">CHttpCookie</a> objects
+to the collection will send the cookies to the client; and removing the objects
+from the collection will delete those cookies on the client.</p>
+
+
+<div class="detailHeader" id="getCsrfToken-detail">
+getCsrfToken()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>getCsrfToken</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the random token for CSRF validation.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CHttpRequest.php#806">framework/web/CHttpRequest.php#806</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getCsrfToken</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_csrfToken</span><span style="color: #007700">===</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$cookie</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getCookies</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">itemAt</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">csrfTokenName</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(!</span><span style="color: #0000BB">$cookie&nbsp;</span><span style="color: #007700">||&nbsp;(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_csrfToken</span><span style="color: #007700">=</span><span style="color: #0000BB">$cookie</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">value</span><span style="color: #007700">)==</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$cookie</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">createCsrfCookie</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_csrfToken</span><span style="color: #007700">=</span><span style="color: #0000BB">$cookie</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">value</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getCookies</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">add</span><span style="color: #007700">(</span><span style="color: #0000BB">$cookie</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">name</span><span style="color: #007700">,</span><span style="color: #0000BB">$cookie</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_csrfToken</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Returns the random token used to perform CSRF validation.
+The token will be read from cookie first. If not found, a new token
+will be generated.</p>
+
+<div class="SeeAlso">
+<h4>See Also</h4>
+<ul>
+	<li><a href="CHttpRequest.html#enableCsrfValidation">enableCsrfValidation</a></li>
+</ul>
+</div>
+
+<div class="detailHeader" id="getDelete-detail">
+getDelete()
+<span class="detailHeaderTag">
+method
+(available since v1.1.7)
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public mixed <b>getDelete</b>(string $name, mixed $defaultValue=NULL)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$name</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the DELETE parameter name</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$defaultValue</td>
+  <td class="paramTypeCol">mixed</td>
+  <td class="paramDescCol">the default parameter value if the DELETE parameter does not exist.</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">mixed</td>
+  <td class="paramDescCol">the DELETE parameter value</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CHttpRequest.php#171">framework/web/CHttpRequest.php#171</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getDelete</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">,</span><span style="color: #0000BB">$defaultValue</span><span style="color: #007700">=</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_deleteParams</span><span style="color: #007700">===</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_deleteParams</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getIsDeleteRequest</span><span style="color: #007700">()&nbsp;?&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getRestParams</span><span style="color: #007700">()&nbsp;:&nbsp;array();<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;isset(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_deleteParams</span><span style="color: #007700">[</span><span style="color: #0000BB">$name</span><span style="color: #007700">])&nbsp;?&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_deleteParams</span><span style="color: #007700">[</span><span style="color: #0000BB">$name</span><span style="color: #007700">]&nbsp;:&nbsp;</span><span style="color: #0000BB">$defaultValue</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Returns the named DELETE parameter value.
+If the DELETE parameter does not exist or if the current request is not a DELETE request,
+the second parameter to this method will be returned.</p>
+
+
+<div class="detailHeader" id="getHostInfo-detail">
+getHostInfo()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>getHostInfo</b>(string $schema='')</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$schema</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">schema to use (e.g. http, https). If empty, the schema used for the current request will be used.</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">schema and hostname part (with port number if needed) of the request URL (e.g. http://www.yiiframework.com)</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CHttpRequest.php#228">framework/web/CHttpRequest.php#228</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getHostInfo</span><span style="color: #007700">(</span><span style="color: #0000BB">$schema</span><span style="color: #007700">=</span><span style="color: #DD0000">''</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_hostInfo</span><span style="color: #007700">===</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$secure</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getIsSecureConnection</span><span style="color: #007700">())<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$http</span><span style="color: #007700">=</span><span style="color: #DD0000">'https'</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$http</span><span style="color: #007700">=</span><span style="color: #DD0000">'http'</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(isset(</span><span style="color: #0000BB">$_SERVER</span><span style="color: #007700">[</span><span style="color: #DD0000">'HTTP_HOST'</span><span style="color: #007700">]))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_hostInfo</span><span style="color: #007700">=</span><span style="color: #0000BB">$http</span><span style="color: #007700">.</span><span style="color: #DD0000">'://'</span><span style="color: #007700">.</span><span style="color: #0000BB">$_SERVER</span><span style="color: #007700">[</span><span style="color: #DD0000">'HTTP_HOST'</span><span style="color: #007700">];<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_hostInfo</span><span style="color: #007700">=</span><span style="color: #0000BB">$http</span><span style="color: #007700">.</span><span style="color: #DD0000">'://'</span><span style="color: #007700">.</span><span style="color: #0000BB">$_SERVER</span><span style="color: #007700">[</span><span style="color: #DD0000">'SERVER_NAME'</span><span style="color: #007700">];<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$port</span><span style="color: #007700">=</span><span style="color: #0000BB">$secure&nbsp;</span><span style="color: #007700">?&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getSecurePort</span><span style="color: #007700">()&nbsp;:&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getPort</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if((</span><span style="color: #0000BB">$port</span><span style="color: #007700">!==</span><span style="color: #0000BB">80&nbsp;</span><span style="color: #007700">&amp;&amp;&nbsp;!</span><span style="color: #0000BB">$secure</span><span style="color: #007700">)&nbsp;||&nbsp;(</span><span style="color: #0000BB">$port</span><span style="color: #007700">!==</span><span style="color: #0000BB">443&nbsp;</span><span style="color: #007700">&amp;&amp;&nbsp;</span><span style="color: #0000BB">$secure</span><span style="color: #007700">))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_hostInfo</span><span style="color: #007700">.=</span><span style="color: #DD0000">':'</span><span style="color: #007700">.</span><span style="color: #0000BB">$port</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$schema</span><span style="color: #007700">!==</span><span style="color: #DD0000">''</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$secure</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getIsSecureConnection</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$secure&nbsp;</span><span style="color: #007700">&amp;&amp;&nbsp;</span><span style="color: #0000BB">$schema</span><span style="color: #007700">===</span><span style="color: #DD0000">'https'&nbsp;</span><span style="color: #007700">||&nbsp;!</span><span style="color: #0000BB">$secure&nbsp;</span><span style="color: #007700">&amp;&amp;&nbsp;</span><span style="color: #0000BB">$schema</span><span style="color: #007700">===</span><span style="color: #DD0000">'http'</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_hostInfo</span><span style="color: #007700">;<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$port</span><span style="color: #007700">=</span><span style="color: #0000BB">$schema</span><span style="color: #007700">===</span><span style="color: #DD0000">'https'&nbsp;</span><span style="color: #007700">?&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getSecurePort</span><span style="color: #007700">()&nbsp;:&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getPort</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$port</span><span style="color: #007700">!==</span><span style="color: #0000BB">80&nbsp;</span><span style="color: #007700">&amp;&amp;&nbsp;</span><span style="color: #0000BB">$schema</span><span style="color: #007700">===</span><span style="color: #DD0000">'http'&nbsp;</span><span style="color: #007700">||&nbsp;</span><span style="color: #0000BB">$port</span><span style="color: #007700">!==</span><span style="color: #0000BB">443&nbsp;</span><span style="color: #007700">&amp;&amp;&nbsp;</span><span style="color: #0000BB">$schema</span><span style="color: #007700">===</span><span style="color: #DD0000">'https'</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$port</span><span style="color: #007700">=</span><span style="color: #DD0000">':'</span><span style="color: #007700">.</span><span style="color: #0000BB">$port</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$port</span><span style="color: #007700">=</span><span style="color: #DD0000">''</span><span style="color: #007700">;<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$pos</span><span style="color: #007700">=</span><span style="color: #0000BB">strpos</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_hostInfo</span><span style="color: #007700">,</span><span style="color: #DD0000">':'</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$schema</span><span style="color: #007700">.</span><span style="color: #0000BB">substr</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_hostInfo</span><span style="color: #007700">,</span><span style="color: #0000BB">$pos</span><span style="color: #007700">,</span><span style="color: #0000BB">strcspn</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_hostInfo</span><span style="color: #007700">,</span><span style="color: #DD0000">':'</span><span style="color: #007700">,</span><span style="color: #0000BB">$pos</span><span style="color: #007700">+</span><span style="color: #0000BB">1</span><span style="color: #007700">)+</span><span style="color: #0000BB">1</span><span style="color: #007700">).</span><span style="color: #0000BB">$port</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_hostInfo</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Returns the schema and host part of the application URL.
+The returned URL does not have an ending slash.
+By default this is determined based on the user request information.
+You may explicitly specify it by setting the <a href="CHttpRequest.html#setHostInfo">hostInfo</a> property.</p>
+
+<div class="SeeAlso">
+<h4>See Also</h4>
+<ul>
+	<li><a href="CHttpRequest.html#setHostInfo">setHostInfo</a></li>
+</ul>
+</div>
+
+<div class="detailHeader" id="getIsAjaxRequest-detail">
+getIsAjaxRequest()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public boolean <b>getIsAjaxRequest</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">boolean</td>
+  <td class="paramDescCol">whether this is an AJAX (XMLHttpRequest) request.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CHttpRequest.php#476">framework/web/CHttpRequest.php#476</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getIsAjaxRequest</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;isset(</span><span style="color: #0000BB">$_SERVER</span><span style="color: #007700">[</span><span style="color: #DD0000">'HTTP_X_REQUESTED_WITH'</span><span style="color: #007700">])&nbsp;&amp;&amp;&nbsp;</span><span style="color: #0000BB">$_SERVER</span><span style="color: #007700">[</span><span style="color: #DD0000">'HTTP_X_REQUESTED_WITH'</span><span style="color: #007700">]===</span><span style="color: #DD0000">'XMLHttpRequest'</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Returns whether this is an AJAX (XMLHttpRequest) request.</p>
+
+
+<div class="detailHeader" id="getIsDeleteRequest-detail">
+getIsDeleteRequest()
+<span class="detailHeaderTag">
+method
+(available since v1.1.7)
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public boolean <b>getIsDeleteRequest</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">boolean</td>
+  <td class="paramDescCol">whether this is a DELETE request.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CHttpRequest.php#457">framework/web/CHttpRequest.php#457</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getIsDeleteRequest</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;isset(</span><span style="color: #0000BB">$_SERVER</span><span style="color: #007700">[</span><span style="color: #DD0000">'REQUEST_METHOD'</span><span style="color: #007700">])&nbsp;&amp;&amp;&nbsp;!</span><span style="color: #0000BB">strcasecmp</span><span style="color: #007700">(</span><span style="color: #0000BB">$_SERVER</span><span style="color: #007700">[</span><span style="color: #DD0000">'REQUEST_METHOD'</span><span style="color: #007700">],</span><span style="color: #DD0000">'DELETE'</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Returns whether this is a DELETE request.</p>
+
+
+<div class="detailHeader" id="getIsPostRequest-detail">
+getIsPostRequest()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public boolean <b>getIsPostRequest</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">boolean</td>
+  <td class="paramDescCol">whether this is a POST request.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CHttpRequest.php#447">framework/web/CHttpRequest.php#447</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getIsPostRequest</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;isset(</span><span style="color: #0000BB">$_SERVER</span><span style="color: #007700">[</span><span style="color: #DD0000">'REQUEST_METHOD'</span><span style="color: #007700">])&nbsp;&amp;&amp;&nbsp;!</span><span style="color: #0000BB">strcasecmp</span><span style="color: #007700">(</span><span style="color: #0000BB">$_SERVER</span><span style="color: #007700">[</span><span style="color: #DD0000">'REQUEST_METHOD'</span><span style="color: #007700">],</span><span style="color: #DD0000">'POST'</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Returns whether this is a POST request.</p>
+
+
+<div class="detailHeader" id="getIsPutRequest-detail">
+getIsPutRequest()
+<span class="detailHeaderTag">
+method
+(available since v1.1.7)
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public boolean <b>getIsPutRequest</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">boolean</td>
+  <td class="paramDescCol">whether this is a PUT request.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CHttpRequest.php#467">framework/web/CHttpRequest.php#467</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getIsPutRequest</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;isset(</span><span style="color: #0000BB">$_SERVER</span><span style="color: #007700">[</span><span style="color: #DD0000">'REQUEST_METHOD'</span><span style="color: #007700">])&nbsp;&amp;&amp;&nbsp;!</span><span style="color: #0000BB">strcasecmp</span><span style="color: #007700">(</span><span style="color: #0000BB">$_SERVER</span><span style="color: #007700">[</span><span style="color: #DD0000">'REQUEST_METHOD'</span><span style="color: #007700">],</span><span style="color: #DD0000">'PUT'</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Returns whether this is a PUT request.</p>
+
+
+<div class="detailHeader" id="getIsSecureConnection-detail">
+getIsSecureConnection()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public boolean <b>getIsSecureConnection</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">boolean</td>
+  <td class="paramDescCol">if the request is sent via secure channel (https)</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CHttpRequest.php#429">framework/web/CHttpRequest.php#429</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getIsSecureConnection</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;isset(</span><span style="color: #0000BB">$_SERVER</span><span style="color: #007700">[</span><span style="color: #DD0000">'HTTPS'</span><span style="color: #007700">])&nbsp;&amp;&amp;&nbsp;!</span><span style="color: #0000BB">strcasecmp</span><span style="color: #007700">(</span><span style="color: #0000BB">$_SERVER</span><span style="color: #007700">[</span><span style="color: #DD0000">'HTTPS'</span><span style="color: #007700">],</span><span style="color: #DD0000">'on'</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Return if the request is sent via secure channel (https).</p>
+
+
+<div class="detailHeader" id="getParam-detail">
+getParam()
+<span class="detailHeaderTag">
+method
+(available since v1.0.4)
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public mixed <b>getParam</b>(string $name, mixed $defaultValue=NULL)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$name</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the GET parameter name</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$defaultValue</td>
+  <td class="paramTypeCol">mixed</td>
+  <td class="paramDescCol">the default parameter value if the GET parameter does not exist.</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">mixed</td>
+  <td class="paramDescCol">the GET parameter value</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CHttpRequest.php#127">framework/web/CHttpRequest.php#127</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getParam</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">,</span><span style="color: #0000BB">$defaultValue</span><span style="color: #007700">=</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;isset(</span><span style="color: #0000BB">$_GET</span><span style="color: #007700">[</span><span style="color: #0000BB">$name</span><span style="color: #007700">])&nbsp;?&nbsp;</span><span style="color: #0000BB">$_GET</span><span style="color: #007700">[</span><span style="color: #0000BB">$name</span><span style="color: #007700">]&nbsp;:&nbsp;(isset(</span><span style="color: #0000BB">$_POST</span><span style="color: #007700">[</span><span style="color: #0000BB">$name</span><span style="color: #007700">])&nbsp;?&nbsp;</span><span style="color: #0000BB">$_POST</span><span style="color: #007700">[</span><span style="color: #0000BB">$name</span><span style="color: #007700">]&nbsp;:&nbsp;</span><span style="color: #0000BB">$defaultValue</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Returns the named GET or POST parameter value.
+If the GET or POST parameter does not exist, the second parameter to this method will be returned.
+If both GET and POST contains such a named parameter, the GET parameter takes precedence.</p>
+
+<div class="SeeAlso">
+<h4>See Also</h4>
+<ul>
+	<li><a href="CHttpRequest.html#getQuery">getQuery</a></li>
+	<li><a href="CHttpRequest.html#getPost">getPost</a></li>
+</ul>
+</div>
+
+<div class="detailHeader" id="getPathInfo-detail">
+getPathInfo()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>getPathInfo</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">part of the request URL that is after the entry script and before the question mark.
+Note, the returned pathinfo is decoded starting from 1.1.4.
+Prior to 1.1.4, whether it is decoded or not depends on the server configuration
+(in most cases it is not decoded).</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CHttpRequest.php#350">framework/web/CHttpRequest.php#350</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getPathInfo</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_pathInfo</span><span style="color: #007700">===</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$pathInfo</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getRequestUri</span><span style="color: #007700">();<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if((</span><span style="color: #0000BB">$pos</span><span style="color: #007700">=</span><span style="color: #0000BB">strpos</span><span style="color: #007700">(</span><span style="color: #0000BB">$pathInfo</span><span style="color: #007700">,</span><span style="color: #DD0000">'?'</span><span style="color: #007700">))!==</span><span style="color: #0000BB">false</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$pathInfo</span><span style="color: #007700">=</span><span style="color: #0000BB">substr</span><span style="color: #007700">(</span><span style="color: #0000BB">$pathInfo</span><span style="color: #007700">,</span><span style="color: #0000BB">0</span><span style="color: #007700">,</span><span style="color: #0000BB">$pos</span><span style="color: #007700">);<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$pathInfo</span><span style="color: #007700">=</span><span style="color: #0000BB">urldecode</span><span style="color: #007700">(</span><span style="color: #0000BB">$pathInfo</span><span style="color: #007700">);<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$scriptUrl</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getScriptUrl</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$baseUrl</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getBaseUrl</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">strpos</span><span style="color: #007700">(</span><span style="color: #0000BB">$pathInfo</span><span style="color: #007700">,</span><span style="color: #0000BB">$scriptUrl</span><span style="color: #007700">)===</span><span style="color: #0000BB">0</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$pathInfo</span><span style="color: #007700">=</span><span style="color: #0000BB">substr</span><span style="color: #007700">(</span><span style="color: #0000BB">$pathInfo</span><span style="color: #007700">,</span><span style="color: #0000BB">strlen</span><span style="color: #007700">(</span><span style="color: #0000BB">$scriptUrl</span><span style="color: #007700">));<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else&nbsp;if(</span><span style="color: #0000BB">$baseUrl</span><span style="color: #007700">===</span><span style="color: #DD0000">''&nbsp;</span><span style="color: #007700">||&nbsp;</span><span style="color: #0000BB">strpos</span><span style="color: #007700">(</span><span style="color: #0000BB">$pathInfo</span><span style="color: #007700">,</span><span style="color: #0000BB">$baseUrl</span><span style="color: #007700">)===</span><span style="color: #0000BB">0</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$pathInfo</span><span style="color: #007700">=</span><span style="color: #0000BB">substr</span><span style="color: #007700">(</span><span style="color: #0000BB">$pathInfo</span><span style="color: #007700">,</span><span style="color: #0000BB">strlen</span><span style="color: #007700">(</span><span style="color: #0000BB">$baseUrl</span><span style="color: #007700">));<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else&nbsp;if(</span><span style="color: #0000BB">strpos</span><span style="color: #007700">(</span><span style="color: #0000BB">$_SERVER</span><span style="color: #007700">[</span><span style="color: #DD0000">'PHP_SELF'</span><span style="color: #007700">],</span><span style="color: #0000BB">$scriptUrl</span><span style="color: #007700">)===</span><span style="color: #0000BB">0</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$pathInfo</span><span style="color: #007700">=</span><span style="color: #0000BB">substr</span><span style="color: #007700">(</span><span style="color: #0000BB">$_SERVER</span><span style="color: #007700">[</span><span style="color: #DD0000">'PHP_SELF'</span><span style="color: #007700">],</span><span style="color: #0000BB">strlen</span><span style="color: #007700">(</span><span style="color: #0000BB">$scriptUrl</span><span style="color: #007700">));<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throw&nbsp;new&nbsp;</span><span style="color: #0000BB">CException</span><span style="color: #007700">(</span><span style="color: #0000BB">Yii</span><span style="color: #007700">::</span><span style="color: #0000BB">t</span><span style="color: #007700">(</span><span style="color: #DD0000">'yii'</span><span style="color: #007700">,</span><span style="color: #DD0000">'CHttpRequest&nbsp;is&nbsp;unable&nbsp;to&nbsp;determine&nbsp;the&nbsp;path&nbsp;info&nbsp;of&nbsp;the&nbsp;request.'</span><span style="color: #007700">));<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_pathInfo</span><span style="color: #007700">=</span><span style="color: #0000BB">trim</span><span style="color: #007700">(</span><span style="color: #0000BB">$pathInfo</span><span style="color: #007700">,</span><span style="color: #DD0000">'/'</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_pathInfo</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Returns the path info of the currently requested URL.
+This refers to the part that is after the entry script and before the question mark.
+The starting and ending slashes are stripped off.</p>
+
+
+<div class="detailHeader" id="getPort-detail">
+getPort()
+<span class="detailHeaderTag">
+method
+(available since v1.1.3)
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public integer <b>getPort</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">integer</td>
+  <td class="paramDescCol">port number for insecure requests.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CHttpRequest.php#579">framework/web/CHttpRequest.php#579</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getPort</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_port</span><span style="color: #007700">===</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_port</span><span style="color: #007700">=!</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getIsSecureConnection</span><span style="color: #007700">()&nbsp;&amp;&amp;&nbsp;isset(</span><span style="color: #0000BB">$_SERVER</span><span style="color: #007700">[</span><span style="color: #DD0000">'SERVER_PORT'</span><span style="color: #007700">])&nbsp;?&nbsp;(int)</span><span style="color: #0000BB">$_SERVER</span><span style="color: #007700">[</span><span style="color: #DD0000">'SERVER_PORT'</span><span style="color: #007700">]&nbsp;:&nbsp;</span><span style="color: #0000BB">80</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_port</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Returns the port to use for insecure requests.
+Defaults to 80, or the port specified by the server if the current
+request is insecure.
+You may explicitly specify it by setting the <a href="CHttpRequest.html#setPort">port</a> property.</p>
+
+<div class="SeeAlso">
+<h4>See Also</h4>
+<ul>
+	<li><a href="CHttpRequest.html#setPort">setPort</a></li>
+</ul>
+</div>
+
+<div class="detailHeader" id="getPost-detail">
+getPost()
+<span class="detailHeaderTag">
+method
+(available since v1.0.4)
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public mixed <b>getPost</b>(string $name, mixed $defaultValue=NULL)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$name</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the POST parameter name</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$defaultValue</td>
+  <td class="paramTypeCol">mixed</td>
+  <td class="paramDescCol">the default parameter value if the POST parameter does not exist.</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">mixed</td>
+  <td class="paramDescCol">the POST parameter value</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CHttpRequest.php#157">framework/web/CHttpRequest.php#157</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getPost</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">,</span><span style="color: #0000BB">$defaultValue</span><span style="color: #007700">=</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;isset(</span><span style="color: #0000BB">$_POST</span><span style="color: #007700">[</span><span style="color: #0000BB">$name</span><span style="color: #007700">])&nbsp;?&nbsp;</span><span style="color: #0000BB">$_POST</span><span style="color: #007700">[</span><span style="color: #0000BB">$name</span><span style="color: #007700">]&nbsp;:&nbsp;</span><span style="color: #0000BB">$defaultValue</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Returns the named POST parameter value.
+If the POST parameter does not exist, the second parameter to this method will be returned.</p>
+
+<div class="SeeAlso">
+<h4>See Also</h4>
+<ul>
+	<li><a href="CHttpRequest.html#getParam">getParam</a></li>
+	<li><a href="CHttpRequest.html#getQuery">getQuery</a></li>
+</ul>
+</div>
+
+<div class="detailHeader" id="getPreferredLanguage-detail">
+getPreferredLanguage()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>getPreferredLanguage</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the user preferred language.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CHttpRequest.php#668">framework/web/CHttpRequest.php#668</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getPreferredLanguage</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_preferredLanguage</span><span style="color: #007700">===</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(isset(</span><span style="color: #0000BB">$_SERVER</span><span style="color: #007700">[</span><span style="color: #DD0000">'HTTP_ACCEPT_LANGUAGE'</span><span style="color: #007700">])&nbsp;&amp;&amp;&nbsp;(</span><span style="color: #0000BB">$n</span><span style="color: #007700">=</span><span style="color: #0000BB">preg_match_all</span><span style="color: #007700">(</span><span style="color: #DD0000">'/([\w\-_]+)\s*(;\s*q\s*=\s*(\d*\.\d*))?/'</span><span style="color: #007700">,</span><span style="color: #0000BB">$_SERVER</span><span style="color: #007700">[</span><span style="color: #DD0000">'HTTP_ACCEPT_LANGUAGE'</span><span style="color: #007700">],</span><span style="color: #0000BB">$matches</span><span style="color: #007700">))&gt;</span><span style="color: #0000BB">0</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$languages</span><span style="color: #007700">=array();<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for(</span><span style="color: #0000BB">$i</span><span style="color: #007700">=</span><span style="color: #0000BB">0</span><span style="color: #007700">;</span><span style="color: #0000BB">$i</span><span style="color: #007700">&lt;</span><span style="color: #0000BB">$n</span><span style="color: #007700">;++</span><span style="color: #0000BB">$i</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$languages</span><span style="color: #007700">[</span><span style="color: #0000BB">$matches</span><span style="color: #007700">[</span><span style="color: #0000BB">1</span><span style="color: #007700">][</span><span style="color: #0000BB">$i</span><span style="color: #007700">]]=empty(</span><span style="color: #0000BB">$matches</span><span style="color: #007700">[</span><span style="color: #0000BB">3</span><span style="color: #007700">][</span><span style="color: #0000BB">$i</span><span style="color: #007700">])&nbsp;?&nbsp;</span><span style="color: #0000BB">1.0&nbsp;</span><span style="color: #007700">:&nbsp;</span><span style="color: #0000BB">floatval</span><span style="color: #007700">(</span><span style="color: #0000BB">$matches</span><span style="color: #007700">[</span><span style="color: #0000BB">3</span><span style="color: #007700">][</span><span style="color: #0000BB">$i</span><span style="color: #007700">]);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">arsort</span><span style="color: #007700">(</span><span style="color: #0000BB">$languages</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;foreach(</span><span style="color: #0000BB">$languages&nbsp;</span><span style="color: #007700">as&nbsp;</span><span style="color: #0000BB">$language</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">$pref</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_preferredLanguage</span><span style="color: #007700">=</span><span style="color: #0000BB">CLocale</span><span style="color: #007700">::</span><span style="color: #0000BB">getCanonicalID</span><span style="color: #007700">(</span><span style="color: #0000BB">$language</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_preferredLanguage</span><span style="color: #007700">=</span><span style="color: #0000BB">false</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_preferredLanguage</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Returns the user preferred language.
+The returned language ID will be canonicalized using <a href="CLocale.html#getCanonicalID">CLocale::getCanonicalID</a>.
+This method returns false if the user does not have language preference.</p>
+
+
+<div class="detailHeader" id="getPut-detail">
+getPut()
+<span class="detailHeaderTag">
+method
+(available since v1.1.7)
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public mixed <b>getPut</b>(string $name, mixed $defaultValue=NULL)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$name</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the PUT parameter name</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$defaultValue</td>
+  <td class="paramTypeCol">mixed</td>
+  <td class="paramDescCol">the default parameter value if the PUT parameter does not exist.</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">mixed</td>
+  <td class="paramDescCol">the PUT parameter value</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CHttpRequest.php#187">framework/web/CHttpRequest.php#187</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getPut</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">,</span><span style="color: #0000BB">$defaultValue</span><span style="color: #007700">=</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_putParams</span><span style="color: #007700">===</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_putParams</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getIsPutRequest</span><span style="color: #007700">()&nbsp;?&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getRestParams</span><span style="color: #007700">()&nbsp;:&nbsp;array();<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;isset(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_putParams</span><span style="color: #007700">[</span><span style="color: #0000BB">$name</span><span style="color: #007700">])&nbsp;?&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_putParams</span><span style="color: #007700">[</span><span style="color: #0000BB">$name</span><span style="color: #007700">]&nbsp;:&nbsp;</span><span style="color: #0000BB">$defaultValue</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Returns the named PUT parameter value.
+If the PUT parameter does not exist or if the current request is not a PUT request,
+the second parameter to this method will be returned.</p>
+
+
+<div class="detailHeader" id="getQuery-detail">
+getQuery()
+<span class="detailHeaderTag">
+method
+(available since v1.0.4)
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public mixed <b>getQuery</b>(string $name, mixed $defaultValue=NULL)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$name</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the GET parameter name</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$defaultValue</td>
+  <td class="paramTypeCol">mixed</td>
+  <td class="paramDescCol">the default parameter value if the GET parameter does not exist.</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">mixed</td>
+  <td class="paramDescCol">the GET parameter value</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CHttpRequest.php#142">framework/web/CHttpRequest.php#142</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getQuery</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">,</span><span style="color: #0000BB">$defaultValue</span><span style="color: #007700">=</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;isset(</span><span style="color: #0000BB">$_GET</span><span style="color: #007700">[</span><span style="color: #0000BB">$name</span><span style="color: #007700">])&nbsp;?&nbsp;</span><span style="color: #0000BB">$_GET</span><span style="color: #007700">[</span><span style="color: #0000BB">$name</span><span style="color: #007700">]&nbsp;:&nbsp;</span><span style="color: #0000BB">$defaultValue</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Returns the named GET parameter value.
+If the GET parameter does not exist, the second parameter to this method will be returned.</p>
+
+<div class="SeeAlso">
+<h4>See Also</h4>
+<ul>
+	<li><a href="CHttpRequest.html#getPost">getPost</a></li>
+	<li><a href="CHttpRequest.html#getParam">getParam</a></li>
+</ul>
+</div>
+
+<div class="detailHeader" id="getQueryString-detail">
+getQueryString()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>getQueryString</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">part of the request URL that is after the question mark</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CHttpRequest.php#420">framework/web/CHttpRequest.php#420</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getQueryString</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;isset(</span><span style="color: #0000BB">$_SERVER</span><span style="color: #007700">[</span><span style="color: #DD0000">'QUERY_STRING'</span><span style="color: #007700">])?</span><span style="color: #0000BB">$_SERVER</span><span style="color: #007700">[</span><span style="color: #DD0000">'QUERY_STRING'</span><span style="color: #007700">]:</span><span style="color: #DD0000">''</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Returns part of the request URL that is after the question mark.</p>
+
+
+<div class="detailHeader" id="getRequestType-detail">
+getRequestType()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>getRequestType</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">request type, such as GET, POST, HEAD, PUT, DELETE.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CHttpRequest.php#438">framework/web/CHttpRequest.php#438</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getRequestType</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">strtoupper</span><span style="color: #007700">(isset(</span><span style="color: #0000BB">$_SERVER</span><span style="color: #007700">[</span><span style="color: #DD0000">'REQUEST_METHOD'</span><span style="color: #007700">])?</span><span style="color: #0000BB">$_SERVER</span><span style="color: #007700">[</span><span style="color: #DD0000">'REQUEST_METHOD'</span><span style="color: #007700">]:</span><span style="color: #DD0000">'GET'</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Returns the request type, such as GET, POST, HEAD, PUT, DELETE.</p>
+
+
+<div class="detailHeader" id="getRequestUri-detail">
+getRequestUri()
+<span class="detailHeaderTag">
+method
+(available since v1.0.1)
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>getRequestUri</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the request URI portion for the currently requested URL.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CHttpRequest.php#386">framework/web/CHttpRequest.php#386</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getRequestUri</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_requestUri</span><span style="color: #007700">===</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(isset(</span><span style="color: #0000BB">$_SERVER</span><span style="color: #007700">[</span><span style="color: #DD0000">'HTTP_X_REWRITE_URL'</span><span style="color: #007700">]))&nbsp;</span><span style="color: #FF8000">//&nbsp;IIS<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_requestUri</span><span style="color: #007700">=</span><span style="color: #0000BB">$_SERVER</span><span style="color: #007700">[</span><span style="color: #DD0000">'HTTP_X_REWRITE_URL'</span><span style="color: #007700">];<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else&nbsp;if(isset(</span><span style="color: #0000BB">$_SERVER</span><span style="color: #007700">[</span><span style="color: #DD0000">'REQUEST_URI'</span><span style="color: #007700">]))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_requestUri</span><span style="color: #007700">=</span><span style="color: #0000BB">$_SERVER</span><span style="color: #007700">[</span><span style="color: #DD0000">'REQUEST_URI'</span><span style="color: #007700">];<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(isset(</span><span style="color: #0000BB">$_SERVER</span><span style="color: #007700">[</span><span style="color: #DD0000">'HTTP_HOST'</span><span style="color: #007700">]))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">strpos</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_requestUri</span><span style="color: #007700">,</span><span style="color: #0000BB">$_SERVER</span><span style="color: #007700">[</span><span style="color: #DD0000">'HTTP_HOST'</span><span style="color: #007700">])!==</span><span style="color: #0000BB">false</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_requestUri</span><span style="color: #007700">=</span><span style="color: #0000BB">preg_replace</span><span style="color: #007700">(</span><span style="color: #DD0000">'/^\w+:\/\/[^\/]+/'</span><span style="color: #007700">,</span><span style="color: #DD0000">''</span><span style="color: #007700">,</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_requestUri</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_requestUri</span><span style="color: #007700">=</span><span style="color: #0000BB">preg_replace</span><span style="color: #007700">(</span><span style="color: #DD0000">'/^(http|https):\/\/[^\/]+/i'</span><span style="color: #007700">,</span><span style="color: #DD0000">''</span><span style="color: #007700">,</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_requestUri</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else&nbsp;if(isset(</span><span style="color: #0000BB">$_SERVER</span><span style="color: #007700">[</span><span style="color: #DD0000">'ORIG_PATH_INFO'</span><span style="color: #007700">]))&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;IIS&nbsp;5.0&nbsp;CGI<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_requestUri</span><span style="color: #007700">=</span><span style="color: #0000BB">$_SERVER</span><span style="color: #007700">[</span><span style="color: #DD0000">'ORIG_PATH_INFO'</span><span style="color: #007700">];<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(!empty(</span><span style="color: #0000BB">$_SERVER</span><span style="color: #007700">[</span><span style="color: #DD0000">'QUERY_STRING'</span><span style="color: #007700">]))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_requestUri</span><span style="color: #007700">.=</span><span style="color: #DD0000">'?'</span><span style="color: #007700">.</span><span style="color: #0000BB">$_SERVER</span><span style="color: #007700">[</span><span style="color: #DD0000">'QUERY_STRING'</span><span style="color: #007700">];<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throw&nbsp;new&nbsp;</span><span style="color: #0000BB">CException</span><span style="color: #007700">(</span><span style="color: #0000BB">Yii</span><span style="color: #007700">::</span><span style="color: #0000BB">t</span><span style="color: #007700">(</span><span style="color: #DD0000">'yii'</span><span style="color: #007700">,</span><span style="color: #DD0000">'CHttpRequest&nbsp;is&nbsp;unable&nbsp;to&nbsp;determine&nbsp;the&nbsp;request&nbsp;URI.'</span><span style="color: #007700">));<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_requestUri</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Returns the request URI portion for the currently requested URL.
+This refers to the portion that is after the <a href="CHttpRequest.html#hostInfo">host info</a> part.
+It includes the <a href="CHttpRequest.html#queryString">query string</a> part if any.
+The implementation of this method referenced Zend_Controller_Request_Http in Zend Framework.</p>
+
+
+<div class="detailHeader" id="getRestParams-detail">
+getRestParams()
+<span class="detailHeaderTag">
+method
+(available since v1.1.7)
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+protected array <b>getRestParams</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">the request parameters</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CHttpRequest.php#199">framework/web/CHttpRequest.php#199</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">protected&nbsp;function&nbsp;</span><span style="color: #0000BB">getRestParams</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$result</span><span style="color: #007700">=array();<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">function_exists</span><span style="color: #007700">(</span><span style="color: #DD0000">'mb_parse_str'</span><span style="color: #007700">))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">mb_parse_str</span><span style="color: #007700">(</span><span style="color: #0000BB">file_get_contents</span><span style="color: #007700">(</span><span style="color: #DD0000">'php://input'</span><span style="color: #007700">),&nbsp;</span><span style="color: #0000BB">$result</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">parse_str</span><span style="color: #007700">(</span><span style="color: #0000BB">file_get_contents</span><span style="color: #007700">(</span><span style="color: #DD0000">'php://input'</span><span style="color: #007700">),&nbsp;</span><span style="color: #0000BB">$result</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$result</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Returns the PUT or DELETE request parameters.</p>
+
+
+<div class="detailHeader" id="getScriptFile-detail">
+getScriptFile()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>getScriptFile</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">entry script file path (processed w/ realpath())</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CHttpRequest.php#539">framework/web/CHttpRequest.php#539</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getScriptFile</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_scriptFile</span><span style="color: #007700">!==</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_scriptFile</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_scriptFile</span><span style="color: #007700">=</span><span style="color: #0000BB">realpath</span><span style="color: #007700">(</span><span style="color: #0000BB">$_SERVER</span><span style="color: #007700">[</span><span style="color: #DD0000">'SCRIPT_FILENAME'</span><span style="color: #007700">]);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Returns entry script file path.</p>
+
+
+<div class="detailHeader" id="getScriptUrl-detail">
+getScriptUrl()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>getScriptUrl</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the relative URL of the entry script.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CHttpRequest.php#308">framework/web/CHttpRequest.php#308</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getScriptUrl</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_scriptUrl</span><span style="color: #007700">===</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$scriptName</span><span style="color: #007700">=</span><span style="color: #0000BB">basename</span><span style="color: #007700">(</span><span style="color: #0000BB">$_SERVER</span><span style="color: #007700">[</span><span style="color: #DD0000">'SCRIPT_FILENAME'</span><span style="color: #007700">]);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">basename</span><span style="color: #007700">(</span><span style="color: #0000BB">$_SERVER</span><span style="color: #007700">[</span><span style="color: #DD0000">'SCRIPT_NAME'</span><span style="color: #007700">])===</span><span style="color: #0000BB">$scriptName</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_scriptUrl</span><span style="color: #007700">=</span><span style="color: #0000BB">$_SERVER</span><span style="color: #007700">[</span><span style="color: #DD0000">'SCRIPT_NAME'</span><span style="color: #007700">];<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else&nbsp;if(</span><span style="color: #0000BB">basename</span><span style="color: #007700">(</span><span style="color: #0000BB">$_SERVER</span><span style="color: #007700">[</span><span style="color: #DD0000">'PHP_SELF'</span><span style="color: #007700">])===</span><span style="color: #0000BB">$scriptName</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_scriptUrl</span><span style="color: #007700">=</span><span style="color: #0000BB">$_SERVER</span><span style="color: #007700">[</span><span style="color: #DD0000">'PHP_SELF'</span><span style="color: #007700">];<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else&nbsp;if(isset(</span><span style="color: #0000BB">$_SERVER</span><span style="color: #007700">[</span><span style="color: #DD0000">'ORIG_SCRIPT_NAME'</span><span style="color: #007700">])&nbsp;&amp;&amp;&nbsp;</span><span style="color: #0000BB">basename</span><span style="color: #007700">(</span><span style="color: #0000BB">$_SERVER</span><span style="color: #007700">[</span><span style="color: #DD0000">'ORIG_SCRIPT_NAME'</span><span style="color: #007700">])===</span><span style="color: #0000BB">$scriptName</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_scriptUrl</span><span style="color: #007700">=</span><span style="color: #0000BB">$_SERVER</span><span style="color: #007700">[</span><span style="color: #DD0000">'ORIG_SCRIPT_NAME'</span><span style="color: #007700">];<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else&nbsp;if((</span><span style="color: #0000BB">$pos</span><span style="color: #007700">=</span><span style="color: #0000BB">strpos</span><span style="color: #007700">(</span><span style="color: #0000BB">$_SERVER</span><span style="color: #007700">[</span><span style="color: #DD0000">'PHP_SELF'</span><span style="color: #007700">],</span><span style="color: #DD0000">'/'</span><span style="color: #007700">.</span><span style="color: #0000BB">$scriptName</span><span style="color: #007700">))!==</span><span style="color: #0000BB">false</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_scriptUrl</span><span style="color: #007700">=</span><span style="color: #0000BB">substr</span><span style="color: #007700">(</span><span style="color: #0000BB">$_SERVER</span><span style="color: #007700">[</span><span style="color: #DD0000">'SCRIPT_NAME'</span><span style="color: #007700">],</span><span style="color: #0000BB">0</span><span style="color: #007700">,</span><span style="color: #0000BB">$pos</span><span style="color: #007700">).</span><span style="color: #DD0000">'/'</span><span style="color: #007700">.</span><span style="color: #0000BB">$scriptName</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else&nbsp;if(isset(</span><span style="color: #0000BB">$_SERVER</span><span style="color: #007700">[</span><span style="color: #DD0000">'DOCUMENT_ROOT'</span><span style="color: #007700">])&nbsp;&amp;&amp;&nbsp;</span><span style="color: #0000BB">strpos</span><span style="color: #007700">(</span><span style="color: #0000BB">$_SERVER</span><span style="color: #007700">[</span><span style="color: #DD0000">'SCRIPT_FILENAME'</span><span style="color: #007700">],</span><span style="color: #0000BB">$_SERVER</span><span style="color: #007700">[</span><span style="color: #DD0000">'DOCUMENT_ROOT'</span><span style="color: #007700">])===</span><span style="color: #0000BB">0</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_scriptUrl</span><span style="color: #007700">=</span><span style="color: #0000BB">str_replace</span><span style="color: #007700">(</span><span style="color: #DD0000">'\\'</span><span style="color: #007700">,</span><span style="color: #DD0000">'/'</span><span style="color: #007700">,</span><span style="color: #0000BB">str_replace</span><span style="color: #007700">(</span><span style="color: #0000BB">$_SERVER</span><span style="color: #007700">[</span><span style="color: #DD0000">'DOCUMENT_ROOT'</span><span style="color: #007700">],</span><span style="color: #DD0000">''</span><span style="color: #007700">,</span><span style="color: #0000BB">$_SERVER</span><span style="color: #007700">[</span><span style="color: #DD0000">'SCRIPT_FILENAME'</span><span style="color: #007700">]));<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throw&nbsp;new&nbsp;</span><span style="color: #0000BB">CException</span><span style="color: #007700">(</span><span style="color: #0000BB">Yii</span><span style="color: #007700">::</span><span style="color: #0000BB">t</span><span style="color: #007700">(</span><span style="color: #DD0000">'yii'</span><span style="color: #007700">,</span><span style="color: #DD0000">'CHttpRequest&nbsp;is&nbsp;unable&nbsp;to&nbsp;determine&nbsp;the&nbsp;entry&nbsp;script&nbsp;URL.'</span><span style="color: #007700">));<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_scriptUrl</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Returns the relative URL of the entry script.
+The implementation of this method referenced Zend_Controller_Request_Http in Zend Framework.</p>
+
+
+<div class="detailHeader" id="getSecurePort-detail">
+getSecurePort()
+<span class="detailHeaderTag">
+method
+(available since v1.1.3)
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public integer <b>getSecurePort</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">integer</td>
+  <td class="paramDescCol">port number for secure requests.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CHttpRequest.php#610">framework/web/CHttpRequest.php#610</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getSecurePort</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_securePort</span><span style="color: #007700">===</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_securePort</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getIsSecureConnection</span><span style="color: #007700">()&nbsp;&amp;&amp;&nbsp;isset(</span><span style="color: #0000BB">$_SERVER</span><span style="color: #007700">[</span><span style="color: #DD0000">'SERVER_PORT'</span><span style="color: #007700">])&nbsp;?&nbsp;(int)</span><span style="color: #0000BB">$_SERVER</span><span style="color: #007700">[</span><span style="color: #DD0000">'SERVER_PORT'</span><span style="color: #007700">]&nbsp;:&nbsp;</span><span style="color: #0000BB">443</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_securePort</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Returns the port to use for secure requests.
+Defaults to 443, or the port specified by the server if the current
+request is secure.
+You may explicitly specify it by setting the <a href="CHttpRequest.html#setSecurePort">securePort</a> property.</p>
+
+<div class="SeeAlso">
+<h4>See Also</h4>
+<ul>
+	<li><a href="CHttpRequest.html#setSecurePort">setSecurePort</a></li>
+</ul>
+</div>
+
+<div class="detailHeader" id="getServerName-detail">
+getServerName()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>getServerName</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">server name</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CHttpRequest.php#485">framework/web/CHttpRequest.php#485</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getServerName</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$_SERVER</span><span style="color: #007700">[</span><span style="color: #DD0000">'SERVER_NAME'</span><span style="color: #007700">];<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Returns the server name.</p>
+
+
+<div class="detailHeader" id="getServerPort-detail">
+getServerPort()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public integer <b>getServerPort</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">integer</td>
+  <td class="paramDescCol">server port number</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CHttpRequest.php#494">framework/web/CHttpRequest.php#494</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getServerPort</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$_SERVER</span><span style="color: #007700">[</span><span style="color: #DD0000">'SERVER_PORT'</span><span style="color: #007700">];<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Returns the server port number.</p>
+
+
+<div class="detailHeader" id="getUrl-detail">
+getUrl()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>getUrl</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">part of the request URL after the host info.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CHttpRequest.php#214">framework/web/CHttpRequest.php#214</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getUrl</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getRequestUri</span><span style="color: #007700">();<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Returns the currently requested URL.
+This is the same as <a href="CHttpRequest.html#getRequestUri">getRequestUri</a>.</p>
+
+
+<div class="detailHeader" id="getUrlReferrer-detail">
+getUrlReferrer()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>getUrlReferrer</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">URL referrer, null if not present</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CHttpRequest.php#503">framework/web/CHttpRequest.php#503</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getUrlReferrer</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;isset(</span><span style="color: #0000BB">$_SERVER</span><span style="color: #007700">[</span><span style="color: #DD0000">'HTTP_REFERER'</span><span style="color: #007700">])?</span><span style="color: #0000BB">$_SERVER</span><span style="color: #007700">[</span><span style="color: #DD0000">'HTTP_REFERER'</span><span style="color: #007700">]:</span><span style="color: #0000BB">null</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Returns the URL referrer, null if not present</p>
+
+
+<div class="detailHeader" id="getUserAgent-detail">
+getUserAgent()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>getUserAgent</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">user agent, null if not present</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CHttpRequest.php#512">framework/web/CHttpRequest.php#512</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getUserAgent</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;isset(</span><span style="color: #0000BB">$_SERVER</span><span style="color: #007700">[</span><span style="color: #DD0000">'HTTP_USER_AGENT'</span><span style="color: #007700">])?</span><span style="color: #0000BB">$_SERVER</span><span style="color: #007700">[</span><span style="color: #DD0000">'HTTP_USER_AGENT'</span><span style="color: #007700">]:</span><span style="color: #0000BB">null</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Returns the user agent, null if not present.</p>
+
+
+<div class="detailHeader" id="getUserHost-detail">
+getUserHost()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>getUserHost</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">user host name, null if cannot be determined</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CHttpRequest.php#530">framework/web/CHttpRequest.php#530</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getUserHost</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;isset(</span><span style="color: #0000BB">$_SERVER</span><span style="color: #007700">[</span><span style="color: #DD0000">'REMOTE_HOST'</span><span style="color: #007700">])?</span><span style="color: #0000BB">$_SERVER</span><span style="color: #007700">[</span><span style="color: #DD0000">'REMOTE_HOST'</span><span style="color: #007700">]:</span><span style="color: #0000BB">null</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Returns the user host name, null if it cannot be determined.</p>
+
+
+<div class="detailHeader" id="getUserHostAddress-detail">
+getUserHostAddress()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>getUserHostAddress</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">user IP address</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CHttpRequest.php#521">framework/web/CHttpRequest.php#521</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getUserHostAddress</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;isset(</span><span style="color: #0000BB">$_SERVER</span><span style="color: #007700">[</span><span style="color: #DD0000">'REMOTE_ADDR'</span><span style="color: #007700">])?</span><span style="color: #0000BB">$_SERVER</span><span style="color: #007700">[</span><span style="color: #DD0000">'REMOTE_ADDR'</span><span style="color: #007700">]:</span><span style="color: #DD0000">'127.0.0.1'</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Returns the user IP address.</p>
+
+
+<div class="detailHeader" id="init-detail">
+init()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>init</b>()</div>
+</td></tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CHttpRequest.php#74">framework/web/CHttpRequest.php#74</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">init</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">parent</span><span style="color: #007700">::</span><span style="color: #0000BB">init</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">normalizeRequest</span><span style="color: #007700">();<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Initializes the application component.
+This method overrides the parent implementation by preprocessing
+the user request data.</p>
+
+
+<div class="detailHeader" id="normalizeRequest-detail">
+normalizeRequest()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+protected void <b>normalizeRequest</b>()</div>
+</td></tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CHttpRequest.php#85">framework/web/CHttpRequest.php#85</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">protected&nbsp;function&nbsp;</span><span style="color: #0000BB">normalizeRequest</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;normalize&nbsp;request<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">if(</span><span style="color: #0000BB">function_exists</span><span style="color: #007700">(</span><span style="color: #DD0000">'get_magic_quotes_gpc'</span><span style="color: #007700">)&nbsp;&amp;&amp;&nbsp;</span><span style="color: #0000BB">get_magic_quotes_gpc</span><span style="color: #007700">())<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(isset(</span><span style="color: #0000BB">$_GET</span><span style="color: #007700">))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$_GET</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">stripSlashes</span><span style="color: #007700">(</span><span style="color: #0000BB">$_GET</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(isset(</span><span style="color: #0000BB">$_POST</span><span style="color: #007700">))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$_POST</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">stripSlashes</span><span style="color: #007700">(</span><span style="color: #0000BB">$_POST</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(isset(</span><span style="color: #0000BB">$_REQUEST</span><span style="color: #007700">))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$_REQUEST</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">stripSlashes</span><span style="color: #007700">(</span><span style="color: #0000BB">$_REQUEST</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(isset(</span><span style="color: #0000BB">$_COOKIE</span><span style="color: #007700">))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$_COOKIE</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">stripSlashes</span><span style="color: #007700">(</span><span style="color: #0000BB">$_COOKIE</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">enableCsrfValidation</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">Yii</span><span style="color: #007700">::</span><span style="color: #0000BB">app</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">attachEventHandler</span><span style="color: #007700">(</span><span style="color: #DD0000">'onBeginRequest'</span><span style="color: #007700">,array(</span><span style="color: #0000BB">$this</span><span style="color: #007700">,</span><span style="color: #DD0000">'validateCsrfToken'</span><span style="color: #007700">));<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Normalizes the request data.
+This method strips off slashes in request data if get_magic_quotes_gpc() returns true.
+It also performs CSRF validation if <a href="CHttpRequest.html#enableCsrfValidation">enableCsrfValidation</a> is true.</p>
+
+
+<div class="detailHeader" id="redirect-detail">
+redirect()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>redirect</b>(string $url, boolean $terminate=true, integer $statusCode=302)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$url</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">URL to be redirected to. If the URL is a relative one, the base URL of
+the application will be inserted at the beginning.</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$terminate</td>
+  <td class="paramTypeCol">boolean</td>
+  <td class="paramDescCol">whether to terminate the current application</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$statusCode</td>
+  <td class="paramTypeCol">integer</td>
+  <td class="paramDescCol">the HTTP status code. Defaults to 302. See <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html">http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html</a>
+for details about HTTP status code. This parameter has been available since version 1.0.4.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CHttpRequest.php#653">framework/web/CHttpRequest.php#653</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">redirect</span><span style="color: #007700">(</span><span style="color: #0000BB">$url</span><span style="color: #007700">,</span><span style="color: #0000BB">$terminate</span><span style="color: #007700">=</span><span style="color: #0000BB">true</span><span style="color: #007700">,</span><span style="color: #0000BB">$statusCode</span><span style="color: #007700">=</span><span style="color: #0000BB">302</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">strpos</span><span style="color: #007700">(</span><span style="color: #0000BB">$url</span><span style="color: #007700">,</span><span style="color: #DD0000">'/'</span><span style="color: #007700">)===</span><span style="color: #0000BB">0</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$url</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getHostInfo</span><span style="color: #007700">().</span><span style="color: #0000BB">$url</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">header</span><span style="color: #007700">(</span><span style="color: #DD0000">'Location:&nbsp;'</span><span style="color: #007700">.</span><span style="color: #0000BB">$url</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$statusCode</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$terminate</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">Yii</span><span style="color: #007700">::</span><span style="color: #0000BB">app</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">end</span><span style="color: #007700">();<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Redirects the browser to the specified URL.</p>
+
+
+<div class="detailHeader" id="sendFile-detail">
+sendFile()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>sendFile</b>(string $fileName, string $content, string $mimeType=NULL, boolean $terminate=true)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$fileName</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">file name</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$content</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">content to be set.</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$mimeType</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">mime type of the content. If null, it will be guessed automatically based on the given file name.</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$terminate</td>
+  <td class="paramTypeCol">boolean</td>
+  <td class="paramDescCol">whether to terminate the current application after calling this method</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CHttpRequest.php#693">framework/web/CHttpRequest.php#693</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">sendFile</span><span style="color: #007700">(</span><span style="color: #0000BB">$fileName</span><span style="color: #007700">,</span><span style="color: #0000BB">$content</span><span style="color: #007700">,</span><span style="color: #0000BB">$mimeType</span><span style="color: #007700">=</span><span style="color: #0000BB">null</span><span style="color: #007700">,</span><span style="color: #0000BB">$terminate</span><span style="color: #007700">=</span><span style="color: #0000BB">true</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$mimeType</span><span style="color: #007700">===</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if((</span><span style="color: #0000BB">$mimeType</span><span style="color: #007700">=</span><span style="color: #0000BB">CFileHelper</span><span style="color: #007700">::</span><span style="color: #0000BB">getMimeTypeByExtension</span><span style="color: #007700">(</span><span style="color: #0000BB">$fileName</span><span style="color: #007700">))===</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$mimeType</span><span style="color: #007700">=</span><span style="color: #DD0000">'text/plain'</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">header</span><span style="color: #007700">(</span><span style="color: #DD0000">'Pragma:&nbsp;public'</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">header</span><span style="color: #007700">(</span><span style="color: #DD0000">'Expires:&nbsp;0'</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">header</span><span style="color: #007700">(</span><span style="color: #DD0000">'Cache-Control:&nbsp;must-revalidate,&nbsp;post-check=0,&nbsp;pre-check=0'</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">header</span><span style="color: #007700">(</span><span style="color: #DD0000">"Content-type:&nbsp;</span><span style="color: #0000BB">$mimeType</span><span style="color: #DD0000">"</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">ini_get</span><span style="color: #007700">(</span><span style="color: #DD0000">"output_handler"</span><span style="color: #007700">)==</span><span style="color: #DD0000">''</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">header</span><span style="color: #007700">(</span><span style="color: #DD0000">'Content-Length:&nbsp;'</span><span style="color: #007700">.(</span><span style="color: #0000BB">function_exists</span><span style="color: #007700">(</span><span style="color: #DD0000">'mb_strlen'</span><span style="color: #007700">)&nbsp;?&nbsp;</span><span style="color: #0000BB">mb_strlen</span><span style="color: #007700">(</span><span style="color: #0000BB">$content</span><span style="color: #007700">,</span><span style="color: #DD0000">'8bit'</span><span style="color: #007700">)&nbsp;:&nbsp;</span><span style="color: #0000BB">strlen</span><span style="color: #007700">(</span><span style="color: #0000BB">$content</span><span style="color: #007700">)));<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">header</span><span style="color: #007700">(</span><span style="color: #DD0000">"Content-Disposition:&nbsp;attachment;&nbsp;filename=\"</span><span style="color: #0000BB">$fileName</span><span style="color: #DD0000">\""</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">header</span><span style="color: #007700">(</span><span style="color: #DD0000">'Content-Transfer-Encoding:&nbsp;binary'</span><span style="color: #007700">);<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$terminate</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;clean&nbsp;up&nbsp;the&nbsp;application&nbsp;first&nbsp;because&nbsp;the&nbsp;file&nbsp;downloading&nbsp;could&nbsp;take&nbsp;long&nbsp;time<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;which&nbsp;may&nbsp;cause&nbsp;timeout&nbsp;of&nbsp;some&nbsp;resources&nbsp;(such&nbsp;as&nbsp;DB&nbsp;connection)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">Yii</span><span style="color: #007700">::</span><span style="color: #0000BB">app</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">end</span><span style="color: #007700">(</span><span style="color: #0000BB">0</span><span style="color: #007700">,</span><span style="color: #0000BB">false</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">$content</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;exit(</span><span style="color: #0000BB">0</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">$content</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Sends a file to user.</p>
+
+
+<div class="detailHeader" id="setBaseUrl-detail">
+setBaseUrl()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>setBaseUrl</b>(string $value)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$value</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the relative URL for the application</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CHttpRequest.php#298">framework/web/CHttpRequest.php#298</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">setBaseUrl</span><span style="color: #007700">(</span><span style="color: #0000BB">$value</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_baseUrl</span><span style="color: #007700">=</span><span style="color: #0000BB">$value</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Sets the relative URL for the application.
+By default the URL is determined based on the entry script URL.
+This setter is provided in case you want to change this behavior.</p>
+
+
+<div class="detailHeader" id="setHostInfo-detail">
+setHostInfo()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>setHostInfo</b>(string $value)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$value</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the schema and host part of the application URL.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CHttpRequest.php#271">framework/web/CHttpRequest.php#271</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">setHostInfo</span><span style="color: #007700">(</span><span style="color: #0000BB">$value</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_hostInfo</span><span style="color: #007700">=</span><span style="color: #0000BB">rtrim</span><span style="color: #007700">(</span><span style="color: #0000BB">$value</span><span style="color: #007700">,</span><span style="color: #DD0000">'/'</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Sets the schema and host part of the application URL.
+This setter is provided in case the schema and hostname cannot be determined
+on certain Web servers.</p>
+
+
+<div class="detailHeader" id="setPort-detail">
+setPort()
+<span class="detailHeaderTag">
+method
+(available since v1.1.3)
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>setPort</b>(integer $value)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$value</td>
+  <td class="paramTypeCol">integer</td>
+  <td class="paramDescCol">port number.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CHttpRequest.php#593">framework/web/CHttpRequest.php#593</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">setPort</span><span style="color: #007700">(</span><span style="color: #0000BB">$value</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_port</span><span style="color: #007700">=(int)</span><span style="color: #0000BB">$value</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_hostInfo</span><span style="color: #007700">=</span><span style="color: #0000BB">null</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Sets the port to use for insecure requests.
+This setter is provided in case a custom port is necessary for certain
+server configurations.</p>
+
+
+<div class="detailHeader" id="setScriptUrl-detail">
+setScriptUrl()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>setScriptUrl</b>(string $value)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$value</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the relative URL for the application entry script.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CHttpRequest.php#335">framework/web/CHttpRequest.php#335</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">setScriptUrl</span><span style="color: #007700">(</span><span style="color: #0000BB">$value</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_scriptUrl</span><span style="color: #007700">=</span><span style="color: #DD0000">'/'</span><span style="color: #007700">.</span><span style="color: #0000BB">trim</span><span style="color: #007700">(</span><span style="color: #0000BB">$value</span><span style="color: #007700">,</span><span style="color: #DD0000">'/'</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Sets the relative URL for the application entry script.
+This setter is provided in case the entry script URL cannot be determined
+on certain Web servers.</p>
+
+
+<div class="detailHeader" id="setSecurePort-detail">
+setSecurePort()
+<span class="detailHeaderTag">
+method
+(available since v1.1.3)
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>setSecurePort</b>(integer $value)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$value</td>
+  <td class="paramTypeCol">integer</td>
+  <td class="paramDescCol">port number.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CHttpRequest.php#624">framework/web/CHttpRequest.php#624</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">setSecurePort</span><span style="color: #007700">(</span><span style="color: #0000BB">$value</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_securePort</span><span style="color: #007700">=(int)</span><span style="color: #0000BB">$value</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_hostInfo</span><span style="color: #007700">=</span><span style="color: #0000BB">null</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Sets the port to use for secure requests.
+This setter is provided in case a custom port is necessary for certain
+server configurations.</p>
+
+
+<div class="detailHeader" id="stripSlashes-detail">
+stripSlashes()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public mixed <b>stripSlashes</b>(mixed &$data)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$data</td>
+  <td class="paramTypeCol">mixed</td>
+  <td class="paramDescCol">input data to be processed</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">mixed</td>
+  <td class="paramDescCol">processed data</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CHttpRequest.php#111">framework/web/CHttpRequest.php#111</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">stripSlashes</span><span style="color: #007700">(&amp;</span><span style="color: #0000BB">$data</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">is_array</span><span style="color: #007700">(</span><span style="color: #0000BB">$data</span><span style="color: #007700">)?</span><span style="color: #0000BB">array_map</span><span style="color: #007700">(array(</span><span style="color: #0000BB">$this</span><span style="color: #007700">,</span><span style="color: #DD0000">'stripSlashes'</span><span style="color: #007700">),</span><span style="color: #0000BB">$data</span><span style="color: #007700">):</span><span style="color: #0000BB">stripslashes</span><span style="color: #007700">(</span><span style="color: #0000BB">$data</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Strips slashes from input data.
+This method is applied when magic quotes is enabled.</p>
+
+
+<div class="detailHeader" id="validateCsrfToken-detail">
+validateCsrfToken()
+<span class="detailHeaderTag">
+method
+(available since v1.0.4)
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>validateCsrfToken</b>(<a href="CEvent.html">CEvent</a> $event)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$event</td>
+  <td class="paramTypeCol"><a href="CEvent.html">CEvent</a></td>
+  <td class="paramDescCol">event parameter</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CHttpRequest.php#849">framework/web/CHttpRequest.php#849</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">validateCsrfToken</span><span style="color: #007700">(</span><span style="color: #0000BB">$event</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getIsPostRequest</span><span style="color: #007700">())<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;only&nbsp;validate&nbsp;POST&nbsp;requests<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$cookies</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getCookies</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$cookies</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">contains</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">csrfTokenName</span><span style="color: #007700">)&nbsp;&amp;&amp;&nbsp;isset(</span><span style="color: #0000BB">$_POST</span><span style="color: #007700">[</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">csrfTokenName</span><span style="color: #007700">]))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$tokenFromCookie</span><span style="color: #007700">=</span><span style="color: #0000BB">$cookies</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">itemAt</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">csrfTokenName</span><span style="color: #007700">)-&gt;</span><span style="color: #0000BB">value</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$tokenFromPost</span><span style="color: #007700">=</span><span style="color: #0000BB">$_POST</span><span style="color: #007700">[</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">csrfTokenName</span><span style="color: #007700">];<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$valid</span><span style="color: #007700">=</span><span style="color: #0000BB">$tokenFromCookie</span><span style="color: #007700">===</span><span style="color: #0000BB">$tokenFromPost</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$valid</span><span style="color: #007700">=</span><span style="color: #0000BB">false</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(!</span><span style="color: #0000BB">$valid</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throw&nbsp;new&nbsp;</span><span style="color: #0000BB">CHttpException</span><span style="color: #007700">(</span><span style="color: #0000BB">400</span><span style="color: #007700">,</span><span style="color: #0000BB">Yii</span><span style="color: #007700">::</span><span style="color: #0000BB">t</span><span style="color: #007700">(</span><span style="color: #DD0000">'yii'</span><span style="color: #007700">,</span><span style="color: #DD0000">'The&nbsp;CSRF&nbsp;token&nbsp;could&nbsp;not&nbsp;be&nbsp;verified.'</span><span style="color: #007700">));<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Performs the CSRF validation.
+This is the event handler responding to <a href="CApplication.html#onBeginRequest">CApplication::onBeginRequest</a>.
+The default implementation will compare the CSRF token obtained
+from a cookie and from a POST field. If they are different, a CSRF attack is detected.</p>
+
+
+<div class="detailHeader" id="xSendFile-detail">
+xSendFile()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public boolean <b>xSendFile</b>(string $filePath, array $options=array (
+))</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$filePath</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">file name with full path</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$options</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">additional options:
+<ul>
+<li>saveName: file name shown to the user, if not set real file name will be used</li>
+<li>mimeType: mime type of the file, if not set it will be guessed automatically based on the file name.</li>
+<li>xHeader: appropriate x-sendfile header, defaults to "X-Sendfile"</li>
+<li>terminate: whether to terminate the current application after calling this method, defaults to true</li>
+</ul></td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">boolean</td>
+  <td class="paramDescCol">false if file not found, true otherwise.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CHttpRequest.php#772">framework/web/CHttpRequest.php#772</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">xSendFile</span><span style="color: #007700">(</span><span style="color: #0000BB">$filePath</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$options</span><span style="color: #007700">=array())<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(!</span><span style="color: #0000BB">is_file</span><span style="color: #007700">(</span><span style="color: #0000BB">$filePath</span><span style="color: #007700">))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">;<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;if(!isset(</span><span style="color: #0000BB">$options</span><span style="color: #007700">[</span><span style="color: #DD0000">'saveName'</span><span style="color: #007700">]))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$options</span><span style="color: #007700">[</span><span style="color: #DD0000">'saveName'</span><span style="color: #007700">]=</span><span style="color: #0000BB">basename</span><span style="color: #007700">(</span><span style="color: #0000BB">$filePath</span><span style="color: #007700">);<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;if(!isset(</span><span style="color: #0000BB">$options</span><span style="color: #007700">[</span><span style="color: #DD0000">'mimeType'</span><span style="color: #007700">]))<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if((</span><span style="color: #0000BB">$options</span><span style="color: #007700">[</span><span style="color: #DD0000">'mimeType'</span><span style="color: #007700">]=</span><span style="color: #0000BB">CFileHelper</span><span style="color: #007700">::</span><span style="color: #0000BB">getMimeTypeByExtension</span><span style="color: #007700">(</span><span style="color: #0000BB">$filePath</span><span style="color: #007700">))===</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$options</span><span style="color: #007700">[</span><span style="color: #DD0000">'mimeType'</span><span style="color: #007700">]=</span><span style="color: #DD0000">'text/plain'</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;if(!isset(</span><span style="color: #0000BB">$options</span><span style="color: #007700">[</span><span style="color: #DD0000">'xHeader'</span><span style="color: #007700">]))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$options</span><span style="color: #007700">[</span><span style="color: #DD0000">'xHeader'</span><span style="color: #007700">]=</span><span style="color: #DD0000">'X-Sendfile'</span><span style="color: #007700">;<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">header</span><span style="color: #007700">(</span><span style="color: #DD0000">'Content-type:&nbsp;'</span><span style="color: #007700">.</span><span style="color: #0000BB">$options</span><span style="color: #007700">[</span><span style="color: #DD0000">'mimeType'</span><span style="color: #007700">]);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">header</span><span style="color: #007700">(</span><span style="color: #DD0000">'Content-Disposition:&nbsp;attachment;&nbsp;filename="'</span><span style="color: #007700">.</span><span style="color: #0000BB">$options</span><span style="color: #007700">[</span><span style="color: #DD0000">'saveName'</span><span style="color: #007700">].</span><span style="color: #DD0000">'"'</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">header</span><span style="color: #007700">(</span><span style="color: #0000BB">trim</span><span style="color: #007700">(</span><span style="color: #0000BB">$options</span><span style="color: #007700">[</span><span style="color: #DD0000">'xHeader'</span><span style="color: #007700">]).</span><span style="color: #DD0000">':&nbsp;'</span><span style="color: #007700">.</span><span style="color: #0000BB">$filePath</span><span style="color: #007700">);<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;if(!isset(</span><span style="color: #0000BB">$options</span><span style="color: #007700">[</span><span style="color: #DD0000">'terminate'</span><span style="color: #007700">])&nbsp;||&nbsp;</span><span style="color: #0000BB">$options</span><span style="color: #007700">[</span><span style="color: #DD0000">'terminate'</span><span style="color: #007700">])<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">Yii</span><span style="color: #007700">::</span><span style="color: #0000BB">app</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">end</span><span style="color: #007700">();<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Sends existing file to a browser as a download using x-sendfile.
+<br/><br/>
+X-Sendfile is a feature allowing a web application to redirect the request for a file to the webserver
+that in turn processes the request, this way eliminating the need to perform tasks like reading the file
+and sending it to the user. When dealing with a lot of files (or very big files) this can lead to a great
+increase in performance as the web application is allowed to terminate earlier while the webserver is
+handling the request.
+<br/><br/>
+The request is sent to the server through a special non-standard HTTP-header.
+When the web server encounters the presence of such header it will discard all output and send the file
+specified by that header using web server internals including all optimizations like caching-headers.
+<br/><br/>
+As this header directive is non-standard different directives exists for different web servers applications:
+<ul>
+<li>Apache: <a href="http://tn123.org/mod_xsendfile">X-Sendfile</a></li>
+<li>Lighttpd v1.4: <a href="http://redmine.lighttpd.net/wiki/lighttpd/X-LIGHTTPD-send-file">X-LIGHTTPD-send-file</a></li>
+<li>Lighttpd v1.5: X-Sendfile <a href="http://redmine.lighttpd.net/wiki/lighttpd/X-LIGHTTPD-send-file">X-Sendfile</a></li>
+<li>Nginx: <a href="http://wiki.nginx.org/XSendfile">X-Accel-Redirect</a></li>
+<li>Cherokee: <a href="http://www.cherokee-project.com/doc/other_goodies.html#x-sendfile">X-Sendfile and X-Accel-Redirect</a></li>
+</ul>
+So for this method to work the X-SENDFILE option/module should be enabled by the web server and
+a proper xHeader should be sent.
+<br/><br/>
+<b>Note:</b>
+This option allows to download files that are not under web folders, and even files that are otherwise protected (deny from all) like .htaccess
+<br/><br/>
+<b>Side effects</b>:
+If this option is disabled by the web server, when this method is called a download configuration dialog
+will open but the downloaded file will have 0 bytes.
+<br/><br/>
+<b>Example</b>:
+<pre>
+&lt;?php
+  Yii::app()-&gt;request-&gt;xSendFile('/home/user/Pictures/picture1.jpg',array(
+  'saveName'=&gt;'image1.jpg',
+  'mimeType'=&gt;'image/jpeg',
+  'terminate'=&gt;false,
+  ));
+?&gt;
+</pre></p>
+
+
+</div><!-- end of content -->
+
+<div id="apiFooter">
+Copyright &copy; 2008-2011 by <a href="http://www.yiisoft.com">Yii Software LLC</a><br/>
+All Rights Reserved.<br/>
+</div><!-- end of footer -->
+
+<script type="text/javascript">
+/*<![CDATA[*/
+$("a.toggle").toggle(function(){
+	$(this).text($(this).text().replace(/Hide/,'Show'));
+	$(this).parents(".summary").find(".inherited").hide();
+},function(){
+	$(this).text($(this).text().replace(/Show/,'Hide'));
+	$(this).parents(".summary").find(".inherited").show();
+});
+$(".sourceCode a.show").toggle(function(){
+	$(this).text($(this).text().replace(/show/,'hide'));
+	$(this).parents(".sourceCode").find("div.code").show();
+},function(){
+	$(this).text($(this).text().replace(/hide/,'show'));
+	$(this).parents(".sourceCode").find("div.code").hide();
+});
+$("a.sourceLink").click(function(){
+	$(this).attr('target','_blank');
+});
+/*]]>*/
+</script>
+
+</div><!-- end of page -->
+</body>
+</html>

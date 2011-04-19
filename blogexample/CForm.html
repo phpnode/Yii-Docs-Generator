@@ -1,0 +1,1882 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="language" content="en" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="css/api.css" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<title>CForm</title>
+</head>
+
+<body>
+<div id="apiPage">
+
+<div id="apiHeader">
+My Console Application Class Reference
+</div><!-- end of header -->
+
+<div id="content">
+<h1>CForm</h1>
+<div id="nav">
+<a href="index.html">All Packages</a>
+| <a href="#properties">Properties</a>
+| <a href="#methods">Methods</a>
+</div>
+
+<table class="summaryTable docClass">
+<colgroup>
+	<col class="col-name" />
+	<col class="col-value" />
+</colgroup>
+<tr>
+  <th>Package</th>
+  <td><a href="index.html#system.web.form">system.web.form</a></td>
+</tr>
+<tr>
+  <th>Inheritance</th>
+  <td>class CForm &raquo;
+<a href="CFormElement.html">CFormElement</a> &raquo;
+<a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr>
+  <th>Implements</th>
+  <td>ArrayAccess</td>
+</tr>
+<tr>
+  <th>Since</th>
+  <td>1.1</td>
+</tr>
+<tr>
+  <th>Version</th>
+  <td>$Id: CForm.php 3076 2011-03-14 13:16:43Z qiang.xue $</td>
+</tr>
+<tr>
+  <th>Source Code</th>
+  <td><a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/form/CForm.php">framework/web/form/CForm.php</a></td>
+</tr>
+<tr>
+  <th>Author</th>
+  <td>Qiang Xue &lt;qiang.xue@gmail.com&gt;</td>
+</tr>
+</table>
+
+<div id="classDescription">
+CForm represents a form object that contains form input specifications.
+<br/><br/>
+The main purpose of introducing the abstraction of form objects is to enhance the
+reusability of forms. In particular, we can divide a form in two parts: those
+that specify each individual form inputs, and those that decorate the form inputs.
+A CForm object represents the former part. It relies on the rendering process to
+accomplish form input decoration. Reusability is mainly achieved in the rendering process.
+That is, a rendering process can be reused to render different CForm objects.
+<br/><br/>
+A form can be rendered in different ways. One can call the <a href="CForm.html#render">render</a> method
+to get a quick form rendering without writing any HTML code; one can also override
+<a href="CForm.html#render">render</a> to render the form in a different layout; and one can use an external
+view template to render each form element explicitly. In these ways, the <a href="CForm.html#render">render</a>
+method can be applied to all kinds of forms and thus achieves maximum reusability;
+while the external view template keeps maximum flexibility in rendering complex forms.
+<br/><br/>
+Form input specifications are organized in terms of a form element hierarchy.
+At the root of the hierarchy, it is the root CForm object. The root form object maintains
+its children in two collections: <a href="CForm.html#elements">elements</a> and <a href="CForm.html#buttons">buttons</a>.
+The former contains non-button form elements (<a href="CFormStringElement.html">CFormStringElement</a>,
+<a href="CFormInputElement.html">CFormInputElement</a> and CForm); while the latter mainly contains
+button elements (<a href="CFormButtonElement.html">CFormButtonElement</a>). When a CForm object is embedded in the
+<a href="CForm.html#elements">elements</a> collection, it is called a sub-form which can have its own <a href="CForm.html#elements">elements</a>
+and <a href="CForm.html#buttons">buttons</a> collections and thus form the whole form hierarchy.
+<br/><br/>
+Sub-forms are mainly used to handle multiple models. For example, in a user
+registration form, we can have the root form to collect input for the user
+table while a sub-form to collect input for the profile table. Sub-form is also
+a good way to partition a lengthy form into shorter ones, even though all inputs
+may belong to the same model.
+<br/><br/>
+Form input specifications are given in terms of a configuration array which is
+used to initialize the property values of a CForm object. The <a href="CForm.html#elements">elements</a> and
+<a href="CForm.html#buttons">buttons</a> properties need special attention as they are the main properties
+to be configured. To configure <a href="CForm.html#elements">elements</a>, we should give it an array like
+the following:
+<pre>
+'elements'=&gt;array(
+    'username'=&gt;array('type'=&gt;'text', 'maxlength'=&gt;80),
+    'password'=&gt;array('type'=&gt;'password', 'maxlength'=&gt;80),
+)
+</pre>
+The above code specifies two input elements: 'username' and 'password'. Note the model
+object must have exactly the same attributes 'username' and 'password'. Each element
+has a type which specifies what kind of input should be used. The rest of the array elements
+(e.g. 'maxlength') in an input specification are rendered as HTML element attributes
+when the input field is rendered. The <a href="CForm.html#buttons">buttons</a> property is configured similarly.
+<br/><br/>
+For more details about configuring form elements, please refer to <a href="CFormInputElement.html">CFormInputElement</a>
+and <a href="CFormButtonElement.html">CFormButtonElement</a>.</div>
+<a name="properties"></a>
+
+<div class="summary docProperty">
+<h2>Public Properties</h2>
+
+<p><a href="#" class="toggle">Hide inherited properties</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-property" />
+	<col class="col-type" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>Property</th><th>Type</th><th>Description</th><th>Defined By</th>
+</tr>
+<tr id="action">
+  <td><a href="CForm.html#action-detail">action</a></td>
+  <td>mixed</td>
+  <td>the form action URL (see <a href="CHtml.html#normalizeUrl">CHtml::normalizeUrl</a> for details about this parameter.</td>
+  <td>CForm</td>
+</tr>
+<tr id="activeForm">
+  <td><a href="CForm.html#activeForm-detail">activeForm</a></td>
+  <td>array</td>
+  <td>the configuration used to create the active form widget.</td>
+  <td>CForm</td>
+</tr>
+<tr id="activeFormWidget">
+  <td><a href="CForm.html#activeFormWidget-detail">activeFormWidget</a></td>
+  <td><a href="CActiveForm.html">CActiveForm</a></td>
+  <td>the active form widget associated with this form.</td>
+  <td>CForm</td>
+</tr>
+<tr id="attributes">
+  <td><a href="CForm.html#attributes-detail">attributes</a></td>
+  <td>array</td>
+  <td>HTML attribute values for the form tag.</td>
+  <td>CForm</td>
+</tr>
+<tr id="buttonElementClass">
+  <td><a href="CForm.html#buttonElementClass-detail">buttonElementClass</a></td>
+  <td>string</td>
+  <td>the name of the class for representing a form button element.</td>
+  <td>CForm</td>
+</tr>
+<tr id="buttons">
+  <td><a href="CForm.html#buttons-detail">buttons</a></td>
+  <td><a href="CFormElementCollection.html">CFormElementCollection</a></td>
+  <td>Returns the button elements of this form.</td>
+  <td>CForm</td>
+</tr>
+<tr id="description">
+  <td><a href="CForm.html#description-detail">description</a></td>
+  <td>string</td>
+  <td>the description of this form.</td>
+  <td>CForm</td>
+</tr>
+<tr id="elements">
+  <td><a href="CForm.html#elements-detail">elements</a></td>
+  <td><a href="CFormElementCollection.html">CFormElementCollection</a></td>
+  <td>Returns the input elements of this form.</td>
+  <td>CForm</td>
+</tr>
+<tr id="inputElementClass">
+  <td><a href="CForm.html#inputElementClass-detail">inputElementClass</a></td>
+  <td>string</td>
+  <td>the name of the class for representing a form input element.</td>
+  <td>CForm</td>
+</tr>
+<tr id="method">
+  <td><a href="CForm.html#method-detail">method</a></td>
+  <td>string</td>
+  <td>the submission method of this form.</td>
+  <td>CForm</td>
+</tr>
+<tr id="model">
+  <td><a href="CForm.html#model-detail">model</a></td>
+  <td><a href="CModel.html">CModel</a></td>
+  <td>Returns the model that this form is associated with.</td>
+  <td>CForm</td>
+</tr>
+<tr id="models">
+  <td><a href="CForm.html#models-detail">models</a></td>
+  <td>array</td>
+  <td>Returns all models that are associated with this form or its sub-forms.</td>
+  <td>CForm</td>
+</tr>
+<tr id="owner">
+  <td><a href="CForm.html#owner-detail">owner</a></td>
+  <td><a href="CBaseController.html">CBaseController</a></td>
+  <td>the owner of this form.</td>
+  <td>CForm</td>
+</tr>
+<tr class="inherited" id="parent">
+  <td><a href="CFormElement.html#parent-detail">parent</a></td>
+  <td>mixed</td>
+  <td>the direct parent of this element.</td>
+  <td><a href="CFormElement.html">CFormElement</a></td>
+</tr>
+<tr id="root">
+  <td><a href="CForm.html#root-detail">root</a></td>
+  <td>CForm</td>
+  <td>the top-level form object</td>
+  <td>CForm</td>
+</tr>
+<tr id="showErrorSummary">
+  <td><a href="CForm.html#showErrorSummary-detail">showErrorSummary</a></td>
+  <td>boolean</td>
+  <td>whether to show error summary.</td>
+  <td>CForm</td>
+</tr>
+<tr id="title">
+  <td><a href="CForm.html#title-detail">title</a></td>
+  <td>string</td>
+  <td>the title for this form.</td>
+  <td>CForm</td>
+</tr>
+<tr class="inherited" id="visible">
+  <td><a href="CFormElement.html#visible-detail">visible</a></td>
+  <td>boolean</td>
+  <td>Returns a value indicating whether this element is visible and should be rendered.</td>
+  <td><a href="CFormElement.html">CFormElement</a></td>
+</tr>
+</table>
+</div>
+<div class="summary docProperty">
+<h2>Protected Properties</h2>
+
+<p><a href="#" class="toggle">Hide inherited properties</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-property" />
+	<col class="col-type" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>Property</th><th>Type</th><th>Description</th><th>Defined By</th>
+</tr>
+<tr id="uniqueId">
+  <td><a href="CForm.html#uniqueId-detail">uniqueId</a></td>
+  <td>string</td>
+  <td>Returns a unique ID that identifies this form in the current page.</td>
+  <td>CForm</td>
+</tr>
+</table>
+</div>
+<a name="methods"></a>
+
+<div class="summary docMethod">
+<h2>Public Methods</h2>
+
+<p><a href="#" class="toggle">Hide inherited methods</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-method" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>Method</th><th>Description</th><th>Defined By</th>
+</tr>
+<tr class="inherited" id="__call">
+  <td><a href="CComponent.html#__call-detail">__call()</a></td>
+  <td>Calls the named method which is not a class method.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr id="__construct">
+  <td><a href="CForm.html#__construct-detail">__construct()</a></td>
+  <td>Constructor.</td>
+  <td>CForm</td>
+</tr>
+<tr class="inherited" id="__get">
+  <td><a href="CFormElement.html#__get-detail">__get()</a></td>
+  <td>Returns a property value or an attribute value.</td>
+  <td><a href="CFormElement.html">CFormElement</a></td>
+</tr>
+<tr class="inherited" id="__isset">
+  <td><a href="CComponent.html#__isset-detail">__isset()</a></td>
+  <td>Checks if a property value is null.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__set">
+  <td><a href="CFormElement.html#__set-detail">__set()</a></td>
+  <td>Sets value of a property or attribute.</td>
+  <td><a href="CFormElement.html">CFormElement</a></td>
+</tr>
+<tr class="inherited" id="__toString">
+  <td><a href="CFormElement.html#__toString-detail">__toString()</a></td>
+  <td>Converts the object to a string.</td>
+  <td><a href="CFormElement.html">CFormElement</a></td>
+</tr>
+<tr class="inherited" id="__unset">
+  <td><a href="CComponent.html#__unset-detail">__unset()</a></td>
+  <td>Sets a component property to be null.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr id="addedElement">
+  <td><a href="CForm.html#addedElement-detail">addedElement()</a></td>
+  <td>This method is called after an element is added to the element collection.</td>
+  <td>CForm</td>
+</tr>
+<tr class="inherited" id="asa">
+  <td><a href="CComponent.html#asa-detail">asa()</a></td>
+  <td>Returns the named behavior object.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="attachBehavior">
+  <td><a href="CComponent.html#attachBehavior-detail">attachBehavior()</a></td>
+  <td>Attaches a behavior to this component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="attachBehaviors">
+  <td><a href="CComponent.html#attachBehaviors-detail">attachBehaviors()</a></td>
+  <td>Attaches a list of behaviors to the component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="attachEventHandler">
+  <td><a href="CComponent.html#attachEventHandler-detail">attachEventHandler()</a></td>
+  <td>Attaches an event handler to an event.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="canGetProperty">
+  <td><a href="CComponent.html#canGetProperty-detail">canGetProperty()</a></td>
+  <td>Determines whether a property can be read.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="canSetProperty">
+  <td><a href="CComponent.html#canSetProperty-detail">canSetProperty()</a></td>
+  <td>Determines whether a property can be set.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr id="clicked">
+  <td><a href="CForm.html#clicked-detail">clicked()</a></td>
+  <td>Returns a value indicating whether the specified button is clicked.</td>
+  <td>CForm</td>
+</tr>
+<tr class="inherited" id="configure">
+  <td><a href="CFormElement.html#configure-detail">configure()</a></td>
+  <td>Configures this object with property initial values.</td>
+  <td><a href="CFormElement.html">CFormElement</a></td>
+</tr>
+<tr class="inherited" id="detachBehavior">
+  <td><a href="CComponent.html#detachBehavior-detail">detachBehavior()</a></td>
+  <td>Detaches a behavior from the component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="detachBehaviors">
+  <td><a href="CComponent.html#detachBehaviors-detail">detachBehaviors()</a></td>
+  <td>Detaches all behaviors from the component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="detachEventHandler">
+  <td><a href="CComponent.html#detachEventHandler-detail">detachEventHandler()</a></td>
+  <td>Detaches an existing event handler.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="disableBehavior">
+  <td><a href="CComponent.html#disableBehavior-detail">disableBehavior()</a></td>
+  <td>Disables an attached behavior.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="disableBehaviors">
+  <td><a href="CComponent.html#disableBehaviors-detail">disableBehaviors()</a></td>
+  <td>Disables all behaviors attached to this component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="enableBehavior">
+  <td><a href="CComponent.html#enableBehavior-detail">enableBehavior()</a></td>
+  <td>Enables an attached behavior.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="enableBehaviors">
+  <td><a href="CComponent.html#enableBehaviors-detail">enableBehaviors()</a></td>
+  <td>Enables all behaviors attached to this component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="evaluateExpression">
+  <td><a href="CComponent.html#evaluateExpression-detail">evaluateExpression()</a></td>
+  <td>Evaluates a PHP expression or callback under the context of this component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr id="getActiveFormWidget">
+  <td><a href="CForm.html#getActiveFormWidget-detail">getActiveFormWidget()</a></td>
+  <td>Returns the active form widget associated with this form.
+This method will return the active form widget as specified by <a href="CForm.html#activeForm">activeForm</a>.</td>
+  <td>CForm</td>
+</tr>
+<tr id="getButtons">
+  <td><a href="CForm.html#getButtons-detail">getButtons()</a></td>
+  <td>Returns the button elements of this form.</td>
+  <td>CForm</td>
+</tr>
+<tr id="getElements">
+  <td><a href="CForm.html#getElements-detail">getElements()</a></td>
+  <td>Returns the input elements of this form.</td>
+  <td>CForm</td>
+</tr>
+<tr class="inherited" id="getEventHandlers">
+  <td><a href="CComponent.html#getEventHandlers-detail">getEventHandlers()</a></td>
+  <td>Returns the list of attached event handlers for an event.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr id="getModel">
+  <td><a href="CForm.html#getModel-detail">getModel()</a></td>
+  <td>Returns the model that this form is associated with.</td>
+  <td>CForm</td>
+</tr>
+<tr id="getModels">
+  <td><a href="CForm.html#getModels-detail">getModels()</a></td>
+  <td>Returns all models that are associated with this form or its sub-forms.</td>
+  <td>CForm</td>
+</tr>
+<tr id="getOwner">
+  <td><a href="CForm.html#getOwner-detail">getOwner()</a></td>
+  <td>Returns the owner of this form. This refers to either a controller or a widget
+by which the form is created and rendered.</td>
+  <td>CForm</td>
+</tr>
+<tr class="inherited" id="getParent">
+  <td><a href="CFormElement.html#getParent-detail">getParent()</a></td>
+  <td>Returns the direct parent of this element. This could be either a <a href="CForm.html">CForm</a> object or a <a href="CBaseController.html">CBaseController</a> object
+(a controller or a widget).</td>
+  <td><a href="CFormElement.html">CFormElement</a></td>
+</tr>
+<tr id="getRoot">
+  <td><a href="CForm.html#getRoot-detail">getRoot()</a></td>
+  <td>Returns the top-level form object</td>
+  <td>CForm</td>
+</tr>
+<tr class="inherited" id="getVisible">
+  <td><a href="CFormElement.html#getVisible-detail">getVisible()</a></td>
+  <td>Returns a value indicating whether this element is visible and should be rendered.</td>
+  <td><a href="CFormElement.html">CFormElement</a></td>
+</tr>
+<tr class="inherited" id="hasEvent">
+  <td><a href="CComponent.html#hasEvent-detail">hasEvent()</a></td>
+  <td>Determines whether an event is defined.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="hasEventHandler">
+  <td><a href="CComponent.html#hasEventHandler-detail">hasEventHandler()</a></td>
+  <td>Checks whether the named event has attached handlers.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="hasProperty">
+  <td><a href="CComponent.html#hasProperty-detail">hasProperty()</a></td>
+  <td>Determines whether a property is defined.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr id="loadData">
+  <td><a href="CForm.html#loadData-detail">loadData()</a></td>
+  <td>Loads the submitted data into the associated model(s) to the form.</td>
+  <td>CForm</td>
+</tr>
+<tr id="offsetExists">
+  <td><a href="CForm.html#offsetExists-detail">offsetExists()</a></td>
+  <td>Returns whether there is an element at the specified offset.</td>
+  <td>CForm</td>
+</tr>
+<tr id="offsetGet">
+  <td><a href="CForm.html#offsetGet-detail">offsetGet()</a></td>
+  <td>Returns the element at the specified offset.</td>
+  <td>CForm</td>
+</tr>
+<tr id="offsetSet">
+  <td><a href="CForm.html#offsetSet-detail">offsetSet()</a></td>
+  <td>Sets the element at the specified offset.</td>
+  <td>CForm</td>
+</tr>
+<tr id="offsetUnset">
+  <td><a href="CForm.html#offsetUnset-detail">offsetUnset()</a></td>
+  <td>Unsets the element at the specified offset.</td>
+  <td>CForm</td>
+</tr>
+<tr class="inherited" id="raiseEvent">
+  <td><a href="CComponent.html#raiseEvent-detail">raiseEvent()</a></td>
+  <td>Raises an event.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr id="removedElement">
+  <td><a href="CForm.html#removedElement-detail">removedElement()</a></td>
+  <td>This method is called after an element is removed from the element collection.</td>
+  <td>CForm</td>
+</tr>
+<tr id="render">
+  <td><a href="CForm.html#render-detail">render()</a></td>
+  <td>Renders the form.</td>
+  <td>CForm</td>
+</tr>
+<tr id="renderBegin">
+  <td><a href="CForm.html#renderBegin-detail">renderBegin()</a></td>
+  <td>Renders the open tag of the form.</td>
+  <td>CForm</td>
+</tr>
+<tr id="renderBody">
+  <td><a href="CForm.html#renderBody-detail">renderBody()</a></td>
+  <td>Renders the body content of this form.</td>
+  <td>CForm</td>
+</tr>
+<tr id="renderButtons">
+  <td><a href="CForm.html#renderButtons-detail">renderButtons()</a></td>
+  <td>Renders the <a href="CForm.html#buttons">buttons</a> in this form.</td>
+  <td>CForm</td>
+</tr>
+<tr id="renderElement">
+  <td><a href="CForm.html#renderElement-detail">renderElement()</a></td>
+  <td>Renders a single element which could be an input element, a sub-form, a string, or a button.</td>
+  <td>CForm</td>
+</tr>
+<tr id="renderElements">
+  <td><a href="CForm.html#renderElements-detail">renderElements()</a></td>
+  <td>Renders the <a href="CForm.html#elements">elements</a> in this form.</td>
+  <td>CForm</td>
+</tr>
+<tr id="renderEnd">
+  <td><a href="CForm.html#renderEnd-detail">renderEnd()</a></td>
+  <td>Renders the close tag of the form.</td>
+  <td>CForm</td>
+</tr>
+<tr id="setButtons">
+  <td><a href="CForm.html#setButtons-detail">setButtons()</a></td>
+  <td>Configures the buttons of this form.</td>
+  <td>CForm</td>
+</tr>
+<tr id="setElements">
+  <td><a href="CForm.html#setElements-detail">setElements()</a></td>
+  <td>Configures the input elements of this form.</td>
+  <td>CForm</td>
+</tr>
+<tr id="setModel">
+  <td><a href="CForm.html#setModel-detail">setModel()</a></td>
+  <td>Sets the model to be associated with this form</td>
+  <td>CForm</td>
+</tr>
+<tr class="inherited" id="setVisible">
+  <td><a href="CFormElement.html#setVisible-detail">setVisible()</a></td>
+  <td>Sets whether this element is visible and should be rendered.</td>
+  <td><a href="CFormElement.html">CFormElement</a></td>
+</tr>
+<tr id="submitted">
+  <td><a href="CForm.html#submitted-detail">submitted()</a></td>
+  <td>Returns a value indicating whether this form is submitted.</td>
+  <td>CForm</td>
+</tr>
+<tr id="validate">
+  <td><a href="CForm.html#validate-detail">validate()</a></td>
+  <td>Validates the models associated with this form.</td>
+  <td>CForm</td>
+</tr>
+</table>
+</div>
+<div class="summary docMethod">
+<h2>Protected Methods</h2>
+
+<p><a href="#" class="toggle">Hide inherited methods</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-method" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>Method</th><th>Description</th><th>Defined By</th>
+</tr>
+<tr id="evaluateVisible">
+  <td><a href="CForm.html#evaluateVisible-detail">evaluateVisible()</a></td>
+  <td>Evaluates the visibility of this form.</td>
+  <td>CForm</td>
+</tr>
+<tr id="getUniqueId">
+  <td><a href="CForm.html#getUniqueId-detail">getUniqueId()</a></td>
+  <td>Returns a unique ID that identifies this form in the current page.</td>
+  <td>CForm</td>
+</tr>
+<tr id="init">
+  <td><a href="CForm.html#init-detail">init()</a></td>
+  <td>Initializes this form.</td>
+  <td>CForm</td>
+</tr>
+</table>
+</div>
+<a name="events"></a>
+
+<h2>Property Details</h2>
+<div class="detailHeader" id="action-detail">
+action<span class="detailHeaderTag">
+property
+</span>
+</div>
+
+<div class="signature">
+public mixed <b>$action</b>;</div>
+
+<p>the form action URL (see <a href="CHtml.html#normalizeUrl">CHtml::normalizeUrl</a> for details about this parameter.)
+Defaults to an empty string, meaning the current request URL.
+This property is ignored when this form is a sub-form.</p>
+
+
+<div class="detailHeader" id="activeForm-detail">
+activeForm<span class="detailHeaderTag">
+property
+ (available since v1.1.1)
+</span>
+</div>
+
+<div class="signature">
+public array <b>$activeForm</b>;</div>
+
+<p>the configuration used to create the active form widget.
+The widget will be used to render the form tag and the error messages.
+The 'class' option is required, which specifies the class of the widget.
+The rest of the options will be passed to <a href="CBaseController.html#beginWidget">CBaseController::beginWidget()</a> call.
+Defaults to array('class'=>'CActiveForm').</p>
+
+
+<div class="detailHeader" id="activeFormWidget-detail">
+activeFormWidget<span class="detailHeaderTag">
+property
+ <em>read-only</em>  (available since v1.1.1)
+</span>
+</div>
+
+<div class="signature">
+public <a href="CActiveForm.html">CActiveForm</a> <a href="CForm.html#getActiveFormWidget"><b>getActiveFormWidget</b></a>()</div>
+
+<p>the active form widget associated with this form.
+This method will return the active form widget as specified by <a href="CForm.html#activeForm">activeForm</a>.</p>
+
+
+<div class="detailHeader" id="attributes-detail">
+attributes<span class="detailHeaderTag">
+property
+</span>
+</div>
+
+<div class="signature">
+public array <b>$attributes</b>;</div>
+
+<p>HTML attribute values for the form tag. When the form is embedded within another form,
+this property will be used to render the HTML attribute values for the fieldset enclosing the child form.</p>
+
+
+<div class="detailHeader" id="buttonElementClass-detail">
+buttonElementClass<span class="detailHeaderTag">
+property
+</span>
+</div>
+
+<div class="signature">
+public string <b>$buttonElementClass</b>;</div>
+
+<p>the name of the class for representing a form button element. Defaults to 'CFormButtonElement'.</p>
+
+
+<div class="detailHeader" id="buttons-detail">
+buttons<span class="detailHeaderTag">
+property
+</span>
+</div>
+
+<div class="signature">
+public <a href="CFormElementCollection.html">CFormElementCollection</a> <a href="CForm.html#getButtons"><b>getButtons</b></a>()<br/>public void <a href="CForm.html#setButtons"><b>setButtons</b></a>(array $buttons)</div>
+
+<p>Returns the button elements of this form.
+Note that the returned result is a <a href="CFormElementCollection.html">CFormElementCollection</a> object, which
+means you can use it like an array. For more details, see <a href="CMap.html">CMap</a>.</p>
+
+
+<div class="detailHeader" id="description-detail">
+description<span class="detailHeaderTag">
+property
+</span>
+</div>
+
+<div class="signature">
+public string <b>$description</b>;</div>
+
+<p>the description of this form.</p>
+
+
+<div class="detailHeader" id="elements-detail">
+elements<span class="detailHeaderTag">
+property
+</span>
+</div>
+
+<div class="signature">
+public <a href="CFormElementCollection.html">CFormElementCollection</a> <a href="CForm.html#getElements"><b>getElements</b></a>()<br/>public void <a href="CForm.html#setElements"><b>setElements</b></a>(array $elements)</div>
+
+<p>Returns the input elements of this form.
+This includes text strings, input elements and sub-forms.
+Note that the returned result is a <a href="CFormElementCollection.html">CFormElementCollection</a> object, which
+means you can use it like an array. For more details, see <a href="CMap.html">CMap</a>.</p>
+
+
+<div class="detailHeader" id="inputElementClass-detail">
+inputElementClass<span class="detailHeaderTag">
+property
+</span>
+</div>
+
+<div class="signature">
+public string <b>$inputElementClass</b>;</div>
+
+<p>the name of the class for representing a form input element. Defaults to 'CFormInputElement'.</p>
+
+
+<div class="detailHeader" id="method-detail">
+method<span class="detailHeaderTag">
+property
+</span>
+</div>
+
+<div class="signature">
+public string <b>$method</b>;</div>
+
+<p>the submission method of this form. Defaults to 'post'.
+This property is ignored when this form is a sub-form.</p>
+
+
+<div class="detailHeader" id="model-detail">
+model<span class="detailHeaderTag">
+property
+</span>
+</div>
+
+<div class="signature">
+public <a href="CModel.html">CModel</a> <a href="CForm.html#getModel"><b>getModel</b></a>(boolean $checkParent=true)<br/>public void <a href="CForm.html#setModel"><b>setModel</b></a>(<a href="CModel.html">CModel</a> $model)</div>
+
+<p>Returns the model that this form is associated with.</p>
+
+
+<div class="detailHeader" id="models-detail">
+models<span class="detailHeaderTag">
+property
+ <em>read-only</em> </span>
+</div>
+
+<div class="signature">
+public array <a href="CForm.html#getModels"><b>getModels</b></a>()</div>
+
+<p>Returns all models that are associated with this form or its sub-forms.</p>
+
+
+<div class="detailHeader" id="owner-detail">
+owner<span class="detailHeaderTag">
+property
+ <em>read-only</em> </span>
+</div>
+
+<div class="signature">
+public <a href="CBaseController.html">CBaseController</a> <a href="CForm.html#getOwner"><b>getOwner</b></a>()</div>
+
+<p>the owner of this form. This refers to either a controller or a widget
+by which the form is created and rendered.</p>
+
+
+<div class="detailHeader" id="root-detail">
+root<span class="detailHeaderTag">
+property
+ <em>read-only</em> </span>
+</div>
+
+<div class="signature">
+public CForm <a href="CForm.html#getRoot"><b>getRoot</b></a>()</div>
+
+<p>the top-level form object</p>
+
+
+<div class="detailHeader" id="showErrorSummary-detail">
+showErrorSummary<span class="detailHeaderTag">
+property
+</span>
+</div>
+
+<div class="signature">
+public boolean <b>$showErrorSummary</b>;</div>
+
+<p>whether to show error summary. Defaults to false.</p>
+
+
+<div class="detailHeader" id="title-detail">
+title<span class="detailHeaderTag">
+property
+</span>
+</div>
+
+<div class="signature">
+public string <b>$title</b>;</div>
+
+<p>the title for this form. By default, if this is set, a fieldset may be rendered
+around the form body using the title as its legend. Defaults to null.</p>
+
+
+<div class="detailHeader" id="uniqueId-detail">
+uniqueId<span class="detailHeaderTag">
+property
+ <em>read-only</em> </span>
+</div>
+
+<div class="signature">
+protected string <a href="CForm.html#getUniqueId"><b>getUniqueId</b></a>()</div>
+
+<p>Returns a unique ID that identifies this form in the current page.</p>
+
+
+<h2>Method Details</h2>
+
+<div class="detailHeader" id="__construct-detail">
+__construct()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>__construct</b>(mixed $config, <a href="CModel.html">CModel</a> $model=NULL, mixed $parent=NULL)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$config</td>
+  <td class="paramTypeCol">mixed</td>
+  <td class="paramDescCol">the configuration for this form. It can be a configuration array
+or the path alias of a PHP script file that returns a configuration array.
+The configuration array consists of name-value pairs that are used to initialize
+the properties of this form.</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$model</td>
+  <td class="paramTypeCol"><a href="CModel.html">CModel</a></td>
+  <td class="paramDescCol">the model object associated with this form. If it is null,
+the parent's model will be used instead.</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$parent</td>
+  <td class="paramTypeCol">mixed</td>
+  <td class="paramDescCol">the direct parent of this form. This could be either a <a href="CBaseController.html">CBaseController</a>
+object (a controller or a widget), or a <a href="CForm.html">CForm</a> object.
+If the former, it means the form is a top-level form; if the latter, it means this form is a sub-form.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/form/CForm.php#136">framework/web/form/CForm.php#136</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">__construct</span><span style="color: #007700">(</span><span style="color: #0000BB">$config</span><span style="color: #007700">,</span><span style="color: #0000BB">$model</span><span style="color: #007700">=</span><span style="color: #0000BB">null</span><span style="color: #007700">,</span><span style="color: #0000BB">$parent</span><span style="color: #007700">=</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">setModel</span><span style="color: #007700">(</span><span style="color: #0000BB">$model</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$parent</span><span style="color: #007700">===</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$parent</span><span style="color: #007700">=</span><span style="color: #0000BB">Yii</span><span style="color: #007700">::</span><span style="color: #0000BB">app</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">getController</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">parent</span><span style="color: #007700">::</span><span style="color: #0000BB">__construct</span><span style="color: #007700">(</span><span style="color: #0000BB">$config</span><span style="color: #007700">,</span><span style="color: #0000BB">$parent</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">init</span><span style="color: #007700">();<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Constructor.
+If you override this method, make sure you do not modify the method
+signature, and also make sure you call the parent implementation.</p>
+
+
+<div class="detailHeader" id="addedElement-detail">
+addedElement()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>addedElement</b>(string $name, <a href="CFormElement.html">CFormElement</a> $element, boolean $forButtons)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$name</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the name of the element</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$element</td>
+  <td class="paramTypeCol"><a href="CFormElement.html">CFormElement</a></td>
+  <td class="paramDescCol">the element that is added</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$forButtons</td>
+  <td class="paramTypeCol">boolean</td>
+  <td class="paramDescCol">whether the element is added to the <a href="CForm.html#buttons">buttons</a> collection.
+If false, it means the element is added to the <a href="CForm.html#elements">elements</a> collection.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/form/CForm.php#521">framework/web/form/CForm.php#521</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">addedElement</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">,</span><span style="color: #0000BB">$element</span><span style="color: #007700">,</span><span style="color: #0000BB">$forButtons</span><span style="color: #007700">)<br />{<br />}</span>
+</span>
+</code></div>
+</div>
+<p>This method is called after an element is added to the element collection.</p>
+
+
+<div class="detailHeader" id="clicked-detail">
+clicked()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public boolean <b>clicked</b>(string $name)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$name</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the button name</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">boolean</td>
+  <td class="paramDescCol">whether the button is clicked.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/form/CForm.php#176">framework/web/form/CForm.php#176</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">clicked</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">strcasecmp</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getRoot</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">method</span><span style="color: #007700">,</span><span style="color: #DD0000">'get'</span><span style="color: #007700">))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;isset(</span><span style="color: #0000BB">$_POST</span><span style="color: #007700">[</span><span style="color: #0000BB">$name</span><span style="color: #007700">]);<br />&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;isset(</span><span style="color: #0000BB">$_GET</span><span style="color: #007700">[</span><span style="color: #0000BB">$name</span><span style="color: #007700">]);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Returns a value indicating whether the specified button is clicked.</p>
+
+
+<div class="detailHeader" id="evaluateVisible-detail">
+evaluateVisible()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+protected boolean <b>evaluateVisible</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">boolean</td>
+  <td class="paramDescCol">whether this form is visible.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/form/CForm.php#542">framework/web/form/CForm.php#542</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">protected&nbsp;function&nbsp;</span><span style="color: #0000BB">evaluateVisible</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;foreach(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getElements</span><span style="color: #007700">()&nbsp;as&nbsp;</span><span style="color: #0000BB">$element</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$element</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getVisible</span><span style="color: #007700">())<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Evaluates the visibility of this form.
+This method will check the visibility of the <a href="CForm.html#elements">elements</a>.
+If any one of them is visible, the form is considered as visible. Otherwise, it is invisible.</p>
+
+
+<div class="detailHeader" id="getActiveFormWidget-detail">
+getActiveFormWidget()
+<span class="detailHeaderTag">
+method
+(available since v1.1.1)
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public <a href="CActiveForm.html">CActiveForm</a> <b>getActiveFormWidget</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol"><a href="CActiveForm.html">CActiveForm</a></td>
+  <td class="paramDescCol">the active form widget associated with this form.
+This method will return the active form widget as specified by <a href="CForm.html#activeForm">activeForm</a>.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/form/CForm.php#241">framework/web/form/CForm.php#241</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getActiveFormWidget</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_activeForm</span><span style="color: #007700">!==</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_activeForm</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getRoot</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">_activeForm</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p></p>
+
+
+<div class="detailHeader" id="getButtons-detail">
+getButtons()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public <a href="CFormElementCollection.html">CFormElementCollection</a> <b>getButtons</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol"><a href="CFormElementCollection.html">CFormElementCollection</a></td>
+  <td class="paramDescCol">the form elements.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/form/CForm.php#338">framework/web/form/CForm.php#338</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getButtons</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_buttons</span><span style="color: #007700">===</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_buttons</span><span style="color: #007700">=new&nbsp;</span><span style="color: #0000BB">CFormElementCollection</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">,</span><span style="color: #0000BB">true</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_buttons</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Returns the button elements of this form.
+Note that the returned result is a <a href="CFormElementCollection.html">CFormElementCollection</a> object, which
+means you can use it like an array. For more details, see <a href="CMap.html">CMap</a>.</p>
+
+
+<div class="detailHeader" id="getElements-detail">
+getElements()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public <a href="CFormElementCollection.html">CFormElementCollection</a> <b>getElements</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol"><a href="CFormElementCollection.html">CFormElementCollection</a></td>
+  <td class="paramDescCol">the form elements.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/form/CForm.php#309">framework/web/form/CForm.php#309</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getElements</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_elements</span><span style="color: #007700">===</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_elements</span><span style="color: #007700">=new&nbsp;</span><span style="color: #0000BB">CFormElementCollection</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">,</span><span style="color: #0000BB">false</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_elements</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Returns the input elements of this form.
+This includes text strings, input elements and sub-forms.
+Note that the returned result is a <a href="CFormElementCollection.html">CFormElementCollection</a> object, which
+means you can use it like an array. For more details, see <a href="CMap.html">CMap</a>.</p>
+
+
+<div class="detailHeader" id="getModel-detail">
+getModel()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public <a href="CModel.html">CModel</a> <b>getModel</b>(boolean $checkParent=true)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$checkParent</td>
+  <td class="paramTypeCol">boolean</td>
+  <td class="paramDescCol">whether to return parent's model if this form doesn't have model by itself.</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol"><a href="CModel.html">CModel</a></td>
+  <td class="paramDescCol">the model associated with this form. If this form does not have a model,
+it will look for a model in its ancestors.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/form/CForm.php#267">framework/web/form/CForm.php#267</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getModel</span><span style="color: #007700">(</span><span style="color: #0000BB">$checkParent</span><span style="color: #007700">=</span><span style="color: #0000BB">true</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(!</span><span style="color: #0000BB">$checkParent</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_model</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$form</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;while(</span><span style="color: #0000BB">$form</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_model</span><span style="color: #007700">===</span><span style="color: #0000BB">null&nbsp;</span><span style="color: #007700">&amp;&amp;&nbsp;</span><span style="color: #0000BB">$form</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getParent</span><span style="color: #007700">()&nbsp;instanceof&nbsp;</span><span style="color: #0000BB">self</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$form</span><span style="color: #007700">=</span><span style="color: #0000BB">$form</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getParent</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$form</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_model</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Returns the model that this form is associated with.</p>
+
+
+<div class="detailHeader" id="getModels-detail">
+getModels()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public array <b>getModels</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">the models that are associated with this form or its sub-forms.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/form/CForm.php#289">framework/web/form/CForm.php#289</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getModels</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$models</span><span style="color: #007700">=array();<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_model</span><span style="color: #007700">!==</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$models</span><span style="color: #007700">[]=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_model</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;foreach(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getElements</span><span style="color: #007700">()&nbsp;as&nbsp;</span><span style="color: #0000BB">$element</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$element&nbsp;</span><span style="color: #007700">instanceof&nbsp;</span><span style="color: #0000BB">self</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$models</span><span style="color: #007700">=</span><span style="color: #0000BB">array_merge</span><span style="color: #007700">(</span><span style="color: #0000BB">$models</span><span style="color: #007700">,</span><span style="color: #0000BB">$element</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getModels</span><span style="color: #007700">());<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$models</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Returns all models that are associated with this form or its sub-forms.</p>
+
+
+<div class="detailHeader" id="getOwner-detail">
+getOwner()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public <a href="CBaseController.html">CBaseController</a> <b>getOwner</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol"><a href="CBaseController.html">CBaseController</a></td>
+  <td class="paramDescCol">the owner of this form. This refers to either a controller or a widget
+by which the form is created and rendered.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/form/CForm.php#253">framework/web/form/CForm.php#253</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getOwner</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$owner</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getParent</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;while(</span><span style="color: #0000BB">$owner&nbsp;</span><span style="color: #007700">instanceof&nbsp;</span><span style="color: #0000BB">self</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$owner</span><span style="color: #007700">=</span><span style="color: #0000BB">$owner</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getParent</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$owner</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p></p>
+
+
+<div class="detailHeader" id="getRoot-detail">
+getRoot()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public CForm <b>getRoot</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">CForm</td>
+  <td class="paramDescCol">the top-level form object</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/form/CForm.php#228">framework/web/form/CForm.php#228</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getRoot</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$root</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;while(</span><span style="color: #0000BB">$root</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getParent</span><span style="color: #007700">()&nbsp;instanceof&nbsp;</span><span style="color: #0000BB">self</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$root</span><span style="color: #007700">=</span><span style="color: #0000BB">$root</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getParent</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$root</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p></p>
+
+
+<div class="detailHeader" id="getUniqueId-detail">
+getUniqueId()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+protected string <b>getUniqueId</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the unique ID identifying this form</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/form/CForm.php#554">framework/web/form/CForm.php#554</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">protected&nbsp;function&nbsp;</span><span style="color: #0000BB">getUniqueId</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(isset(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">attributes</span><span style="color: #007700">[</span><span style="color: #DD0000">'id'</span><span style="color: #007700">]))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #DD0000">'yform_'</span><span style="color: #007700">.</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">attributes</span><span style="color: #007700">[</span><span style="color: #DD0000">'id'</span><span style="color: #007700">];<br />&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #DD0000">'yform_'</span><span style="color: #007700">.</span><span style="color: #0000BB">sprintf</span><span style="color: #007700">(</span><span style="color: #DD0000">'%x'</span><span style="color: #007700">,</span><span style="color: #0000BB">crc32</span><span style="color: #007700">(</span><span style="color: #0000BB">serialize</span><span style="color: #007700">(</span><span style="color: #0000BB">array_keys</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getElements</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">toArray</span><span style="color: #007700">()))));<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Returns a unique ID that identifies this form in the current page.</p>
+
+
+<div class="detailHeader" id="init-detail">
+init()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+protected void <b>init</b>()</div>
+</td></tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/form/CForm.php#151">framework/web/form/CForm.php#151</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">protected&nbsp;function&nbsp;</span><span style="color: #0000BB">init</span><span style="color: #007700">()<br />{<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Initializes this form.
+This method is invoked at the end of the constructor.
+You may override this method to provide customized initialization (such as
+configuring the form object).</p>
+
+
+<div class="detailHeader" id="loadData-detail">
+loadData()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>loadData</b>()</div>
+</td></tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/form/CForm.php#205">framework/web/form/CForm.php#205</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">loadData</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_model</span><span style="color: #007700">!==</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$class</span><span style="color: #007700">=</span><span style="color: #0000BB">get_class</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_model</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">strcasecmp</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getRoot</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">method</span><span style="color: #007700">,</span><span style="color: #DD0000">'get'</span><span style="color: #007700">))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(isset(</span><span style="color: #0000BB">$_POST</span><span style="color: #007700">[</span><span style="color: #0000BB">$class</span><span style="color: #007700">]))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_model</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">setAttributes</span><span style="color: #007700">(</span><span style="color: #0000BB">$_POST</span><span style="color: #007700">[</span><span style="color: #0000BB">$class</span><span style="color: #007700">]);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else&nbsp;if(isset(</span><span style="color: #0000BB">$_GET</span><span style="color: #007700">[</span><span style="color: #0000BB">$class</span><span style="color: #007700">]))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_model</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">setAttributes</span><span style="color: #007700">(</span><span style="color: #0000BB">$_GET</span><span style="color: #007700">[</span><span style="color: #0000BB">$class</span><span style="color: #007700">]);<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;foreach(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getElements</span><span style="color: #007700">()&nbsp;as&nbsp;</span><span style="color: #0000BB">$element</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$element&nbsp;</span><span style="color: #007700">instanceof&nbsp;</span><span style="color: #0000BB">self</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$element</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">loadData</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Loads the submitted data into the associated model(s) to the form.
+This method will go through all models associated with this form and its sub-forms
+and massively assign the submitted data to the models.</p>
+
+<div class="SeeAlso">
+<h4>See Also</h4>
+<ul>
+	<li><a href="CForm.html#submitted">submitted</a></li>
+</ul>
+</div>
+
+<div class="detailHeader" id="offsetExists-detail">
+offsetExists()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public boolean <b>offsetExists</b>(mixed $offset)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$offset</td>
+  <td class="paramTypeCol">mixed</td>
+  <td class="paramDescCol">the offset to check on</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">boolean</td>
+  <td class="paramDescCol"></td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/form/CForm.php#568">framework/web/form/CForm.php#568</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">offsetExists</span><span style="color: #007700">(</span><span style="color: #0000BB">$offset</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getElements</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">contains</span><span style="color: #007700">(</span><span style="color: #0000BB">$offset</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Returns whether there is an element at the specified offset.
+This method is required by the interface ArrayAccess.</p>
+
+
+<div class="detailHeader" id="offsetGet-detail">
+offsetGet()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public mixed <b>offsetGet</b>(integer $offset)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$offset</td>
+  <td class="paramTypeCol">integer</td>
+  <td class="paramDescCol">the offset to retrieve element.</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">mixed</td>
+  <td class="paramDescCol">the element at the offset, null if no element is found at the offset</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/form/CForm.php#579">framework/web/form/CForm.php#579</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">offsetGet</span><span style="color: #007700">(</span><span style="color: #0000BB">$offset</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getElements</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">itemAt</span><span style="color: #007700">(</span><span style="color: #0000BB">$offset</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Returns the element at the specified offset.
+This method is required by the interface ArrayAccess.</p>
+
+
+<div class="detailHeader" id="offsetSet-detail">
+offsetSet()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>offsetSet</b>(integer $offset, mixed $item)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$offset</td>
+  <td class="paramTypeCol">integer</td>
+  <td class="paramDescCol">the offset to set element</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$item</td>
+  <td class="paramTypeCol">mixed</td>
+  <td class="paramDescCol">the element value</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/form/CForm.php#590">framework/web/form/CForm.php#590</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">offsetSet</span><span style="color: #007700">(</span><span style="color: #0000BB">$offset</span><span style="color: #007700">,</span><span style="color: #0000BB">$item</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getElements</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">add</span><span style="color: #007700">(</span><span style="color: #0000BB">$offset</span><span style="color: #007700">,</span><span style="color: #0000BB">$item</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Sets the element at the specified offset.
+This method is required by the interface ArrayAccess.</p>
+
+
+<div class="detailHeader" id="offsetUnset-detail">
+offsetUnset()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>offsetUnset</b>(mixed $offset)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$offset</td>
+  <td class="paramTypeCol">mixed</td>
+  <td class="paramDescCol">the offset to unset element</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/form/CForm.php#600">framework/web/form/CForm.php#600</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">offsetUnset</span><span style="color: #007700">(</span><span style="color: #0000BB">$offset</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getElements</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">remove</span><span style="color: #007700">(</span><span style="color: #0000BB">$offset</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Unsets the element at the specified offset.
+This method is required by the interface ArrayAccess.</p>
+
+
+<div class="detailHeader" id="removedElement-detail">
+removedElement()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>removedElement</b>(string $name, <a href="CFormElement.html">CFormElement</a> $element, boolean $forButtons)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$name</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the name of the element</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$element</td>
+  <td class="paramTypeCol"><a href="CFormElement.html">CFormElement</a></td>
+  <td class="paramDescCol">the element that is removed</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$forButtons</td>
+  <td class="paramTypeCol">boolean</td>
+  <td class="paramDescCol">whether the element is removed from the <a href="CForm.html#buttons">buttons</a> collection
+If false, it means the element is removed from the <a href="CForm.html#elements">elements</a> collection.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/form/CForm.php#532">framework/web/form/CForm.php#532</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">removedElement</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">,</span><span style="color: #0000BB">$element</span><span style="color: #007700">,</span><span style="color: #0000BB">$forButtons</span><span style="color: #007700">)<br />{<br />}</span>
+</span>
+</code></div>
+</div>
+<p>This method is called after an element is removed from the element collection.</p>
+
+
+<div class="detailHeader" id="render-detail">
+render()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>render</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the rendering result</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/form/CForm.php#364">framework/web/form/CForm.php#364</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">render</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">renderBegin</span><span style="color: #007700">()&nbsp;.&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">renderBody</span><span style="color: #007700">()&nbsp;.&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">renderEnd</span><span style="color: #007700">();<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Renders the form.
+The default implementation simply calls <a href="CForm.html#renderBegin">renderBegin</a>, <a href="CForm.html#renderBody">renderBody</a> and <a href="CForm.html#renderEnd">renderEnd</a>.</p>
+
+
+<div class="detailHeader" id="renderBegin-detail">
+renderBegin()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>renderBegin</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the rendering result</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/form/CForm.php#374">framework/web/form/CForm.php#374</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">renderBegin</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getParent</span><span style="color: #007700">()&nbsp;instanceof&nbsp;</span><span style="color: #0000BB">self</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #DD0000">''</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$options</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">activeForm</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(isset(</span><span style="color: #0000BB">$options</span><span style="color: #007700">[</span><span style="color: #DD0000">'class'</span><span style="color: #007700">]))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$class</span><span style="color: #007700">=</span><span style="color: #0000BB">$options</span><span style="color: #007700">[</span><span style="color: #DD0000">'class'</span><span style="color: #007700">];<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;unset(</span><span style="color: #0000BB">$options</span><span style="color: #007700">[</span><span style="color: #DD0000">'class'</span><span style="color: #007700">]);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$class</span><span style="color: #007700">=</span><span style="color: #DD0000">'CActiveForm'</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$options</span><span style="color: #007700">[</span><span style="color: #DD0000">'action'</span><span style="color: #007700">]=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">action</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$options</span><span style="color: #007700">[</span><span style="color: #DD0000">'method'</span><span style="color: #007700">]=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">method</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(isset(</span><span style="color: #0000BB">$options</span><span style="color: #007700">[</span><span style="color: #DD0000">'htmlOptions'</span><span style="color: #007700">]))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;foreach(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">attributes&nbsp;</span><span style="color: #007700">as&nbsp;</span><span style="color: #0000BB">$name</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">$value</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$options</span><span style="color: #007700">[</span><span style="color: #DD0000">'htmlOptions'</span><span style="color: #007700">][</span><span style="color: #0000BB">$name</span><span style="color: #007700">]=</span><span style="color: #0000BB">$value</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$options</span><span style="color: #007700">[</span><span style="color: #DD0000">'htmlOptions'</span><span style="color: #007700">]=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">attributes</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">ob_start</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_activeForm</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getOwner</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">beginWidget</span><span style="color: #007700">(</span><span style="color: #0000BB">$class</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$options</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">ob_get_clean</span><span style="color: #007700">()&nbsp;.&nbsp;</span><span style="color: #DD0000">"&lt;div&nbsp;style=\"visibility:hidden\"&gt;"</span><span style="color: #007700">.</span><span style="color: #0000BB">CHtml</span><span style="color: #007700">::</span><span style="color: #0000BB">hiddenField</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getUniqueID</span><span style="color: #007700">(),</span><span style="color: #0000BB">1</span><span style="color: #007700">).</span><span style="color: #DD0000">"&lt;/div&gt;\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Renders the open tag of the form.
+The default implementation will render the open form tag.</p>
+
+
+<div class="detailHeader" id="renderBody-detail">
+renderBody()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>renderBody</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the rendering result</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/form/CForm.php#429">framework/web/form/CForm.php#429</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">renderBody</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$output</span><span style="color: #007700">=</span><span style="color: #DD0000">''</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">title</span><span style="color: #007700">!==</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getParent</span><span style="color: #007700">()&nbsp;instanceof&nbsp;</span><span style="color: #0000BB">self</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$attributes</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">attributes</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;unset(</span><span style="color: #0000BB">$attributes</span><span style="color: #007700">[</span><span style="color: #DD0000">'name'</span><span style="color: #007700">],</span><span style="color: #0000BB">$attributes</span><span style="color: #007700">[</span><span style="color: #DD0000">'type'</span><span style="color: #007700">]);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$output</span><span style="color: #007700">=</span><span style="color: #0000BB">CHtml</span><span style="color: #007700">::</span><span style="color: #0000BB">openTag</span><span style="color: #007700">(</span><span style="color: #DD0000">'fieldset'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$attributes</span><span style="color: #007700">).</span><span style="color: #DD0000">"&lt;legend&gt;"</span><span style="color: #007700">.</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">title</span><span style="color: #007700">.</span><span style="color: #DD0000">"&lt;/legend&gt;\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$output</span><span style="color: #007700">=</span><span style="color: #DD0000">"&lt;fieldset&gt;\n&lt;legend&gt;"</span><span style="color: #007700">.</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">title</span><span style="color: #007700">.</span><span style="color: #DD0000">"&lt;/legend&gt;\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">description</span><span style="color: #007700">!==</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$output</span><span style="color: #007700">.=</span><span style="color: #DD0000">"&lt;div&nbsp;class=\"description\"&gt;\n"</span><span style="color: #007700">.</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">description</span><span style="color: #007700">.</span><span style="color: #DD0000">"&lt;/div&gt;\n"</span><span style="color: #007700">;<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">showErrorSummary&nbsp;</span><span style="color: #007700">&amp;&amp;&nbsp;(</span><span style="color: #0000BB">$model</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getModel</span><span style="color: #007700">(</span><span style="color: #0000BB">false</span><span style="color: #007700">))!==</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$output</span><span style="color: #007700">.=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getActiveFormWidget</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">errorSummary</span><span style="color: #007700">(</span><span style="color: #0000BB">$model</span><span style="color: #007700">).</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$output</span><span style="color: #007700">.=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">renderElements</span><span style="color: #007700">().</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">.</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">renderButtons</span><span style="color: #007700">().</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">title</span><span style="color: #007700">!==</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$output</span><span style="color: #007700">.=</span><span style="color: #DD0000">"&lt;/fieldset&gt;\n"</span><span style="color: #007700">;<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$output</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Renders the body content of this form.
+This method mainly renders <a href="CForm.html#elements">elements</a> and <a href="CForm.html#buttons">buttons</a>.
+If <a href="CForm.html#title">title</a> or <a href="CForm.html#description">description</a> is specified, they will be rendered as well.
+And if the associated model contains error, the error summary may also be displayed.
+The form tag will not be rendered. Please call <a href="CForm.html#renderBegin">renderBegin</a> and <a href="CForm.html#renderEnd">renderEnd</a>
+to render the open and close tags of the form.
+You may override this method to customize the rendering of the form.</p>
+
+
+<div class="detailHeader" id="renderButtons-detail">
+renderButtons()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>renderButtons</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the rendering result</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/form/CForm.php#474">framework/web/form/CForm.php#474</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">renderButtons</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$output</span><span style="color: #007700">=</span><span style="color: #DD0000">''</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;foreach(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getButtons</span><span style="color: #007700">()&nbsp;as&nbsp;</span><span style="color: #0000BB">$button</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$output</span><span style="color: #007700">.=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">renderElement</span><span style="color: #007700">(</span><span style="color: #0000BB">$button</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$output</span><span style="color: #007700">!==</span><span style="color: #DD0000">''&nbsp;</span><span style="color: #007700">?&nbsp;</span><span style="color: #DD0000">"&lt;div&nbsp;class=\"row&nbsp;buttons\"&gt;"</span><span style="color: #007700">.</span><span style="color: #0000BB">$output</span><span style="color: #007700">.</span><span style="color: #DD0000">"&lt;/div&gt;\n"&nbsp;</span><span style="color: #007700">:&nbsp;</span><span style="color: #DD0000">''</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Renders the <a href="CForm.html#buttons">buttons</a> in this form.</p>
+
+
+<div class="detailHeader" id="renderElement-detail">
+renderElement()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>renderElement</b>(mixed $element)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$element</td>
+  <td class="paramTypeCol">mixed</td>
+  <td class="paramDescCol">the form element to be rendered. This can be either a <a href="CFormElement.html">CFormElement</a> instance
+or a string representing the name of the form element.</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the rendering result</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/form/CForm.php#488">framework/web/form/CForm.php#488</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">renderElement</span><span style="color: #007700">(</span><span style="color: #0000BB">$element</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">is_string</span><span style="color: #007700">(</span><span style="color: #0000BB">$element</span><span style="color: #007700">))<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if((</span><span style="color: #0000BB">$e</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">[</span><span style="color: #0000BB">$element</span><span style="color: #007700">])===</span><span style="color: #0000BB">null&nbsp;</span><span style="color: #007700">&amp;&amp;&nbsp;(</span><span style="color: #0000BB">$e</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getButtons</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">itemAt</span><span style="color: #007700">(</span><span style="color: #0000BB">$element</span><span style="color: #007700">))===</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$element</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$element</span><span style="color: #007700">=</span><span style="color: #0000BB">$e</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$element</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getVisible</span><span style="color: #007700">())<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$element&nbsp;</span><span style="color: #007700">instanceof&nbsp;</span><span style="color: #0000BB">CFormInputElement</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$element</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">type</span><span style="color: #007700">===</span><span style="color: #DD0000">'hidden'</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #DD0000">"&lt;div&nbsp;style=\"visibility:hidden\"&gt;\n"</span><span style="color: #007700">.</span><span style="color: #0000BB">$element</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">render</span><span style="color: #007700">().</span><span style="color: #DD0000">"&lt;/div&gt;\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #DD0000">"&lt;div&nbsp;class=\"row&nbsp;field_</span><span style="color: #007700">{</span><span style="color: #0000BB">$element</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">name</span><span style="color: #007700">}</span><span style="color: #DD0000">\"&gt;\n"</span><span style="color: #007700">.</span><span style="color: #0000BB">$element</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">render</span><span style="color: #007700">().</span><span style="color: #DD0000">"&lt;/div&gt;\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else&nbsp;if(</span><span style="color: #0000BB">$element&nbsp;</span><span style="color: #007700">instanceof&nbsp;</span><span style="color: #0000BB">CFormButtonElement</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$element</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">render</span><span style="color: #007700">().</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$element</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">render</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #DD0000">''</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Renders a single element which could be an input element, a sub-form, a string, or a button.</p>
+
+
+<div class="detailHeader" id="renderElements-detail">
+renderElements()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>renderElements</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the rendering result</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/form/CForm.php#462">framework/web/form/CForm.php#462</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">renderElements</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$output</span><span style="color: #007700">=</span><span style="color: #DD0000">''</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;foreach(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getElements</span><span style="color: #007700">()&nbsp;as&nbsp;</span><span style="color: #0000BB">$element</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$output</span><span style="color: #007700">.=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">renderElement</span><span style="color: #007700">(</span><span style="color: #0000BB">$element</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$output</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Renders the <a href="CForm.html#elements">elements</a> in this form.</p>
+
+
+<div class="detailHeader" id="renderEnd-detail">
+renderEnd()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>renderEnd</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the rendering result</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/form/CForm.php#407">framework/web/form/CForm.php#407</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">renderEnd</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getParent</span><span style="color: #007700">()&nbsp;instanceof&nbsp;</span><span style="color: #0000BB">self</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #DD0000">''</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">ob_start</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getOwner</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">endWidget</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">ob_get_clean</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Renders the close tag of the form.</p>
+
+
+<div class="detailHeader" id="setButtons-detail">
+setButtons()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>setButtons</b>(array $buttons)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$buttons</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">the button configurations</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/form/CForm.php#352">framework/web/form/CForm.php#352</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">setButtons</span><span style="color: #007700">(</span><span style="color: #0000BB">$buttons</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$collection</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getButtons</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;foreach(</span><span style="color: #0000BB">$buttons&nbsp;</span><span style="color: #007700">as&nbsp;</span><span style="color: #0000BB">$name</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">$config</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$collection</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">add</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">,</span><span style="color: #0000BB">$config</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Configures the buttons of this form.
+The configuration must be an array of button configuration array indexed by button name.
+Each button configuration array consists of name-value pairs that are used to initialize
+a <a href="CFormButtonElement.html">CFormButtonElement</a> object.</p>
+
+
+<div class="detailHeader" id="setElements-detail">
+setElements()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>setElements</b>(array $elements)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$elements</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">the button configurations</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/form/CForm.php#325">framework/web/form/CForm.php#325</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">setElements</span><span style="color: #007700">(</span><span style="color: #0000BB">$elements</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$collection</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getElements</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;foreach(</span><span style="color: #0000BB">$elements&nbsp;</span><span style="color: #007700">as&nbsp;</span><span style="color: #0000BB">$name</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">$config</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$collection</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">add</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">,</span><span style="color: #0000BB">$config</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Configures the input elements of this form.
+The configuration must be an array of input configuration array indexed by input name.
+Each input configuration array consists of name-value pairs that are used to initialize
+a <a href="CFormStringElement.html">CFormStringElement</a> object (when 'type' is 'string'), a <a href="CFormElement.html">CFormElement</a> object
+(when 'type' is a string ending with 'Form'), or a <a href="CFormInputElement.html">CFormInputElement</a> object in
+all other cases.</p>
+
+
+<div class="detailHeader" id="setModel-detail">
+setModel()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>setModel</b>(<a href="CModel.html">CModel</a> $model)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$model</td>
+  <td class="paramTypeCol"><a href="CModel.html">CModel</a></td>
+  <td class="paramDescCol">the model to be associated with this form</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/form/CForm.php#280">framework/web/form/CForm.php#280</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">setModel</span><span style="color: #007700">(</span><span style="color: #0000BB">$model</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_model</span><span style="color: #007700">=</span><span style="color: #0000BB">$model</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p></p>
+
+
+<div class="detailHeader" id="submitted-detail">
+submitted()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public boolean <b>submitted</b>(string $buttonName='submit', boolean $loadData=true)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$buttonName</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the name of the submit button</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$loadData</td>
+  <td class="paramTypeCol">boolean</td>
+  <td class="paramDescCol">whether to call <a href="CForm.html#loadData">loadData</a> if the form is submitted so that
+the submitted data can be populated to the associated models.</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">boolean</td>
+  <td class="paramDescCol">whether this form is submitted.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/form/CForm.php#163">framework/web/form/CForm.php#163</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">submitted</span><span style="color: #007700">(</span><span style="color: #0000BB">$buttonName</span><span style="color: #007700">=</span><span style="color: #DD0000">'submit'</span><span style="color: #007700">,</span><span style="color: #0000BB">$loadData</span><span style="color: #007700">=</span><span style="color: #0000BB">true</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$ret</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">clicked</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getUniqueId</span><span style="color: #007700">())&nbsp;&amp;&amp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">clicked</span><span style="color: #007700">(</span><span style="color: #0000BB">$buttonName</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$ret&nbsp;</span><span style="color: #007700">&amp;&amp;&nbsp;</span><span style="color: #0000BB">$loadData</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">loadData</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$ret</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Returns a value indicating whether this form is submitted.</p>
+
+<div class="SeeAlso">
+<h4>See Also</h4>
+<ul>
+	<li><a href="CForm.html#loadData">loadData</a></li>
+</ul>
+</div>
+
+<div class="detailHeader" id="validate-detail">
+validate()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public boolean <b>validate</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">boolean</td>
+  <td class="paramDescCol">whether all models are valid</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/form/CForm.php#191">framework/web/form/CForm.php#191</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">validate</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$ret</span><span style="color: #007700">=</span><span style="color: #0000BB">true</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;foreach(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getModels</span><span style="color: #007700">()&nbsp;as&nbsp;</span><span style="color: #0000BB">$model</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$ret</span><span style="color: #007700">=</span><span style="color: #0000BB">$model</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">validate</span><span style="color: #007700">()&nbsp;&amp;&amp;&nbsp;</span><span style="color: #0000BB">$ret</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$ret</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Validates the models associated with this form.
+All models, including those associated with sub-forms, will perform
+the validation. You may use <a href="CModel.html#getErrors">CModel::getErrors()</a> to retrieve the validation
+error messages.</p>
+
+
+</div><!-- end of content -->
+
+<div id="apiFooter">
+Copyright &copy; 2008-2011 by <a href="http://www.yiisoft.com">Yii Software LLC</a><br/>
+All Rights Reserved.<br/>
+</div><!-- end of footer -->
+
+<script type="text/javascript">
+/*<![CDATA[*/
+$("a.toggle").toggle(function(){
+	$(this).text($(this).text().replace(/Hide/,'Show'));
+	$(this).parents(".summary").find(".inherited").hide();
+},function(){
+	$(this).text($(this).text().replace(/Show/,'Hide'));
+	$(this).parents(".summary").find(".inherited").show();
+});
+$(".sourceCode a.show").toggle(function(){
+	$(this).text($(this).text().replace(/show/,'hide'));
+	$(this).parents(".sourceCode").find("div.code").show();
+},function(){
+	$(this).text($(this).text().replace(/hide/,'show'));
+	$(this).parents(".sourceCode").find("div.code").hide();
+});
+$("a.sourceLink").click(function(){
+	$(this).attr('target','_blank');
+});
+/*]]>*/
+</script>
+
+</div><!-- end of page -->
+</body>
+</html>

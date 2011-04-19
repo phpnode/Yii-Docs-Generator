@@ -1,0 +1,294 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="language" content="en" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="css/api.css" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<title>IUserIdentity</title>
+</head>
+
+<body>
+<div id="apiPage">
+
+<div id="apiHeader">
+My Console Application Class Reference
+</div><!-- end of header -->
+
+<div id="content">
+<h1>IUserIdentity</h1>
+<div id="nav">
+<a href="index.html">All Packages</a>
+| <a href="#methods">Methods</a>
+</div>
+
+<table class="summaryTable docClass">
+<colgroup>
+	<col class="col-name" />
+	<col class="col-value" />
+</colgroup>
+<tr>
+  <th>Package</th>
+  <td><a href="index.html#system.base">system.base</a></td>
+</tr>
+<tr>
+  <th>Inheritance</th>
+  <td>interface IUserIdentity</td>
+</tr>
+<tr>
+  <th>Subclasses</th>
+  <td><a href="CBaseUserIdentity.html">CBaseUserIdentity</a>, <a href="CUserIdentity.html">CUserIdentity</a>, <a href="UserIdentity.html">UserIdentity</a></td>
+</tr>
+<tr>
+  <th>Since</th>
+  <td>1.0</td>
+</tr>
+<tr>
+  <th>Version</th>
+  <td>$Id: interfaces.php 3058 2011-03-13 04:20:12Z qiang.xue $</td>
+</tr>
+<tr>
+  <th>Source Code</th>
+  <td><a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/base/interfaces.php">framework/base/interfaces.php</a></td>
+</tr>
+<tr>
+  <th>Author</th>
+  <td>Qiang Xue &lt;qiang.xue@gmail.com&gt;</td>
+</tr>
+</table>
+
+<div id="classDescription">
+IUserIdentity interface is implemented by a user identity class.
+<br/><br/>
+An identity represents a way to authenticate a user and retrieve
+information needed to uniquely identity the user. It is normally
+used with the <a href="CWebApplication.html#user">user application component</a>.</div>
+<a name="properties"></a>
+
+<a name="methods"></a>
+
+<div class="summary docMethod">
+<h2>Public Methods</h2>
+
+<p><a href="#" class="toggle">Hide inherited methods</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-method" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>Method</th><th>Description</th><th>Defined By</th>
+</tr>
+<tr id="authenticate">
+  <td><a href="IUserIdentity.html#authenticate-detail">authenticate()</a></td>
+  <td>Authenticates the user.</td>
+  <td>IUserIdentity</td>
+</tr>
+<tr id="getId">
+  <td><a href="IUserIdentity.html#getId-detail">getId()</a></td>
+  <td>Returns a value that uniquely represents the identity.</td>
+  <td>IUserIdentity</td>
+</tr>
+<tr id="getIsAuthenticated">
+  <td><a href="IUserIdentity.html#getIsAuthenticated-detail">getIsAuthenticated()</a></td>
+  <td>Returns a value indicating whether the identity is authenticated.</td>
+  <td>IUserIdentity</td>
+</tr>
+<tr id="getName">
+  <td><a href="IUserIdentity.html#getName-detail">getName()</a></td>
+  <td>Returns the display name for the identity (e.g. username).</td>
+  <td>IUserIdentity</td>
+</tr>
+<tr id="getPersistentStates">
+  <td><a href="IUserIdentity.html#getPersistentStates-detail">getPersistentStates()</a></td>
+  <td>Returns the additional identity information that needs to be persistent during the user session.</td>
+  <td>IUserIdentity</td>
+</tr>
+</table>
+</div>
+<a name="events"></a>
+
+<h2>Method Details</h2>
+
+<div class="detailHeader" id="authenticate-detail">
+authenticate()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+abstract public boolean <b>authenticate</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">boolean</td>
+  <td class="paramDescCol">whether authentication succeeds.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/base/interfaces.php#265">framework/base/interfaces.php#265</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">authenticate</span><span style="color: #007700">();</span>
+</span>
+</code></div>
+</div>
+<p>Authenticates the user.
+The information needed to authenticate the user
+are usually provided in the constructor.</p>
+
+
+<div class="detailHeader" id="getId-detail">
+getId()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+abstract public mixed <b>getId</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">mixed</td>
+  <td class="paramDescCol">a value that uniquely represents the identity (e.g. primary key value).</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/base/interfaces.php#275">framework/base/interfaces.php#275</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getId</span><span style="color: #007700">();</span>
+</span>
+</code></div>
+</div>
+<p>Returns a value that uniquely represents the identity.</p>
+
+
+<div class="detailHeader" id="getIsAuthenticated-detail">
+getIsAuthenticated()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+abstract public boolean <b>getIsAuthenticated</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">boolean</td>
+  <td class="paramDescCol">whether the identity is valid.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/base/interfaces.php#270">framework/base/interfaces.php#270</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getIsAuthenticated</span><span style="color: #007700">();</span>
+</span>
+</code></div>
+</div>
+<p>Returns a value indicating whether the identity is authenticated.</p>
+
+
+<div class="detailHeader" id="getName-detail">
+getName()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+abstract public string <b>getName</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the display name for the identity.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/base/interfaces.php#280">framework/base/interfaces.php#280</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getName</span><span style="color: #007700">();</span>
+</span>
+</code></div>
+</div>
+<p>Returns the display name for the identity (e.g. username).</p>
+
+
+<div class="detailHeader" id="getPersistentStates-detail">
+getPersistentStates()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+abstract public array <b>getPersistentStates</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">additional identity information that needs to be persistent during the user session (excluding <a href="IUserIdentity.html#id">id</a>).</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/base/interfaces.php#285">framework/base/interfaces.php#285</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getPersistentStates</span><span style="color: #007700">();</span>
+</span>
+</code></div>
+</div>
+<p>Returns the additional identity information that needs to be persistent during the user session.</p>
+
+
+</div><!-- end of content -->
+
+<div id="apiFooter">
+Copyright &copy; 2008-2011 by <a href="http://www.yiisoft.com">Yii Software LLC</a><br/>
+All Rights Reserved.<br/>
+</div><!-- end of footer -->
+
+<script type="text/javascript">
+/*<![CDATA[*/
+$("a.toggle").toggle(function(){
+	$(this).text($(this).text().replace(/Hide/,'Show'));
+	$(this).parents(".summary").find(".inherited").hide();
+},function(){
+	$(this).text($(this).text().replace(/Show/,'Hide'));
+	$(this).parents(".summary").find(".inherited").show();
+});
+$(".sourceCode a.show").toggle(function(){
+	$(this).text($(this).text().replace(/show/,'hide'));
+	$(this).parents(".sourceCode").find("div.code").show();
+},function(){
+	$(this).text($(this).text().replace(/hide/,'show'));
+	$(this).parents(".sourceCode").find("div.code").hide();
+});
+$("a.sourceLink").click(function(){
+	$(this).attr('target','_blank');
+});
+/*]]>*/
+</script>
+
+</div><!-- end of page -->
+</body>
+</html>

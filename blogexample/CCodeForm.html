@@ -1,0 +1,638 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="language" content="en" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="css/api.css" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<title>CCodeForm</title>
+</head>
+
+<body>
+<div id="apiPage">
+
+<div id="apiHeader">
+My Console Application Class Reference
+</div><!-- end of header -->
+
+<div id="content">
+<h1>CCodeForm</h1>
+<div id="nav">
+<a href="index.html">All Packages</a>
+| <a href="#properties">Properties</a>
+| <a href="#methods">Methods</a>
+</div>
+
+<table class="summaryTable docClass">
+<colgroup>
+	<col class="col-name" />
+	<col class="col-value" />
+</colgroup>
+<tr>
+  <th>Package</th>
+  <td><a href="index.html#system.gii">system.gii</a></td>
+</tr>
+<tr>
+  <th>Inheritance</th>
+  <td>class CCodeForm &raquo;
+<a href="CActiveForm.html">CActiveForm</a> &raquo;
+<a href="CWidget.html">CWidget</a> &raquo;
+<a href="CBaseController.html">CBaseController</a> &raquo;
+<a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr>
+  <th>Since</th>
+  <td>1.1.2</td>
+</tr>
+<tr>
+  <th>Version</th>
+  <td>$Id: CCodeForm.php 2799 2011-01-01 19:31:13Z qiang.xue $</td>
+</tr>
+<tr>
+  <th>Source Code</th>
+  <td><a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/gii/CCodeForm.php">framework/gii/CCodeForm.php</a></td>
+</tr>
+<tr>
+  <th>Author</th>
+  <td>Qiang Xue &lt;qiang.xue@gmail.com&gt;</td>
+</tr>
+</table>
+
+<div id="classDescription">
+CCodeForm represents the form for collecting code generation parameters.</div>
+<a name="properties"></a>
+
+<div class="summary docProperty">
+<h2>Public Properties</h2>
+
+<p><a href="#" class="toggle">Hide inherited properties</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-property" />
+	<col class="col-type" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>Property</th><th>Type</th><th>Description</th><th>Defined By</th>
+</tr>
+<tr class="inherited" id="action">
+  <td><a href="CActiveForm.html#action-detail">action</a></td>
+  <td>mixed</td>
+  <td>the form action URL (see <a href="CHtml.html#normalizeUrl">CHtml::normalizeUrl</a> for details about this parameter).</td>
+  <td><a href="CActiveForm.html">CActiveForm</a></td>
+</tr>
+<tr class="inherited" id="actionPrefix">
+  <td><a href="CWidget.html#actionPrefix-detail">actionPrefix</a></td>
+  <td>string</td>
+  <td>the prefix to the IDs of the <a href="CCodeForm.html#actions">actions</a>.</td>
+  <td><a href="CWidget.html">CWidget</a></td>
+</tr>
+<tr class="inherited" id="clientOptions">
+  <td><a href="CActiveForm.html#clientOptions-detail">clientOptions</a></td>
+  <td>array</td>
+  <td>the options to be passed to the javascript validation plugin.</td>
+  <td><a href="CActiveForm.html">CActiveForm</a></td>
+</tr>
+<tr class="inherited" id="controller">
+  <td><a href="CWidget.html#controller-detail">controller</a></td>
+  <td><a href="CController.html">CController</a></td>
+  <td>Returns the controller that this widget belongs to.</td>
+  <td><a href="CWidget.html">CWidget</a></td>
+</tr>
+<tr class="inherited" id="enableAjaxValidation">
+  <td><a href="CActiveForm.html#enableAjaxValidation-detail">enableAjaxValidation</a></td>
+  <td>boolean</td>
+  <td>whether to enable data validation via AJAX.</td>
+  <td><a href="CActiveForm.html">CActiveForm</a></td>
+</tr>
+<tr class="inherited" id="enableClientValidation">
+  <td><a href="CActiveForm.html#enableClientValidation-detail">enableClientValidation</a></td>
+  <td>boolean</td>
+  <td>whether to enable client-side data validation.</td>
+  <td><a href="CActiveForm.html">CActiveForm</a></td>
+</tr>
+<tr class="inherited" id="errorMessageCssClass">
+  <td><a href="CActiveForm.html#errorMessageCssClass-detail">errorMessageCssClass</a></td>
+  <td>string</td>
+  <td>the CSS class name for error messages.</td>
+  <td><a href="CActiveForm.html">CActiveForm</a></td>
+</tr>
+<tr class="inherited" id="focus">
+  <td><a href="CActiveForm.html#focus-detail">focus</a></td>
+  <td>mixed</td>
+  <td>form element to get initial input focus on page load.</td>
+  <td><a href="CActiveForm.html">CActiveForm</a></td>
+</tr>
+<tr class="inherited" id="htmlOptions">
+  <td><a href="CActiveForm.html#htmlOptions-detail">htmlOptions</a></td>
+  <td>array</td>
+  <td>additional HTML attributes that should be rendered for the form tag.</td>
+  <td><a href="CActiveForm.html">CActiveForm</a></td>
+</tr>
+<tr class="inherited" id="id">
+  <td><a href="CWidget.html#id-detail">id</a></td>
+  <td>string</td>
+  <td>Returns the ID of the widget or generates a new one if requested.</td>
+  <td><a href="CWidget.html">CWidget</a></td>
+</tr>
+<tr class="inherited" id="method">
+  <td><a href="CActiveForm.html#method-detail">method</a></td>
+  <td>string</td>
+  <td>the form submission method.</td>
+  <td><a href="CActiveForm.html">CActiveForm</a></td>
+</tr>
+<tr id="model">
+  <td><a href="CCodeForm.html#model-detail">model</a></td>
+  <td><a href="CCodeModel.html">CCodeModel</a></td>
+  <td>the code model associated with the form</td>
+  <td>CCodeForm</td>
+</tr>
+<tr class="inherited" id="owner">
+  <td><a href="CWidget.html#owner-detail">owner</a></td>
+  <td><a href="CBaseController.html">CBaseController</a></td>
+  <td>Returns the owner/creator of this widget.</td>
+  <td><a href="CWidget.html">CWidget</a></td>
+</tr>
+<tr class="inherited" id="skin">
+  <td><a href="CWidget.html#skin-detail">skin</a></td>
+  <td>mixed</td>
+  <td>the name of the skin to be used by this widget.</td>
+  <td><a href="CWidget.html">CWidget</a></td>
+</tr>
+<tr class="inherited" id="stateful">
+  <td><a href="CActiveForm.html#stateful-detail">stateful</a></td>
+  <td>boolean</td>
+  <td>whether to generate a stateful form (See <a href="CHtml.html#statefulForm">CHtml::statefulForm</a>).</td>
+  <td><a href="CActiveForm.html">CActiveForm</a></td>
+</tr>
+<tr class="inherited" id="viewPath">
+  <td><a href="CWidget.html#viewPath-detail">viewPath</a></td>
+  <td>string</td>
+  <td>Returns the directory containing the view files for this widget.</td>
+  <td><a href="CWidget.html">CWidget</a></td>
+</tr>
+</table>
+</div>
+<div class="summary docProperty">
+<h2>Protected Properties</h2>
+
+<p><a href="#" class="toggle">Hide inherited properties</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-property" />
+	<col class="col-type" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>Property</th><th>Type</th><th>Description</th><th>Defined By</th>
+</tr>
+<tr class="inherited" id="attributes">
+  <td><a href="CActiveForm.html#attributes-detail">attributes</a></td>
+  <td>array</td>
+  <td>the javascript options for model attributes (input ID => options)</td>
+  <td><a href="CActiveForm.html">CActiveForm</a></td>
+</tr>
+<tr class="inherited" id="summaryID">
+  <td><a href="CActiveForm.html#summaryID-detail">summaryID</a></td>
+  <td>string</td>
+  <td>the ID of the container element for error summary</td>
+  <td><a href="CActiveForm.html">CActiveForm</a></td>
+</tr>
+</table>
+</div>
+<a name="methods"></a>
+
+<div class="summary docMethod">
+<h2>Public Methods</h2>
+
+<p><a href="#" class="toggle">Hide inherited methods</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-method" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>Method</th><th>Description</th><th>Defined By</th>
+</tr>
+<tr class="inherited" id="__call">
+  <td><a href="CComponent.html#__call-detail">__call()</a></td>
+  <td>Calls the named method which is not a class method.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__construct">
+  <td><a href="CWidget.html#__construct-detail">__construct()</a></td>
+  <td>Constructor.</td>
+  <td><a href="CWidget.html">CWidget</a></td>
+</tr>
+<tr class="inherited" id="__get">
+  <td><a href="CComponent.html#__get-detail">__get()</a></td>
+  <td>Returns a property value, an event handler list or a behavior based on its name.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__isset">
+  <td><a href="CComponent.html#__isset-detail">__isset()</a></td>
+  <td>Checks if a property value is null.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__set">
+  <td><a href="CComponent.html#__set-detail">__set()</a></td>
+  <td>Sets value of a component property.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__unset">
+  <td><a href="CComponent.html#__unset-detail">__unset()</a></td>
+  <td>Sets a component property to be null.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="actions">
+  <td><a href="CWidget.html#actions-detail">actions()</a></td>
+  <td>Returns a list of actions that are used by this widget.</td>
+  <td><a href="CWidget.html">CWidget</a></td>
+</tr>
+<tr class="inherited" id="asa">
+  <td><a href="CComponent.html#asa-detail">asa()</a></td>
+  <td>Returns the named behavior object.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="attachBehavior">
+  <td><a href="CComponent.html#attachBehavior-detail">attachBehavior()</a></td>
+  <td>Attaches a behavior to this component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="attachBehaviors">
+  <td><a href="CComponent.html#attachBehaviors-detail">attachBehaviors()</a></td>
+  <td>Attaches a list of behaviors to the component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="attachEventHandler">
+  <td><a href="CComponent.html#attachEventHandler-detail">attachEventHandler()</a></td>
+  <td>Attaches an event handler to an event.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="beginCache">
+  <td><a href="CBaseController.html#beginCache-detail">beginCache()</a></td>
+  <td>Begins fragment caching.</td>
+  <td><a href="CBaseController.html">CBaseController</a></td>
+</tr>
+<tr class="inherited" id="beginClip">
+  <td><a href="CBaseController.html#beginClip-detail">beginClip()</a></td>
+  <td>Begins recording a clip.</td>
+  <td><a href="CBaseController.html">CBaseController</a></td>
+</tr>
+<tr class="inherited" id="beginContent">
+  <td><a href="CBaseController.html#beginContent-detail">beginContent()</a></td>
+  <td>Begins the rendering of content that is to be decorated by the specified view.</td>
+  <td><a href="CBaseController.html">CBaseController</a></td>
+</tr>
+<tr class="inherited" id="beginWidget">
+  <td><a href="CBaseController.html#beginWidget-detail">beginWidget()</a></td>
+  <td>Creates a widget and executes it.</td>
+  <td><a href="CBaseController.html">CBaseController</a></td>
+</tr>
+<tr class="inherited" id="canGetProperty">
+  <td><a href="CComponent.html#canGetProperty-detail">canGetProperty()</a></td>
+  <td>Determines whether a property can be read.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="canSetProperty">
+  <td><a href="CComponent.html#canSetProperty-detail">canSetProperty()</a></td>
+  <td>Determines whether a property can be set.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="checkBox">
+  <td><a href="CActiveForm.html#checkBox-detail">checkBox()</a></td>
+  <td>Renders a checkbox for a model attribute.</td>
+  <td><a href="CActiveForm.html">CActiveForm</a></td>
+</tr>
+<tr class="inherited" id="checkBoxList">
+  <td><a href="CActiveForm.html#checkBoxList-detail">checkBoxList()</a></td>
+  <td>Renders a checkbox list for a model attribute.</td>
+  <td><a href="CActiveForm.html">CActiveForm</a></td>
+</tr>
+<tr class="inherited" id="createWidget">
+  <td><a href="CBaseController.html#createWidget-detail">createWidget()</a></td>
+  <td>Creates a widget and initializes it.</td>
+  <td><a href="CBaseController.html">CBaseController</a></td>
+</tr>
+<tr class="inherited" id="detachBehavior">
+  <td><a href="CComponent.html#detachBehavior-detail">detachBehavior()</a></td>
+  <td>Detaches a behavior from the component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="detachBehaviors">
+  <td><a href="CComponent.html#detachBehaviors-detail">detachBehaviors()</a></td>
+  <td>Detaches all behaviors from the component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="detachEventHandler">
+  <td><a href="CComponent.html#detachEventHandler-detail">detachEventHandler()</a></td>
+  <td>Detaches an existing event handler.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="disableBehavior">
+  <td><a href="CComponent.html#disableBehavior-detail">disableBehavior()</a></td>
+  <td>Disables an attached behavior.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="disableBehaviors">
+  <td><a href="CComponent.html#disableBehaviors-detail">disableBehaviors()</a></td>
+  <td>Disables all behaviors attached to this component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="dropDownList">
+  <td><a href="CActiveForm.html#dropDownList-detail">dropDownList()</a></td>
+  <td>Renders a dropdown list for a model attribute.</td>
+  <td><a href="CActiveForm.html">CActiveForm</a></td>
+</tr>
+<tr class="inherited" id="enableBehavior">
+  <td><a href="CComponent.html#enableBehavior-detail">enableBehavior()</a></td>
+  <td>Enables an attached behavior.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="enableBehaviors">
+  <td><a href="CComponent.html#enableBehaviors-detail">enableBehaviors()</a></td>
+  <td>Enables all behaviors attached to this component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="endCache">
+  <td><a href="CBaseController.html#endCache-detail">endCache()</a></td>
+  <td>Ends fragment caching.</td>
+  <td><a href="CBaseController.html">CBaseController</a></td>
+</tr>
+<tr class="inherited" id="endClip">
+  <td><a href="CBaseController.html#endClip-detail">endClip()</a></td>
+  <td>Ends recording a clip.</td>
+  <td><a href="CBaseController.html">CBaseController</a></td>
+</tr>
+<tr class="inherited" id="endContent">
+  <td><a href="CBaseController.html#endContent-detail">endContent()</a></td>
+  <td>Ends the rendering of content.</td>
+  <td><a href="CBaseController.html">CBaseController</a></td>
+</tr>
+<tr class="inherited" id="endWidget">
+  <td><a href="CBaseController.html#endWidget-detail">endWidget()</a></td>
+  <td>Ends the execution of the named widget.</td>
+  <td><a href="CBaseController.html">CBaseController</a></td>
+</tr>
+<tr class="inherited" id="error">
+  <td><a href="CActiveForm.html#error-detail">error()</a></td>
+  <td>Displays the first validation error for a model attribute.</td>
+  <td><a href="CActiveForm.html">CActiveForm</a></td>
+</tr>
+<tr class="inherited" id="errorSummary">
+  <td><a href="CActiveForm.html#errorSummary-detail">errorSummary()</a></td>
+  <td>Displays a summary of validation errors for one or several models.</td>
+  <td><a href="CActiveForm.html">CActiveForm</a></td>
+</tr>
+<tr class="inherited" id="evaluateExpression">
+  <td><a href="CComponent.html#evaluateExpression-detail">evaluateExpression()</a></td>
+  <td>Evaluates a PHP expression or callback under the context of this component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="fileField">
+  <td><a href="CActiveForm.html#fileField-detail">fileField()</a></td>
+  <td>Renders a file field for a model attribute.</td>
+  <td><a href="CActiveForm.html">CActiveForm</a></td>
+</tr>
+<tr class="inherited" id="getController">
+  <td><a href="CWidget.html#getController-detail">getController()</a></td>
+  <td>Returns the controller that this widget belongs to.</td>
+  <td><a href="CWidget.html">CWidget</a></td>
+</tr>
+<tr class="inherited" id="getEventHandlers">
+  <td><a href="CComponent.html#getEventHandlers-detail">getEventHandlers()</a></td>
+  <td>Returns the list of attached event handlers for an event.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="getId">
+  <td><a href="CWidget.html#getId-detail">getId()</a></td>
+  <td>Returns the ID of the widget or generates a new one if requested.</td>
+  <td><a href="CWidget.html">CWidget</a></td>
+</tr>
+<tr class="inherited" id="getOwner">
+  <td><a href="CWidget.html#getOwner-detail">getOwner()</a></td>
+  <td>Returns the owner/creator of this widget.</td>
+  <td><a href="CWidget.html">CWidget</a></td>
+</tr>
+<tr class="inherited" id="getViewFile">
+  <td><a href="CWidget.html#getViewFile-detail">getViewFile()</a></td>
+  <td>Looks for the view script file according to the view name.</td>
+  <td><a href="CWidget.html">CWidget</a></td>
+</tr>
+<tr class="inherited" id="getViewPath">
+  <td><a href="CWidget.html#getViewPath-detail">getViewPath()</a></td>
+  <td>Returns the directory containing the view files for this widget.</td>
+  <td><a href="CWidget.html">CWidget</a></td>
+</tr>
+<tr class="inherited" id="hasEvent">
+  <td><a href="CComponent.html#hasEvent-detail">hasEvent()</a></td>
+  <td>Determines whether an event is defined.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="hasEventHandler">
+  <td><a href="CComponent.html#hasEventHandler-detail">hasEventHandler()</a></td>
+  <td>Checks whether the named event has attached handlers.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="hasProperty">
+  <td><a href="CComponent.html#hasProperty-detail">hasProperty()</a></td>
+  <td>Determines whether a property is defined.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="hiddenField">
+  <td><a href="CActiveForm.html#hiddenField-detail">hiddenField()</a></td>
+  <td>Renders a hidden field for a model attribute.</td>
+  <td><a href="CActiveForm.html">CActiveForm</a></td>
+</tr>
+<tr id="init">
+  <td><a href="CCodeForm.html#init-detail">init()</a></td>
+  <td>Initializes the widget.</td>
+  <td>CCodeForm</td>
+</tr>
+<tr class="inherited" id="label">
+  <td><a href="CActiveForm.html#label-detail">label()</a></td>
+  <td>Renders an HTML label for a model attribute.</td>
+  <td><a href="CActiveForm.html">CActiveForm</a></td>
+</tr>
+<tr class="inherited" id="labelEx">
+  <td><a href="CActiveForm.html#labelEx-detail">labelEx()</a></td>
+  <td>Renders an HTML label for a model attribute.</td>
+  <td><a href="CActiveForm.html">CActiveForm</a></td>
+</tr>
+<tr class="inherited" id="listBox">
+  <td><a href="CActiveForm.html#listBox-detail">listBox()</a></td>
+  <td>Renders a list box for a model attribute.</td>
+  <td><a href="CActiveForm.html">CActiveForm</a></td>
+</tr>
+<tr class="inherited" id="passwordField">
+  <td><a href="CActiveForm.html#passwordField-detail">passwordField()</a></td>
+  <td>Renders a password field for a model attribute.</td>
+  <td><a href="CActiveForm.html">CActiveForm</a></td>
+</tr>
+<tr class="inherited" id="radioButton">
+  <td><a href="CActiveForm.html#radioButton-detail">radioButton()</a></td>
+  <td>Renders a radio button for a model attribute.</td>
+  <td><a href="CActiveForm.html">CActiveForm</a></td>
+</tr>
+<tr class="inherited" id="radioButtonList">
+  <td><a href="CActiveForm.html#radioButtonList-detail">radioButtonList()</a></td>
+  <td>Renders a radio button list for a model attribute.</td>
+  <td><a href="CActiveForm.html">CActiveForm</a></td>
+</tr>
+<tr class="inherited" id="raiseEvent">
+  <td><a href="CComponent.html#raiseEvent-detail">raiseEvent()</a></td>
+  <td>Raises an event.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="render">
+  <td><a href="CWidget.html#render-detail">render()</a></td>
+  <td>Renders a view.</td>
+  <td><a href="CWidget.html">CWidget</a></td>
+</tr>
+<tr class="inherited" id="renderFile">
+  <td><a href="CBaseController.html#renderFile-detail">renderFile()</a></td>
+  <td>Renders a view file.</td>
+  <td><a href="CBaseController.html">CBaseController</a></td>
+</tr>
+<tr class="inherited" id="renderInternal">
+  <td><a href="CBaseController.html#renderInternal-detail">renderInternal()</a></td>
+  <td>Renders a view file.</td>
+  <td><a href="CBaseController.html">CBaseController</a></td>
+</tr>
+<tr id="run">
+  <td><a href="CCodeForm.html#run-detail">run()</a></td>
+  <td>Runs the widget.</td>
+  <td>CCodeForm</td>
+</tr>
+<tr class="inherited" id="setId">
+  <td><a href="CWidget.html#setId-detail">setId()</a></td>
+  <td>Sets the ID of the widget.</td>
+  <td><a href="CWidget.html">CWidget</a></td>
+</tr>
+<tr class="inherited" id="textArea">
+  <td><a href="CActiveForm.html#textArea-detail">textArea()</a></td>
+  <td>Renders a text area for a model attribute.</td>
+  <td><a href="CActiveForm.html">CActiveForm</a></td>
+</tr>
+<tr class="inherited" id="textField">
+  <td><a href="CActiveForm.html#textField-detail">textField()</a></td>
+  <td>Renders a text field for a model attribute.</td>
+  <td><a href="CActiveForm.html">CActiveForm</a></td>
+</tr>
+<tr class="inherited" id="validate">
+  <td><a href="CActiveForm.html#validate-detail">validate()</a></td>
+  <td>Validates one or several models and returns the results in JSON format.</td>
+  <td><a href="CActiveForm.html">CActiveForm</a></td>
+</tr>
+<tr class="inherited" id="widget">
+  <td><a href="CBaseController.html#widget-detail">widget()</a></td>
+  <td>Creates a widget and executes it.</td>
+  <td><a href="CBaseController.html">CBaseController</a></td>
+</tr>
+</table>
+</div>
+<a name="events"></a>
+
+<h2>Property Details</h2>
+<div class="detailHeader" id="model-detail">
+model<span class="detailHeaderTag">
+property
+</span>
+</div>
+
+<div class="signature">
+public <a href="CCodeModel.html">CCodeModel</a> <b>$model</b>;</div>
+
+<p>the code model associated with the form</p>
+
+
+<h2>Method Details</h2>
+
+<div class="detailHeader" id="init-detail">
+init()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>init</b>()</div>
+</td></tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/gii/CCodeForm.php#30">framework/gii/CCodeForm.php#30</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">init</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;&lt;&lt;&lt;EOD<br /></span><span style="color: #DD0000">&lt;div&nbsp;class="form&nbsp;gii"&gt;<br />&lt;p&nbsp;class="note"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;Fields&nbsp;with&nbsp;&lt;span&nbsp;class="required"&gt;*&lt;/span&gt;&nbsp;are&nbsp;required.<br />&nbsp;&nbsp;&nbsp;&nbsp;Click&nbsp;on&nbsp;the&nbsp;&lt;span&nbsp;class="sticky"&gt;highlighted&nbsp;fields&lt;/span&gt;&nbsp;to&nbsp;edit&nbsp;them.<br />&lt;/p&gt;<br /></span><span style="color: #007700">EOD;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">parent</span><span style="color: #007700">::</span><span style="color: #0000BB">init</span><span style="color: #007700">();<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Initializes the widget.
+This renders the form open tag.</p>
+
+
+<div class="detailHeader" id="run-detail">
+run()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>run</b>()</div>
+</td></tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/gii/CCodeForm.php#45">framework/gii/CCodeForm.php#45</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">run</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$templates</span><span style="color: #007700">=array();<br />&nbsp;&nbsp;&nbsp;&nbsp;foreach(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">model</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getTemplates</span><span style="color: #007700">()&nbsp;as&nbsp;</span><span style="color: #0000BB">$i</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">$template</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$templates</span><span style="color: #007700">[</span><span style="color: #0000BB">$i</span><span style="color: #007700">]=</span><span style="color: #0000BB">basename</span><span style="color: #007700">(</span><span style="color: #0000BB">$template</span><span style="color: #007700">).</span><span style="color: #DD0000">'&nbsp;('</span><span style="color: #007700">.</span><span style="color: #0000BB">$template</span><span style="color: #007700">.</span><span style="color: #DD0000">')'</span><span style="color: #007700">;<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">renderFile</span><span style="color: #007700">(</span><span style="color: #0000BB">Yii</span><span style="color: #007700">::</span><span style="color: #0000BB">getPathOfAlias</span><span style="color: #007700">(</span><span style="color: #DD0000">'gii.views.common.generator'</span><span style="color: #007700">).</span><span style="color: #DD0000">'.php'</span><span style="color: #007700">,array(<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'model'</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">model</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'templates'</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">$templates</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;));<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">parent</span><span style="color: #007700">::</span><span style="color: #0000BB">run</span><span style="color: #007700">();<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"&lt;/div&gt;"</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Runs the widget.</p>
+
+
+</div><!-- end of content -->
+
+<div id="apiFooter">
+Copyright &copy; 2008-2011 by <a href="http://www.yiisoft.com">Yii Software LLC</a><br/>
+All Rights Reserved.<br/>
+</div><!-- end of footer -->
+
+<script type="text/javascript">
+/*<![CDATA[*/
+$("a.toggle").toggle(function(){
+	$(this).text($(this).text().replace(/Hide/,'Show'));
+	$(this).parents(".summary").find(".inherited").hide();
+},function(){
+	$(this).text($(this).text().replace(/Show/,'Hide'));
+	$(this).parents(".summary").find(".inherited").show();
+});
+$(".sourceCode a.show").toggle(function(){
+	$(this).text($(this).text().replace(/show/,'hide'));
+	$(this).parents(".sourceCode").find("div.code").show();
+},function(){
+	$(this).text($(this).text().replace(/hide/,'show'));
+	$(this).parents(".sourceCode").find("div.code").hide();
+});
+$("a.sourceLink").click(function(){
+	$(this).attr('target','_blank');
+});
+/*]]>*/
+</script>
+
+</div><!-- end of page -->
+</body>
+</html>

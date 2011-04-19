@@ -1,0 +1,1531 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="language" content="en" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="css/api.css" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<title>CLocale</title>
+</head>
+
+<body>
+<div id="apiPage">
+
+<div id="apiHeader">
+My Console Application Class Reference
+</div><!-- end of header -->
+
+<div id="content">
+<h1>CLocale</h1>
+<div id="nav">
+<a href="index.html">All Packages</a>
+| <a href="#properties">Properties</a>
+| <a href="#methods">Methods</a>
+</div>
+
+<table class="summaryTable docClass">
+<colgroup>
+	<col class="col-name" />
+	<col class="col-value" />
+</colgroup>
+<tr>
+  <th>Package</th>
+  <td><a href="index.html#system.i18n">system.i18n</a></td>
+</tr>
+<tr>
+  <th>Inheritance</th>
+  <td>class CLocale &raquo;
+<a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr>
+  <th>Since</th>
+  <td>1.0</td>
+</tr>
+<tr>
+  <th>Version</th>
+  <td>$Id: CLocale.php 2844 2011-01-13 01:29:55Z alexander.makarow $</td>
+</tr>
+<tr>
+  <th>Source Code</th>
+  <td><a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/i18n/CLocale.php">framework/i18n/CLocale.php</a></td>
+</tr>
+<tr>
+  <th>Author</th>
+  <td>Qiang Xue &lt;qiang.xue@gmail.com&gt;</td>
+</tr>
+</table>
+
+<div id="classDescription">
+CLocale represents the data relevant to a locale.
+<br/><br/>
+The data includes the number formatting information and date formatting information.</div>
+<a name="properties"></a>
+
+<div class="summary docProperty">
+<h2>Public Properties</h2>
+
+<p><a href="#" class="toggle">Hide inherited properties</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-property" />
+	<col class="col-type" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>Property</th><th>Type</th><th>Description</th><th>Defined By</th>
+</tr>
+<tr id="aMName">
+  <td><a href="CLocale.html#aMName-detail">aMName</a></td>
+  <td>string</td>
+  <td>the AM name</td>
+  <td>CLocale</td>
+</tr>
+<tr id="currencyFormat">
+  <td><a href="CLocale.html#currencyFormat-detail">currencyFormat</a></td>
+  <td>string</td>
+  <td>the currency format</td>
+  <td>CLocale</td>
+</tr>
+<tr id="dataPath">
+  <td><a href="CLocale.html#dataPath-detail">dataPath</a></td>
+  <td>string</td>
+  <td>the directory that contains the locale data.</td>
+  <td>CLocale</td>
+</tr>
+<tr id="dateFormat">
+  <td><a href="CLocale.html#dateFormat-detail">dateFormat</a></td>
+  <td>string</td>
+  <td>date format</td>
+  <td>CLocale</td>
+</tr>
+<tr id="dateFormatter">
+  <td><a href="CLocale.html#dateFormatter-detail">dateFormatter</a></td>
+  <td><a href="CDateFormatter.html">CDateFormatter</a></td>
+  <td>the date formatter for this locale</td>
+  <td>CLocale</td>
+</tr>
+<tr id="dateTimeFormat">
+  <td><a href="CLocale.html#dateTimeFormat-detail">dateTimeFormat</a></td>
+  <td>string</td>
+  <td>datetime format, i.</td>
+  <td>CLocale</td>
+</tr>
+<tr id="decimalFormat">
+  <td><a href="CLocale.html#decimalFormat-detail">decimalFormat</a></td>
+  <td>string</td>
+  <td>the decimal format</td>
+  <td>CLocale</td>
+</tr>
+<tr id="id">
+  <td><a href="CLocale.html#id-detail">id</a></td>
+  <td>string</td>
+  <td>the locale ID (in canonical form)</td>
+  <td>CLocale</td>
+</tr>
+<tr id="monthNames">
+  <td><a href="CLocale.html#monthNames-detail">monthNames</a></td>
+  <td>array</td>
+  <td>Returns the month names in the specified width.</td>
+  <td>CLocale</td>
+</tr>
+<tr id="numberFormatter">
+  <td><a href="CLocale.html#numberFormatter-detail">numberFormatter</a></td>
+  <td><a href="CNumberFormatter.html">CNumberFormatter</a></td>
+  <td>the number formatter for this locale</td>
+  <td>CLocale</td>
+</tr>
+<tr id="orientation">
+  <td><a href="CLocale.html#orientation-detail">orientation</a></td>
+  <td>string</td>
+  <td>the character orientation, which is either 'ltr' (left-to-right) or 'rtl' (right-to-left)</td>
+  <td>CLocale</td>
+</tr>
+<tr id="pMName">
+  <td><a href="CLocale.html#pMName-detail">pMName</a></td>
+  <td>string</td>
+  <td>the PM name</td>
+  <td>CLocale</td>
+</tr>
+<tr id="percentFormat">
+  <td><a href="CLocale.html#percentFormat-detail">percentFormat</a></td>
+  <td>string</td>
+  <td>the percent format</td>
+  <td>CLocale</td>
+</tr>
+<tr id="pluralRules">
+  <td><a href="CLocale.html#pluralRules-detail">pluralRules</a></td>
+  <td>array</td>
+  <td>plural forms expressions</td>
+  <td>CLocale</td>
+</tr>
+<tr id="scientificFormat">
+  <td><a href="CLocale.html#scientificFormat-detail">scientificFormat</a></td>
+  <td>string</td>
+  <td>the scientific format</td>
+  <td>CLocale</td>
+</tr>
+<tr id="timeFormat">
+  <td><a href="CLocale.html#timeFormat-detail">timeFormat</a></td>
+  <td>string</td>
+  <td>date format</td>
+  <td>CLocale</td>
+</tr>
+<tr id="weekDayNames">
+  <td><a href="CLocale.html#weekDayNames-detail">weekDayNames</a></td>
+  <td>array</td>
+  <td>Returns the week day names in the specified width.</td>
+  <td>CLocale</td>
+</tr>
+</table>
+</div>
+<a name="methods"></a>
+
+<div class="summary docMethod">
+<h2>Public Methods</h2>
+
+<p><a href="#" class="toggle">Hide inherited methods</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-method" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>Method</th><th>Description</th><th>Defined By</th>
+</tr>
+<tr class="inherited" id="__call">
+  <td><a href="CComponent.html#__call-detail">__call()</a></td>
+  <td>Calls the named method which is not a class method.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__get">
+  <td><a href="CComponent.html#__get-detail">__get()</a></td>
+  <td>Returns a property value, an event handler list or a behavior based on its name.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__isset">
+  <td><a href="CComponent.html#__isset-detail">__isset()</a></td>
+  <td>Checks if a property value is null.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__set">
+  <td><a href="CComponent.html#__set-detail">__set()</a></td>
+  <td>Sets value of a component property.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__unset">
+  <td><a href="CComponent.html#__unset-detail">__unset()</a></td>
+  <td>Sets a component property to be null.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="asa">
+  <td><a href="CComponent.html#asa-detail">asa()</a></td>
+  <td>Returns the named behavior object.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="attachBehavior">
+  <td><a href="CComponent.html#attachBehavior-detail">attachBehavior()</a></td>
+  <td>Attaches a behavior to this component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="attachBehaviors">
+  <td><a href="CComponent.html#attachBehaviors-detail">attachBehaviors()</a></td>
+  <td>Attaches a list of behaviors to the component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="attachEventHandler">
+  <td><a href="CComponent.html#attachEventHandler-detail">attachEventHandler()</a></td>
+  <td>Attaches an event handler to an event.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="canGetProperty">
+  <td><a href="CComponent.html#canGetProperty-detail">canGetProperty()</a></td>
+  <td>Determines whether a property can be read.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="canSetProperty">
+  <td><a href="CComponent.html#canSetProperty-detail">canSetProperty()</a></td>
+  <td>Determines whether a property can be set.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="detachBehavior">
+  <td><a href="CComponent.html#detachBehavior-detail">detachBehavior()</a></td>
+  <td>Detaches a behavior from the component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="detachBehaviors">
+  <td><a href="CComponent.html#detachBehaviors-detail">detachBehaviors()</a></td>
+  <td>Detaches all behaviors from the component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="detachEventHandler">
+  <td><a href="CComponent.html#detachEventHandler-detail">detachEventHandler()</a></td>
+  <td>Detaches an existing event handler.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="disableBehavior">
+  <td><a href="CComponent.html#disableBehavior-detail">disableBehavior()</a></td>
+  <td>Disables an attached behavior.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="disableBehaviors">
+  <td><a href="CComponent.html#disableBehaviors-detail">disableBehaviors()</a></td>
+  <td>Disables all behaviors attached to this component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="enableBehavior">
+  <td><a href="CComponent.html#enableBehavior-detail">enableBehavior()</a></td>
+  <td>Enables an attached behavior.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="enableBehaviors">
+  <td><a href="CComponent.html#enableBehaviors-detail">enableBehaviors()</a></td>
+  <td>Enables all behaviors attached to this component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="evaluateExpression">
+  <td><a href="CComponent.html#evaluateExpression-detail">evaluateExpression()</a></td>
+  <td>Evaluates a PHP expression or callback under the context of this component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr id="getAMName">
+  <td><a href="CLocale.html#getAMName-detail">getAMName()</a></td>
+  <td>Returns the AM name</td>
+  <td>CLocale</td>
+</tr>
+<tr id="getCanonicalID">
+  <td><a href="CLocale.html#getCanonicalID-detail">getCanonicalID()</a></td>
+  <td>Converts a locale ID to its canonical form.</td>
+  <td>CLocale</td>
+</tr>
+<tr id="getCurrencyFormat">
+  <td><a href="CLocale.html#getCurrencyFormat-detail">getCurrencyFormat()</a></td>
+  <td>Returns the currency format</td>
+  <td>CLocale</td>
+</tr>
+<tr id="getCurrencySymbol">
+  <td><a href="CLocale.html#getCurrencySymbol-detail">getCurrencySymbol()</a></td>
+  <td>Returns the localized currency symbol. Null if the symbol does not exist.</td>
+  <td>CLocale</td>
+</tr>
+<tr id="getDateFormat">
+  <td><a href="CLocale.html#getDateFormat-detail">getDateFormat()</a></td>
+  <td>Returns date format</td>
+  <td>CLocale</td>
+</tr>
+<tr id="getDateFormatter">
+  <td><a href="CLocale.html#getDateFormatter-detail">getDateFormatter()</a></td>
+  <td>Returns the date formatter for this locale</td>
+  <td>CLocale</td>
+</tr>
+<tr id="getDateTimeFormat">
+  <td><a href="CLocale.html#getDateTimeFormat-detail">getDateTimeFormat()</a></td>
+  <td>Returns datetime format, i.e., the order of date and time.</td>
+  <td>CLocale</td>
+</tr>
+<tr id="getDecimalFormat">
+  <td><a href="CLocale.html#getDecimalFormat-detail">getDecimalFormat()</a></td>
+  <td>Returns the decimal format</td>
+  <td>CLocale</td>
+</tr>
+<tr id="getEraName">
+  <td><a href="CLocale.html#getEraName-detail">getEraName()</a></td>
+  <td>Returns the era name</td>
+  <td>CLocale</td>
+</tr>
+<tr class="inherited" id="getEventHandlers">
+  <td><a href="CComponent.html#getEventHandlers-detail">getEventHandlers()</a></td>
+  <td>Returns the list of attached event handlers for an event.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr id="getId">
+  <td><a href="CLocale.html#getId-detail">getId()</a></td>
+  <td>Returns the locale ID (in canonical form)</td>
+  <td>CLocale</td>
+</tr>
+<tr id="getInstance">
+  <td><a href="CLocale.html#getInstance-detail">getInstance()</a></td>
+  <td>Returns the instance of the specified locale.</td>
+  <td>CLocale</td>
+</tr>
+<tr id="getLocaleIDs">
+  <td><a href="CLocale.html#getLocaleIDs-detail">getLocaleIDs()</a></td>
+  <td>Returns IDs of the locales which the framework can recognize</td>
+  <td>CLocale</td>
+</tr>
+<tr id="getMonthName">
+  <td><a href="CLocale.html#getMonthName-detail">getMonthName()</a></td>
+  <td>Returns the month name</td>
+  <td>CLocale</td>
+</tr>
+<tr id="getMonthNames">
+  <td><a href="CLocale.html#getMonthNames-detail">getMonthNames()</a></td>
+  <td>Returns the month names in the specified width.</td>
+  <td>CLocale</td>
+</tr>
+<tr id="getNumberFormatter">
+  <td><a href="CLocale.html#getNumberFormatter-detail">getNumberFormatter()</a></td>
+  <td>Returns the number formatter for this locale</td>
+  <td>CLocale</td>
+</tr>
+<tr id="getNumberSymbol">
+  <td><a href="CLocale.html#getNumberSymbol-detail">getNumberSymbol()</a></td>
+  <td>Returns symbol</td>
+  <td>CLocale</td>
+</tr>
+<tr id="getOrientation">
+  <td><a href="CLocale.html#getOrientation-detail">getOrientation()</a></td>
+  <td>Returns the character orientation, which is either 'ltr' (left-to-right) or 'rtl' (right-to-left)</td>
+  <td>CLocale</td>
+</tr>
+<tr id="getPMName">
+  <td><a href="CLocale.html#getPMName-detail">getPMName()</a></td>
+  <td>Returns the PM name</td>
+  <td>CLocale</td>
+</tr>
+<tr id="getPercentFormat">
+  <td><a href="CLocale.html#getPercentFormat-detail">getPercentFormat()</a></td>
+  <td>Returns the percent format</td>
+  <td>CLocale</td>
+</tr>
+<tr id="getPluralRules">
+  <td><a href="CLocale.html#getPluralRules-detail">getPluralRules()</a></td>
+  <td>Returns plural forms expressions</td>
+  <td>CLocale</td>
+</tr>
+<tr id="getScientificFormat">
+  <td><a href="CLocale.html#getScientificFormat-detail">getScientificFormat()</a></td>
+  <td>Returns the scientific format</td>
+  <td>CLocale</td>
+</tr>
+<tr id="getTimeFormat">
+  <td><a href="CLocale.html#getTimeFormat-detail">getTimeFormat()</a></td>
+  <td>Returns date format</td>
+  <td>CLocale</td>
+</tr>
+<tr id="getWeekDayName">
+  <td><a href="CLocale.html#getWeekDayName-detail">getWeekDayName()</a></td>
+  <td>Returns the weekday name</td>
+  <td>CLocale</td>
+</tr>
+<tr id="getWeekDayNames">
+  <td><a href="CLocale.html#getWeekDayNames-detail">getWeekDayNames()</a></td>
+  <td>Returns the week day names in the specified width.</td>
+  <td>CLocale</td>
+</tr>
+<tr class="inherited" id="hasEvent">
+  <td><a href="CComponent.html#hasEvent-detail">hasEvent()</a></td>
+  <td>Determines whether an event is defined.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="hasEventHandler">
+  <td><a href="CComponent.html#hasEventHandler-detail">hasEventHandler()</a></td>
+  <td>Checks whether the named event has attached handlers.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="hasProperty">
+  <td><a href="CComponent.html#hasProperty-detail">hasProperty()</a></td>
+  <td>Determines whether a property is defined.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="raiseEvent">
+  <td><a href="CComponent.html#raiseEvent-detail">raiseEvent()</a></td>
+  <td>Raises an event.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+</table>
+</div>
+<div class="summary docMethod">
+<h2>Protected Methods</h2>
+
+<p><a href="#" class="toggle">Hide inherited methods</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-method" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>Method</th><th>Description</th><th>Defined By</th>
+</tr>
+<tr id="__construct">
+  <td><a href="CLocale.html#__construct-detail">__construct()</a></td>
+  <td>Constructor.</td>
+  <td>CLocale</td>
+</tr>
+</table>
+</div>
+<a name="events"></a>
+
+<h2>Property Details</h2>
+<div class="detailHeader" id="aMName-detail">
+aMName<span class="detailHeaderTag">
+property
+ <em>read-only</em> </span>
+</div>
+
+<div class="signature">
+public string <a href="CLocale.html#getAMName"><b>getAMName</b></a>()</div>
+
+<p>the AM name</p>
+
+
+<div class="detailHeader" id="currencyFormat-detail">
+currencyFormat<span class="detailHeaderTag">
+property
+ <em>read-only</em> </span>
+</div>
+
+<div class="signature">
+public string <a href="CLocale.html#getCurrencyFormat"><b>getCurrencyFormat</b></a>()</div>
+
+<p>the currency format</p>
+
+
+<div class="detailHeader" id="dataPath-detail">
+dataPath<span class="detailHeaderTag">
+property
+ (available since v1.1.0)
+</span>
+</div>
+
+<div class="signature">
+public static string <b>$dataPath</b>;</div>
+
+<p>the directory that contains the locale data. If this property is not set,
+the locale data will be loaded from 'framework/i18n/data'.</p>
+
+
+<div class="detailHeader" id="dateFormat-detail">
+dateFormat<span class="detailHeaderTag">
+property
+ <em>read-only</em> </span>
+</div>
+
+<div class="signature">
+public string <a href="CLocale.html#getDateFormat"><b>getDateFormat</b></a>(string $width='medium')</div>
+
+<p>date format</p>
+
+
+<div class="detailHeader" id="dateFormatter-detail">
+dateFormatter<span class="detailHeaderTag">
+property
+ <em>read-only</em> </span>
+</div>
+
+<div class="signature">
+public <a href="CDateFormatter.html">CDateFormatter</a> <a href="CLocale.html#getDateFormatter"><b>getDateFormatter</b></a>()</div>
+
+<p>the date formatter for this locale</p>
+
+
+<div class="detailHeader" id="dateTimeFormat-detail">
+dateTimeFormat<span class="detailHeaderTag">
+property
+ <em>read-only</em> </span>
+</div>
+
+<div class="signature">
+public string <a href="CLocale.html#getDateTimeFormat"><b>getDateTimeFormat</b></a>()</div>
+
+<p>datetime format, i.e., the order of date and time.</p>
+
+
+<div class="detailHeader" id="decimalFormat-detail">
+decimalFormat<span class="detailHeaderTag">
+property
+ <em>read-only</em> </span>
+</div>
+
+<div class="signature">
+public string <a href="CLocale.html#getDecimalFormat"><b>getDecimalFormat</b></a>()</div>
+
+<p>the decimal format</p>
+
+
+<div class="detailHeader" id="id-detail">
+id<span class="detailHeaderTag">
+property
+ <em>read-only</em> </span>
+</div>
+
+<div class="signature">
+public string <a href="CLocale.html#getId"><b>getId</b></a>()</div>
+
+<p>the locale ID (in canonical form)</p>
+
+
+<div class="detailHeader" id="monthNames-detail">
+monthNames<span class="detailHeaderTag">
+property
+ <em>read-only</em>  (available since v1.0.9)
+</span>
+</div>
+
+<div class="signature">
+public array <a href="CLocale.html#getMonthNames"><b>getMonthNames</b></a>(string $width='wide', boolean $standAlone=false)</div>
+
+<p>Returns the month names in the specified width.</p>
+
+
+<div class="detailHeader" id="numberFormatter-detail">
+numberFormatter<span class="detailHeaderTag">
+property
+ <em>read-only</em> </span>
+</div>
+
+<div class="signature">
+public <a href="CNumberFormatter.html">CNumberFormatter</a> <a href="CLocale.html#getNumberFormatter"><b>getNumberFormatter</b></a>()</div>
+
+<p>the number formatter for this locale</p>
+
+
+<div class="detailHeader" id="orientation-detail">
+orientation<span class="detailHeaderTag">
+property
+ <em>read-only</em>  (available since v1.1.2)
+</span>
+</div>
+
+<div class="signature">
+public string <a href="CLocale.html#getOrientation"><b>getOrientation</b></a>()</div>
+
+<p>the character orientation, which is either 'ltr' (left-to-right) or 'rtl' (right-to-left)</p>
+
+
+<div class="detailHeader" id="pMName-detail">
+pMName<span class="detailHeaderTag">
+property
+ <em>read-only</em> </span>
+</div>
+
+<div class="signature">
+public string <a href="CLocale.html#getPMName"><b>getPMName</b></a>()</div>
+
+<p>the PM name</p>
+
+
+<div class="detailHeader" id="percentFormat-detail">
+percentFormat<span class="detailHeaderTag">
+property
+ <em>read-only</em> </span>
+</div>
+
+<div class="signature">
+public string <a href="CLocale.html#getPercentFormat"><b>getPercentFormat</b></a>()</div>
+
+<p>the percent format</p>
+
+
+<div class="detailHeader" id="pluralRules-detail">
+pluralRules<span class="detailHeaderTag">
+property
+ <em>read-only</em> </span>
+</div>
+
+<div class="signature">
+public array <a href="CLocale.html#getPluralRules"><b>getPluralRules</b></a>()</div>
+
+<p>plural forms expressions</p>
+
+
+<div class="detailHeader" id="scientificFormat-detail">
+scientificFormat<span class="detailHeaderTag">
+property
+ <em>read-only</em> </span>
+</div>
+
+<div class="signature">
+public string <a href="CLocale.html#getScientificFormat"><b>getScientificFormat</b></a>()</div>
+
+<p>the scientific format</p>
+
+
+<div class="detailHeader" id="timeFormat-detail">
+timeFormat<span class="detailHeaderTag">
+property
+ <em>read-only</em> </span>
+</div>
+
+<div class="signature">
+public string <a href="CLocale.html#getTimeFormat"><b>getTimeFormat</b></a>(string $width='medium')</div>
+
+<p>date format</p>
+
+
+<div class="detailHeader" id="weekDayNames-detail">
+weekDayNames<span class="detailHeaderTag">
+property
+ <em>read-only</em>  (available since v1.0.9)
+</span>
+</div>
+
+<div class="signature">
+public array <a href="CLocale.html#getWeekDayNames"><b>getWeekDayNames</b></a>(string $width='wide', boolean $standAlone=false)</div>
+
+<p>Returns the week day names in the specified width.</p>
+
+
+<h2>Method Details</h2>
+
+<div class="detailHeader" id="__construct-detail">
+__construct()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+protected void <b>__construct</b>(string $id)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$id</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the locale ID (e.g. en_US)</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/i18n/CLocale.php#80">framework/i18n/CLocale.php#80</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">protected&nbsp;function&nbsp;</span><span style="color: #0000BB">__construct</span><span style="color: #007700">(</span><span style="color: #0000BB">$id</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_id</span><span style="color: #007700">=</span><span style="color: #0000BB">self</span><span style="color: #007700">::</span><span style="color: #0000BB">getCanonicalID</span><span style="color: #007700">(</span><span style="color: #0000BB">$id</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$dataPath</span><span style="color: #007700">=</span><span style="color: #0000BB">self</span><span style="color: #007700">::</span><span style="color: #0000BB">$dataPath</span><span style="color: #007700">===</span><span style="color: #0000BB">null&nbsp;</span><span style="color: #007700">?&nbsp;</span><span style="color: #0000BB">dirname</span><span style="color: #007700">(</span><span style="color: #0000BB">__FILE__</span><span style="color: #007700">).</span><span style="color: #0000BB">DIRECTORY_SEPARATOR</span><span style="color: #007700">.</span><span style="color: #DD0000">'data'&nbsp;</span><span style="color: #007700">:&nbsp;</span><span style="color: #0000BB">self</span><span style="color: #007700">::</span><span style="color: #0000BB">$dataPath</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$dataFile</span><span style="color: #007700">=</span><span style="color: #0000BB">$dataPath</span><span style="color: #007700">.</span><span style="color: #0000BB">DIRECTORY_SEPARATOR</span><span style="color: #007700">.</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_id</span><span style="color: #007700">.</span><span style="color: #DD0000">'.php'</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">is_file</span><span style="color: #007700">(</span><span style="color: #0000BB">$dataFile</span><span style="color: #007700">))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_data</span><span style="color: #007700">=require(</span><span style="color: #0000BB">$dataFile</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throw&nbsp;new&nbsp;</span><span style="color: #0000BB">CException</span><span style="color: #007700">(</span><span style="color: #0000BB">Yii</span><span style="color: #007700">::</span><span style="color: #0000BB">t</span><span style="color: #007700">(</span><span style="color: #DD0000">'yii'</span><span style="color: #007700">,</span><span style="color: #DD0000">'Unrecognized&nbsp;locale&nbsp;"{locale}".'</span><span style="color: #007700">,array(</span><span style="color: #DD0000">'{locale}'</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">$id</span><span style="color: #007700">)));<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Constructor.
+Since the constructor is protected, please use <a href="CLocale.html#getInstance">getInstance</a>
+to obtain an instance of the specified locale.</p>
+
+
+<div class="detailHeader" id="getAMName-detail">
+getAMName()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>getAMName</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the AM name</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/i18n/CLocale.php#251">framework/i18n/CLocale.php#251</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getAMName</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_data</span><span style="color: #007700">[</span><span style="color: #DD0000">'amName'</span><span style="color: #007700">];<br />}</span>
+</span>
+</code></div>
+</div>
+<p></p>
+
+
+<div class="detailHeader" id="getCanonicalID-detail">
+getCanonicalID()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public static string <b>getCanonicalID</b>(string $id)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$id</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the locale ID to be converted</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the locale ID in canonical form</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/i18n/CLocale.php#97">framework/i18n/CLocale.php#97</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;static&nbsp;function&nbsp;</span><span style="color: #0000BB">getCanonicalID</span><span style="color: #007700">(</span><span style="color: #0000BB">$id</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">strtolower</span><span style="color: #007700">(</span><span style="color: #0000BB">str_replace</span><span style="color: #007700">(</span><span style="color: #DD0000">'-'</span><span style="color: #007700">,</span><span style="color: #DD0000">'_'</span><span style="color: #007700">,</span><span style="color: #0000BB">$id</span><span style="color: #007700">));<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Converts a locale ID to its canonical form.
+In canonical form, a locale ID consists of only underscores and lower-case letters.</p>
+
+
+<div class="detailHeader" id="getCurrencyFormat-detail">
+getCurrencyFormat()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>getCurrencyFormat</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the currency format</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/i18n/CLocale.php#159">framework/i18n/CLocale.php#159</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getCurrencyFormat</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_data</span><span style="color: #007700">[</span><span style="color: #DD0000">'currencyFormat'</span><span style="color: #007700">];<br />}</span>
+</span>
+</code></div>
+</div>
+<p></p>
+
+
+<div class="detailHeader" id="getCurrencySymbol-detail">
+getCurrencySymbol()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>getCurrencySymbol</b>(string $currency)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$currency</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">3-letter ISO 4217 code. For example, the code "USD" represents the US Dollar and "EUR" represents the Euro currency.</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the localized currency symbol. Null if the symbol does not exist.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/i18n/CLocale.php#134">framework/i18n/CLocale.php#134</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getCurrencySymbol</span><span style="color: #007700">(</span><span style="color: #0000BB">$currency</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;isset(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_data</span><span style="color: #007700">[</span><span style="color: #DD0000">'currencySymbols'</span><span style="color: #007700">][</span><span style="color: #0000BB">$currency</span><span style="color: #007700">])&nbsp;?&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_data</span><span style="color: #007700">[</span><span style="color: #DD0000">'currencySymbols'</span><span style="color: #007700">][</span><span style="color: #0000BB">$currency</span><span style="color: #007700">]&nbsp;:&nbsp;</span><span style="color: #0000BB">null</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p></p>
+
+
+<div class="detailHeader" id="getDateFormat-detail">
+getDateFormat()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>getDateFormat</b>(string $width='medium')</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$width</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">date format width. It can be 'full', 'long', 'medium' or 'short'.</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">date format</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/i18n/CLocale.php#268">framework/i18n/CLocale.php#268</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getDateFormat</span><span style="color: #007700">(</span><span style="color: #0000BB">$width</span><span style="color: #007700">=</span><span style="color: #DD0000">'medium'</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_data</span><span style="color: #007700">[</span><span style="color: #DD0000">'dateFormats'</span><span style="color: #007700">][</span><span style="color: #0000BB">$width</span><span style="color: #007700">];<br />}</span>
+</span>
+</code></div>
+</div>
+<p></p>
+
+
+<div class="detailHeader" id="getDateFormatter-detail">
+getDateFormatter()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public <a href="CDateFormatter.html">CDateFormatter</a> <b>getDateFormatter</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol"><a href="CDateFormatter.html">CDateFormatter</a></td>
+  <td class="paramDescCol">the date formatter for this locale</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/i18n/CLocale.php#123">framework/i18n/CLocale.php#123</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getDateFormatter</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_dateFormatter</span><span style="color: #007700">===</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_dateFormatter</span><span style="color: #007700">=new&nbsp;</span><span style="color: #0000BB">CDateFormatter</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_dateFormatter</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p></p>
+
+
+<div class="detailHeader" id="getDateTimeFormat-detail">
+getDateTimeFormat()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>getDateTimeFormat</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">datetime format, i.e., the order of date and time.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/i18n/CLocale.php#285">framework/i18n/CLocale.php#285</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getDateTimeFormat</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_data</span><span style="color: #007700">[</span><span style="color: #DD0000">'dateTimeFormat'</span><span style="color: #007700">];<br />}</span>
+</span>
+</code></div>
+</div>
+<p></p>
+
+
+<div class="detailHeader" id="getDecimalFormat-detail">
+getDecimalFormat()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>getDecimalFormat</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the decimal format</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/i18n/CLocale.php#151">framework/i18n/CLocale.php#151</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getDecimalFormat</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_data</span><span style="color: #007700">[</span><span style="color: #DD0000">'decimalFormat'</span><span style="color: #007700">];<br />}</span>
+</span>
+</code></div>
+</div>
+<p></p>
+
+
+<div class="detailHeader" id="getEraName-detail">
+getEraName()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>getEraName</b>(integer $era, string $width='wide')</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$era</td>
+  <td class="paramTypeCol">integer</td>
+  <td class="paramDescCol">era (0,1)</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$width</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">era name width.  It can be 'wide', 'abbreviated' or 'narrow'.</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the era name</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/i18n/CLocale.php#243">framework/i18n/CLocale.php#243</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getEraName</span><span style="color: #007700">(</span><span style="color: #0000BB">$era</span><span style="color: #007700">,</span><span style="color: #0000BB">$width</span><span style="color: #007700">=</span><span style="color: #DD0000">'wide'</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_data</span><span style="color: #007700">[</span><span style="color: #DD0000">'eraNames'</span><span style="color: #007700">][</span><span style="color: #0000BB">$width</span><span style="color: #007700">][</span><span style="color: #0000BB">$era</span><span style="color: #007700">];<br />}</span>
+</span>
+</code></div>
+</div>
+<p></p>
+
+
+<div class="detailHeader" id="getId-detail">
+getId()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>getId</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the locale ID (in canonical form)</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/i18n/CLocale.php#105">framework/i18n/CLocale.php#105</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getId</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_id</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p></p>
+
+
+<div class="detailHeader" id="getInstance-detail">
+getInstance()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public static CLocale <b>getInstance</b>(string $id)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$id</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the locale ID (e.g. en_US)</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">CLocale</td>
+  <td class="paramDescCol">the locale instance</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/i18n/CLocale.php#42">framework/i18n/CLocale.php#42</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;static&nbsp;function&nbsp;</span><span style="color: #0000BB">getInstance</span><span style="color: #007700">(</span><span style="color: #0000BB">$id</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;static&nbsp;</span><span style="color: #0000BB">$locales</span><span style="color: #007700">=array();<br />&nbsp;&nbsp;&nbsp;&nbsp;if(isset(</span><span style="color: #0000BB">$locales</span><span style="color: #007700">[</span><span style="color: #0000BB">$id</span><span style="color: #007700">]))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$locales</span><span style="color: #007700">[</span><span style="color: #0000BB">$id</span><span style="color: #007700">];<br />&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$locales</span><span style="color: #007700">[</span><span style="color: #0000BB">$id</span><span style="color: #007700">]=new&nbsp;</span><span style="color: #0000BB">CLocale</span><span style="color: #007700">(</span><span style="color: #0000BB">$id</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Returns the instance of the specified locale.
+Since the constructor of CLocale is protected, you can only use
+this method to obtain an instance of the specified locale.</p>
+
+
+<div class="detailHeader" id="getLocaleIDs-detail">
+getLocaleIDs()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public static array <b>getLocaleIDs</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">IDs of the locales which the framework can recognize</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/i18n/CLocale.php#54">framework/i18n/CLocale.php#54</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;static&nbsp;function&nbsp;</span><span style="color: #0000BB">getLocaleIDs</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;static&nbsp;</span><span style="color: #0000BB">$locales</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$locales</span><span style="color: #007700">===</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$locales</span><span style="color: #007700">=array();<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$dataPath</span><span style="color: #007700">=</span><span style="color: #0000BB">self</span><span style="color: #007700">::</span><span style="color: #0000BB">$dataPath</span><span style="color: #007700">===</span><span style="color: #0000BB">null&nbsp;</span><span style="color: #007700">?&nbsp;</span><span style="color: #0000BB">dirname</span><span style="color: #007700">(</span><span style="color: #0000BB">__FILE__</span><span style="color: #007700">).</span><span style="color: #0000BB">DIRECTORY_SEPARATOR</span><span style="color: #007700">.</span><span style="color: #DD0000">'data'&nbsp;</span><span style="color: #007700">:&nbsp;</span><span style="color: #0000BB">self</span><span style="color: #007700">::</span><span style="color: #0000BB">$dataPath</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$folder</span><span style="color: #007700">=@</span><span style="color: #0000BB">opendir</span><span style="color: #007700">(</span><span style="color: #0000BB">$dataPath</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;while((</span><span style="color: #0000BB">$file</span><span style="color: #007700">=@</span><span style="color: #0000BB">readdir</span><span style="color: #007700">(</span><span style="color: #0000BB">$folder</span><span style="color: #007700">))!==</span><span style="color: #0000BB">false</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$fullPath</span><span style="color: #007700">=</span><span style="color: #0000BB">$dataPath</span><span style="color: #007700">.</span><span style="color: #0000BB">DIRECTORY_SEPARATOR</span><span style="color: #007700">.</span><span style="color: #0000BB">$file</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">substr</span><span style="color: #007700">(</span><span style="color: #0000BB">$file</span><span style="color: #007700">,-</span><span style="color: #0000BB">4</span><span style="color: #007700">)===</span><span style="color: #DD0000">'.php'&nbsp;</span><span style="color: #007700">&amp;&amp;&nbsp;</span><span style="color: #0000BB">is_file</span><span style="color: #007700">(</span><span style="color: #0000BB">$fullPath</span><span style="color: #007700">))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$locales</span><span style="color: #007700">[]=</span><span style="color: #0000BB">substr</span><span style="color: #007700">(</span><span style="color: #0000BB">$file</span><span style="color: #007700">,</span><span style="color: #0000BB">0</span><span style="color: #007700">,-</span><span style="color: #0000BB">4</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">closedir</span><span style="color: #007700">(</span><span style="color: #0000BB">$folder</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">sort</span><span style="color: #007700">(</span><span style="color: #0000BB">$locales</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$locales</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p></p>
+
+
+<div class="detailHeader" id="getMonthName-detail">
+getMonthName()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>getMonthName</b>(integer $month, string $width='wide', boolean $standAlone=false)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$month</td>
+  <td class="paramTypeCol">integer</td>
+  <td class="paramDescCol">month (1-12)</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$width</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">month name width. It can be 'wide', 'abbreviated' or 'narrow'.</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$standAlone</td>
+  <td class="paramTypeCol">boolean</td>
+  <td class="paramDescCol">whether the month name should be returned in stand-alone format</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the month name</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/i18n/CLocale.php#186">framework/i18n/CLocale.php#186</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getMonthName</span><span style="color: #007700">(</span><span style="color: #0000BB">$month</span><span style="color: #007700">,</span><span style="color: #0000BB">$width</span><span style="color: #007700">=</span><span style="color: #DD0000">'wide'</span><span style="color: #007700">,</span><span style="color: #0000BB">$standAlone</span><span style="color: #007700">=</span><span style="color: #0000BB">false</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$standAlone</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;isset(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_data</span><span style="color: #007700">[</span><span style="color: #DD0000">'monthNamesSA'</span><span style="color: #007700">][</span><span style="color: #0000BB">$width</span><span style="color: #007700">][</span><span style="color: #0000BB">$month</span><span style="color: #007700">])&nbsp;?&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_data</span><span style="color: #007700">[</span><span style="color: #DD0000">'monthNamesSA'</span><span style="color: #007700">][</span><span style="color: #0000BB">$width</span><span style="color: #007700">][</span><span style="color: #0000BB">$month</span><span style="color: #007700">]&nbsp;:&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_data</span><span style="color: #007700">[</span><span style="color: #DD0000">'monthNames'</span><span style="color: #007700">][</span><span style="color: #0000BB">$width</span><span style="color: #007700">][</span><span style="color: #0000BB">$month</span><span style="color: #007700">];<br />&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;isset(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_data</span><span style="color: #007700">[</span><span style="color: #DD0000">'monthNames'</span><span style="color: #007700">][</span><span style="color: #0000BB">$width</span><span style="color: #007700">][</span><span style="color: #0000BB">$month</span><span style="color: #007700">])&nbsp;?&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_data</span><span style="color: #007700">[</span><span style="color: #DD0000">'monthNames'</span><span style="color: #007700">][</span><span style="color: #0000BB">$width</span><span style="color: #007700">][</span><span style="color: #0000BB">$month</span><span style="color: #007700">]&nbsp;:&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_data</span><span style="color: #007700">[</span><span style="color: #DD0000">'monthNamesSA'</span><span style="color: #007700">][</span><span style="color: #0000BB">$width</span><span style="color: #007700">][</span><span style="color: #0000BB">$month</span><span style="color: #007700">];<br />}</span>
+</span>
+</code></div>
+</div>
+<p></p>
+
+
+<div class="detailHeader" id="getMonthNames-detail">
+getMonthNames()
+<span class="detailHeaderTag">
+method
+(available since v1.0.9)
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public array <b>getMonthNames</b>(string $width='wide', boolean $standAlone=false)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$width</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">month name width. It can be 'wide', 'abbreviated' or 'narrow'.</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$standAlone</td>
+  <td class="paramTypeCol">boolean</td>
+  <td class="paramDescCol">whether the month names should be returned in stand-alone format</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">month names indexed by month values (1-12)</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/i18n/CLocale.php#201">framework/i18n/CLocale.php#201</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getMonthNames</span><span style="color: #007700">(</span><span style="color: #0000BB">$width</span><span style="color: #007700">=</span><span style="color: #DD0000">'wide'</span><span style="color: #007700">,</span><span style="color: #0000BB">$standAlone</span><span style="color: #007700">=</span><span style="color: #0000BB">false</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$standAlone</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;isset(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_data</span><span style="color: #007700">[</span><span style="color: #DD0000">'monthNamesSA'</span><span style="color: #007700">][</span><span style="color: #0000BB">$width</span><span style="color: #007700">])&nbsp;?&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_data</span><span style="color: #007700">[</span><span style="color: #DD0000">'monthNamesSA'</span><span style="color: #007700">][</span><span style="color: #0000BB">$width</span><span style="color: #007700">]&nbsp;:&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_data</span><span style="color: #007700">[</span><span style="color: #DD0000">'monthNames'</span><span style="color: #007700">][</span><span style="color: #0000BB">$width</span><span style="color: #007700">];<br />&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;isset(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_data</span><span style="color: #007700">[</span><span style="color: #DD0000">'monthNames'</span><span style="color: #007700">][</span><span style="color: #0000BB">$width</span><span style="color: #007700">])&nbsp;?&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_data</span><span style="color: #007700">[</span><span style="color: #DD0000">'monthNames'</span><span style="color: #007700">][</span><span style="color: #0000BB">$width</span><span style="color: #007700">]&nbsp;:&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_data</span><span style="color: #007700">[</span><span style="color: #DD0000">'monthNamesSA'</span><span style="color: #007700">][</span><span style="color: #0000BB">$width</span><span style="color: #007700">];<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Returns the month names in the specified width.</p>
+
+
+<div class="detailHeader" id="getNumberFormatter-detail">
+getNumberFormatter()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public <a href="CNumberFormatter.html">CNumberFormatter</a> <b>getNumberFormatter</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol"><a href="CNumberFormatter.html">CNumberFormatter</a></td>
+  <td class="paramDescCol">the number formatter for this locale</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/i18n/CLocale.php#113">framework/i18n/CLocale.php#113</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getNumberFormatter</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_numberFormatter</span><span style="color: #007700">===</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_numberFormatter</span><span style="color: #007700">=new&nbsp;</span><span style="color: #0000BB">CNumberFormatter</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_numberFormatter</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p></p>
+
+
+<div class="detailHeader" id="getNumberSymbol-detail">
+getNumberSymbol()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>getNumberSymbol</b>(string $name)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$name</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">symbol name</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">symbol</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/i18n/CLocale.php#143">framework/i18n/CLocale.php#143</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getNumberSymbol</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;isset(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_data</span><span style="color: #007700">[</span><span style="color: #DD0000">'numberSymbols'</span><span style="color: #007700">][</span><span style="color: #0000BB">$name</span><span style="color: #007700">])&nbsp;?&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_data</span><span style="color: #007700">[</span><span style="color: #DD0000">'numberSymbols'</span><span style="color: #007700">][</span><span style="color: #0000BB">$name</span><span style="color: #007700">]&nbsp;:&nbsp;</span><span style="color: #0000BB">null</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p></p>
+
+
+<div class="detailHeader" id="getOrientation-detail">
+getOrientation()
+<span class="detailHeaderTag">
+method
+(available since v1.1.2)
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>getOrientation</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the character orientation, which is either 'ltr' (left-to-right) or 'rtl' (right-to-left)</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/i18n/CLocale.php#294">framework/i18n/CLocale.php#294</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getOrientation</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;isset(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_data</span><span style="color: #007700">[</span><span style="color: #DD0000">'orientation'</span><span style="color: #007700">])&nbsp;?&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_data</span><span style="color: #007700">[</span><span style="color: #DD0000">'orientation'</span><span style="color: #007700">]&nbsp;:&nbsp;</span><span style="color: #DD0000">'ltr'</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p></p>
+
+
+<div class="detailHeader" id="getPMName-detail">
+getPMName()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>getPMName</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the PM name</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/i18n/CLocale.php#259">framework/i18n/CLocale.php#259</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getPMName</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_data</span><span style="color: #007700">[</span><span style="color: #DD0000">'pmName'</span><span style="color: #007700">];<br />}</span>
+</span>
+</code></div>
+</div>
+<p></p>
+
+
+<div class="detailHeader" id="getPercentFormat-detail">
+getPercentFormat()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>getPercentFormat</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the percent format</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/i18n/CLocale.php#167">framework/i18n/CLocale.php#167</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getPercentFormat</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_data</span><span style="color: #007700">[</span><span style="color: #DD0000">'percentFormat'</span><span style="color: #007700">];<br />}</span>
+</span>
+</code></div>
+</div>
+<p></p>
+
+
+<div class="detailHeader" id="getPluralRules-detail">
+getPluralRules()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public array <b>getPluralRules</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">plural forms expressions</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/i18n/CLocale.php#302">framework/i18n/CLocale.php#302</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getPluralRules</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;isset(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_data</span><span style="color: #007700">[</span><span style="color: #DD0000">'pluralRules'</span><span style="color: #007700">])&nbsp;?&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_data</span><span style="color: #007700">[</span><span style="color: #DD0000">'pluralRules'</span><span style="color: #007700">]&nbsp;:&nbsp;array();<br />}</span>
+</span>
+</code></div>
+</div>
+<p></p>
+
+
+<div class="detailHeader" id="getScientificFormat-detail">
+getScientificFormat()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>getScientificFormat</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the scientific format</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/i18n/CLocale.php#175">framework/i18n/CLocale.php#175</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getScientificFormat</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_data</span><span style="color: #007700">[</span><span style="color: #DD0000">'scientificFormat'</span><span style="color: #007700">];<br />}</span>
+</span>
+</code></div>
+</div>
+<p></p>
+
+
+<div class="detailHeader" id="getTimeFormat-detail">
+getTimeFormat()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>getTimeFormat</b>(string $width='medium')</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$width</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">time format width. It can be 'full', 'long', 'medium' or 'short'.</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">date format</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/i18n/CLocale.php#277">framework/i18n/CLocale.php#277</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getTimeFormat</span><span style="color: #007700">(</span><span style="color: #0000BB">$width</span><span style="color: #007700">=</span><span style="color: #DD0000">'medium'</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_data</span><span style="color: #007700">[</span><span style="color: #DD0000">'timeFormats'</span><span style="color: #007700">][</span><span style="color: #0000BB">$width</span><span style="color: #007700">];<br />}</span>
+</span>
+</code></div>
+</div>
+<p></p>
+
+
+<div class="detailHeader" id="getWeekDayName-detail">
+getWeekDayName()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>getWeekDayName</b>(integer $day, string $width='wide', boolean $standAlone=false)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$day</td>
+  <td class="paramTypeCol">integer</td>
+  <td class="paramDescCol">weekday (0-6, 0 means Sunday)</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$width</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">weekday name width.  It can be 'wide', 'abbreviated' or 'narrow'.</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$standAlone</td>
+  <td class="paramTypeCol">boolean</td>
+  <td class="paramDescCol">whether the week day name should be returned in stand-alone format</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the weekday name</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/i18n/CLocale.php#215">framework/i18n/CLocale.php#215</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getWeekDayName</span><span style="color: #007700">(</span><span style="color: #0000BB">$day</span><span style="color: #007700">,</span><span style="color: #0000BB">$width</span><span style="color: #007700">=</span><span style="color: #DD0000">'wide'</span><span style="color: #007700">,</span><span style="color: #0000BB">$standAlone</span><span style="color: #007700">=</span><span style="color: #0000BB">false</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$standAlone</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;isset(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_data</span><span style="color: #007700">[</span><span style="color: #DD0000">'weekDayNamesSA'</span><span style="color: #007700">][</span><span style="color: #0000BB">$width</span><span style="color: #007700">][</span><span style="color: #0000BB">$day</span><span style="color: #007700">])&nbsp;?&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_data</span><span style="color: #007700">[</span><span style="color: #DD0000">'weekDayNamesSA'</span><span style="color: #007700">][</span><span style="color: #0000BB">$width</span><span style="color: #007700">][</span><span style="color: #0000BB">$day</span><span style="color: #007700">]&nbsp;:&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_data</span><span style="color: #007700">[</span><span style="color: #DD0000">'weekDayNames'</span><span style="color: #007700">][</span><span style="color: #0000BB">$width</span><span style="color: #007700">][</span><span style="color: #0000BB">$day</span><span style="color: #007700">];<br />&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;isset(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_data</span><span style="color: #007700">[</span><span style="color: #DD0000">'weekDayNames'</span><span style="color: #007700">][</span><span style="color: #0000BB">$width</span><span style="color: #007700">][</span><span style="color: #0000BB">$day</span><span style="color: #007700">])&nbsp;?&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_data</span><span style="color: #007700">[</span><span style="color: #DD0000">'weekDayNames'</span><span style="color: #007700">][</span><span style="color: #0000BB">$width</span><span style="color: #007700">][</span><span style="color: #0000BB">$day</span><span style="color: #007700">]&nbsp;:&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_data</span><span style="color: #007700">[</span><span style="color: #DD0000">'weekDayNamesSA'</span><span style="color: #007700">][</span><span style="color: #0000BB">$width</span><span style="color: #007700">][</span><span style="color: #0000BB">$day</span><span style="color: #007700">];<br />}</span>
+</span>
+</code></div>
+</div>
+<p></p>
+
+
+<div class="detailHeader" id="getWeekDayNames-detail">
+getWeekDayNames()
+<span class="detailHeaderTag">
+method
+(available since v1.0.9)
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public array <b>getWeekDayNames</b>(string $width='wide', boolean $standAlone=false)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$width</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">weekday name width.  It can be 'wide', 'abbreviated' or 'narrow'.</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$standAlone</td>
+  <td class="paramTypeCol">boolean</td>
+  <td class="paramDescCol">whether the week day name should be returned in stand-alone format</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">the weekday names indexed by weekday values (0-6, 0 means Sunday, 1 Monday, etc.)</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/i18n/CLocale.php#230">framework/i18n/CLocale.php#230</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getWeekDayNames</span><span style="color: #007700">(</span><span style="color: #0000BB">$width</span><span style="color: #007700">=</span><span style="color: #DD0000">'wide'</span><span style="color: #007700">,</span><span style="color: #0000BB">$standAlone</span><span style="color: #007700">=</span><span style="color: #0000BB">false</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$standAlone</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;isset(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_data</span><span style="color: #007700">[</span><span style="color: #DD0000">'weekDayNamesSA'</span><span style="color: #007700">][</span><span style="color: #0000BB">$width</span><span style="color: #007700">])&nbsp;?&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_data</span><span style="color: #007700">[</span><span style="color: #DD0000">'weekDayNamesSA'</span><span style="color: #007700">][</span><span style="color: #0000BB">$width</span><span style="color: #007700">]&nbsp;:&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_data</span><span style="color: #007700">[</span><span style="color: #DD0000">'weekDayNames'</span><span style="color: #007700">][</span><span style="color: #0000BB">$width</span><span style="color: #007700">];<br />&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;isset(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_data</span><span style="color: #007700">[</span><span style="color: #DD0000">'weekDayNames'</span><span style="color: #007700">][</span><span style="color: #0000BB">$width</span><span style="color: #007700">])&nbsp;?&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_data</span><span style="color: #007700">[</span><span style="color: #DD0000">'weekDayNames'</span><span style="color: #007700">][</span><span style="color: #0000BB">$width</span><span style="color: #007700">]&nbsp;:&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_data</span><span style="color: #007700">[</span><span style="color: #DD0000">'weekDayNamesSA'</span><span style="color: #007700">][</span><span style="color: #0000BB">$width</span><span style="color: #007700">];<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Returns the week day names in the specified width.</p>
+
+
+</div><!-- end of content -->
+
+<div id="apiFooter">
+Copyright &copy; 2008-2011 by <a href="http://www.yiisoft.com">Yii Software LLC</a><br/>
+All Rights Reserved.<br/>
+</div><!-- end of footer -->
+
+<script type="text/javascript">
+/*<![CDATA[*/
+$("a.toggle").toggle(function(){
+	$(this).text($(this).text().replace(/Hide/,'Show'));
+	$(this).parents(".summary").find(".inherited").hide();
+},function(){
+	$(this).text($(this).text().replace(/Show/,'Hide'));
+	$(this).parents(".summary").find(".inherited").show();
+});
+$(".sourceCode a.show").toggle(function(){
+	$(this).text($(this).text().replace(/show/,'hide'));
+	$(this).parents(".sourceCode").find("div.code").show();
+},function(){
+	$(this).text($(this).text().replace(/hide/,'show'));
+	$(this).parents(".sourceCode").find("div.code").hide();
+});
+$("a.sourceLink").click(function(){
+	$(this).attr('target','_blank');
+});
+/*]]>*/
+</script>
+
+</div><!-- end of page -->
+</body>
+</html>

@@ -1,0 +1,1861 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="language" content="en" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="css/api.css" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<title>CActiveForm</title>
+</head>
+
+<body>
+<div id="apiPage">
+
+<div id="apiHeader">
+My Console Application Class Reference
+</div><!-- end of header -->
+
+<div id="content">
+<h1>CActiveForm</h1>
+<div id="nav">
+<a href="index.html">All Packages</a>
+| <a href="#properties">Properties</a>
+| <a href="#methods">Methods</a>
+</div>
+
+<table class="summaryTable docClass">
+<colgroup>
+	<col class="col-name" />
+	<col class="col-value" />
+</colgroup>
+<tr>
+  <th>Package</th>
+  <td><a href="index.html#system.web.widgets">system.web.widgets</a></td>
+</tr>
+<tr>
+  <th>Inheritance</th>
+  <td>class CActiveForm &raquo;
+<a href="CWidget.html">CWidget</a> &raquo;
+<a href="CBaseController.html">CBaseController</a> &raquo;
+<a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr>
+  <th>Subclasses</th>
+  <td><a href="CCodeForm.html">CCodeForm</a></td>
+</tr>
+<tr>
+  <th>Since</th>
+  <td>1.1.1</td>
+</tr>
+<tr>
+  <th>Version</th>
+  <td>$Id: CActiveForm.php 3171 2011-04-08 20:51:31Z qiang.xue $</td>
+</tr>
+<tr>
+  <th>Source Code</th>
+  <td><a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/widgets/CActiveForm.php">framework/web/widgets/CActiveForm.php</a></td>
+</tr>
+<tr>
+  <th>Author</th>
+  <td>Qiang Xue &lt;qiang.xue@gmail.com&gt;</td>
+</tr>
+</table>
+
+<div id="classDescription">
+CActiveForm provides a set of methods that can help to simplify the creation
+of complex and interactive HTML forms that are associated with data models.
+<br/><br/>
+The 'beginWidget' and 'endWidget' call of CActiveForm widget will render
+the open and close form tags. Most other methods of CActiveForm are wrappers
+of the corresponding 'active' methods in <a href="CHtml.html">CHtml</a>. Calling them in between
+the 'beginWidget' and 'endWidget' calls will render text labels, input fields,
+etc. For example, calling <a href="CActiveForm.html#textField">CActiveForm::textField</a>
+would generate an input field for a specified model attribute.
+<br/><br/>
+What makes CActiveForm extremely useful is its support for data validation.
+CActiveForm supports data validation at three levels:
+<ul>
+<li>server-side validation: the validation is performed at server side after
+the whole page containing the form is submitted. If there is any validation error,
+CActiveForm will render the error in the page back to user.</li>
+<li>AJAX-based validation: when the user enters data into an input field,
+an AJAX request is triggered which requires server-side validation. The validation
+result is sent back in AJAX response and the input field changes its appearance
+accordingly.</li>
+<li>client-side validation (available since version 1.1.7):
+when the user enters data into an input field,
+validation is performed on the client side using JavaScript. No server contact
+will be made, which reduces the workload on the server.</li>
+</ul>
+<br/><br/>
+All these validations share the same set of validation rules declared in
+the associated model class. CActiveForm is designed in such a way that
+all these validations will lead to the same user interface changes and error
+message content.
+<br/><br/>
+To ensure data validity, server-side validation is always performed.
+By setting <a href="CActiveForm.html#enableAjaxValidation">enableAjaxValidation</a> to true, one can enable AJAX-based validation;
+and by setting <a href="CActiveForm.html#enableClientValidation">enableClientValidation</a> to true, one can enable client-side validation.
+Note that in order to make the latter two validations work, the user's browser
+must has its JavaScript enabled. If not, only the server-side validation will
+be performed.
+<br/><br/>
+The AJAX-based validation and client-side validation may be used together
+or separately. For example, in a user registration form, one may use AJAX-based
+validation to check if the user has picked a unique username, and use client-side
+validation to ensure all required fields are entered with data.
+Because the AJAX-based validation may bring extra workload on the server,
+if possible, one should mainly use client-side validation.
+<br/><br/>
+The AJAX-based validation has a few limitations. First, it does not work
+with file upload fields. Second, it should not be used to perform validations that
+may cause server-side state changes. Third, it is not designed
+to work with tabular data input for the moment.
+<br/><br/>
+Support for client-side validation varies for different validators. A validator
+will support client-side validation only if it implements <a href="CValidator.html#clientValidateAttribute">CValidator::clientValidateAttribute</a>
+and has its <a href="CValidator.html#enableClientValidation">CValidator::enableClientValidation</a> property set true.
+At this moment, the following core validators support client-side validation:
+<ul>
+<li><a href="CBooleanValidator.html">CBooleanValidator</a></li>
+<li><a href="CCaptchaValidator.html">CCaptchaValidator</a></li>
+<li><a href="CCompareValidator.html">CCompareValidator</a></li>
+<li><a href="CEmailValidator.html">CEmailValidator</a></li>
+<li><a href="CNumberValidator.html">CNumberValidator</a></li>
+<li><a href="CRangeValidator.html">CRangeValidator</a></li>
+<li><a href="CRegularExpressionValidator.html">CRegularExpressionValidator</a></li>
+<li><a href="CRequiredValidator.html">CRequiredValidator</a></li>
+<li><a href="CStringValidator.html">CStringValidator</a></li>
+<li><a href="CUrlValidator.html">CUrlValidator</a></li>
+</ul>
+<br/><br/>
+CActiveForm relies on CSS to customize the appearance of input fields
+which are in different validation states. In particular, each input field
+may be one of the four states: initial (not validated),
+validating, error and success. To differentiate these states, CActiveForm
+automatically assigns different CSS classes for the last three states
+to the HTML element containing the input field.
+By default, these CSS classes are named as 'validating', 'error' and 'success',
+respectively. We may customize these CSS classes by configuring the
+<a href="CActiveForm.html#clientOptions">clientOptions</a> property or specifying in the <a href="CActiveForm.html#error">error</a> method.
+<br/><br/>
+The following is a piece of sample view code showing how to use CActiveForm:
+<br/><br/>
+<pre>
+&lt;?php $form = $this-&gt;beginWidget('CActiveForm', array(
+    'id'=&gt;'user-form',
+    'enableAjaxValidation'=&gt;true,
+    'enableClientValidation'=&gt;true,
+    'focus'=&gt;array($model,'firstName'),
+)); ?&gt;
+
+&lt;?php echo $form-&gt;errorSummary($model); ?&gt;
+
+&lt;div class=&quot;row&quot;&gt;
+    &lt;?php echo $form-&gt;labelEx($model,'firstName'); ?&gt;
+    &lt;?php echo $form-&gt;textField($model,'firstName'); ?&gt;
+    &lt;?php echo $form-&gt;error($model,'firstName'); ?&gt;
+&lt;/div&gt;
+&lt;div class=&quot;row&quot;&gt;
+    &lt;?php echo $form-&gt;labelEx($model,'lastName'); ?&gt;
+    &lt;?php echo $form-&gt;textField($model,'lastName'); ?&gt;
+    &lt;?php echo $form-&gt;error($model,'lastName'); ?&gt;
+&lt;/div&gt;
+
+&lt;?php $this-&gt;endWidget(); ?&gt;
+</pre>
+<br/><br/>
+To respond to the AJAX validation requests, we need the following class code:
+<pre>
+public function actionCreate()
+{
+    $model=new User;
+    $this-&gt;performAjaxValidation($model);
+    if(isset($_POST['User']))
+    {
+        $model-&gt;attributes=$_POST['User'];
+        if($model-&gt;save())
+            $this-&gt;redirect('index');
+    }
+    $this-&gt;render('create',array('model'=&gt;$model));
+}
+
+protected function performAjaxValidation($model)
+{
+    if(isset($_POST['ajax']) &amp;&amp; $_POST['ajax']==='user-form')
+    {
+        echo CActiveForm::validate($model);
+        Yii::app()-&gt;end();
+    }
+}
+</pre>
+<br/><br/>
+In the above code, if we do not enable the AJAX-based validation, we can remove
+the <code>performAjaxValidation</code> method and its invocation.</div>
+<a name="properties"></a>
+
+<div class="summary docProperty">
+<h2>Public Properties</h2>
+
+<p><a href="#" class="toggle">Hide inherited properties</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-property" />
+	<col class="col-type" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>Property</th><th>Type</th><th>Description</th><th>Defined By</th>
+</tr>
+<tr id="action">
+  <td><a href="CActiveForm.html#action-detail">action</a></td>
+  <td>mixed</td>
+  <td>the form action URL (see <a href="CHtml.html#normalizeUrl">CHtml::normalizeUrl</a> for details about this parameter).</td>
+  <td>CActiveForm</td>
+</tr>
+<tr class="inherited" id="actionPrefix">
+  <td><a href="CWidget.html#actionPrefix-detail">actionPrefix</a></td>
+  <td>string</td>
+  <td>the prefix to the IDs of the <a href="CActiveForm.html#actions">actions</a>.</td>
+  <td><a href="CWidget.html">CWidget</a></td>
+</tr>
+<tr id="clientOptions">
+  <td><a href="CActiveForm.html#clientOptions-detail">clientOptions</a></td>
+  <td>array</td>
+  <td>the options to be passed to the javascript validation plugin.</td>
+  <td>CActiveForm</td>
+</tr>
+<tr class="inherited" id="controller">
+  <td><a href="CWidget.html#controller-detail">controller</a></td>
+  <td><a href="CController.html">CController</a></td>
+  <td>Returns the controller that this widget belongs to.</td>
+  <td><a href="CWidget.html">CWidget</a></td>
+</tr>
+<tr id="enableAjaxValidation">
+  <td><a href="CActiveForm.html#enableAjaxValidation-detail">enableAjaxValidation</a></td>
+  <td>boolean</td>
+  <td>whether to enable data validation via AJAX.</td>
+  <td>CActiveForm</td>
+</tr>
+<tr id="enableClientValidation">
+  <td><a href="CActiveForm.html#enableClientValidation-detail">enableClientValidation</a></td>
+  <td>boolean</td>
+  <td>whether to enable client-side data validation.</td>
+  <td>CActiveForm</td>
+</tr>
+<tr id="errorMessageCssClass">
+  <td><a href="CActiveForm.html#errorMessageCssClass-detail">errorMessageCssClass</a></td>
+  <td>string</td>
+  <td>the CSS class name for error messages.</td>
+  <td>CActiveForm</td>
+</tr>
+<tr id="focus">
+  <td><a href="CActiveForm.html#focus-detail">focus</a></td>
+  <td>mixed</td>
+  <td>form element to get initial input focus on page load.</td>
+  <td>CActiveForm</td>
+</tr>
+<tr id="htmlOptions">
+  <td><a href="CActiveForm.html#htmlOptions-detail">htmlOptions</a></td>
+  <td>array</td>
+  <td>additional HTML attributes that should be rendered for the form tag.</td>
+  <td>CActiveForm</td>
+</tr>
+<tr class="inherited" id="id">
+  <td><a href="CWidget.html#id-detail">id</a></td>
+  <td>string</td>
+  <td>Returns the ID of the widget or generates a new one if requested.</td>
+  <td><a href="CWidget.html">CWidget</a></td>
+</tr>
+<tr id="method">
+  <td><a href="CActiveForm.html#method-detail">method</a></td>
+  <td>string</td>
+  <td>the form submission method.</td>
+  <td>CActiveForm</td>
+</tr>
+<tr class="inherited" id="owner">
+  <td><a href="CWidget.html#owner-detail">owner</a></td>
+  <td><a href="CBaseController.html">CBaseController</a></td>
+  <td>Returns the owner/creator of this widget.</td>
+  <td><a href="CWidget.html">CWidget</a></td>
+</tr>
+<tr class="inherited" id="skin">
+  <td><a href="CWidget.html#skin-detail">skin</a></td>
+  <td>mixed</td>
+  <td>the name of the skin to be used by this widget.</td>
+  <td><a href="CWidget.html">CWidget</a></td>
+</tr>
+<tr id="stateful">
+  <td><a href="CActiveForm.html#stateful-detail">stateful</a></td>
+  <td>boolean</td>
+  <td>whether to generate a stateful form (See <a href="CHtml.html#statefulForm">CHtml::statefulForm</a>).</td>
+  <td>CActiveForm</td>
+</tr>
+<tr class="inherited" id="viewPath">
+  <td><a href="CWidget.html#viewPath-detail">viewPath</a></td>
+  <td>string</td>
+  <td>Returns the directory containing the view files for this widget.</td>
+  <td><a href="CWidget.html">CWidget</a></td>
+</tr>
+</table>
+</div>
+<div class="summary docProperty">
+<h2>Protected Properties</h2>
+
+<p><a href="#" class="toggle">Hide inherited properties</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-property" />
+	<col class="col-type" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>Property</th><th>Type</th><th>Description</th><th>Defined By</th>
+</tr>
+<tr id="attributes">
+  <td><a href="CActiveForm.html#attributes-detail">attributes</a></td>
+  <td>array</td>
+  <td>the javascript options for model attributes (input ID => options)</td>
+  <td>CActiveForm</td>
+</tr>
+<tr id="summaryID">
+  <td><a href="CActiveForm.html#summaryID-detail">summaryID</a></td>
+  <td>string</td>
+  <td>the ID of the container element for error summary</td>
+  <td>CActiveForm</td>
+</tr>
+</table>
+</div>
+<a name="methods"></a>
+
+<div class="summary docMethod">
+<h2>Public Methods</h2>
+
+<p><a href="#" class="toggle">Hide inherited methods</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-method" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>Method</th><th>Description</th><th>Defined By</th>
+</tr>
+<tr class="inherited" id="__call">
+  <td><a href="CComponent.html#__call-detail">__call()</a></td>
+  <td>Calls the named method which is not a class method.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__construct">
+  <td><a href="CWidget.html#__construct-detail">__construct()</a></td>
+  <td>Constructor.</td>
+  <td><a href="CWidget.html">CWidget</a></td>
+</tr>
+<tr class="inherited" id="__get">
+  <td><a href="CComponent.html#__get-detail">__get()</a></td>
+  <td>Returns a property value, an event handler list or a behavior based on its name.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__isset">
+  <td><a href="CComponent.html#__isset-detail">__isset()</a></td>
+  <td>Checks if a property value is null.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__set">
+  <td><a href="CComponent.html#__set-detail">__set()</a></td>
+  <td>Sets value of a component property.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__unset">
+  <td><a href="CComponent.html#__unset-detail">__unset()</a></td>
+  <td>Sets a component property to be null.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="actions">
+  <td><a href="CWidget.html#actions-detail">actions()</a></td>
+  <td>Returns a list of actions that are used by this widget.</td>
+  <td><a href="CWidget.html">CWidget</a></td>
+</tr>
+<tr class="inherited" id="asa">
+  <td><a href="CComponent.html#asa-detail">asa()</a></td>
+  <td>Returns the named behavior object.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="attachBehavior">
+  <td><a href="CComponent.html#attachBehavior-detail">attachBehavior()</a></td>
+  <td>Attaches a behavior to this component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="attachBehaviors">
+  <td><a href="CComponent.html#attachBehaviors-detail">attachBehaviors()</a></td>
+  <td>Attaches a list of behaviors to the component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="attachEventHandler">
+  <td><a href="CComponent.html#attachEventHandler-detail">attachEventHandler()</a></td>
+  <td>Attaches an event handler to an event.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="beginCache">
+  <td><a href="CBaseController.html#beginCache-detail">beginCache()</a></td>
+  <td>Begins fragment caching.</td>
+  <td><a href="CBaseController.html">CBaseController</a></td>
+</tr>
+<tr class="inherited" id="beginClip">
+  <td><a href="CBaseController.html#beginClip-detail">beginClip()</a></td>
+  <td>Begins recording a clip.</td>
+  <td><a href="CBaseController.html">CBaseController</a></td>
+</tr>
+<tr class="inherited" id="beginContent">
+  <td><a href="CBaseController.html#beginContent-detail">beginContent()</a></td>
+  <td>Begins the rendering of content that is to be decorated by the specified view.</td>
+  <td><a href="CBaseController.html">CBaseController</a></td>
+</tr>
+<tr class="inherited" id="beginWidget">
+  <td><a href="CBaseController.html#beginWidget-detail">beginWidget()</a></td>
+  <td>Creates a widget and executes it.</td>
+  <td><a href="CBaseController.html">CBaseController</a></td>
+</tr>
+<tr class="inherited" id="canGetProperty">
+  <td><a href="CComponent.html#canGetProperty-detail">canGetProperty()</a></td>
+  <td>Determines whether a property can be read.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="canSetProperty">
+  <td><a href="CComponent.html#canSetProperty-detail">canSetProperty()</a></td>
+  <td>Determines whether a property can be set.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr id="checkBox">
+  <td><a href="CActiveForm.html#checkBox-detail">checkBox()</a></td>
+  <td>Renders a checkbox for a model attribute.</td>
+  <td>CActiveForm</td>
+</tr>
+<tr id="checkBoxList">
+  <td><a href="CActiveForm.html#checkBoxList-detail">checkBoxList()</a></td>
+  <td>Renders a checkbox list for a model attribute.</td>
+  <td>CActiveForm</td>
+</tr>
+<tr class="inherited" id="createWidget">
+  <td><a href="CBaseController.html#createWidget-detail">createWidget()</a></td>
+  <td>Creates a widget and initializes it.</td>
+  <td><a href="CBaseController.html">CBaseController</a></td>
+</tr>
+<tr class="inherited" id="detachBehavior">
+  <td><a href="CComponent.html#detachBehavior-detail">detachBehavior()</a></td>
+  <td>Detaches a behavior from the component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="detachBehaviors">
+  <td><a href="CComponent.html#detachBehaviors-detail">detachBehaviors()</a></td>
+  <td>Detaches all behaviors from the component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="detachEventHandler">
+  <td><a href="CComponent.html#detachEventHandler-detail">detachEventHandler()</a></td>
+  <td>Detaches an existing event handler.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="disableBehavior">
+  <td><a href="CComponent.html#disableBehavior-detail">disableBehavior()</a></td>
+  <td>Disables an attached behavior.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="disableBehaviors">
+  <td><a href="CComponent.html#disableBehaviors-detail">disableBehaviors()</a></td>
+  <td>Disables all behaviors attached to this component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr id="dropDownList">
+  <td><a href="CActiveForm.html#dropDownList-detail">dropDownList()</a></td>
+  <td>Renders a dropdown list for a model attribute.</td>
+  <td>CActiveForm</td>
+</tr>
+<tr class="inherited" id="enableBehavior">
+  <td><a href="CComponent.html#enableBehavior-detail">enableBehavior()</a></td>
+  <td>Enables an attached behavior.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="enableBehaviors">
+  <td><a href="CComponent.html#enableBehaviors-detail">enableBehaviors()</a></td>
+  <td>Enables all behaviors attached to this component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="endCache">
+  <td><a href="CBaseController.html#endCache-detail">endCache()</a></td>
+  <td>Ends fragment caching.</td>
+  <td><a href="CBaseController.html">CBaseController</a></td>
+</tr>
+<tr class="inherited" id="endClip">
+  <td><a href="CBaseController.html#endClip-detail">endClip()</a></td>
+  <td>Ends recording a clip.</td>
+  <td><a href="CBaseController.html">CBaseController</a></td>
+</tr>
+<tr class="inherited" id="endContent">
+  <td><a href="CBaseController.html#endContent-detail">endContent()</a></td>
+  <td>Ends the rendering of content.</td>
+  <td><a href="CBaseController.html">CBaseController</a></td>
+</tr>
+<tr class="inherited" id="endWidget">
+  <td><a href="CBaseController.html#endWidget-detail">endWidget()</a></td>
+  <td>Ends the execution of the named widget.</td>
+  <td><a href="CBaseController.html">CBaseController</a></td>
+</tr>
+<tr id="error">
+  <td><a href="CActiveForm.html#error-detail">error()</a></td>
+  <td>Displays the first validation error for a model attribute.</td>
+  <td>CActiveForm</td>
+</tr>
+<tr id="errorSummary">
+  <td><a href="CActiveForm.html#errorSummary-detail">errorSummary()</a></td>
+  <td>Displays a summary of validation errors for one or several models.</td>
+  <td>CActiveForm</td>
+</tr>
+<tr class="inherited" id="evaluateExpression">
+  <td><a href="CComponent.html#evaluateExpression-detail">evaluateExpression()</a></td>
+  <td>Evaluates a PHP expression or callback under the context of this component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr id="fileField">
+  <td><a href="CActiveForm.html#fileField-detail">fileField()</a></td>
+  <td>Renders a file field for a model attribute.</td>
+  <td>CActiveForm</td>
+</tr>
+<tr class="inherited" id="getController">
+  <td><a href="CWidget.html#getController-detail">getController()</a></td>
+  <td>Returns the controller that this widget belongs to.</td>
+  <td><a href="CWidget.html">CWidget</a></td>
+</tr>
+<tr class="inherited" id="getEventHandlers">
+  <td><a href="CComponent.html#getEventHandlers-detail">getEventHandlers()</a></td>
+  <td>Returns the list of attached event handlers for an event.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="getId">
+  <td><a href="CWidget.html#getId-detail">getId()</a></td>
+  <td>Returns the ID of the widget or generates a new one if requested.</td>
+  <td><a href="CWidget.html">CWidget</a></td>
+</tr>
+<tr class="inherited" id="getOwner">
+  <td><a href="CWidget.html#getOwner-detail">getOwner()</a></td>
+  <td>Returns the owner/creator of this widget.</td>
+  <td><a href="CWidget.html">CWidget</a></td>
+</tr>
+<tr class="inherited" id="getViewFile">
+  <td><a href="CWidget.html#getViewFile-detail">getViewFile()</a></td>
+  <td>Looks for the view script file according to the view name.</td>
+  <td><a href="CWidget.html">CWidget</a></td>
+</tr>
+<tr class="inherited" id="getViewPath">
+  <td><a href="CWidget.html#getViewPath-detail">getViewPath()</a></td>
+  <td>Returns the directory containing the view files for this widget.</td>
+  <td><a href="CWidget.html">CWidget</a></td>
+</tr>
+<tr class="inherited" id="hasEvent">
+  <td><a href="CComponent.html#hasEvent-detail">hasEvent()</a></td>
+  <td>Determines whether an event is defined.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="hasEventHandler">
+  <td><a href="CComponent.html#hasEventHandler-detail">hasEventHandler()</a></td>
+  <td>Checks whether the named event has attached handlers.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="hasProperty">
+  <td><a href="CComponent.html#hasProperty-detail">hasProperty()</a></td>
+  <td>Determines whether a property is defined.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr id="hiddenField">
+  <td><a href="CActiveForm.html#hiddenField-detail">hiddenField()</a></td>
+  <td>Renders a hidden field for a model attribute.</td>
+  <td>CActiveForm</td>
+</tr>
+<tr id="init">
+  <td><a href="CActiveForm.html#init-detail">init()</a></td>
+  <td>Initializes the widget.</td>
+  <td>CActiveForm</td>
+</tr>
+<tr id="label">
+  <td><a href="CActiveForm.html#label-detail">label()</a></td>
+  <td>Renders an HTML label for a model attribute.</td>
+  <td>CActiveForm</td>
+</tr>
+<tr id="labelEx">
+  <td><a href="CActiveForm.html#labelEx-detail">labelEx()</a></td>
+  <td>Renders an HTML label for a model attribute.</td>
+  <td>CActiveForm</td>
+</tr>
+<tr id="listBox">
+  <td><a href="CActiveForm.html#listBox-detail">listBox()</a></td>
+  <td>Renders a list box for a model attribute.</td>
+  <td>CActiveForm</td>
+</tr>
+<tr id="passwordField">
+  <td><a href="CActiveForm.html#passwordField-detail">passwordField()</a></td>
+  <td>Renders a password field for a model attribute.</td>
+  <td>CActiveForm</td>
+</tr>
+<tr id="radioButton">
+  <td><a href="CActiveForm.html#radioButton-detail">radioButton()</a></td>
+  <td>Renders a radio button for a model attribute.</td>
+  <td>CActiveForm</td>
+</tr>
+<tr id="radioButtonList">
+  <td><a href="CActiveForm.html#radioButtonList-detail">radioButtonList()</a></td>
+  <td>Renders a radio button list for a model attribute.</td>
+  <td>CActiveForm</td>
+</tr>
+<tr class="inherited" id="raiseEvent">
+  <td><a href="CComponent.html#raiseEvent-detail">raiseEvent()</a></td>
+  <td>Raises an event.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="render">
+  <td><a href="CWidget.html#render-detail">render()</a></td>
+  <td>Renders a view.</td>
+  <td><a href="CWidget.html">CWidget</a></td>
+</tr>
+<tr class="inherited" id="renderFile">
+  <td><a href="CBaseController.html#renderFile-detail">renderFile()</a></td>
+  <td>Renders a view file.</td>
+  <td><a href="CBaseController.html">CBaseController</a></td>
+</tr>
+<tr class="inherited" id="renderInternal">
+  <td><a href="CBaseController.html#renderInternal-detail">renderInternal()</a></td>
+  <td>Renders a view file.</td>
+  <td><a href="CBaseController.html">CBaseController</a></td>
+</tr>
+<tr id="run">
+  <td><a href="CActiveForm.html#run-detail">run()</a></td>
+  <td>Runs the widget.</td>
+  <td>CActiveForm</td>
+</tr>
+<tr class="inherited" id="setId">
+  <td><a href="CWidget.html#setId-detail">setId()</a></td>
+  <td>Sets the ID of the widget.</td>
+  <td><a href="CWidget.html">CWidget</a></td>
+</tr>
+<tr id="textArea">
+  <td><a href="CActiveForm.html#textArea-detail">textArea()</a></td>
+  <td>Renders a text area for a model attribute.</td>
+  <td>CActiveForm</td>
+</tr>
+<tr id="textField">
+  <td><a href="CActiveForm.html#textField-detail">textField()</a></td>
+  <td>Renders a text field for a model attribute.</td>
+  <td>CActiveForm</td>
+</tr>
+<tr id="validate">
+  <td><a href="CActiveForm.html#validate-detail">validate()</a></td>
+  <td>Validates one or several models and returns the results in JSON format.</td>
+  <td>CActiveForm</td>
+</tr>
+<tr class="inherited" id="widget">
+  <td><a href="CBaseController.html#widget-detail">widget()</a></td>
+  <td>Creates a widget and executes it.</td>
+  <td><a href="CBaseController.html">CBaseController</a></td>
+</tr>
+</table>
+</div>
+<a name="events"></a>
+
+<h2>Property Details</h2>
+<div class="detailHeader" id="action-detail">
+action<span class="detailHeaderTag">
+property
+</span>
+</div>
+
+<div class="signature">
+public mixed <b>$action</b>;</div>
+
+<p>the form action URL (see <a href="CHtml.html#normalizeUrl">CHtml::normalizeUrl</a> for details about this parameter).
+If not set, the current page URL is used.</p>
+
+
+<div class="detailHeader" id="attributes-detail">
+attributes<span class="detailHeaderTag">
+property
+ (available since v1.1.7)
+</span>
+</div>
+
+<div class="signature">
+protected array <b>$attributes</b>;</div>
+
+<p>the javascript options for model attributes (input ID => options)</p>
+
+<div class="SeeAlso">
+<h4>See Also</h4>
+<ul>
+	<li><a href="CActiveForm.html#error">error</a></li>
+</ul>
+</div>
+
+<div class="detailHeader" id="clientOptions-detail">
+clientOptions<span class="detailHeaderTag">
+property
+</span>
+</div>
+
+<div class="signature">
+public array <b>$clientOptions</b>;</div>
+
+<p>the options to be passed to the javascript validation plugin.
+The following options are supported:
+<ul>
+<li>ajaxVar: string, the name of the parameter indicating the request is an AJAX request.
+When the AJAX validation is triggered, a parameter named as this property will be sent
+together with the other form data to the server. The parameter value is the form ID.
+The server side can then detect who triggers the AJAX validation and react accordingly.
+Defaults to 'ajax'.</li>
+<li>validationUrl: string, the URL that performs the AJAX validations.
+If not set, it will take the value of <a href="CActiveForm.html#action">action</a>.</li>
+<li>validationDelay: integer, the number of milliseconds that an AJAX validation should be
+delayed after an input is changed. A value 0 means the validation will be triggered immediately
+when an input is changed. A value greater than 0 means changing several inputs may only
+trigger a single validation if they happen fast enough, which may help reduce the server load.
+Defaults to 200 (0.2 second).</li>
+<li>validateOnSubmit: boolean, whether to perform AJAX validation when the form is being submitted.
+If there are any validation errors, the form submission will be stopped.
+Defaults to false.</li>
+<li>validateOnChange: boolean, whether to trigger an AJAX validation
+each time when an input's value is changed.	You may want to turn this off
+if it causes too much performance impact, because each AJAX validation request
+will submit the data of the whole form. Defaults to true.</li>
+<li>validateOnType: boolean, whether to trigger an AJAX validation each time when the user
+presses a key. When setting this property to be true, you should tune up the 'validationDelay'
+option to avoid triggering too many AJAX validations. Defaults to false.</li>
+<li>hideErrorMessage: boolean, whether to hide the error message even if there is an error.
+Defaults to false, which means the error message will show up whenever the input has an error.</li>
+<li>inputContainer: string, the jQuery selector for the HTML element containing the input field.
+During the validation process, CActiveForm will set different CSS class for the container element
+to indicate the state change. If not set, it means the closest 'div' element that contains the input field.</li>
+<li>errorCssClass: string, the CSS class to be assigned to the container whose associated input
+has AJAX validation error. Defaults to 'error'.</li>
+<li>successCssClass: string, the CSS class to be assigned to the container whose associated input
+passes AJAX validation without any error. Defaults to 'success'.</li>
+<li>validatingCssClass: string, the CSS class to be assigned to the container whose associated input
+is currently being validated via AJAX. Defaults to 'validating'.</li>
+<li>errorMessageCssClass: string, the CSS class assigned to the error messages returned
+by AJAX validations. Defaults to 'errorMessage'.</li>
+<li>beforeValidate: function, the function that will be invoked before performing ajax-based validation
+triggered by form submission action (available only when validateOnSubmit is set true).
+The expected function signature should be <code>beforeValidate(form) {...}</code>, where 'form' is
+the jquery representation of the form object. If the return value of this function is NOT true, the validation
+will be cancelled.
+<br/><br/>
+Note that because this option refers to a js function, you should prefix the value with 'js:' to prevent it
+from being encoded as a string. This option has been available since version 1.1.3.</li>
+<li>afterValidate: function, the function that will be invoked after performing ajax-based validation
+triggered by form submission action (available only when validateOnSubmit is set true).
+The expected function signature should be <code>afterValidate(form, data, hasError) {...}</code>, where 'form' is
+the jquery representation of the form object; 'data' is the JSON response from the server-side validation; 'hasError'
+is a boolean value indicating whether there is any validation error. If the return value of this function is NOT true,
+the normal form submission will be cancelled.
+<br/><br/>
+Note that because this option refers to a js function, you should prefix the value with 'js:' to prevent it
+from being encoded as a string. This option has been available since version 1.1.3.</li>
+<li>beforeValidateAttribute: function, the function that will be invoked before performing ajax-based validation
+triggered by a single attribute input change. The expected function signature should be
+<code>beforeValidateAttribute(form, attribute) {...}</code>, where 'form' is the jquery representation of the form object
+and 'attribute' refers to the js options for the triggering attribute (see <a href="CActiveForm.html#error">error</a>).
+If the return value of this function is NOT true, the validation will be cancelled.
+<br/><br/>
+Note that because this option refers to a js function, you should prefix the value with 'js:' to prevent it
+from being encoded as a string. This option has been available since version 1.1.3.</li>
+<li>afterValidateAttribute: function, the function that will be invoked after performing ajax-based validation
+triggered by a single attribute input change. The expected function signature should be
+<code>beforeValidateAttribute(form, attribute, data, hasError) {...}</code>, where 'form' is the jquery
+representation of the form object; 'attribute' refers to the js options for the triggering attribute (see <a href="CActiveForm.html#error">error</a>);
+'data' is the JSON response from the server-side validation; 'hasError' is a boolean value indicating whether
+there is any validation error.
+<br/><br/>
+Note that because this option refers to a js function, you should prefix the value with 'js:' to prevent it
+from being encoded as a string. This option has been available since version 1.1.3.</li>
+</ul>
+<br/><br/>
+Some of the above options may be overridden in individual calls of <a href="CActiveForm.html#error">error()</a>.
+They include: validationDelay, validateOnChange, validateOnType, hideErrorMessage,
+inputContainer, errorCssClass, successCssClass, validatingCssClass, beforeValidateAttribute, afterValidateAttribute.</p>
+
+
+<div class="detailHeader" id="enableAjaxValidation-detail">
+enableAjaxValidation<span class="detailHeaderTag">
+property
+</span>
+</div>
+
+<div class="signature">
+public boolean <b>$enableAjaxValidation</b>;</div>
+
+<p>whether to enable data validation via AJAX. Defaults to false.
+When this property is set true, you should respond to the AJAX validation request on the server side as shown below:
+<pre>
+public function actionCreate()
+{
+    $model=new User;
+    if(isset($_POST['ajax']) &amp;&amp; $_POST['ajax']==='user-form')
+    {
+        echo CActiveForm::validate($model);
+        Yii::app()-&gt;end();
+    }
+    ......
+}
+</pre></p>
+
+
+<div class="detailHeader" id="enableClientValidation-detail">
+enableClientValidation<span class="detailHeaderTag">
+property
+ (available since v1.1.7)
+</span>
+</div>
+
+<div class="signature">
+public boolean <b>$enableClientValidation</b>;</div>
+
+<p>whether to enable client-side data validation. Defaults to false.
+<br/><br/>
+When this property is set true, client-side validation will be performed by validators
+that support it (see <a href="CValidator.html#enableClientValidation">CValidator::enableClientValidation</a> and <a href="CValidator.html#clientValidateAttribute">CValidator::clientValidateAttribute</a>).</p>
+
+<div class="SeeAlso">
+<h4>See Also</h4>
+<ul>
+	<li><a href="CActiveForm.html#error">error</a></li>
+</ul>
+</div>
+
+<div class="detailHeader" id="errorMessageCssClass-detail">
+errorMessageCssClass<span class="detailHeaderTag">
+property
+</span>
+</div>
+
+<div class="signature">
+public string <b>$errorMessageCssClass</b>;</div>
+
+<p>the CSS class name for error messages. Defaults to 'errorMessage'.
+Individual <a href="CActiveForm.html#error">error</a> call may override this value by specifying the 'class' HTML option.</p>
+
+
+<div class="detailHeader" id="focus-detail">
+focus<span class="detailHeaderTag">
+property
+ (available since v1.1.4)
+</span>
+</div>
+
+<div class="signature">
+public mixed <b>$focus</b>;</div>
+
+<p>form element to get initial input focus on page load.
+<br/><br/>
+Defaults to null meaning no input field has a focus.
+If set as array, first element should be model and second element should be the attribute.
+If set as string any jQuery selector can be used
+<br/><br/>
+Example - set input focus on page load to:
+<ul>
+<li>'focus'=>array($model,'username') - $model->username input filed</li>
+<li>'focus'=>'#'.CHtml::activeId($model,'username') - $model->username input field</li>
+<li>'focus'=>'#LoginForm_username' - input field with ID LoginForm_username</li>
+<li>'focus'=>'input[type="text"]:first' - first input element of type text</li>
+<li>'focus'=>'input:visible:enabled:first' - first visible and enabled input element</li>
+<li>'focus'=>'input:text[value=""]:first' - first empty input</li>
+</ul></p>
+
+
+<div class="detailHeader" id="htmlOptions-detail">
+htmlOptions<span class="detailHeaderTag">
+property
+</span>
+</div>
+
+<div class="signature">
+public array <b>$htmlOptions</b>;</div>
+
+<p>additional HTML attributes that should be rendered for the form tag.</p>
+
+
+<div class="detailHeader" id="method-detail">
+method<span class="detailHeaderTag">
+property
+</span>
+</div>
+
+<div class="signature">
+public string <b>$method</b>;</div>
+
+<p>the form submission method. This should be either 'post' or 'get'.
+Defaults to 'post'.</p>
+
+
+<div class="detailHeader" id="stateful-detail">
+stateful<span class="detailHeaderTag">
+property
+</span>
+</div>
+
+<div class="signature">
+public boolean <b>$stateful</b>;</div>
+
+<p>whether to generate a stateful form (See <a href="CHtml.html#statefulForm">CHtml::statefulForm</a>). Defaults to false.</p>
+
+
+<div class="detailHeader" id="summaryID-detail">
+summaryID<span class="detailHeaderTag">
+property
+ (available since v1.1.7)
+</span>
+</div>
+
+<div class="signature">
+protected string <b>$summaryID</b>;</div>
+
+<p>the ID of the container element for error summary</p>
+
+<div class="SeeAlso">
+<h4>See Also</h4>
+<ul>
+	<li><a href="CActiveForm.html#errorSummary">errorSummary</a></li>
+</ul>
+</div>
+
+<h2>Method Details</h2>
+
+<div class="detailHeader" id="checkBox-detail">
+checkBox()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>checkBox</b>(<a href="CModel.html">CModel</a> $model, string $attribute, array $htmlOptions=array (
+))</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$model</td>
+  <td class="paramTypeCol"><a href="CModel.html">CModel</a></td>
+  <td class="paramDescCol">the data model</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$attribute</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the attribute</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$htmlOptions</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">additional HTML attributes.</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the generated check box</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/widgets/CActiveForm.php#655">framework/web/widgets/CActiveForm.php#655</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">checkBox</span><span style="color: #007700">(</span><span style="color: #0000BB">$model</span><span style="color: #007700">,</span><span style="color: #0000BB">$attribute</span><span style="color: #007700">,</span><span style="color: #0000BB">$htmlOptions</span><span style="color: #007700">=array())<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">CHtml</span><span style="color: #007700">::</span><span style="color: #0000BB">activeCheckBox</span><span style="color: #007700">(</span><span style="color: #0000BB">$model</span><span style="color: #007700">,</span><span style="color: #0000BB">$attribute</span><span style="color: #007700">,</span><span style="color: #0000BB">$htmlOptions</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Renders a checkbox for a model attribute.
+This method is a wrapper of <a href="CHtml.html#activeCheckBox">CHtml::activeCheckBox</a>.
+Please check <a href="CHtml.html#activeCheckBox">CHtml::activeCheckBox</a> for detailed information
+about the parameters for this method.</p>
+
+
+<div class="detailHeader" id="checkBoxList-detail">
+checkBoxList()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>checkBoxList</b>(<a href="CModel.html">CModel</a> $model, string $attribute, array $data, array $htmlOptions=array (
+))</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$model</td>
+  <td class="paramTypeCol"><a href="CModel.html">CModel</a></td>
+  <td class="paramDescCol">the data model</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$attribute</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the attribute</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$data</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">value-label pairs used to generate the check box list.</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$htmlOptions</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">addtional HTML options.</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the generated check box list</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/widgets/CActiveForm.php#703">framework/web/widgets/CActiveForm.php#703</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">checkBoxList</span><span style="color: #007700">(</span><span style="color: #0000BB">$model</span><span style="color: #007700">,</span><span style="color: #0000BB">$attribute</span><span style="color: #007700">,</span><span style="color: #0000BB">$data</span><span style="color: #007700">,</span><span style="color: #0000BB">$htmlOptions</span><span style="color: #007700">=array())<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">CHtml</span><span style="color: #007700">::</span><span style="color: #0000BB">activeCheckBoxList</span><span style="color: #007700">(</span><span style="color: #0000BB">$model</span><span style="color: #007700">,</span><span style="color: #0000BB">$attribute</span><span style="color: #007700">,</span><span style="color: #0000BB">$data</span><span style="color: #007700">,</span><span style="color: #0000BB">$htmlOptions</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Renders a checkbox list for a model attribute.
+This method is a wrapper of <a href="CHtml.html#activeCheckBoxList">CHtml::activeCheckBoxList</a>.
+Please check <a href="CHtml.html#activeCheckBoxList">CHtml::activeCheckBoxList</a> for detailed information
+about the parameters for this method.</p>
+
+
+<div class="detailHeader" id="dropDownList-detail">
+dropDownList()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>dropDownList</b>(<a href="CModel.html">CModel</a> $model, string $attribute, array $data, array $htmlOptions=array (
+))</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$model</td>
+  <td class="paramTypeCol"><a href="CModel.html">CModel</a></td>
+  <td class="paramDescCol">the data model</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$attribute</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the attribute</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$data</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">data for generating the list options (value=>display)</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$htmlOptions</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">additional HTML attributes.</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the generated drop down list</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/widgets/CActiveForm.php#671">framework/web/widgets/CActiveForm.php#671</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">dropDownList</span><span style="color: #007700">(</span><span style="color: #0000BB">$model</span><span style="color: #007700">,</span><span style="color: #0000BB">$attribute</span><span style="color: #007700">,</span><span style="color: #0000BB">$data</span><span style="color: #007700">,</span><span style="color: #0000BB">$htmlOptions</span><span style="color: #007700">=array())<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">CHtml</span><span style="color: #007700">::</span><span style="color: #0000BB">activeDropDownList</span><span style="color: #007700">(</span><span style="color: #0000BB">$model</span><span style="color: #007700">,</span><span style="color: #0000BB">$attribute</span><span style="color: #007700">,</span><span style="color: #0000BB">$data</span><span style="color: #007700">,</span><span style="color: #0000BB">$htmlOptions</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Renders a dropdown list for a model attribute.
+This method is a wrapper of <a href="CHtml.html#activeDropDownList">CHtml::activeDropDownList</a>.
+Please check <a href="CHtml.html#activeDropDownList">CHtml::activeDropDownList</a> for detailed information
+about the parameters for this method.</p>
+
+
+<div class="detailHeader" id="error-detail">
+error()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>error</b>(<a href="CModel.html">CModel</a> $model, string $attribute, array $htmlOptions=array (
+), boolean $enableAjaxValidation=true, boolean $enableClientValidation=true)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$model</td>
+  <td class="paramTypeCol"><a href="CModel.html">CModel</a></td>
+  <td class="paramDescCol">the data model</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$attribute</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the attribute name</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$htmlOptions</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">additional HTML attributes to be rendered in the container div tag.
+Besides all those options available in <a href="CHtml.html#error">CHtml::error</a>, the following options are recognized in addition:
+<ul>
+<li>validationDelay</li>
+<li>validateOnChange</li>
+<li>validateOnType</li>
+<li>hideErrorMessage</li>
+<li>inputContainer</li>
+<li>errorCssClass</li>
+<li>successCssClass</li>
+<li>validatingCssClass</li>
+<li>beforeValidateAttribute</li>
+<li>afterValidateAttribute</li>
+</ul>
+These options override the corresponding options as declared in options for this
+particular model attribute. For more details about these options, please refer to <a href="CActiveForm.html#clientOptions">clientOptions</a>.
+Note that these options are only used when <a href="CActiveForm.html#enableAjaxValidation">enableAjaxValidation</a> or <a href="CActiveForm.html#enableClientValidation">enableClientValidation</a>
+is set true.
+<br/><br/>
+When client-side validation is enabled, an option named "clientValidation" is also recognized.
+This option should take a piece of JavaScript code to perform client-side validation. In the code,
+the variables are predefined:
+<ul>
+<li>value: the current input value associated with this attribute.</li>
+<li>messages: an array that may be appended with new error messages for the attribute.</li>
+<li>attribute: a data structure keeping all client-side options for the attribute</li>
+</ul></td>
+</tr>
+<tr>
+  <td class="paramNameCol">$enableAjaxValidation</td>
+  <td class="paramTypeCol">boolean</td>
+  <td class="paramDescCol">whether to enable AJAX validation for the specified attribute.
+Note that in order to enable AJAX validation, both <a href="CActiveForm.html#enableAjaxValidation">enableAjaxValidation</a> and this parameter
+must be true.</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$enableClientValidation</td>
+  <td class="paramTypeCol">boolean</td>
+  <td class="paramDescCol">whether to enable client-side validation for the specified attribute.
+Note that in order to enable client-side validation, both <a href="CActiveForm.html#enableClientValidation">enableClientValidation</a> and this parameter
+must be true. This parameter has been available since version 1.1.7.</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the validation result (error display or success message).</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/widgets/CActiveForm.php#412">framework/web/widgets/CActiveForm.php#412</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">error</span><span style="color: #007700">(</span><span style="color: #0000BB">$model</span><span style="color: #007700">,</span><span style="color: #0000BB">$attribute</span><span style="color: #007700">,</span><span style="color: #0000BB">$htmlOptions</span><span style="color: #007700">=array(),</span><span style="color: #0000BB">$enableAjaxValidation</span><span style="color: #007700">=</span><span style="color: #0000BB">true</span><span style="color: #007700">,</span><span style="color: #0000BB">$enableClientValidation</span><span style="color: #007700">=</span><span style="color: #0000BB">true</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(!</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">enableAjaxValidation</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$enableAjaxValidation</span><span style="color: #007700">=</span><span style="color: #0000BB">false</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;if(!</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">enableClientValidation</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$enableClientValidation</span><span style="color: #007700">=</span><span style="color: #0000BB">false</span><span style="color: #007700">;<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;if(!</span><span style="color: #0000BB">$enableAjaxValidation&nbsp;</span><span style="color: #007700">&amp;&amp;&nbsp;!</span><span style="color: #0000BB">$enableClientValidation</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">CHtml</span><span style="color: #007700">::</span><span style="color: #0000BB">error</span><span style="color: #007700">(</span><span style="color: #0000BB">$model</span><span style="color: #007700">,</span><span style="color: #0000BB">$attribute</span><span style="color: #007700">,</span><span style="color: #0000BB">$htmlOptions</span><span style="color: #007700">);<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$id</span><span style="color: #007700">=</span><span style="color: #0000BB">CHtml</span><span style="color: #007700">::</span><span style="color: #0000BB">activeId</span><span style="color: #007700">(</span><span style="color: #0000BB">$model</span><span style="color: #007700">,</span><span style="color: #0000BB">$attribute</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$inputID</span><span style="color: #007700">=isset(</span><span style="color: #0000BB">$htmlOptions</span><span style="color: #007700">[</span><span style="color: #DD0000">'inputID'</span><span style="color: #007700">])&nbsp;?&nbsp;</span><span style="color: #0000BB">$htmlOptions</span><span style="color: #007700">[</span><span style="color: #DD0000">'inputID'</span><span style="color: #007700">]&nbsp;:&nbsp;</span><span style="color: #0000BB">$id</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;unset(</span><span style="color: #0000BB">$htmlOptions</span><span style="color: #007700">[</span><span style="color: #DD0000">'inputID'</span><span style="color: #007700">]);<br />&nbsp;&nbsp;&nbsp;&nbsp;if(!isset(</span><span style="color: #0000BB">$htmlOptions</span><span style="color: #007700">[</span><span style="color: #DD0000">'id'</span><span style="color: #007700">]))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$htmlOptions</span><span style="color: #007700">[</span><span style="color: #DD0000">'id'</span><span style="color: #007700">]=</span><span style="color: #0000BB">$inputID</span><span style="color: #007700">.</span><span style="color: #DD0000">'_em_'</span><span style="color: #007700">;<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$option</span><span style="color: #007700">=array(<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'id'</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">$id</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'inputID'</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">$inputID</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'errorID'</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">$htmlOptions</span><span style="color: #007700">[</span><span style="color: #DD0000">'id'</span><span style="color: #007700">],<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'model'</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">get_class</span><span style="color: #007700">(</span><span style="color: #0000BB">$model</span><span style="color: #007700">),<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'name'</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">CHtml</span><span style="color: #007700">::</span><span style="color: #0000BB">resolveName</span><span style="color: #007700">(</span><span style="color: #0000BB">$model</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$attribute</span><span style="color: #007700">),<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'enableAjaxValidation'</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">$enableAjaxValidation</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;);<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$optionNames</span><span style="color: #007700">=array(<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'validationDelay'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'validateOnChange'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'validateOnType'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'hideErrorMessage'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'inputContainer'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'errorCssClass'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'successCssClass'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'validatingCssClass'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'beforeValidateAttribute'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'afterValidateAttribute'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;);<br />&nbsp;&nbsp;&nbsp;&nbsp;foreach(</span><span style="color: #0000BB">$optionNames&nbsp;</span><span style="color: #007700">as&nbsp;</span><span style="color: #0000BB">$name</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(isset(</span><span style="color: #0000BB">$htmlOptions</span><span style="color: #007700">[</span><span style="color: #0000BB">$name</span><span style="color: #007700">]))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$option</span><span style="color: #007700">[</span><span style="color: #0000BB">$name</span><span style="color: #007700">]=</span><span style="color: #0000BB">$htmlOptions</span><span style="color: #007700">[</span><span style="color: #0000BB">$name</span><span style="color: #007700">];<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;unset(</span><span style="color: #0000BB">$htmlOptions</span><span style="color: #007700">[</span><span style="color: #0000BB">$name</span><span style="color: #007700">]);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$model&nbsp;</span><span style="color: #007700">instanceof&nbsp;</span><span style="color: #0000BB">CActiveRecord&nbsp;</span><span style="color: #007700">&amp;&amp;&nbsp;!</span><span style="color: #0000BB">$model</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">isNewRecord</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$option</span><span style="color: #007700">[</span><span style="color: #DD0000">'status'</span><span style="color: #007700">]=</span><span style="color: #0000BB">1</span><span style="color: #007700">;<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$enableClientValidation</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$validators</span><span style="color: #007700">=isset(</span><span style="color: #0000BB">$htmlOptions</span><span style="color: #007700">[</span><span style="color: #DD0000">'clientValidation'</span><span style="color: #007700">])&nbsp;?&nbsp;array(</span><span style="color: #0000BB">$htmlOptions</span><span style="color: #007700">[</span><span style="color: #DD0000">'clientValidation'</span><span style="color: #007700">])&nbsp;:&nbsp;array();<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;foreach(</span><span style="color: #0000BB">$model</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getValidators</span><span style="color: #007700">(</span><span style="color: #0000BB">$attribute</span><span style="color: #007700">)&nbsp;as&nbsp;</span><span style="color: #0000BB">$validator</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$enableClientValidation&nbsp;</span><span style="color: #007700">&amp;&amp;&nbsp;</span><span style="color: #0000BB">$validator</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">enableClientValidation</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if((</span><span style="color: #0000BB">$js</span><span style="color: #007700">=</span><span style="color: #0000BB">$validator</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">clientValidateAttribute</span><span style="color: #007700">(</span><span style="color: #0000BB">$model</span><span style="color: #007700">,</span><span style="color: #0000BB">$attribute</span><span style="color: #007700">))!=</span><span style="color: #DD0000">''</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$validators</span><span style="color: #007700">[]=</span><span style="color: #0000BB">$js</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$validators</span><span style="color: #007700">!==array())<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$option</span><span style="color: #007700">[</span><span style="color: #DD0000">'clientValidation'</span><span style="color: #007700">]=</span><span style="color: #DD0000">"js:function(value,&nbsp;messages,&nbsp;attribute)&nbsp;{\n"</span><span style="color: #007700">.</span><span style="color: #0000BB">implode</span><span style="color: #007700">(</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">,</span><span style="color: #0000BB">$validators</span><span style="color: #007700">).</span><span style="color: #DD0000">"\n}"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;if(!isset(</span><span style="color: #0000BB">$htmlOptions</span><span style="color: #007700">[</span><span style="color: #DD0000">'class'</span><span style="color: #007700">]))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$htmlOptions</span><span style="color: #007700">[</span><span style="color: #DD0000">'class'</span><span style="color: #007700">]=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">errorMessageCssClass</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$html</span><span style="color: #007700">=</span><span style="color: #0000BB">CHtml</span><span style="color: #007700">::</span><span style="color: #0000BB">error</span><span style="color: #007700">(</span><span style="color: #0000BB">$model</span><span style="color: #007700">,</span><span style="color: #0000BB">$attribute</span><span style="color: #007700">,</span><span style="color: #0000BB">$htmlOptions</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$html</span><span style="color: #007700">===</span><span style="color: #DD0000">''</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(isset(</span><span style="color: #0000BB">$htmlOptions</span><span style="color: #007700">[</span><span style="color: #DD0000">'style'</span><span style="color: #007700">]))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$htmlOptions</span><span style="color: #007700">[</span><span style="color: #DD0000">'style'</span><span style="color: #007700">]=</span><span style="color: #0000BB">rtrim</span><span style="color: #007700">(</span><span style="color: #0000BB">$htmlOptions</span><span style="color: #007700">[</span><span style="color: #DD0000">'style'</span><span style="color: #007700">],</span><span style="color: #DD0000">';'</span><span style="color: #007700">).</span><span style="color: #DD0000">';display:none'</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$htmlOptions</span><span style="color: #007700">[</span><span style="color: #DD0000">'style'</span><span style="color: #007700">]=</span><span style="color: #DD0000">'display:none'</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$html</span><span style="color: #007700">=</span><span style="color: #0000BB">CHtml</span><span style="color: #007700">::</span><span style="color: #0000BB">tag</span><span style="color: #007700">(</span><span style="color: #DD0000">'div'</span><span style="color: #007700">,</span><span style="color: #0000BB">$htmlOptions</span><span style="color: #007700">,</span><span style="color: #DD0000">''</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">attributes</span><span style="color: #007700">[</span><span style="color: #0000BB">$inputID</span><span style="color: #007700">]=</span><span style="color: #0000BB">$option</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$html</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Displays the first validation error for a model attribute.
+This is similar to <a href="CHtml.html#error">CHtml::error</a> except that it registers the model attribute
+so that if its value is changed by users, an AJAX validation may be triggered.</p>
+
+<div class="SeeAlso">
+<h4>See Also</h4>
+<ul>
+	<li><a href="CHtml.html#error">CHtml::error</a></li>
+</ul>
+</div>
+
+<div class="detailHeader" id="errorSummary-detail">
+errorSummary()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>errorSummary</b>(mixed $models, string $header=NULL, string $footer=NULL, array $htmlOptions=array (
+))</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$models</td>
+  <td class="paramTypeCol">mixed</td>
+  <td class="paramDescCol">the models whose input errors are to be displayed. This can be either
+a single model or an array of models.</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$header</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">a piece of HTML code that appears in front of the errors</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$footer</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">a piece of HTML code that appears at the end of the errors</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$htmlOptions</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">additional HTML attributes to be rendered in the container div tag.</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the error summary. Empty if no errors are found.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/widgets/CActiveForm.php#503">framework/web/widgets/CActiveForm.php#503</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">errorSummary</span><span style="color: #007700">(</span><span style="color: #0000BB">$models</span><span style="color: #007700">,</span><span style="color: #0000BB">$header</span><span style="color: #007700">=</span><span style="color: #0000BB">null</span><span style="color: #007700">,</span><span style="color: #0000BB">$footer</span><span style="color: #007700">=</span><span style="color: #0000BB">null</span><span style="color: #007700">,</span><span style="color: #0000BB">$htmlOptions</span><span style="color: #007700">=array())<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(!</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">enableAjaxValidation&nbsp;</span><span style="color: #007700">&amp;&amp;&nbsp;!</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">enableClientValidation</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">CHtml</span><span style="color: #007700">::</span><span style="color: #0000BB">errorSummary</span><span style="color: #007700">(</span><span style="color: #0000BB">$models</span><span style="color: #007700">,</span><span style="color: #0000BB">$header</span><span style="color: #007700">,</span><span style="color: #0000BB">$footer</span><span style="color: #007700">,</span><span style="color: #0000BB">$htmlOptions</span><span style="color: #007700">);<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;if(!isset(</span><span style="color: #0000BB">$htmlOptions</span><span style="color: #007700">[</span><span style="color: #DD0000">'id'</span><span style="color: #007700">]))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$htmlOptions</span><span style="color: #007700">[</span><span style="color: #DD0000">'id'</span><span style="color: #007700">]=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">id</span><span style="color: #007700">.</span><span style="color: #DD0000">'_es_'</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$html</span><span style="color: #007700">=</span><span style="color: #0000BB">CHtml</span><span style="color: #007700">::</span><span style="color: #0000BB">errorSummary</span><span style="color: #007700">(</span><span style="color: #0000BB">$models</span><span style="color: #007700">,</span><span style="color: #0000BB">$header</span><span style="color: #007700">,</span><span style="color: #0000BB">$footer</span><span style="color: #007700">,</span><span style="color: #0000BB">$htmlOptions</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$html</span><span style="color: #007700">===</span><span style="color: #DD0000">''</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$header</span><span style="color: #007700">===</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$header</span><span style="color: #007700">=</span><span style="color: #DD0000">'&lt;p&gt;'</span><span style="color: #007700">.</span><span style="color: #0000BB">Yii</span><span style="color: #007700">::</span><span style="color: #0000BB">t</span><span style="color: #007700">(</span><span style="color: #DD0000">'yii'</span><span style="color: #007700">,</span><span style="color: #DD0000">'Please&nbsp;fix&nbsp;the&nbsp;following&nbsp;input&nbsp;errors:'</span><span style="color: #007700">).</span><span style="color: #DD0000">'&lt;/p&gt;'</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(!isset(</span><span style="color: #0000BB">$htmlOptions</span><span style="color: #007700">[</span><span style="color: #DD0000">'class'</span><span style="color: #007700">]))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$htmlOptions</span><span style="color: #007700">[</span><span style="color: #DD0000">'class'</span><span style="color: #007700">]=</span><span style="color: #0000BB">CHtml</span><span style="color: #007700">::</span><span style="color: #0000BB">$errorSummaryCss</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$htmlOptions</span><span style="color: #007700">[</span><span style="color: #DD0000">'style'</span><span style="color: #007700">]=isset(</span><span style="color: #0000BB">$htmlOptions</span><span style="color: #007700">[</span><span style="color: #DD0000">'style'</span><span style="color: #007700">])&nbsp;?&nbsp;</span><span style="color: #0000BB">rtrim</span><span style="color: #007700">(</span><span style="color: #0000BB">$htmlOptions</span><span style="color: #007700">[</span><span style="color: #DD0000">'style'</span><span style="color: #007700">],</span><span style="color: #DD0000">';'</span><span style="color: #007700">).</span><span style="color: #DD0000">';display:none'&nbsp;</span><span style="color: #007700">:&nbsp;</span><span style="color: #DD0000">'display:none'</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$html</span><span style="color: #007700">=</span><span style="color: #0000BB">CHtml</span><span style="color: #007700">::</span><span style="color: #0000BB">tag</span><span style="color: #007700">(</span><span style="color: #DD0000">'div'</span><span style="color: #007700">,</span><span style="color: #0000BB">$htmlOptions</span><span style="color: #007700">,</span><span style="color: #0000BB">$header</span><span style="color: #007700">.</span><span style="color: #DD0000">"\n&lt;ul&gt;&lt;li&gt;dummy&lt;/li&gt;&lt;/ul&gt;"</span><span style="color: #007700">.</span><span style="color: #0000BB">$footer</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">summaryID</span><span style="color: #007700">=</span><span style="color: #0000BB">$htmlOptions</span><span style="color: #007700">[</span><span style="color: #DD0000">'id'</span><span style="color: #007700">];<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$html</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Displays a summary of validation errors for one or several models.
+This method is very similar to <a href="CHtml.html#errorSummary">CHtml::errorSummary</a> except that it also works
+when AJAX validation is performed.</p>
+
+<div class="SeeAlso">
+<h4>See Also</h4>
+<ul>
+	<li><a href="CHtml.html#errorSummary">CHtml::errorSummary</a></li>
+</ul>
+</div>
+
+<div class="detailHeader" id="fileField-detail">
+fileField()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>fileField</b>(<a href="CModel.html">CModel</a> $model, string $attribute, array $htmlOptions=array (
+))</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$model</td>
+  <td class="paramTypeCol"><a href="CModel.html">CModel</a></td>
+  <td class="paramDescCol">the data model</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$attribute</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the attribute</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$htmlOptions</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">additional HTML attributes</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the generated input field</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/widgets/CActiveForm.php#625">framework/web/widgets/CActiveForm.php#625</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">fileField</span><span style="color: #007700">(</span><span style="color: #0000BB">$model</span><span style="color: #007700">,</span><span style="color: #0000BB">$attribute</span><span style="color: #007700">,</span><span style="color: #0000BB">$htmlOptions</span><span style="color: #007700">=array())<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">CHtml</span><span style="color: #007700">::</span><span style="color: #0000BB">activeFileField</span><span style="color: #007700">(</span><span style="color: #0000BB">$model</span><span style="color: #007700">,</span><span style="color: #0000BB">$attribute</span><span style="color: #007700">,</span><span style="color: #0000BB">$htmlOptions</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Renders a file field for a model attribute.
+This method is a wrapper of <a href="CHtml.html#activeFileField">CHtml::activeFileField</a>.
+Please check <a href="CHtml.html#activeFileField">CHtml::activeFileField</a> for detailed information
+about the parameters for this method.</p>
+
+
+<div class="detailHeader" id="hiddenField-detail">
+hiddenField()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>hiddenField</b>(<a href="CModel.html">CModel</a> $model, string $attribute, array $htmlOptions=array (
+))</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$model</td>
+  <td class="paramTypeCol"><a href="CModel.html">CModel</a></td>
+  <td class="paramDescCol">the data model</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$attribute</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the attribute</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$htmlOptions</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">additional HTML attributes.</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the generated input field</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/widgets/CActiveForm.php#580">framework/web/widgets/CActiveForm.php#580</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">hiddenField</span><span style="color: #007700">(</span><span style="color: #0000BB">$model</span><span style="color: #007700">,</span><span style="color: #0000BB">$attribute</span><span style="color: #007700">,</span><span style="color: #0000BB">$htmlOptions</span><span style="color: #007700">=array())<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">CHtml</span><span style="color: #007700">::</span><span style="color: #0000BB">activeHiddenField</span><span style="color: #007700">(</span><span style="color: #0000BB">$model</span><span style="color: #007700">,</span><span style="color: #0000BB">$attribute</span><span style="color: #007700">,</span><span style="color: #0000BB">$htmlOptions</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Renders a hidden field for a model attribute.
+This method is a wrapper of <a href="CHtml.html#activeHiddenField">CHtml::activeHiddenField</a>.
+Please check <a href="CHtml.html#activeHiddenField">CHtml::activeHiddenField</a> for detailed information
+about the parameters for this method.</p>
+
+
+<div class="detailHeader" id="init-detail">
+init()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>init</b>()</div>
+</td></tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/widgets/CActiveForm.php#318">framework/web/widgets/CActiveForm.php#318</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">init</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(!isset(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">htmlOptions</span><span style="color: #007700">[</span><span style="color: #DD0000">'id'</span><span style="color: #007700">]))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">htmlOptions</span><span style="color: #007700">[</span><span style="color: #DD0000">'id'</span><span style="color: #007700">]=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">id</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">stateful</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">CHtml</span><span style="color: #007700">::</span><span style="color: #0000BB">statefulForm</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">action</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">method</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">htmlOptions</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">CHtml</span><span style="color: #007700">::</span><span style="color: #0000BB">beginForm</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">action</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">method</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">htmlOptions</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Initializes the widget.
+This renders the form open tag.</p>
+
+
+<div class="detailHeader" id="label-detail">
+label()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>label</b>(<a href="CModel.html">CModel</a> $model, string $attribute, array $htmlOptions=array (
+))</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$model</td>
+  <td class="paramTypeCol"><a href="CModel.html">CModel</a></td>
+  <td class="paramDescCol">the data model</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$attribute</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the attribute</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$htmlOptions</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">additional HTML attributes.</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the generated label tag</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/widgets/CActiveForm.php#535">framework/web/widgets/CActiveForm.php#535</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">label</span><span style="color: #007700">(</span><span style="color: #0000BB">$model</span><span style="color: #007700">,</span><span style="color: #0000BB">$attribute</span><span style="color: #007700">,</span><span style="color: #0000BB">$htmlOptions</span><span style="color: #007700">=array())<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">CHtml</span><span style="color: #007700">::</span><span style="color: #0000BB">activeLabel</span><span style="color: #007700">(</span><span style="color: #0000BB">$model</span><span style="color: #007700">,</span><span style="color: #0000BB">$attribute</span><span style="color: #007700">,</span><span style="color: #0000BB">$htmlOptions</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Renders an HTML label for a model attribute.
+This method is a wrapper of <a href="CHtml.html#activeLabel">CHtml::activeLabel</a>.
+Please check <a href="CHtml.html#activeLabel">CHtml::activeLabel</a> for detailed information
+about the parameters for this method.</p>
+
+
+<div class="detailHeader" id="labelEx-detail">
+labelEx()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>labelEx</b>(<a href="CModel.html">CModel</a> $model, string $attribute, array $htmlOptions=array (
+))</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$model</td>
+  <td class="paramTypeCol"><a href="CModel.html">CModel</a></td>
+  <td class="paramDescCol">the data model</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$attribute</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the attribute</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$htmlOptions</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">additional HTML attributes.</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the generated label tag</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/widgets/CActiveForm.php#550">framework/web/widgets/CActiveForm.php#550</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">labelEx</span><span style="color: #007700">(</span><span style="color: #0000BB">$model</span><span style="color: #007700">,</span><span style="color: #0000BB">$attribute</span><span style="color: #007700">,</span><span style="color: #0000BB">$htmlOptions</span><span style="color: #007700">=array())<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">CHtml</span><span style="color: #007700">::</span><span style="color: #0000BB">activeLabelEx</span><span style="color: #007700">(</span><span style="color: #0000BB">$model</span><span style="color: #007700">,</span><span style="color: #0000BB">$attribute</span><span style="color: #007700">,</span><span style="color: #0000BB">$htmlOptions</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Renders an HTML label for a model attribute.
+This method is a wrapper of <a href="CHtml.html#activeLabelEx">CHtml::activeLabelEx</a>.
+Please check <a href="CHtml.html#activeLabelEx">CHtml::activeLabelEx</a> for detailed information
+about the parameters for this method.</p>
+
+
+<div class="detailHeader" id="listBox-detail">
+listBox()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>listBox</b>(<a href="CModel.html">CModel</a> $model, string $attribute, array $data, array $htmlOptions=array (
+))</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$model</td>
+  <td class="paramTypeCol"><a href="CModel.html">CModel</a></td>
+  <td class="paramDescCol">the data model</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$attribute</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the attribute</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$data</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">data for generating the list options (value=>display)</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$htmlOptions</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">additional HTML attributes.</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the generated list box</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/widgets/CActiveForm.php#687">framework/web/widgets/CActiveForm.php#687</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">listBox</span><span style="color: #007700">(</span><span style="color: #0000BB">$model</span><span style="color: #007700">,</span><span style="color: #0000BB">$attribute</span><span style="color: #007700">,</span><span style="color: #0000BB">$data</span><span style="color: #007700">,</span><span style="color: #0000BB">$htmlOptions</span><span style="color: #007700">=array())<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">CHtml</span><span style="color: #007700">::</span><span style="color: #0000BB">activeListBox</span><span style="color: #007700">(</span><span style="color: #0000BB">$model</span><span style="color: #007700">,</span><span style="color: #0000BB">$attribute</span><span style="color: #007700">,</span><span style="color: #0000BB">$data</span><span style="color: #007700">,</span><span style="color: #0000BB">$htmlOptions</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Renders a list box for a model attribute.
+This method is a wrapper of <a href="CHtml.html#activeListBox">CHtml::activeListBox</a>.
+Please check <a href="CHtml.html#activeListBox">CHtml::activeListBox</a> for detailed information
+about the parameters for this method.</p>
+
+
+<div class="detailHeader" id="passwordField-detail">
+passwordField()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>passwordField</b>(<a href="CModel.html">CModel</a> $model, string $attribute, array $htmlOptions=array (
+))</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$model</td>
+  <td class="paramTypeCol"><a href="CModel.html">CModel</a></td>
+  <td class="paramDescCol">the data model</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$attribute</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the attribute</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$htmlOptions</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">additional HTML attributes.</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the generated input field</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/widgets/CActiveForm.php#595">framework/web/widgets/CActiveForm.php#595</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">passwordField</span><span style="color: #007700">(</span><span style="color: #0000BB">$model</span><span style="color: #007700">,</span><span style="color: #0000BB">$attribute</span><span style="color: #007700">,</span><span style="color: #0000BB">$htmlOptions</span><span style="color: #007700">=array())<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">CHtml</span><span style="color: #007700">::</span><span style="color: #0000BB">activePasswordField</span><span style="color: #007700">(</span><span style="color: #0000BB">$model</span><span style="color: #007700">,</span><span style="color: #0000BB">$attribute</span><span style="color: #007700">,</span><span style="color: #0000BB">$htmlOptions</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Renders a password field for a model attribute.
+This method is a wrapper of <a href="CHtml.html#activePasswordField">CHtml::activePasswordField</a>.
+Please check <a href="CHtml.html#activePasswordField">CHtml::activePasswordField</a> for detailed information
+about the parameters for this method.</p>
+
+
+<div class="detailHeader" id="radioButton-detail">
+radioButton()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>radioButton</b>(<a href="CModel.html">CModel</a> $model, string $attribute, array $htmlOptions=array (
+))</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$model</td>
+  <td class="paramTypeCol"><a href="CModel.html">CModel</a></td>
+  <td class="paramDescCol">the data model</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$attribute</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the attribute</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$htmlOptions</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">additional HTML attributes.</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the generated radio button</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/widgets/CActiveForm.php#640">framework/web/widgets/CActiveForm.php#640</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">radioButton</span><span style="color: #007700">(</span><span style="color: #0000BB">$model</span><span style="color: #007700">,</span><span style="color: #0000BB">$attribute</span><span style="color: #007700">,</span><span style="color: #0000BB">$htmlOptions</span><span style="color: #007700">=array())<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">CHtml</span><span style="color: #007700">::</span><span style="color: #0000BB">activeRadioButton</span><span style="color: #007700">(</span><span style="color: #0000BB">$model</span><span style="color: #007700">,</span><span style="color: #0000BB">$attribute</span><span style="color: #007700">,</span><span style="color: #0000BB">$htmlOptions</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Renders a radio button for a model attribute.
+This method is a wrapper of <a href="CHtml.html#activeRadioButton">CHtml::activeRadioButton</a>.
+Please check <a href="CHtml.html#activeRadioButton">CHtml::activeRadioButton</a> for detailed information
+about the parameters for this method.</p>
+
+
+<div class="detailHeader" id="radioButtonList-detail">
+radioButtonList()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>radioButtonList</b>(<a href="CModel.html">CModel</a> $model, string $attribute, array $data, array $htmlOptions=array (
+))</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$model</td>
+  <td class="paramTypeCol"><a href="CModel.html">CModel</a></td>
+  <td class="paramDescCol">the data model</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$attribute</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the attribute</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$data</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">value-label pairs used to generate the radio button list.</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$htmlOptions</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">addtional HTML options.</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the generated radio button list</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/widgets/CActiveForm.php#719">framework/web/widgets/CActiveForm.php#719</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">radioButtonList</span><span style="color: #007700">(</span><span style="color: #0000BB">$model</span><span style="color: #007700">,</span><span style="color: #0000BB">$attribute</span><span style="color: #007700">,</span><span style="color: #0000BB">$data</span><span style="color: #007700">,</span><span style="color: #0000BB">$htmlOptions</span><span style="color: #007700">=array())<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">CHtml</span><span style="color: #007700">::</span><span style="color: #0000BB">activeRadioButtonList</span><span style="color: #007700">(</span><span style="color: #0000BB">$model</span><span style="color: #007700">,</span><span style="color: #0000BB">$attribute</span><span style="color: #007700">,</span><span style="color: #0000BB">$data</span><span style="color: #007700">,</span><span style="color: #0000BB">$htmlOptions</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Renders a radio button list for a model attribute.
+This method is a wrapper of <a href="CHtml.html#activeRadioButtonList">CHtml::activeRadioButtonList</a>.
+Please check <a href="CHtml.html#activeRadioButtonList">CHtml::activeRadioButtonList</a> for detailed information
+about the parameters for this method.</p>
+
+
+<div class="detailHeader" id="run-detail">
+run()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>run</b>()</div>
+</td></tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/widgets/CActiveForm.php#332">framework/web/widgets/CActiveForm.php#332</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">run</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">is_array</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">focus</span><span style="color: #007700">))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">focus</span><span style="color: #007700">=</span><span style="color: #DD0000">"#"</span><span style="color: #007700">.</span><span style="color: #0000BB">CHtml</span><span style="color: #007700">::</span><span style="color: #0000BB">activeId</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">focus</span><span style="color: #007700">[</span><span style="color: #0000BB">0</span><span style="color: #007700">],</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">focus</span><span style="color: #007700">[</span><span style="color: #0000BB">1</span><span style="color: #007700">]);<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">CHtml</span><span style="color: #007700">::</span><span style="color: #0000BB">endForm</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$cs</span><span style="color: #007700">=</span><span style="color: #0000BB">Yii</span><span style="color: #007700">::</span><span style="color: #0000BB">app</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">clientScript</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;if(!</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">enableAjaxValidation&nbsp;</span><span style="color: #007700">&amp;&amp;&nbsp;!</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">enableClientValidation&nbsp;</span><span style="color: #007700">||&nbsp;empty(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">attributes</span><span style="color: #007700">))<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">focus</span><span style="color: #007700">!==</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$cs</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">registerCoreScript</span><span style="color: #007700">(</span><span style="color: #DD0000">'jquery'</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$cs</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">registerScript</span><span style="color: #007700">(</span><span style="color: #DD0000">'CActiveForm#focus'</span><span style="color: #007700">,</span><span style="color: #DD0000">"<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(!window.location.hash)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$('"</span><span style="color: #007700">.</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">focus</span><span style="color: #007700">.</span><span style="color: #DD0000">"').focus();<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$options</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">clientOptions</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;if(isset(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">clientOptions</span><span style="color: #007700">[</span><span style="color: #DD0000">'validationUrl'</span><span style="color: #007700">])&nbsp;&amp;&amp;&nbsp;</span><span style="color: #0000BB">is_array</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">clientOptions</span><span style="color: #007700">[</span><span style="color: #DD0000">'validationUrl'</span><span style="color: #007700">]))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$options</span><span style="color: #007700">[</span><span style="color: #DD0000">'validationUrl'</span><span style="color: #007700">]=</span><span style="color: #0000BB">CHtml</span><span style="color: #007700">::</span><span style="color: #0000BB">normalizeUrl</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">clientOptions</span><span style="color: #007700">[</span><span style="color: #DD0000">'validationUrl'</span><span style="color: #007700">]);<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$options</span><span style="color: #007700">[</span><span style="color: #DD0000">'attributes'</span><span style="color: #007700">]=</span><span style="color: #0000BB">array_values</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">attributes</span><span style="color: #007700">);<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">summaryID</span><span style="color: #007700">!==</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$options</span><span style="color: #007700">[</span><span style="color: #DD0000">'summaryID'</span><span style="color: #007700">]=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">summaryID</span><span style="color: #007700">;<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">focus</span><span style="color: #007700">!==</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$options</span><span style="color: #007700">[</span><span style="color: #DD0000">'focus'</span><span style="color: #007700">]=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">focus</span><span style="color: #007700">;<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$options</span><span style="color: #007700">=</span><span style="color: #0000BB">CJavaScript</span><span style="color: #007700">::</span><span style="color: #0000BB">encode</span><span style="color: #007700">(</span><span style="color: #0000BB">$options</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$cs</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">registerCoreScript</span><span style="color: #007700">(</span><span style="color: #DD0000">'yiiactiveform'</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$id</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">id</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$cs</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">registerScript</span><span style="color: #007700">(</span><span style="color: #0000BB">__CLASS__</span><span style="color: #007700">.</span><span style="color: #DD0000">'#'</span><span style="color: #007700">.</span><span style="color: #0000BB">$id</span><span style="color: #007700">,</span><span style="color: #DD0000">"\$('#</span><span style="color: #0000BB">$id</span><span style="color: #DD0000">').yiiactiveform(</span><span style="color: #0000BB">$options</span><span style="color: #DD0000">);"</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Runs the widget.
+This registers the necessary javascript code and renders the form close tag.</p>
+
+
+<div class="detailHeader" id="textArea-detail">
+textArea()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>textArea</b>(<a href="CModel.html">CModel</a> $model, string $attribute, array $htmlOptions=array (
+))</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$model</td>
+  <td class="paramTypeCol"><a href="CModel.html">CModel</a></td>
+  <td class="paramDescCol">the data model</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$attribute</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the attribute</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$htmlOptions</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">additional HTML attributes.</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the generated text area</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/widgets/CActiveForm.php#610">framework/web/widgets/CActiveForm.php#610</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">textArea</span><span style="color: #007700">(</span><span style="color: #0000BB">$model</span><span style="color: #007700">,</span><span style="color: #0000BB">$attribute</span><span style="color: #007700">,</span><span style="color: #0000BB">$htmlOptions</span><span style="color: #007700">=array())<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">CHtml</span><span style="color: #007700">::</span><span style="color: #0000BB">activeTextArea</span><span style="color: #007700">(</span><span style="color: #0000BB">$model</span><span style="color: #007700">,</span><span style="color: #0000BB">$attribute</span><span style="color: #007700">,</span><span style="color: #0000BB">$htmlOptions</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Renders a text area for a model attribute.
+This method is a wrapper of <a href="CHtml.html#activeTextArea">CHtml::activeTextArea</a>.
+Please check <a href="CHtml.html#activeTextArea">CHtml::activeTextArea</a> for detailed information
+about the parameters for this method.</p>
+
+
+<div class="detailHeader" id="textField-detail">
+textField()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>textField</b>(<a href="CModel.html">CModel</a> $model, string $attribute, array $htmlOptions=array (
+))</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$model</td>
+  <td class="paramTypeCol"><a href="CModel.html">CModel</a></td>
+  <td class="paramDescCol">the data model</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$attribute</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the attribute</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$htmlOptions</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">additional HTML attributes.</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the generated input field</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/widgets/CActiveForm.php#565">framework/web/widgets/CActiveForm.php#565</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">textField</span><span style="color: #007700">(</span><span style="color: #0000BB">$model</span><span style="color: #007700">,</span><span style="color: #0000BB">$attribute</span><span style="color: #007700">,</span><span style="color: #0000BB">$htmlOptions</span><span style="color: #007700">=array())<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">CHtml</span><span style="color: #007700">::</span><span style="color: #0000BB">activeTextField</span><span style="color: #007700">(</span><span style="color: #0000BB">$model</span><span style="color: #007700">,</span><span style="color: #0000BB">$attribute</span><span style="color: #007700">,</span><span style="color: #0000BB">$htmlOptions</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Renders a text field for a model attribute.
+This method is a wrapper of <a href="CHtml.html#activeTextField">CHtml::activeTextField</a>.
+Please check <a href="CHtml.html#activeTextField">CHtml::activeTextField</a> for detailed information
+about the parameters for this method.</p>
+
+
+<div class="detailHeader" id="validate-detail">
+validate()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public static string <b>validate</b>(mixed $models, array $attributes=NULL, boolean $loadInput=true)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$models</td>
+  <td class="paramTypeCol">mixed</td>
+  <td class="paramDescCol">a single model instance or an array of models.</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$attributes</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">list of attributes that should be validated. Defaults to null,
+meaning any attribute listed in the applicable validation rules of the models should be
+validated. If this parameter is given as a list of attributes, only
+the listed attributes will be validated.</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$loadInput</td>
+  <td class="paramTypeCol">boolean</td>
+  <td class="paramDescCol">whether to load the data from $_POST array in this method.
+If this is true, the model will be populated from <code>$_POST[ModelClass]</code>.</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the JSON representation of the validation error messages.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/widgets/CActiveForm.php#736">framework/web/widgets/CActiveForm.php#736</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;static&nbsp;function&nbsp;</span><span style="color: #0000BB">validate</span><span style="color: #007700">(</span><span style="color: #0000BB">$models</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$attributes</span><span style="color: #007700">=</span><span style="color: #0000BB">null</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$loadInput</span><span style="color: #007700">=</span><span style="color: #0000BB">true</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$result</span><span style="color: #007700">=array();<br />&nbsp;&nbsp;&nbsp;&nbsp;if(!</span><span style="color: #0000BB">is_array</span><span style="color: #007700">(</span><span style="color: #0000BB">$models</span><span style="color: #007700">))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$models</span><span style="color: #007700">=array(</span><span style="color: #0000BB">$models</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;foreach(</span><span style="color: #0000BB">$models&nbsp;</span><span style="color: #007700">as&nbsp;</span><span style="color: #0000BB">$model</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$loadInput&nbsp;</span><span style="color: #007700">&amp;&amp;&nbsp;isset(</span><span style="color: #0000BB">$_POST</span><span style="color: #007700">[</span><span style="color: #0000BB">get_class</span><span style="color: #007700">(</span><span style="color: #0000BB">$model</span><span style="color: #007700">)]))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$model</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">attributes</span><span style="color: #007700">=</span><span style="color: #0000BB">$_POST</span><span style="color: #007700">[</span><span style="color: #0000BB">get_class</span><span style="color: #007700">(</span><span style="color: #0000BB">$model</span><span style="color: #007700">)];<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$model</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">validate</span><span style="color: #007700">(</span><span style="color: #0000BB">$attributes</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;foreach(</span><span style="color: #0000BB">$model</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getErrors</span><span style="color: #007700">()&nbsp;as&nbsp;</span><span style="color: #0000BB">$attribute</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">$errors</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$result</span><span style="color: #007700">[</span><span style="color: #0000BB">CHtml</span><span style="color: #007700">::</span><span style="color: #0000BB">activeId</span><span style="color: #007700">(</span><span style="color: #0000BB">$model</span><span style="color: #007700">,</span><span style="color: #0000BB">$attribute</span><span style="color: #007700">)]=</span><span style="color: #0000BB">$errors</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">function_exists</span><span style="color: #007700">(</span><span style="color: #DD0000">'json_encode'</span><span style="color: #007700">)&nbsp;?&nbsp;</span><span style="color: #0000BB">json_encode</span><span style="color: #007700">(</span><span style="color: #0000BB">$result</span><span style="color: #007700">)&nbsp;:&nbsp;</span><span style="color: #0000BB">CJSON</span><span style="color: #007700">::</span><span style="color: #0000BB">encode</span><span style="color: #007700">(</span><span style="color: #0000BB">$result</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Validates one or several models and returns the results in JSON format.
+This is a helper method that simplifies the way of writing AJAX validation code.</p>
+
+
+</div><!-- end of content -->
+
+<div id="apiFooter">
+Copyright &copy; 2008-2011 by <a href="http://www.yiisoft.com">Yii Software LLC</a><br/>
+All Rights Reserved.<br/>
+</div><!-- end of footer -->
+
+<script type="text/javascript">
+/*<![CDATA[*/
+$("a.toggle").toggle(function(){
+	$(this).text($(this).text().replace(/Hide/,'Show'));
+	$(this).parents(".summary").find(".inherited").hide();
+},function(){
+	$(this).text($(this).text().replace(/Show/,'Hide'));
+	$(this).parents(".summary").find(".inherited").show();
+});
+$(".sourceCode a.show").toggle(function(){
+	$(this).text($(this).text().replace(/show/,'hide'));
+	$(this).parents(".sourceCode").find("div.code").show();
+},function(){
+	$(this).text($(this).text().replace(/hide/,'show'));
+	$(this).parents(".sourceCode").find("div.code").hide();
+});
+$("a.sourceLink").click(function(){
+	$(this).attr('target','_blank');
+});
+/*]]>*/
+</script>
+
+</div><!-- end of page -->
+</body>
+</html>

@@ -1,0 +1,1477 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="language" content="en" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="css/api.css" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<title>Post</title>
+</head>
+
+<body>
+<div id="apiPage">
+
+<div id="apiHeader">
+My Console Application Class Reference
+</div><!-- end of header -->
+
+<div id="content">
+<h1>Post</h1>
+<div id="nav">
+<a href="index.html">All Packages</a>
+| <a href="#properties">Properties</a>
+| <a href="#methods">Methods</a>
+| <a href="#events">Events</a>
+</div>
+
+<table class="summaryTable docClass">
+<colgroup>
+	<col class="col-name" />
+	<col class="col-value" />
+</colgroup>
+<tr>
+  <th>Inheritance</th>
+  <td>class Post &raquo;
+<a href="CActiveRecord.html">CActiveRecord</a> &raquo;
+<a href="CModel.html">CModel</a> &raquo;
+<a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr>
+  <th>Implements</th>
+  <td>IteratorAggregate, Traversable, ArrayAccess</td>
+</tr>
+<tr>
+  <th>Source Code</th>
+  <td>app/models/Post.php</td>
+</tr>
+</table>
+
+<div id="classDescription">
+</div>
+<a name="properties"></a>
+
+<div class="summary docProperty">
+<h2>Public Properties</h2>
+
+<p><a href="#" class="toggle">Hide inherited properties</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-property" />
+	<col class="col-type" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>Property</th><th>Type</th><th>Description</th><th>Defined By</th>
+</tr>
+<tr class="inherited" id="attributes">
+  <td><a href="CActiveRecord.html#attributes-detail">attributes</a></td>
+  <td>array</td>
+  <td>Returns all column attribute values.</td>
+  <td><a href="CActiveRecord.html">CActiveRecord</a></td>
+</tr>
+<tr class="inherited" id="commandBuilder">
+  <td><a href="CActiveRecord.html#commandBuilder-detail">commandBuilder</a></td>
+  <td><a href="CDbCommandBuilder.html">CDbCommandBuilder</a></td>
+  <td>Returns the command builder used by this AR.</td>
+  <td><a href="CActiveRecord.html">CActiveRecord</a></td>
+</tr>
+<tr class="inherited" id="db">
+  <td><a href="CActiveRecord.html#db-detail">db</a></td>
+  <td><a href="CDbConnection.html">CDbConnection</a></td>
+  <td>the default database connection for all active record classes.</td>
+  <td><a href="CActiveRecord.html">CActiveRecord</a></td>
+</tr>
+<tr class="inherited" id="dbConnection">
+  <td><a href="CActiveRecord.html#dbConnection-detail">dbConnection</a></td>
+  <td><a href="CDbConnection.html">CDbConnection</a></td>
+  <td>Returns the database connection used by active record.</td>
+  <td><a href="CActiveRecord.html">CActiveRecord</a></td>
+</tr>
+<tr class="inherited" id="dbCriteria">
+  <td><a href="CActiveRecord.html#dbCriteria-detail">dbCriteria</a></td>
+  <td><a href="CDbCriteria.html">CDbCriteria</a></td>
+  <td>Returns the query criteria associated with this model.</td>
+  <td><a href="CActiveRecord.html">CActiveRecord</a></td>
+</tr>
+<tr class="inherited" id="errors">
+  <td><a href="CModel.html#errors-detail">errors</a></td>
+  <td>array</td>
+  <td>Returns the errors for all attribute or a single attribute.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr class="inherited" id="isNewRecord">
+  <td><a href="CActiveRecord.html#isNewRecord-detail">isNewRecord</a></td>
+  <td>boolean</td>
+  <td>Returns if the current record is new.</td>
+  <td><a href="CActiveRecord.html">CActiveRecord</a></td>
+</tr>
+<tr class="inherited" id="iterator">
+  <td><a href="CModel.html#iterator-detail">iterator</a></td>
+  <td><a href="CMapIterator.html">CMapIterator</a></td>
+  <td>Returns an iterator for traversing the attributes in the model.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr class="inherited" id="metaData">
+  <td><a href="CActiveRecord.html#metaData-detail">metaData</a></td>
+  <td><a href="CActiveRecordMetaData.html">CActiveRecordMetaData</a></td>
+  <td>Returns the meta-data for this AR</td>
+  <td><a href="CActiveRecord.html">CActiveRecord</a></td>
+</tr>
+<tr class="inherited" id="oldPrimaryKey">
+  <td><a href="CActiveRecord.html#oldPrimaryKey-detail">oldPrimaryKey</a></td>
+  <td>mixed</td>
+  <td>Returns the old primary key value.</td>
+  <td><a href="CActiveRecord.html">CActiveRecord</a></td>
+</tr>
+<tr class="inherited" id="primaryKey">
+  <td><a href="CActiveRecord.html#primaryKey-detail">primaryKey</a></td>
+  <td>mixed</td>
+  <td>Returns the primary key value.</td>
+  <td><a href="CActiveRecord.html">CActiveRecord</a></td>
+</tr>
+<tr class="inherited" id="safeAttributeNames">
+  <td><a href="CModel.html#safeAttributeNames-detail">safeAttributeNames</a></td>
+  <td>array</td>
+  <td>Returns the attribute names that are safe to be massively assigned.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr class="inherited" id="scenario">
+  <td><a href="CModel.html#scenario-detail">scenario</a></td>
+  <td>string</td>
+  <td>Returns the scenario that this model is used in.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr class="inherited" id="tableAlias">
+  <td><a href="CActiveRecord.html#tableAlias-detail">tableAlias</a></td>
+  <td>string</td>
+  <td>Returns the table alias to be used by the find methods.</td>
+  <td><a href="CActiveRecord.html">CActiveRecord</a></td>
+</tr>
+<tr class="inherited" id="tableSchema">
+  <td><a href="CActiveRecord.html#tableSchema-detail">tableSchema</a></td>
+  <td><a href="CDbTableSchema.html">CDbTableSchema</a></td>
+  <td>Returns the metadata of the table that this AR belongs to</td>
+  <td><a href="CActiveRecord.html">CActiveRecord</a></td>
+</tr>
+<tr id="tagLinks">
+  <td><a href="Post.html#tagLinks-detail">tagLinks</a></td>
+  <td>array</td>
+  <td>a list of links that point to the post list filtered by every tag of this post</td>
+  <td>Post</td>
+</tr>
+<tr id="url">
+  <td><a href="Post.html#url-detail">url</a></td>
+  <td>string</td>
+  <td>the URL that shows the detail of the post</td>
+  <td>Post</td>
+</tr>
+<tr class="inherited" id="validatorList">
+  <td><a href="CModel.html#validatorList-detail">validatorList</a></td>
+  <td><a href="CList.html">CList</a></td>
+  <td>Returns all the validators declared in the model.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr class="inherited" id="validators">
+  <td><a href="CModel.html#validators-detail">validators</a></td>
+  <td>array</td>
+  <td>Returns the validators applicable to the current <a href="Post.html#scenario">scenario</a>.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+</table>
+</div>
+<a name="methods"></a>
+
+<div class="summary docMethod">
+<h2>Public Methods</h2>
+
+<p><a href="#" class="toggle">Hide inherited methods</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-method" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>Method</th><th>Description</th><th>Defined By</th>
+</tr>
+<tr class="inherited" id="__call">
+  <td><a href="CActiveRecord.html#__call-detail">__call()</a></td>
+  <td>Calls the named method which is not a class method.</td>
+  <td><a href="CActiveRecord.html">CActiveRecord</a></td>
+</tr>
+<tr class="inherited" id="__construct">
+  <td><a href="CActiveRecord.html#__construct-detail">__construct()</a></td>
+  <td>Constructor.</td>
+  <td><a href="CActiveRecord.html">CActiveRecord</a></td>
+</tr>
+<tr class="inherited" id="__get">
+  <td><a href="CActiveRecord.html#__get-detail">__get()</a></td>
+  <td>PHP getter magic method.</td>
+  <td><a href="CActiveRecord.html">CActiveRecord</a></td>
+</tr>
+<tr class="inherited" id="__isset">
+  <td><a href="CActiveRecord.html#__isset-detail">__isset()</a></td>
+  <td>Checks if a property value is null.</td>
+  <td><a href="CActiveRecord.html">CActiveRecord</a></td>
+</tr>
+<tr class="inherited" id="__set">
+  <td><a href="CActiveRecord.html#__set-detail">__set()</a></td>
+  <td>PHP setter magic method.</td>
+  <td><a href="CActiveRecord.html">CActiveRecord</a></td>
+</tr>
+<tr class="inherited" id="__sleep">
+  <td><a href="CActiveRecord.html#__sleep-detail">__sleep()</a></td>
+  <td>PHP sleep magic method.</td>
+  <td><a href="CActiveRecord.html">CActiveRecord</a></td>
+</tr>
+<tr class="inherited" id="__unset">
+  <td><a href="CActiveRecord.html#__unset-detail">__unset()</a></td>
+  <td>Sets a component property to be null.</td>
+  <td><a href="CActiveRecord.html">CActiveRecord</a></td>
+</tr>
+<tr id="addComment">
+  <td><a href="Post.html#addComment-detail">addComment()</a></td>
+  <td>Adds a new comment to this post.</td>
+  <td>Post</td>
+</tr>
+<tr class="inherited" id="addError">
+  <td><a href="CModel.html#addError-detail">addError()</a></td>
+  <td>Adds a new error to the specified attribute.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr class="inherited" id="addErrors">
+  <td><a href="CModel.html#addErrors-detail">addErrors()</a></td>
+  <td>Adds a list of errors.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr class="inherited" id="addRelatedRecord">
+  <td><a href="CActiveRecord.html#addRelatedRecord-detail">addRelatedRecord()</a></td>
+  <td>Adds a related object to this record.</td>
+  <td><a href="CActiveRecord.html">CActiveRecord</a></td>
+</tr>
+<tr class="inherited" id="afterFindInternal">
+  <td><a href="CActiveRecord.html#afterFindInternal-detail">afterFindInternal()</a></td>
+  <td>Calls <a href="Post.html#afterFind">afterFind</a>.</td>
+  <td><a href="CActiveRecord.html">CActiveRecord</a></td>
+</tr>
+<tr class="inherited" id="applyScopes">
+  <td><a href="CActiveRecord.html#applyScopes-detail">applyScopes()</a></td>
+  <td>Applies the query scopes to the given criteria.</td>
+  <td><a href="CActiveRecord.html">CActiveRecord</a></td>
+</tr>
+<tr class="inherited" id="asa">
+  <td><a href="CComponent.html#asa-detail">asa()</a></td>
+  <td>Returns the named behavior object.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="attachBehavior">
+  <td><a href="CComponent.html#attachBehavior-detail">attachBehavior()</a></td>
+  <td>Attaches a behavior to this component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="attachBehaviors">
+  <td><a href="CComponent.html#attachBehaviors-detail">attachBehaviors()</a></td>
+  <td>Attaches a list of behaviors to the component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="attachEventHandler">
+  <td><a href="CComponent.html#attachEventHandler-detail">attachEventHandler()</a></td>
+  <td>Attaches an event handler to an event.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr id="attributeLabels">
+  <td><a href="Post.html#attributeLabels-detail">attributeLabels()</a></td>
+  <td></td>
+  <td>Post</td>
+</tr>
+<tr class="inherited" id="attributeNames">
+  <td><a href="CActiveRecord.html#attributeNames-detail">attributeNames()</a></td>
+  <td>Returns the list of all attribute names of the model.</td>
+  <td><a href="CActiveRecord.html">CActiveRecord</a></td>
+</tr>
+<tr class="inherited" id="beforeFindInternal">
+  <td><a href="CActiveRecord.html#beforeFindInternal-detail">beforeFindInternal()</a></td>
+  <td>Calls <a href="Post.html#beforeFind">beforeFind</a>.</td>
+  <td><a href="CActiveRecord.html">CActiveRecord</a></td>
+</tr>
+<tr class="inherited" id="behaviors">
+  <td><a href="CModel.html#behaviors-detail">behaviors()</a></td>
+  <td>Returns a list of behaviors that this model should behave as.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr class="inherited" id="cache">
+  <td><a href="CActiveRecord.html#cache-detail">cache()</a></td>
+  <td>Sets the parameters about query caching.</td>
+  <td><a href="CActiveRecord.html">CActiveRecord</a></td>
+</tr>
+<tr class="inherited" id="canGetProperty">
+  <td><a href="CComponent.html#canGetProperty-detail">canGetProperty()</a></td>
+  <td>Determines whether a property can be read.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="canSetProperty">
+  <td><a href="CComponent.html#canSetProperty-detail">canSetProperty()</a></td>
+  <td>Determines whether a property can be set.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="clearErrors">
+  <td><a href="CModel.html#clearErrors-detail">clearErrors()</a></td>
+  <td>Removes errors for all attributes or a single attribute.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr class="inherited" id="count">
+  <td><a href="CActiveRecord.html#count-detail">count()</a></td>
+  <td>Finds the number of rows satisfying the specified query condition.</td>
+  <td><a href="CActiveRecord.html">CActiveRecord</a></td>
+</tr>
+<tr class="inherited" id="countByAttributes">
+  <td><a href="CActiveRecord.html#countByAttributes-detail">countByAttributes()</a></td>
+  <td>Finds the number of rows that have the specified attribute values.</td>
+  <td><a href="CActiveRecord.html">CActiveRecord</a></td>
+</tr>
+<tr class="inherited" id="countBySql">
+  <td><a href="CActiveRecord.html#countBySql-detail">countBySql()</a></td>
+  <td>Finds the number of rows using the given SQL statement.</td>
+  <td><a href="CActiveRecord.html">CActiveRecord</a></td>
+</tr>
+<tr class="inherited" id="createValidators">
+  <td><a href="CModel.html#createValidators-detail">createValidators()</a></td>
+  <td>Creates validator objects based on the specification in <a href="Post.html#rules">rules</a>.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr class="inherited" id="defaultScope">
+  <td><a href="CActiveRecord.html#defaultScope-detail">defaultScope()</a></td>
+  <td>Returns the default named scope that should be implicitly applied to all queries for this model.</td>
+  <td><a href="CActiveRecord.html">CActiveRecord</a></td>
+</tr>
+<tr class="inherited" id="delete">
+  <td><a href="CActiveRecord.html#delete-detail">delete()</a></td>
+  <td>Deletes the row corresponding to this active record.</td>
+  <td><a href="CActiveRecord.html">CActiveRecord</a></td>
+</tr>
+<tr class="inherited" id="deleteAll">
+  <td><a href="CActiveRecord.html#deleteAll-detail">deleteAll()</a></td>
+  <td>Deletes rows with the specified condition.</td>
+  <td><a href="CActiveRecord.html">CActiveRecord</a></td>
+</tr>
+<tr class="inherited" id="deleteAllByAttributes">
+  <td><a href="CActiveRecord.html#deleteAllByAttributes-detail">deleteAllByAttributes()</a></td>
+  <td>Deletes rows which match the specified attribute values.</td>
+  <td><a href="CActiveRecord.html">CActiveRecord</a></td>
+</tr>
+<tr class="inherited" id="deleteByPk">
+  <td><a href="CActiveRecord.html#deleteByPk-detail">deleteByPk()</a></td>
+  <td>Deletes rows with the specified primary key.</td>
+  <td><a href="CActiveRecord.html">CActiveRecord</a></td>
+</tr>
+<tr class="inherited" id="detachBehavior">
+  <td><a href="CComponent.html#detachBehavior-detail">detachBehavior()</a></td>
+  <td>Detaches a behavior from the component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="detachBehaviors">
+  <td><a href="CComponent.html#detachBehaviors-detail">detachBehaviors()</a></td>
+  <td>Detaches all behaviors from the component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="detachEventHandler">
+  <td><a href="CComponent.html#detachEventHandler-detail">detachEventHandler()</a></td>
+  <td>Detaches an existing event handler.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="disableBehavior">
+  <td><a href="CComponent.html#disableBehavior-detail">disableBehavior()</a></td>
+  <td>Disables an attached behavior.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="disableBehaviors">
+  <td><a href="CComponent.html#disableBehaviors-detail">disableBehaviors()</a></td>
+  <td>Disables all behaviors attached to this component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="enableBehavior">
+  <td><a href="CComponent.html#enableBehavior-detail">enableBehavior()</a></td>
+  <td>Enables an attached behavior.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="enableBehaviors">
+  <td><a href="CComponent.html#enableBehaviors-detail">enableBehaviors()</a></td>
+  <td>Enables all behaviors attached to this component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="equals">
+  <td><a href="CActiveRecord.html#equals-detail">equals()</a></td>
+  <td>Compares current active record with another one.</td>
+  <td><a href="CActiveRecord.html">CActiveRecord</a></td>
+</tr>
+<tr class="inherited" id="evaluateExpression">
+  <td><a href="CComponent.html#evaluateExpression-detail">evaluateExpression()</a></td>
+  <td>Evaluates a PHP expression or callback under the context of this component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="exists">
+  <td><a href="CActiveRecord.html#exists-detail">exists()</a></td>
+  <td>Checks whether there is row satisfying the specified condition.</td>
+  <td><a href="CActiveRecord.html">CActiveRecord</a></td>
+</tr>
+<tr class="inherited" id="find">
+  <td><a href="CActiveRecord.html#find-detail">find()</a></td>
+  <td>Finds a single active record with the specified condition.</td>
+  <td><a href="CActiveRecord.html">CActiveRecord</a></td>
+</tr>
+<tr class="inherited" id="findAll">
+  <td><a href="CActiveRecord.html#findAll-detail">findAll()</a></td>
+  <td>Finds all active records satisfying the specified condition.</td>
+  <td><a href="CActiveRecord.html">CActiveRecord</a></td>
+</tr>
+<tr class="inherited" id="findAllByAttributes">
+  <td><a href="CActiveRecord.html#findAllByAttributes-detail">findAllByAttributes()</a></td>
+  <td>Finds all active records that have the specified attribute values.</td>
+  <td><a href="CActiveRecord.html">CActiveRecord</a></td>
+</tr>
+<tr class="inherited" id="findAllByPk">
+  <td><a href="CActiveRecord.html#findAllByPk-detail">findAllByPk()</a></td>
+  <td>Finds all active records with the specified primary keys.</td>
+  <td><a href="CActiveRecord.html">CActiveRecord</a></td>
+</tr>
+<tr class="inherited" id="findAllBySql">
+  <td><a href="CActiveRecord.html#findAllBySql-detail">findAllBySql()</a></td>
+  <td>Finds all active records using the specified SQL statement.</td>
+  <td><a href="CActiveRecord.html">CActiveRecord</a></td>
+</tr>
+<tr class="inherited" id="findByAttributes">
+  <td><a href="CActiveRecord.html#findByAttributes-detail">findByAttributes()</a></td>
+  <td>Finds a single active record that has the specified attribute values.</td>
+  <td><a href="CActiveRecord.html">CActiveRecord</a></td>
+</tr>
+<tr class="inherited" id="findByPk">
+  <td><a href="CActiveRecord.html#findByPk-detail">findByPk()</a></td>
+  <td>Finds a single active record with the specified primary key.</td>
+  <td><a href="CActiveRecord.html">CActiveRecord</a></td>
+</tr>
+<tr class="inherited" id="findBySql">
+  <td><a href="CActiveRecord.html#findBySql-detail">findBySql()</a></td>
+  <td>Finds a single active record with the specified SQL statement.</td>
+  <td><a href="CActiveRecord.html">CActiveRecord</a></td>
+</tr>
+<tr class="inherited" id="generateAttributeLabel">
+  <td><a href="CModel.html#generateAttributeLabel-detail">generateAttributeLabel()</a></td>
+  <td>Generates a user friendly attribute label.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr class="inherited" id="getActiveRelation">
+  <td><a href="CActiveRecord.html#getActiveRelation-detail">getActiveRelation()</a></td>
+  <td>Returns the named relation declared for this AR class.</td>
+  <td><a href="CActiveRecord.html">CActiveRecord</a></td>
+</tr>
+<tr class="inherited" id="getAttribute">
+  <td><a href="CActiveRecord.html#getAttribute-detail">getAttribute()</a></td>
+  <td>Returns the named attribute value.</td>
+  <td><a href="CActiveRecord.html">CActiveRecord</a></td>
+</tr>
+<tr class="inherited" id="getAttributeLabel">
+  <td><a href="CActiveRecord.html#getAttributeLabel-detail">getAttributeLabel()</a></td>
+  <td>Returns the text label for the specified attribute.</td>
+  <td><a href="CActiveRecord.html">CActiveRecord</a></td>
+</tr>
+<tr class="inherited" id="getAttributes">
+  <td><a href="CActiveRecord.html#getAttributes-detail">getAttributes()</a></td>
+  <td>Returns all column attribute values.</td>
+  <td><a href="CActiveRecord.html">CActiveRecord</a></td>
+</tr>
+<tr class="inherited" id="getCommandBuilder">
+  <td><a href="CActiveRecord.html#getCommandBuilder-detail">getCommandBuilder()</a></td>
+  <td>Returns the command builder used by this AR.</td>
+  <td><a href="CActiveRecord.html">CActiveRecord</a></td>
+</tr>
+<tr class="inherited" id="getDbConnection">
+  <td><a href="CActiveRecord.html#getDbConnection-detail">getDbConnection()</a></td>
+  <td>Returns the database connection used by active record.</td>
+  <td><a href="CActiveRecord.html">CActiveRecord</a></td>
+</tr>
+<tr class="inherited" id="getDbCriteria">
+  <td><a href="CActiveRecord.html#getDbCriteria-detail">getDbCriteria()</a></td>
+  <td>Returns the query criteria associated with this model.</td>
+  <td><a href="CActiveRecord.html">CActiveRecord</a></td>
+</tr>
+<tr class="inherited" id="getError">
+  <td><a href="CModel.html#getError-detail">getError()</a></td>
+  <td>Returns the first error of the specified attribute.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr class="inherited" id="getErrors">
+  <td><a href="CModel.html#getErrors-detail">getErrors()</a></td>
+  <td>Returns the errors for all attribute or a single attribute.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr class="inherited" id="getEventHandlers">
+  <td><a href="CComponent.html#getEventHandlers-detail">getEventHandlers()</a></td>
+  <td>Returns the list of attached event handlers for an event.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="getIsNewRecord">
+  <td><a href="CActiveRecord.html#getIsNewRecord-detail">getIsNewRecord()</a></td>
+  <td>Returns if the current record is new.</td>
+  <td><a href="CActiveRecord.html">CActiveRecord</a></td>
+</tr>
+<tr class="inherited" id="getIterator">
+  <td><a href="CModel.html#getIterator-detail">getIterator()</a></td>
+  <td>Returns an iterator for traversing the attributes in the model.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr class="inherited" id="getMetaData">
+  <td><a href="CActiveRecord.html#getMetaData-detail">getMetaData()</a></td>
+  <td>Returns the meta-data for this AR</td>
+  <td><a href="CActiveRecord.html">CActiveRecord</a></td>
+</tr>
+<tr class="inherited" id="getOldPrimaryKey">
+  <td><a href="CActiveRecord.html#getOldPrimaryKey-detail">getOldPrimaryKey()</a></td>
+  <td>Returns the old primary key value.</td>
+  <td><a href="CActiveRecord.html">CActiveRecord</a></td>
+</tr>
+<tr class="inherited" id="getPrimaryKey">
+  <td><a href="CActiveRecord.html#getPrimaryKey-detail">getPrimaryKey()</a></td>
+  <td>Returns the primary key value.</td>
+  <td><a href="CActiveRecord.html">CActiveRecord</a></td>
+</tr>
+<tr class="inherited" id="getRelated">
+  <td><a href="CActiveRecord.html#getRelated-detail">getRelated()</a></td>
+  <td>Returns the related record(s).</td>
+  <td><a href="CActiveRecord.html">CActiveRecord</a></td>
+</tr>
+<tr class="inherited" id="getSafeAttributeNames">
+  <td><a href="CModel.html#getSafeAttributeNames-detail">getSafeAttributeNames()</a></td>
+  <td>Returns the attribute names that are safe to be massively assigned.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr class="inherited" id="getScenario">
+  <td><a href="CModel.html#getScenario-detail">getScenario()</a></td>
+  <td>Returns the scenario that this model is used in.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr class="inherited" id="getTableAlias">
+  <td><a href="CActiveRecord.html#getTableAlias-detail">getTableAlias()</a></td>
+  <td>Returns the table alias to be used by the find methods.</td>
+  <td><a href="CActiveRecord.html">CActiveRecord</a></td>
+</tr>
+<tr class="inherited" id="getTableSchema">
+  <td><a href="CActiveRecord.html#getTableSchema-detail">getTableSchema()</a></td>
+  <td>Returns the metadata of the table that this AR belongs to</td>
+  <td><a href="CActiveRecord.html">CActiveRecord</a></td>
+</tr>
+<tr id="getTagLinks">
+  <td><a href="Post.html#getTagLinks-detail">getTagLinks()</a></td>
+  <td>Returns a list of links that point to the post list filtered by every tag of this post</td>
+  <td>Post</td>
+</tr>
+<tr id="getUrl">
+  <td><a href="Post.html#getUrl-detail">getUrl()</a></td>
+  <td>Returns the URL that shows the detail of the post</td>
+  <td>Post</td>
+</tr>
+<tr class="inherited" id="getValidatorList">
+  <td><a href="CModel.html#getValidatorList-detail">getValidatorList()</a></td>
+  <td>Returns all the validators declared in the model.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr class="inherited" id="getValidators">
+  <td><a href="CModel.html#getValidators-detail">getValidators()</a></td>
+  <td>Returns the validators applicable to the current <a href="Post.html#scenario">scenario</a>.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr class="inherited" id="hasAttribute">
+  <td><a href="CActiveRecord.html#hasAttribute-detail">hasAttribute()</a></td>
+  <td>Checks whether this AR has the named attribute</td>
+  <td><a href="CActiveRecord.html">CActiveRecord</a></td>
+</tr>
+<tr class="inherited" id="hasErrors">
+  <td><a href="CModel.html#hasErrors-detail">hasErrors()</a></td>
+  <td>Returns a value indicating whether there is any validation error.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr class="inherited" id="hasEvent">
+  <td><a href="CComponent.html#hasEvent-detail">hasEvent()</a></td>
+  <td>Determines whether an event is defined.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="hasEventHandler">
+  <td><a href="CComponent.html#hasEventHandler-detail">hasEventHandler()</a></td>
+  <td>Checks whether the named event has attached handlers.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="hasProperty">
+  <td><a href="CComponent.html#hasProperty-detail">hasProperty()</a></td>
+  <td>Determines whether a property is defined.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="hasRelated">
+  <td><a href="CActiveRecord.html#hasRelated-detail">hasRelated()</a></td>
+  <td>Returns a value indicating whether the named related object(s) has been loaded.</td>
+  <td><a href="CActiveRecord.html">CActiveRecord</a></td>
+</tr>
+<tr class="inherited" id="init">
+  <td><a href="CActiveRecord.html#init-detail">init()</a></td>
+  <td>Initializes this model.</td>
+  <td><a href="CActiveRecord.html">CActiveRecord</a></td>
+</tr>
+<tr class="inherited" id="insert">
+  <td><a href="CActiveRecord.html#insert-detail">insert()</a></td>
+  <td>Inserts a row into the table based on this active record attributes.</td>
+  <td><a href="CActiveRecord.html">CActiveRecord</a></td>
+</tr>
+<tr class="inherited" id="isAttributeRequired">
+  <td><a href="CModel.html#isAttributeRequired-detail">isAttributeRequired()</a></td>
+  <td>Returns a value indicating whether the attribute is required.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr class="inherited" id="isAttributeSafe">
+  <td><a href="CModel.html#isAttributeSafe-detail">isAttributeSafe()</a></td>
+  <td>Returns a value indicating whether the attribute is safe for massive assignments.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr id="model">
+  <td><a href="Post.html#model-detail">model()</a></td>
+  <td>Returns the static model of the specified AR class.</td>
+  <td>Post</td>
+</tr>
+<tr id="normalizeTags">
+  <td><a href="Post.html#normalizeTags-detail">normalizeTags()</a></td>
+  <td>Normalizes the user-entered tags.</td>
+  <td>Post</td>
+</tr>
+<tr class="inherited" id="offsetExists">
+  <td><a href="CActiveRecord.html#offsetExists-detail">offsetExists()</a></td>
+  <td>Returns whether there is an element at the specified offset.</td>
+  <td><a href="CActiveRecord.html">CActiveRecord</a></td>
+</tr>
+<tr class="inherited" id="offsetGet">
+  <td><a href="CModel.html#offsetGet-detail">offsetGet()</a></td>
+  <td>Returns the element at the specified offset.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr class="inherited" id="offsetSet">
+  <td><a href="CModel.html#offsetSet-detail">offsetSet()</a></td>
+  <td>Sets the element at the specified offset.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr class="inherited" id="offsetUnset">
+  <td><a href="CModel.html#offsetUnset-detail">offsetUnset()</a></td>
+  <td>Unsets the element at the specified offset.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr class="inherited" id="onAfterConstruct">
+  <td><a href="CModel.html#onAfterConstruct-detail">onAfterConstruct()</a></td>
+  <td>This event is raised after the model instance is created by new operator.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr class="inherited" id="onAfterDelete">
+  <td><a href="CActiveRecord.html#onAfterDelete-detail">onAfterDelete()</a></td>
+  <td>This event is raised after the record is deleted.</td>
+  <td><a href="CActiveRecord.html">CActiveRecord</a></td>
+</tr>
+<tr class="inherited" id="onAfterFind">
+  <td><a href="CActiveRecord.html#onAfterFind-detail">onAfterFind()</a></td>
+  <td>This event is raised after the record is instantiated by a find method.</td>
+  <td><a href="CActiveRecord.html">CActiveRecord</a></td>
+</tr>
+<tr class="inherited" id="onAfterSave">
+  <td><a href="CActiveRecord.html#onAfterSave-detail">onAfterSave()</a></td>
+  <td>This event is raised after the record is saved.</td>
+  <td><a href="CActiveRecord.html">CActiveRecord</a></td>
+</tr>
+<tr class="inherited" id="onAfterValidate">
+  <td><a href="CModel.html#onAfterValidate-detail">onAfterValidate()</a></td>
+  <td>This event is raised after the validation is performed.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr class="inherited" id="onBeforeDelete">
+  <td><a href="CActiveRecord.html#onBeforeDelete-detail">onBeforeDelete()</a></td>
+  <td>This event is raised before the record is deleted.</td>
+  <td><a href="CActiveRecord.html">CActiveRecord</a></td>
+</tr>
+<tr class="inherited" id="onBeforeFind">
+  <td><a href="CActiveRecord.html#onBeforeFind-detail">onBeforeFind()</a></td>
+  <td>This event is raised before an AR finder performs a find call.</td>
+  <td><a href="CActiveRecord.html">CActiveRecord</a></td>
+</tr>
+<tr class="inherited" id="onBeforeSave">
+  <td><a href="CActiveRecord.html#onBeforeSave-detail">onBeforeSave()</a></td>
+  <td>This event is raised before the record is saved.</td>
+  <td><a href="CActiveRecord.html">CActiveRecord</a></td>
+</tr>
+<tr class="inherited" id="onBeforeValidate">
+  <td><a href="CModel.html#onBeforeValidate-detail">onBeforeValidate()</a></td>
+  <td>This event is raised before the validation is performed.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr class="inherited" id="onUnsafeAttribute">
+  <td><a href="CModel.html#onUnsafeAttribute-detail">onUnsafeAttribute()</a></td>
+  <td>This method is invoked when an unsafe attribute is being massively assigned.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr class="inherited" id="populateRecord">
+  <td><a href="CActiveRecord.html#populateRecord-detail">populateRecord()</a></td>
+  <td>Creates an active record with the given attributes.</td>
+  <td><a href="CActiveRecord.html">CActiveRecord</a></td>
+</tr>
+<tr class="inherited" id="populateRecords">
+  <td><a href="CActiveRecord.html#populateRecords-detail">populateRecords()</a></td>
+  <td>Creates a list of active records based on the input data.</td>
+  <td><a href="CActiveRecord.html">CActiveRecord</a></td>
+</tr>
+<tr class="inherited" id="primaryKey()">
+  <td><a href="CActiveRecord.html#primaryKey()-detail">primaryKey()</a></td>
+  <td>Returns the primary key of the associated database table.</td>
+  <td><a href="CActiveRecord.html">CActiveRecord</a></td>
+</tr>
+<tr class="inherited" id="raiseEvent">
+  <td><a href="CComponent.html#raiseEvent-detail">raiseEvent()</a></td>
+  <td>Raises an event.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="refresh">
+  <td><a href="CActiveRecord.html#refresh-detail">refresh()</a></td>
+  <td>Repopulates this active record with the latest data.</td>
+  <td><a href="CActiveRecord.html">CActiveRecord</a></td>
+</tr>
+<tr class="inherited" id="refreshMetaData">
+  <td><a href="CActiveRecord.html#refreshMetaData-detail">refreshMetaData()</a></td>
+  <td>Refreshes the meta data for this AR class.</td>
+  <td><a href="CActiveRecord.html">CActiveRecord</a></td>
+</tr>
+<tr id="relations">
+  <td><a href="Post.html#relations-detail">relations()</a></td>
+  <td></td>
+  <td>Post</td>
+</tr>
+<tr class="inherited" id="resetScope">
+  <td><a href="CActiveRecord.html#resetScope-detail">resetScope()</a></td>
+  <td>Resets all scopes and criterias applied including default scope.</td>
+  <td><a href="CActiveRecord.html">CActiveRecord</a></td>
+</tr>
+<tr id="rules">
+  <td><a href="Post.html#rules-detail">rules()</a></td>
+  <td></td>
+  <td>Post</td>
+</tr>
+<tr class="inherited" id="save">
+  <td><a href="CActiveRecord.html#save-detail">save()</a></td>
+  <td>Saves the current record.</td>
+  <td><a href="CActiveRecord.html">CActiveRecord</a></td>
+</tr>
+<tr class="inherited" id="saveAttributes">
+  <td><a href="CActiveRecord.html#saveAttributes-detail">saveAttributes()</a></td>
+  <td>Saves a selected list of attributes.</td>
+  <td><a href="CActiveRecord.html">CActiveRecord</a></td>
+</tr>
+<tr class="inherited" id="saveCounters">
+  <td><a href="CActiveRecord.html#saveCounters-detail">saveCounters()</a></td>
+  <td>Saves one or several counter columns for the current AR object.</td>
+  <td><a href="CActiveRecord.html">CActiveRecord</a></td>
+</tr>
+<tr class="inherited" id="scopes">
+  <td><a href="CActiveRecord.html#scopes-detail">scopes()</a></td>
+  <td>Returns the declaration of named scopes.</td>
+  <td><a href="CActiveRecord.html">CActiveRecord</a></td>
+</tr>
+<tr id="search">
+  <td><a href="Post.html#search-detail">search()</a></td>
+  <td>Retrieves the list of posts based on the current search/filter conditions.</td>
+  <td>Post</td>
+</tr>
+<tr class="inherited" id="setAttribute">
+  <td><a href="CActiveRecord.html#setAttribute-detail">setAttribute()</a></td>
+  <td>Sets the named attribute value.</td>
+  <td><a href="CActiveRecord.html">CActiveRecord</a></td>
+</tr>
+<tr class="inherited" id="setAttributes">
+  <td><a href="CModel.html#setAttributes-detail">setAttributes()</a></td>
+  <td>Sets the attribute values in a massive way.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr class="inherited" id="setDbCriteria">
+  <td><a href="CActiveRecord.html#setDbCriteria-detail">setDbCriteria()</a></td>
+  <td>Sets the query criteria for the current model.</td>
+  <td><a href="CActiveRecord.html">CActiveRecord</a></td>
+</tr>
+<tr class="inherited" id="setIsNewRecord">
+  <td><a href="CActiveRecord.html#setIsNewRecord-detail">setIsNewRecord()</a></td>
+  <td>Sets if the record is new.</td>
+  <td><a href="CActiveRecord.html">CActiveRecord</a></td>
+</tr>
+<tr class="inherited" id="setOldPrimaryKey">
+  <td><a href="CActiveRecord.html#setOldPrimaryKey-detail">setOldPrimaryKey()</a></td>
+  <td>Sets the old primary key value.</td>
+  <td><a href="CActiveRecord.html">CActiveRecord</a></td>
+</tr>
+<tr class="inherited" id="setPrimaryKey">
+  <td><a href="CActiveRecord.html#setPrimaryKey-detail">setPrimaryKey()</a></td>
+  <td>Sets the primary key value.</td>
+  <td><a href="CActiveRecord.html">CActiveRecord</a></td>
+</tr>
+<tr class="inherited" id="setScenario">
+  <td><a href="CModel.html#setScenario-detail">setScenario()</a></td>
+  <td>Sets the scenario for the model.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr class="inherited" id="setTableAlias">
+  <td><a href="CActiveRecord.html#setTableAlias-detail">setTableAlias()</a></td>
+  <td>Sets the table alias to be used in queries.</td>
+  <td><a href="CActiveRecord.html">CActiveRecord</a></td>
+</tr>
+<tr id="tableName">
+  <td><a href="Post.html#tableName-detail">tableName()</a></td>
+  <td></td>
+  <td>Post</td>
+</tr>
+<tr class="inherited" id="together">
+  <td><a href="CActiveRecord.html#together-detail">together()</a></td>
+  <td>Sets <a href="CDbCriteria.html#together">CDbCriteria::together</a> property to be true.</td>
+  <td><a href="CActiveRecord.html">CActiveRecord</a></td>
+</tr>
+<tr class="inherited" id="unsetAttributes">
+  <td><a href="CModel.html#unsetAttributes-detail">unsetAttributes()</a></td>
+  <td>Unsets the attributes.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr class="inherited" id="update">
+  <td><a href="CActiveRecord.html#update-detail">update()</a></td>
+  <td>Updates the row represented by this active record.</td>
+  <td><a href="CActiveRecord.html">CActiveRecord</a></td>
+</tr>
+<tr class="inherited" id="updateAll">
+  <td><a href="CActiveRecord.html#updateAll-detail">updateAll()</a></td>
+  <td>Updates records with the specified condition.</td>
+  <td><a href="CActiveRecord.html">CActiveRecord</a></td>
+</tr>
+<tr class="inherited" id="updateByPk">
+  <td><a href="CActiveRecord.html#updateByPk-detail">updateByPk()</a></td>
+  <td>Updates records with the specified primary key(s).</td>
+  <td><a href="CActiveRecord.html">CActiveRecord</a></td>
+</tr>
+<tr class="inherited" id="updateCounters">
+  <td><a href="CActiveRecord.html#updateCounters-detail">updateCounters()</a></td>
+  <td>Updates one or several counter columns.</td>
+  <td><a href="CActiveRecord.html">CActiveRecord</a></td>
+</tr>
+<tr class="inherited" id="validate">
+  <td><a href="CModel.html#validate-detail">validate()</a></td>
+  <td>Performs the validation.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr class="inherited" id="with">
+  <td><a href="CActiveRecord.html#with-detail">with()</a></td>
+  <td>Specifies which related objects should be eagerly loaded.</td>
+  <td><a href="CActiveRecord.html">CActiveRecord</a></td>
+</tr>
+</table>
+</div>
+<div class="summary docMethod">
+<h2>Protected Methods</h2>
+
+<p><a href="#" class="toggle">Hide inherited methods</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-method" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>Method</th><th>Description</th><th>Defined By</th>
+</tr>
+<tr class="inherited" id="afterConstruct">
+  <td><a href="CModel.html#afterConstruct-detail">afterConstruct()</a></td>
+  <td>This method is invoked after a model instance is created by new operator.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr id="afterDelete">
+  <td><a href="Post.html#afterDelete-detail">afterDelete()</a></td>
+  <td>This is invoked after the record is deleted.</td>
+  <td>Post</td>
+</tr>
+<tr id="afterFind">
+  <td><a href="Post.html#afterFind-detail">afterFind()</a></td>
+  <td>This is invoked when a record is populated with data from a find() call.</td>
+  <td>Post</td>
+</tr>
+<tr id="afterSave">
+  <td><a href="Post.html#afterSave-detail">afterSave()</a></td>
+  <td>This is invoked after the record is saved.</td>
+  <td>Post</td>
+</tr>
+<tr class="inherited" id="afterValidate">
+  <td><a href="CModel.html#afterValidate-detail">afterValidate()</a></td>
+  <td>This method is invoked after validation ends.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr class="inherited" id="beforeDelete">
+  <td><a href="CActiveRecord.html#beforeDelete-detail">beforeDelete()</a></td>
+  <td>This method is invoked before deleting a record.</td>
+  <td><a href="CActiveRecord.html">CActiveRecord</a></td>
+</tr>
+<tr class="inherited" id="beforeFind">
+  <td><a href="CActiveRecord.html#beforeFind-detail">beforeFind()</a></td>
+  <td>This method is invoked before an AR finder executes a find call.</td>
+  <td><a href="CActiveRecord.html">CActiveRecord</a></td>
+</tr>
+<tr id="beforeSave">
+  <td><a href="Post.html#beforeSave-detail">beforeSave()</a></td>
+  <td>This is invoked before the record is saved.</td>
+  <td>Post</td>
+</tr>
+<tr class="inherited" id="beforeValidate">
+  <td><a href="CModel.html#beforeValidate-detail">beforeValidate()</a></td>
+  <td>This method is invoked before validation starts.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr class="inherited" id="instantiate">
+  <td><a href="CActiveRecord.html#instantiate-detail">instantiate()</a></td>
+  <td>Creates an active record instance.</td>
+  <td><a href="CActiveRecord.html">CActiveRecord</a></td>
+</tr>
+<tr class="inherited" id="query">
+  <td><a href="CActiveRecord.html#query-detail">query()</a></td>
+  <td>Performs the actual DB query and populates the AR objects with the query result.</td>
+  <td><a href="CActiveRecord.html">CActiveRecord</a></td>
+</tr>
+</table>
+</div>
+<a name="events"></a>
+
+<div class="summary docEvent">
+<h2>Events</h2>
+
+<p><a href="#" class="toggle">Hide inherited events</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-event" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>Event</th><th>Description</th><th>Defined By</th>
+</tr>
+<tr class="inherited" id="onBeforeSave">
+  <td><a href="CActiveRecord.html#onBeforeSave-detail">onBeforeSave</a></td>
+  <td>This event is raised before the record is saved.</td>
+  <td><a href="CActiveRecord.html">CActiveRecord</a></td>
+</tr>
+<tr class="inherited" id="onAfterSave">
+  <td><a href="CActiveRecord.html#onAfterSave-detail">onAfterSave</a></td>
+  <td>This event is raised after the record is saved.</td>
+  <td><a href="CActiveRecord.html">CActiveRecord</a></td>
+</tr>
+<tr class="inherited" id="onBeforeDelete">
+  <td><a href="CActiveRecord.html#onBeforeDelete-detail">onBeforeDelete</a></td>
+  <td>This event is raised before the record is deleted.</td>
+  <td><a href="CActiveRecord.html">CActiveRecord</a></td>
+</tr>
+<tr class="inherited" id="onAfterDelete">
+  <td><a href="CActiveRecord.html#onAfterDelete-detail">onAfterDelete</a></td>
+  <td>This event is raised after the record is deleted.</td>
+  <td><a href="CActiveRecord.html">CActiveRecord</a></td>
+</tr>
+<tr class="inherited" id="onBeforeFind">
+  <td><a href="CActiveRecord.html#onBeforeFind-detail">onBeforeFind</a></td>
+  <td>This event is raised before an AR finder performs a find call.</td>
+  <td><a href="CActiveRecord.html">CActiveRecord</a></td>
+</tr>
+<tr class="inherited" id="onAfterFind">
+  <td><a href="CActiveRecord.html#onAfterFind-detail">onAfterFind</a></td>
+  <td>This event is raised after the record is instantiated by a find method.</td>
+  <td><a href="CActiveRecord.html">CActiveRecord</a></td>
+</tr>
+<tr class="inherited" id="onAfterConstruct">
+  <td><a href="CModel.html#onAfterConstruct-detail">onAfterConstruct</a></td>
+  <td>This event is raised after the model instance is created by new operator.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr class="inherited" id="onBeforeValidate">
+  <td><a href="CModel.html#onBeforeValidate-detail">onBeforeValidate</a></td>
+  <td>This event is raised before the validation is performed.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr class="inherited" id="onAfterValidate">
+  <td><a href="CModel.html#onAfterValidate-detail">onAfterValidate</a></td>
+  <td>This event is raised after the validation is performed.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+<tr class="inherited" id="onUnsafeAttribute">
+  <td><a href="CModel.html#onUnsafeAttribute-detail">onUnsafeAttribute</a></td>
+  <td>This method is invoked when an unsafe attribute is being massively assigned.</td>
+  <td><a href="CModel.html">CModel</a></td>
+</tr>
+</table>
+</div>
+<h2>Property Details</h2>
+<div class="detailHeader" id="tagLinks-detail">
+tagLinks<span class="detailHeaderTag">
+property
+ <em>read-only</em> </span>
+</div>
+
+<div class="signature">
+public array <a href="Post.html#getTagLinks"><b>getTagLinks</b></a>()</div>
+
+<p>a list of links that point to the post list filtered by every tag of this post</p>
+
+
+<div class="detailHeader" id="url-detail">
+url<span class="detailHeaderTag">
+property
+ <em>read-only</em> </span>
+</div>
+
+<div class="signature">
+public string <a href="Post.html#getUrl"><b>getUrl</b></a>()</div>
+
+<p>the URL that shows the detail of the post</p>
+
+
+<h2>Method Details</h2>
+
+<div class="detailHeader" id="addComment-detail">
+addComment()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public boolean <b>addComment</b>(<a href="Comment.html">Comment</a> $comment)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$comment</td>
+  <td class="paramTypeCol"><a href="Comment.html">Comment</a></td>
+  <td class="paramDescCol">the comment to be added</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">boolean</td>
+  <td class="paramDescCol">whether the comment is saved successfully</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> app/models/Post.php#124 (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">addComment</span><span style="color: #007700">(</span><span style="color: #0000BB">$comment</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">Yii</span><span style="color: #007700">::</span><span style="color: #0000BB">app</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">params</span><span style="color: #007700">[</span><span style="color: #DD0000">'commentNeedApproval'</span><span style="color: #007700">])<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$comment</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">status</span><span style="color: #007700">=</span><span style="color: #0000BB">Comment</span><span style="color: #007700">::</span><span style="color: #0000BB">STATUS_PENDING</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$comment</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">status</span><span style="color: #007700">=</span><span style="color: #0000BB">Comment</span><span style="color: #007700">::</span><span style="color: #0000BB">STATUS_APPROVED</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$comment</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">post_id</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">id</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$comment</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">save</span><span style="color: #007700">();<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Adds a new comment to this post.
+This method will set status and post_id of the comment accordingly.</p>
+
+
+<div class="detailHeader" id="afterDelete-detail">
+afterDelete()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+protected void <b>afterDelete</b>()</div>
+</td></tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> app/models/Post.php#176 (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">protected&nbsp;function&nbsp;</span><span style="color: #0000BB">afterDelete</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">parent</span><span style="color: #007700">::</span><span style="color: #0000BB">afterDelete</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">Comment</span><span style="color: #007700">::</span><span style="color: #0000BB">model</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">deleteAll</span><span style="color: #007700">(</span><span style="color: #DD0000">'post_id='</span><span style="color: #007700">.</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">id</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">Tag</span><span style="color: #007700">::</span><span style="color: #0000BB">model</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">updateFrequency</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">tags</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">''</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>This is invoked after the record is deleted.</p>
+
+
+<div class="detailHeader" id="afterFind-detail">
+afterFind()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+protected void <b>afterFind</b>()</div>
+</td></tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> app/models/Post.php#137 (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">protected&nbsp;function&nbsp;</span><span style="color: #0000BB">afterFind</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">parent</span><span style="color: #007700">::</span><span style="color: #0000BB">afterFind</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_oldTags</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">tags</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>This is invoked when a record is populated with data from a find() call.</p>
+
+
+<div class="detailHeader" id="afterSave-detail">
+afterSave()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+protected void <b>afterSave</b>()</div>
+</td></tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> app/models/Post.php#167 (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">protected&nbsp;function&nbsp;</span><span style="color: #0000BB">afterSave</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">parent</span><span style="color: #007700">::</span><span style="color: #0000BB">afterSave</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">Tag</span><span style="color: #007700">::</span><span style="color: #0000BB">model</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">updateFrequency</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_oldTags</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">tags</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>This is invoked after the record is saved.</p>
+
+
+<div class="detailHeader" id="attributeLabels-detail">
+attributeLabels()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public array <b>attributeLabels</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">customized attribute labels (name=>label)</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> app/models/Post.php#74 (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">attributeLabels</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;array(<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'id'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'Id'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'title'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'Title'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'content'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'Content'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'tags'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'Tags'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'status'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'Status'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'create_time'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'Create&nbsp;Time'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'update_time'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'Update&nbsp;Time'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'author_id'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'Author'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;);<br />}</span>
+</span>
+</code></div>
+</div>
+<p></p>
+
+
+<div class="detailHeader" id="beforeSave-detail">
+beforeSave()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+protected boolean <b>beforeSave</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">boolean</td>
+  <td class="paramDescCol">whether the record should be saved.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> app/models/Post.php#147 (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">protected&nbsp;function&nbsp;</span><span style="color: #0000BB">beforeSave</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">parent</span><span style="color: #007700">::</span><span style="color: #0000BB">beforeSave</span><span style="color: #007700">())<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">isNewRecord</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">create_time</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">update_time</span><span style="color: #007700">=</span><span style="color: #0000BB">time</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">author_id</span><span style="color: #007700">=</span><span style="color: #0000BB">Yii</span><span style="color: #007700">::</span><span style="color: #0000BB">app</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">user</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">id</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">update_time</span><span style="color: #007700">=</span><span style="color: #0000BB">time</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>This is invoked before the record is saved.</p>
+
+
+<div class="detailHeader" id="getTagLinks-detail">
+getTagLinks()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public array <b>getTagLinks</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">a list of links that point to the post list filtered by every tag of this post</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> app/models/Post.php#102 (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getTagLinks</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$links</span><span style="color: #007700">=array();<br />&nbsp;&nbsp;&nbsp;&nbsp;foreach(</span><span style="color: #0000BB">Tag</span><span style="color: #007700">::</span><span style="color: #0000BB">string2array</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">tags</span><span style="color: #007700">)&nbsp;as&nbsp;</span><span style="color: #0000BB">$tag</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$links</span><span style="color: #007700">[]=</span><span style="color: #0000BB">CHtml</span><span style="color: #007700">::</span><span style="color: #0000BB">link</span><span style="color: #007700">(</span><span style="color: #0000BB">CHtml</span><span style="color: #007700">::</span><span style="color: #0000BB">encode</span><span style="color: #007700">(</span><span style="color: #0000BB">$tag</span><span style="color: #007700">),&nbsp;array(</span><span style="color: #DD0000">'post/index'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'tag'</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">$tag</span><span style="color: #007700">));<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$links</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p></p>
+
+
+<div class="detailHeader" id="getUrl-detail">
+getUrl()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>getUrl</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the URL that shows the detail of the post</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> app/models/Post.php#91 (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getUrl</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">Yii</span><span style="color: #007700">::</span><span style="color: #0000BB">app</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">createUrl</span><span style="color: #007700">(</span><span style="color: #DD0000">'post/view'</span><span style="color: #007700">,&nbsp;array(<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'id'</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">id</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'title'</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">title</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;));<br />}</span>
+</span>
+</code></div>
+</div>
+<p></p>
+
+
+<div class="detailHeader" id="model-detail">
+model()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public static <a href="CActiveRecord.html">CActiveRecord</a> <b>model</b>($className='Post')</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$className</td>
+  <td class="paramTypeCol"></td>
+  <td class="paramDescCol"></td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol"><a href="CActiveRecord.html">CActiveRecord</a></td>
+  <td class="paramDescCol">the static model class</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> app/models/Post.php#26 (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;static&nbsp;function&nbsp;</span><span style="color: #0000BB">model</span><span style="color: #007700">(</span><span style="color: #0000BB">$className</span><span style="color: #007700">=</span><span style="color: #0000BB">__CLASS__</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">parent</span><span style="color: #007700">::</span><span style="color: #0000BB">model</span><span style="color: #007700">(</span><span style="color: #0000BB">$className</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Returns the static model of the specified AR class.</p>
+
+
+<div class="detailHeader" id="normalizeTags-detail">
+normalizeTags()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>normalizeTags</b>($attribute, $params)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$attribute</td>
+  <td class="paramTypeCol"></td>
+  <td class="paramDescCol"></td>
+</tr>
+<tr>
+  <td class="paramNameCol">$params</td>
+  <td class="paramTypeCol"></td>
+  <td class="paramDescCol"></td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> app/models/Post.php#113 (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">normalizeTags</span><span style="color: #007700">(</span><span style="color: #0000BB">$attribute</span><span style="color: #007700">,</span><span style="color: #0000BB">$params</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">tags</span><span style="color: #007700">=</span><span style="color: #0000BB">Tag</span><span style="color: #007700">::</span><span style="color: #0000BB">array2string</span><span style="color: #007700">(</span><span style="color: #0000BB">array_unique</span><span style="color: #007700">(</span><span style="color: #0000BB">Tag</span><span style="color: #007700">::</span><span style="color: #0000BB">string2array</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">tags</span><span style="color: #007700">)));<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Normalizes the user-entered tags.</p>
+
+
+<div class="detailHeader" id="relations-detail">
+relations()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public array <b>relations</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">relational rules.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> app/models/Post.php#60 (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">relations</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;NOTE:&nbsp;you&nbsp;may&nbsp;need&nbsp;to&nbsp;adjust&nbsp;the&nbsp;relation&nbsp;name&nbsp;and&nbsp;the&nbsp;related<br />&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;class&nbsp;name&nbsp;for&nbsp;the&nbsp;relations&nbsp;automatically&nbsp;generated&nbsp;below.<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">return&nbsp;array(<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'author'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;array(</span><span style="color: #0000BB">self</span><span style="color: #007700">::</span><span style="color: #0000BB">BELONGS_TO</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'User'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'author_id'</span><span style="color: #007700">),<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'comments'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;array(</span><span style="color: #0000BB">self</span><span style="color: #007700">::</span><span style="color: #0000BB">HAS_MANY</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'Comment'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'post_id'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'condition'</span><span style="color: #007700">=&gt;</span><span style="color: #DD0000">'comments.status='</span><span style="color: #007700">.</span><span style="color: #0000BB">Comment</span><span style="color: #007700">::</span><span style="color: #0000BB">STATUS_APPROVED</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'order'</span><span style="color: #007700">=&gt;</span><span style="color: #DD0000">'comments.create_time&nbsp;DESC'</span><span style="color: #007700">),<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'commentCount'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;array(</span><span style="color: #0000BB">self</span><span style="color: #007700">::</span><span style="color: #0000BB">STAT</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'Comment'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'post_id'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'condition'</span><span style="color: #007700">=&gt;</span><span style="color: #DD0000">'status='</span><span style="color: #007700">.</span><span style="color: #0000BB">Comment</span><span style="color: #007700">::</span><span style="color: #0000BB">STATUS_APPROVED</span><span style="color: #007700">),<br />&nbsp;&nbsp;&nbsp;&nbsp;);<br />}</span>
+</span>
+</code></div>
+</div>
+<p></p>
+
+
+<div class="detailHeader" id="rules-detail">
+rules()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public array <b>rules</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">validation rules for model attributes.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> app/models/Post.php#42 (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">rules</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;NOTE:&nbsp;you&nbsp;should&nbsp;only&nbsp;define&nbsp;rules&nbsp;for&nbsp;those&nbsp;attributes&nbsp;that<br />&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;will&nbsp;receive&nbsp;user&nbsp;inputs.<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">return&nbsp;array(<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array(</span><span style="color: #DD0000">'title,&nbsp;content,&nbsp;status'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'required'</span><span style="color: #007700">),<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array(</span><span style="color: #DD0000">'status'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'in'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'range'</span><span style="color: #007700">=&gt;array(</span><span style="color: #0000BB">1</span><span style="color: #007700">,</span><span style="color: #0000BB">2</span><span style="color: #007700">,</span><span style="color: #0000BB">3</span><span style="color: #007700">)),<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array(</span><span style="color: #DD0000">'title'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'length'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'max'</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">128</span><span style="color: #007700">),<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array(</span><span style="color: #DD0000">'tags'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'match'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'pattern'</span><span style="color: #007700">=&gt;</span><span style="color: #DD0000">'/^[\w\s,]+$/'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'message'</span><span style="color: #007700">=&gt;</span><span style="color: #DD0000">'Tags&nbsp;can&nbsp;only&nbsp;contain&nbsp;word&nbsp;characters.'</span><span style="color: #007700">),<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array(</span><span style="color: #DD0000">'tags'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'normalizeTags'</span><span style="color: #007700">),<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array(</span><span style="color: #DD0000">'title,&nbsp;status'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'safe'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'on'</span><span style="color: #007700">=&gt;</span><span style="color: #DD0000">'search'</span><span style="color: #007700">),<br />&nbsp;&nbsp;&nbsp;&nbsp;);<br />}</span>
+</span>
+</code></div>
+</div>
+<p></p>
+
+
+<div class="detailHeader" id="search-detail">
+search()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public <a href="CActiveDataProvider.html">CActiveDataProvider</a> <b>search</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol"><a href="CActiveDataProvider.html">CActiveDataProvider</a></td>
+  <td class="paramDescCol">the data provider that can return the needed posts.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> app/models/Post.php#187 (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">search</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$criteria</span><span style="color: #007700">=new&nbsp;</span><span style="color: #0000BB">CDbCriteria</span><span style="color: #007700">;<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$criteria</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">compare</span><span style="color: #007700">(</span><span style="color: #DD0000">'title'</span><span style="color: #007700">,</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">title</span><span style="color: #007700">,</span><span style="color: #0000BB">true</span><span style="color: #007700">);<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$criteria</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">compare</span><span style="color: #007700">(</span><span style="color: #DD0000">'status'</span><span style="color: #007700">,</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">status</span><span style="color: #007700">);<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;new&nbsp;</span><span style="color: #0000BB">CActiveDataProvider</span><span style="color: #007700">(</span><span style="color: #DD0000">'Post'</span><span style="color: #007700">,&nbsp;array(<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'criteria'</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">$criteria</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'sort'</span><span style="color: #007700">=&gt;array(<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'defaultOrder'</span><span style="color: #007700">=&gt;</span><span style="color: #DD0000">'status,&nbsp;update_time&nbsp;DESC'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),<br />&nbsp;&nbsp;&nbsp;&nbsp;));<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Retrieves the list of posts based on the current search/filter conditions.</p>
+
+
+<div class="detailHeader" id="tableName-detail">
+tableName()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>tableName</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the associated database table name</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> app/models/Post.php#34 (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">tableName</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #DD0000">'{{post}}'</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p></p>
+
+
+</div><!-- end of content -->
+
+<div id="apiFooter">
+Copyright &copy; 2008-2011 by <a href="http://www.yiisoft.com">Yii Software LLC</a><br/>
+All Rights Reserved.<br/>
+</div><!-- end of footer -->
+
+<script type="text/javascript">
+/*<![CDATA[*/
+$("a.toggle").toggle(function(){
+	$(this).text($(this).text().replace(/Hide/,'Show'));
+	$(this).parents(".summary").find(".inherited").hide();
+},function(){
+	$(this).text($(this).text().replace(/Show/,'Hide'));
+	$(this).parents(".summary").find(".inherited").show();
+});
+$(".sourceCode a.show").toggle(function(){
+	$(this).text($(this).text().replace(/show/,'hide'));
+	$(this).parents(".sourceCode").find("div.code").show();
+},function(){
+	$(this).text($(this).text().replace(/hide/,'show'));
+	$(this).parents(".sourceCode").find("div.code").hide();
+});
+$("a.sourceLink").click(function(){
+	$(this).attr('target','_blank');
+});
+/*]]>*/
+</script>
+
+</div><!-- end of page -->
+</body>
+</html>

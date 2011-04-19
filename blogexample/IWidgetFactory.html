@@ -1,0 +1,171 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="language" content="en" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="css/api.css" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<title>IWidgetFactory</title>
+</head>
+
+<body>
+<div id="apiPage">
+
+<div id="apiHeader">
+My Console Application Class Reference
+</div><!-- end of header -->
+
+<div id="content">
+<h1>IWidgetFactory</h1>
+<div id="nav">
+<a href="index.html">All Packages</a>
+| <a href="#methods">Methods</a>
+</div>
+
+<table class="summaryTable docClass">
+<colgroup>
+	<col class="col-name" />
+	<col class="col-value" />
+</colgroup>
+<tr>
+  <th>Package</th>
+  <td><a href="index.html#system.web">system.web</a></td>
+</tr>
+<tr>
+  <th>Inheritance</th>
+  <td>interface IWidgetFactory</td>
+</tr>
+<tr>
+  <th>Subclasses</th>
+  <td><a href="CWidgetFactory.html">CWidgetFactory</a></td>
+</tr>
+<tr>
+  <th>Since</th>
+  <td>1.1</td>
+</tr>
+<tr>
+  <th>Version</th>
+  <td>$Id: interfaces.php 3058 2011-03-13 04:20:12Z qiang.xue $</td>
+</tr>
+<tr>
+  <th>Source Code</th>
+  <td><a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/base/interfaces.php">framework/base/interfaces.php</a></td>
+</tr>
+<tr>
+  <th>Author</th>
+  <td>Qiang Xue &lt;qiang.xue@gmail.com&gt;</td>
+</tr>
+</table>
+
+<div id="classDescription">
+IWidgetFactory is the interface that must be implemented by a widget factory class.
+<br/><br/>
+When calling <a href="CBaseController.html#createWidget">CBaseController::createWidget</a>, if a widget factory is available,
+it will be used for creating the requested widget.</div>
+<a name="properties"></a>
+
+<a name="methods"></a>
+
+<div class="summary docMethod">
+<h2>Public Methods</h2>
+
+<p><a href="#" class="toggle">Hide inherited methods</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-method" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>Method</th><th>Description</th><th>Defined By</th>
+</tr>
+<tr id="createWidget">
+  <td><a href="IWidgetFactory.html#createWidget-detail">createWidget()</a></td>
+  <td>Creates a new widget based on the given class name and initial properties.</td>
+  <td>IWidgetFactory</td>
+</tr>
+</table>
+</div>
+<a name="events"></a>
+
+<h2>Method Details</h2>
+
+<div class="detailHeader" id="createWidget-detail">
+createWidget()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+abstract public <a href="CWidget.html">CWidget</a> <b>createWidget</b>(<a href="CBaseController.html">CBaseController</a> $owner, string $className, array $properties=array (
+))</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$owner</td>
+  <td class="paramTypeCol"><a href="CBaseController.html">CBaseController</a></td>
+  <td class="paramDescCol">the owner of the new widget</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$className</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the class name of the widget. This can also be a path alias (e.g. system.web.widgets.COutputCache)</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$properties</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">the initial property values (name=>value) of the widget.</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol"><a href="CWidget.html">CWidget</a></td>
+  <td class="paramDescCol">the newly created widget whose properties have been initialized with the given values.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/base/interfaces.php#553">framework/base/interfaces.php#553</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">createWidget</span><span style="color: #007700">(</span><span style="color: #0000BB">$owner</span><span style="color: #007700">,</span><span style="color: #0000BB">$className</span><span style="color: #007700">,</span><span style="color: #0000BB">$properties</span><span style="color: #007700">=array());</span>
+</span>
+</code></div>
+</div>
+<p>Creates a new widget based on the given class name and initial properties.</p>
+
+
+</div><!-- end of content -->
+
+<div id="apiFooter">
+Copyright &copy; 2008-2011 by <a href="http://www.yiisoft.com">Yii Software LLC</a><br/>
+All Rights Reserved.<br/>
+</div><!-- end of footer -->
+
+<script type="text/javascript">
+/*<![CDATA[*/
+$("a.toggle").toggle(function(){
+	$(this).text($(this).text().replace(/Hide/,'Show'));
+	$(this).parents(".summary").find(".inherited").hide();
+},function(){
+	$(this).text($(this).text().replace(/Show/,'Hide'));
+	$(this).parents(".summary").find(".inherited").show();
+});
+$(".sourceCode a.show").toggle(function(){
+	$(this).text($(this).text().replace(/show/,'hide'));
+	$(this).parents(".sourceCode").find("div.code").show();
+},function(){
+	$(this).text($(this).text().replace(/hide/,'show'));
+	$(this).parents(".sourceCode").find("div.code").hide();
+});
+$("a.sourceLink").click(function(){
+	$(this).attr('target','_blank');
+});
+/*]]>*/
+</script>
+
+</div><!-- end of page -->
+</body>
+</html>

@@ -1,0 +1,2176 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="language" content="en" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="css/api.css" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<title>CHttpSession</title>
+</head>
+
+<body>
+<div id="apiPage">
+
+<div id="apiHeader">
+My Console Application Class Reference
+</div><!-- end of header -->
+
+<div id="content">
+<h1>CHttpSession</h1>
+<div id="nav">
+<a href="index.html">All Packages</a>
+| <a href="#properties">Properties</a>
+| <a href="#methods">Methods</a>
+</div>
+
+<table class="summaryTable docClass">
+<colgroup>
+	<col class="col-name" />
+	<col class="col-value" />
+</colgroup>
+<tr>
+  <th>Package</th>
+  <td><a href="index.html#system.web">system.web</a></td>
+</tr>
+<tr>
+  <th>Inheritance</th>
+  <td>class CHttpSession &raquo;
+<a href="CApplicationComponent.html">CApplicationComponent</a> &raquo;
+<a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr>
+  <th>Implements</th>
+  <td><a href="IApplicationComponent.html">IApplicationComponent</a>, IteratorAggregate, Traversable, ArrayAccess, Countable</td>
+</tr>
+<tr>
+  <th>Subclasses</th>
+  <td><a href="CCacheHttpSession.html">CCacheHttpSession</a>, <a href="CDbHttpSession.html">CDbHttpSession</a></td>
+</tr>
+<tr>
+  <th>Since</th>
+  <td>1.0</td>
+</tr>
+<tr>
+  <th>Version</th>
+  <td>$Id: CHttpSession.php 3167 2011-04-07 04:25:27Z qiang.xue $</td>
+</tr>
+<tr>
+  <th>Source Code</th>
+  <td><a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CHttpSession.php">framework/web/CHttpSession.php</a></td>
+</tr>
+<tr>
+  <th>Author</th>
+  <td>Qiang Xue &lt;qiang.xue@gmail.com&gt;</td>
+</tr>
+</table>
+
+<div id="classDescription">
+CHttpSession provides session-level data management and the related configurations.
+<br/><br/>
+To start the session, call <a href="CHttpSession.html#open">open()</a>; To complete and send out session data, call <a href="CHttpSession.html#close">close()</a>;
+To destroy the session, call <a href="CHttpSession.html#destroy">destroy()</a>.
+<br/><br/>
+If <a href="CHttpSession.html#autoStart">autoStart</a> is set true, the session will be started automatically
+when the application component is initialized by the application.
+<br/><br/>
+CHttpSession can be used like an array to set and get session data. For example,
+<pre>
+  $session=new CHttpSession;
+  $session-&gt;open();
+  $value1=$session['name1'];  // get session variable 'name1'
+  $value2=$session['name2'];  // get session variable 'name2'
+  foreach($session as $name=&gt;$value) // traverse all session variables
+  $session['name3']=$value3;  // set session variable 'name3'
+</pre>
+<br/><br/>
+The following configurations are available for session:
+<ul>
+<li><a href="CHttpSession.html#setSessionID">sessionID</a>;</li>
+<li><a href="CHttpSession.html#setSessionName">sessionName</a>;</li>
+<li><a href="CHttpSession.html#autoStart">autoStart</a>;</li>
+<li><a href="CHttpSession.html#setSavePath">savePath</a>;</li>
+<li><a href="CHttpSession.html#setCookieParams">cookieParams</a>;</li>
+<li><a href="CHttpSession.html#setGCProbability">gcProbability</a>;</li>
+<li><a href="CHttpSession.html#setCookieMode">cookieMode</a>;</li>
+<li><a href="CHttpSession.html#setUseTransparentSessionID">useTransparentSessionID</a>;</li>
+<li><a href="CHttpSession.html#setTimeout">timeout</a>.</li>
+</ul>
+See the corresponding setter and getter documentation for more information.
+Note, these properties must be set before the session is started.
+<br/><br/>
+CHttpSession can be extended to support customized session storage.
+Override <a href="CHttpSession.html#openSession">openSession</a>, <a href="CHttpSession.html#closeSession">closeSession</a>, <a href="CHttpSession.html#readSession">readSession</a>,
+<a href="CHttpSession.html#writeSession">writeSession</a>, <a href="CHttpSession.html#destroySession">destroySession</a> and <a href="CHttpSession.html#gcSession">gcSession</a>
+and set <a href="CHttpSession.html#useCustomStorage">useCustomStorage</a> to true.
+Then, the session data will be stored and retrieved using the above methods.
+<br/><br/>
+CHttpSession is a Web application component that can be accessed via
+<a href="CWebApplication.html#getSession">CWebApplication::getSession()</a>.</div>
+<a name="properties"></a>
+
+<div class="summary docProperty">
+<h2>Public Properties</h2>
+
+<p><a href="#" class="toggle">Hide inherited properties</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-property" />
+	<col class="col-type" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>Property</th><th>Type</th><th>Description</th><th>Defined By</th>
+</tr>
+<tr id="autoStart">
+  <td><a href="CHttpSession.html#autoStart-detail">autoStart</a></td>
+  <td>boolean</td>
+  <td>whether the session should be automatically started when the session application component is initialized, defaults to true.</td>
+  <td>CHttpSession</td>
+</tr>
+<tr class="inherited" id="behaviors">
+  <td><a href="CApplicationComponent.html#behaviors-detail">behaviors</a></td>
+  <td>array</td>
+  <td>the behaviors that should be attached to this component.</td>
+  <td><a href="CApplicationComponent.html">CApplicationComponent</a></td>
+</tr>
+<tr id="cookieMode">
+  <td><a href="CHttpSession.html#cookieMode-detail">cookieMode</a></td>
+  <td>string</td>
+  <td>how to use cookie to store session ID.</td>
+  <td>CHttpSession</td>
+</tr>
+<tr id="cookieParams">
+  <td><a href="CHttpSession.html#cookieParams-detail">cookieParams</a></td>
+  <td>array</td>
+  <td>the session cookie parameters.</td>
+  <td>CHttpSession</td>
+</tr>
+<tr id="count">
+  <td><a href="CHttpSession.html#count-detail">count</a></td>
+  <td>integer</td>
+  <td>Returns the number of items in the session.</td>
+  <td>CHttpSession</td>
+</tr>
+<tr id="gCProbability">
+  <td><a href="CHttpSession.html#gCProbability-detail">gCProbability</a></td>
+  <td>integer</td>
+  <td>the probability (percentage) that the gc (garbage collection) process is started on every session initialization, defaults to 1 meaning 1% chance.</td>
+  <td>CHttpSession</td>
+</tr>
+<tr class="inherited" id="isInitialized">
+  <td><a href="CApplicationComponent.html#isInitialized-detail">isInitialized</a></td>
+  <td>boolean</td>
+  <td>Checks if this application component bas been initialized.</td>
+  <td><a href="CApplicationComponent.html">CApplicationComponent</a></td>
+</tr>
+<tr id="isStarted">
+  <td><a href="CHttpSession.html#isStarted-detail">isStarted</a></td>
+  <td>boolean</td>
+  <td>whether the session has started</td>
+  <td>CHttpSession</td>
+</tr>
+<tr id="iterator">
+  <td><a href="CHttpSession.html#iterator-detail">iterator</a></td>
+  <td><a href="CHttpSessionIterator.html">CHttpSessionIterator</a></td>
+  <td>Returns an iterator for traversing the session variables.</td>
+  <td>CHttpSession</td>
+</tr>
+<tr id="keys">
+  <td><a href="CHttpSession.html#keys-detail">keys</a></td>
+  <td>array</td>
+  <td>the list of session variable names</td>
+  <td>CHttpSession</td>
+</tr>
+<tr id="savePath">
+  <td><a href="CHttpSession.html#savePath-detail">savePath</a></td>
+  <td>string</td>
+  <td>the current session save path, defaults to '/tmp'.</td>
+  <td>CHttpSession</td>
+</tr>
+<tr id="sessionID">
+  <td><a href="CHttpSession.html#sessionID-detail">sessionID</a></td>
+  <td>string</td>
+  <td>the current session ID</td>
+  <td>CHttpSession</td>
+</tr>
+<tr id="sessionName">
+  <td><a href="CHttpSession.html#sessionName-detail">sessionName</a></td>
+  <td>string</td>
+  <td>the current session name</td>
+  <td>CHttpSession</td>
+</tr>
+<tr id="timeout">
+  <td><a href="CHttpSession.html#timeout-detail">timeout</a></td>
+  <td>integer</td>
+  <td>the number of seconds after which data will be seen as 'garbage' and cleaned up, defaults to 1440 seconds.</td>
+  <td>CHttpSession</td>
+</tr>
+<tr id="useCustomStorage">
+  <td><a href="CHttpSession.html#useCustomStorage-detail">useCustomStorage</a></td>
+  <td>boolean</td>
+  <td>Returns a value indicating whether to use custom session storage.</td>
+  <td>CHttpSession</td>
+</tr>
+<tr id="useTransparentSessionID">
+  <td><a href="CHttpSession.html#useTransparentSessionID-detail">useTransparentSessionID</a></td>
+  <td>boolean</td>
+  <td>whether transparent sid support is enabled or not, defaults to false.</td>
+  <td>CHttpSession</td>
+</tr>
+</table>
+</div>
+<a name="methods"></a>
+
+<div class="summary docMethod">
+<h2>Public Methods</h2>
+
+<p><a href="#" class="toggle">Hide inherited methods</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-method" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>Method</th><th>Description</th><th>Defined By</th>
+</tr>
+<tr class="inherited" id="__call">
+  <td><a href="CComponent.html#__call-detail">__call()</a></td>
+  <td>Calls the named method which is not a class method.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__get">
+  <td><a href="CComponent.html#__get-detail">__get()</a></td>
+  <td>Returns a property value, an event handler list or a behavior based on its name.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__isset">
+  <td><a href="CComponent.html#__isset-detail">__isset()</a></td>
+  <td>Checks if a property value is null.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__set">
+  <td><a href="CComponent.html#__set-detail">__set()</a></td>
+  <td>Sets value of a component property.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__unset">
+  <td><a href="CComponent.html#__unset-detail">__unset()</a></td>
+  <td>Sets a component property to be null.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr id="add">
+  <td><a href="CHttpSession.html#add-detail">add()</a></td>
+  <td>Adds a session variable.</td>
+  <td>CHttpSession</td>
+</tr>
+<tr class="inherited" id="asa">
+  <td><a href="CComponent.html#asa-detail">asa()</a></td>
+  <td>Returns the named behavior object.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="attachBehavior">
+  <td><a href="CComponent.html#attachBehavior-detail">attachBehavior()</a></td>
+  <td>Attaches a behavior to this component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="attachBehaviors">
+  <td><a href="CComponent.html#attachBehaviors-detail">attachBehaviors()</a></td>
+  <td>Attaches a list of behaviors to the component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="attachEventHandler">
+  <td><a href="CComponent.html#attachEventHandler-detail">attachEventHandler()</a></td>
+  <td>Attaches an event handler to an event.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="canGetProperty">
+  <td><a href="CComponent.html#canGetProperty-detail">canGetProperty()</a></td>
+  <td>Determines whether a property can be read.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="canSetProperty">
+  <td><a href="CComponent.html#canSetProperty-detail">canSetProperty()</a></td>
+  <td>Determines whether a property can be set.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr id="clear">
+  <td><a href="CHttpSession.html#clear-detail">clear()</a></td>
+  <td>Removes all session variables</td>
+  <td>CHttpSession</td>
+</tr>
+<tr id="close">
+  <td><a href="CHttpSession.html#close-detail">close()</a></td>
+  <td>Ends the current session and store session data.</td>
+  <td>CHttpSession</td>
+</tr>
+<tr id="closeSession">
+  <td><a href="CHttpSession.html#closeSession-detail">closeSession()</a></td>
+  <td>Session close handler.</td>
+  <td>CHttpSession</td>
+</tr>
+<tr id="contains">
+  <td><a href="CHttpSession.html#contains-detail">contains()</a></td>
+  <td></td>
+  <td>CHttpSession</td>
+</tr>
+<tr id="count()">
+  <td><a href="CHttpSession.html#count()-detail">count()</a></td>
+  <td>Returns the number of items in the session.</td>
+  <td>CHttpSession</td>
+</tr>
+<tr id="destroy">
+  <td><a href="CHttpSession.html#destroy-detail">destroy()</a></td>
+  <td>Frees all session variables and destroys all data registered to a session.</td>
+  <td>CHttpSession</td>
+</tr>
+<tr id="destroySession">
+  <td><a href="CHttpSession.html#destroySession-detail">destroySession()</a></td>
+  <td>Session destroy handler.</td>
+  <td>CHttpSession</td>
+</tr>
+<tr class="inherited" id="detachBehavior">
+  <td><a href="CComponent.html#detachBehavior-detail">detachBehavior()</a></td>
+  <td>Detaches a behavior from the component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="detachBehaviors">
+  <td><a href="CComponent.html#detachBehaviors-detail">detachBehaviors()</a></td>
+  <td>Detaches all behaviors from the component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="detachEventHandler">
+  <td><a href="CComponent.html#detachEventHandler-detail">detachEventHandler()</a></td>
+  <td>Detaches an existing event handler.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="disableBehavior">
+  <td><a href="CComponent.html#disableBehavior-detail">disableBehavior()</a></td>
+  <td>Disables an attached behavior.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="disableBehaviors">
+  <td><a href="CComponent.html#disableBehaviors-detail">disableBehaviors()</a></td>
+  <td>Disables all behaviors attached to this component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="enableBehavior">
+  <td><a href="CComponent.html#enableBehavior-detail">enableBehavior()</a></td>
+  <td>Enables an attached behavior.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="enableBehaviors">
+  <td><a href="CComponent.html#enableBehaviors-detail">enableBehaviors()</a></td>
+  <td>Enables all behaviors attached to this component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="evaluateExpression">
+  <td><a href="CComponent.html#evaluateExpression-detail">evaluateExpression()</a></td>
+  <td>Evaluates a PHP expression or callback under the context of this component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr id="gcSession">
+  <td><a href="CHttpSession.html#gcSession-detail">gcSession()</a></td>
+  <td>Session GC (garbage collection) handler.</td>
+  <td>CHttpSession</td>
+</tr>
+<tr id="get">
+  <td><a href="CHttpSession.html#get-detail">get()</a></td>
+  <td>Returns the session variable value with the session variable name.</td>
+  <td>CHttpSession</td>
+</tr>
+<tr id="getCookieMode">
+  <td><a href="CHttpSession.html#getCookieMode-detail">getCookieMode()</a></td>
+  <td>Returns how to use cookie to store session ID. Defaults to 'Allow'.</td>
+  <td>CHttpSession</td>
+</tr>
+<tr id="getCookieParams">
+  <td><a href="CHttpSession.html#getCookieParams-detail">getCookieParams()</a></td>
+  <td>Returns the session cookie parameters.</td>
+  <td>CHttpSession</td>
+</tr>
+<tr id="getCount">
+  <td><a href="CHttpSession.html#getCount-detail">getCount()</a></td>
+  <td>Returns the number of items in the session.</td>
+  <td>CHttpSession</td>
+</tr>
+<tr class="inherited" id="getEventHandlers">
+  <td><a href="CComponent.html#getEventHandlers-detail">getEventHandlers()</a></td>
+  <td>Returns the list of attached event handlers for an event.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr id="getGCProbability">
+  <td><a href="CHttpSession.html#getGCProbability-detail">getGCProbability()</a></td>
+  <td>Returns the probability (percentage) that the gc (garbage collection) process is started on every session initialization, defaults to 1 meaning 1% chance.</td>
+  <td>CHttpSession</td>
+</tr>
+<tr class="inherited" id="getIsInitialized">
+  <td><a href="CApplicationComponent.html#getIsInitialized-detail">getIsInitialized()</a></td>
+  <td>Checks if this application component bas been initialized.</td>
+  <td><a href="CApplicationComponent.html">CApplicationComponent</a></td>
+</tr>
+<tr id="getIsStarted">
+  <td><a href="CHttpSession.html#getIsStarted-detail">getIsStarted()</a></td>
+  <td>Checks whether the session has started</td>
+  <td>CHttpSession</td>
+</tr>
+<tr id="getIterator">
+  <td><a href="CHttpSession.html#getIterator-detail">getIterator()</a></td>
+  <td>Returns an iterator for traversing the session variables.</td>
+  <td>CHttpSession</td>
+</tr>
+<tr id="getKeys">
+  <td><a href="CHttpSession.html#getKeys-detail">getKeys()</a></td>
+  <td>Returns the list of session variable names</td>
+  <td>CHttpSession</td>
+</tr>
+<tr id="getSavePath">
+  <td><a href="CHttpSession.html#getSavePath-detail">getSavePath()</a></td>
+  <td>Returns the current session save path, defaults to '/tmp'.</td>
+  <td>CHttpSession</td>
+</tr>
+<tr id="getSessionID">
+  <td><a href="CHttpSession.html#getSessionID-detail">getSessionID()</a></td>
+  <td>Returns the current session ID</td>
+  <td>CHttpSession</td>
+</tr>
+<tr id="getSessionName">
+  <td><a href="CHttpSession.html#getSessionName-detail">getSessionName()</a></td>
+  <td>Returns the current session name</td>
+  <td>CHttpSession</td>
+</tr>
+<tr id="getTimeout">
+  <td><a href="CHttpSession.html#getTimeout-detail">getTimeout()</a></td>
+  <td>Returns the number of seconds after which data will be seen as 'garbage' and cleaned up, defaults to 1440 seconds.</td>
+  <td>CHttpSession</td>
+</tr>
+<tr id="getUseCustomStorage">
+  <td><a href="CHttpSession.html#getUseCustomStorage-detail">getUseCustomStorage()</a></td>
+  <td>Returns a value indicating whether to use custom session storage.</td>
+  <td>CHttpSession</td>
+</tr>
+<tr id="getUseTransparentSessionID">
+  <td><a href="CHttpSession.html#getUseTransparentSessionID-detail">getUseTransparentSessionID()</a></td>
+  <td>Returns whether transparent sid support is enabled or not, defaults to false.</td>
+  <td>CHttpSession</td>
+</tr>
+<tr class="inherited" id="hasEvent">
+  <td><a href="CComponent.html#hasEvent-detail">hasEvent()</a></td>
+  <td>Determines whether an event is defined.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="hasEventHandler">
+  <td><a href="CComponent.html#hasEventHandler-detail">hasEventHandler()</a></td>
+  <td>Checks whether the named event has attached handlers.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="hasProperty">
+  <td><a href="CComponent.html#hasProperty-detail">hasProperty()</a></td>
+  <td>Determines whether a property is defined.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr id="init">
+  <td><a href="CHttpSession.html#init-detail">init()</a></td>
+  <td>Initializes the application component.</td>
+  <td>CHttpSession</td>
+</tr>
+<tr id="itemAt">
+  <td><a href="CHttpSession.html#itemAt-detail">itemAt()</a></td>
+  <td>Returns the session variable value with the session variable name.</td>
+  <td>CHttpSession</td>
+</tr>
+<tr id="offsetExists">
+  <td><a href="CHttpSession.html#offsetExists-detail">offsetExists()</a></td>
+  <td>This method is required by the interface ArrayAccess.</td>
+  <td>CHttpSession</td>
+</tr>
+<tr id="offsetGet">
+  <td><a href="CHttpSession.html#offsetGet-detail">offsetGet()</a></td>
+  <td>This method is required by the interface ArrayAccess.</td>
+  <td>CHttpSession</td>
+</tr>
+<tr id="offsetSet">
+  <td><a href="CHttpSession.html#offsetSet-detail">offsetSet()</a></td>
+  <td>This method is required by the interface ArrayAccess.</td>
+  <td>CHttpSession</td>
+</tr>
+<tr id="offsetUnset">
+  <td><a href="CHttpSession.html#offsetUnset-detail">offsetUnset()</a></td>
+  <td>This method is required by the interface ArrayAccess.</td>
+  <td>CHttpSession</td>
+</tr>
+<tr id="open">
+  <td><a href="CHttpSession.html#open-detail">open()</a></td>
+  <td>Starts the session if it has not started yet.</td>
+  <td>CHttpSession</td>
+</tr>
+<tr id="openSession">
+  <td><a href="CHttpSession.html#openSession-detail">openSession()</a></td>
+  <td>Session open handler.</td>
+  <td>CHttpSession</td>
+</tr>
+<tr class="inherited" id="raiseEvent">
+  <td><a href="CComponent.html#raiseEvent-detail">raiseEvent()</a></td>
+  <td>Raises an event.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr id="readSession">
+  <td><a href="CHttpSession.html#readSession-detail">readSession()</a></td>
+  <td>Session read handler.</td>
+  <td>CHttpSession</td>
+</tr>
+<tr id="regenerateID">
+  <td><a href="CHttpSession.html#regenerateID-detail">regenerateID()</a></td>
+  <td>Updates the current session id with a newly generated one .</td>
+  <td>CHttpSession</td>
+</tr>
+<tr id="remove">
+  <td><a href="CHttpSession.html#remove-detail">remove()</a></td>
+  <td>Removes a session variable.</td>
+  <td>CHttpSession</td>
+</tr>
+<tr id="setCookieMode">
+  <td><a href="CHttpSession.html#setCookieMode-detail">setCookieMode()</a></td>
+  <td>Sets how to use cookie to store session ID. Valid values include 'none', 'allow' and 'only'.</td>
+  <td>CHttpSession</td>
+</tr>
+<tr id="setCookieParams">
+  <td><a href="CHttpSession.html#setCookieParams-detail">setCookieParams()</a></td>
+  <td>Sets the session cookie parameters.</td>
+  <td>CHttpSession</td>
+</tr>
+<tr id="setGCProbability">
+  <td><a href="CHttpSession.html#setGCProbability-detail">setGCProbability()</a></td>
+  <td>Sets the probability (percentage) that the gc (garbage collection) process is started on every session initialization.</td>
+  <td>CHttpSession</td>
+</tr>
+<tr id="setSavePath">
+  <td><a href="CHttpSession.html#setSavePath-detail">setSavePath()</a></td>
+  <td>Sets the current session save path</td>
+  <td>CHttpSession</td>
+</tr>
+<tr id="setSessionID">
+  <td><a href="CHttpSession.html#setSessionID-detail">setSessionID()</a></td>
+  <td>Sets the session ID for the current session</td>
+  <td>CHttpSession</td>
+</tr>
+<tr id="setSessionName">
+  <td><a href="CHttpSession.html#setSessionName-detail">setSessionName()</a></td>
+  <td>Sets the session name for the current session, must be an alphanumeric string, defaults to PHPSESSID</td>
+  <td>CHttpSession</td>
+</tr>
+<tr id="setTimeout">
+  <td><a href="CHttpSession.html#setTimeout-detail">setTimeout()</a></td>
+  <td>Sets the number of seconds after which data will be seen as 'garbage' and cleaned up</td>
+  <td>CHttpSession</td>
+</tr>
+<tr id="setUseTransparentSessionID">
+  <td><a href="CHttpSession.html#setUseTransparentSessionID-detail">setUseTransparentSessionID()</a></td>
+  <td>Sets whether transparent sid support is enabled or not.</td>
+  <td>CHttpSession</td>
+</tr>
+<tr id="toArray">
+  <td><a href="CHttpSession.html#toArray-detail">toArray()</a></td>
+  <td></td>
+  <td>CHttpSession</td>
+</tr>
+<tr id="writeSession">
+  <td><a href="CHttpSession.html#writeSession-detail">writeSession()</a></td>
+  <td>Session write handler.</td>
+  <td>CHttpSession</td>
+</tr>
+</table>
+</div>
+<a name="events"></a>
+
+<h2>Property Details</h2>
+<div class="detailHeader" id="autoStart-detail">
+autoStart<span class="detailHeaderTag">
+property
+</span>
+</div>
+
+<div class="signature">
+public boolean <b>$autoStart</b>;</div>
+
+<p>whether the session should be automatically started when the session application component is initialized, defaults to true.</p>
+
+
+<div class="detailHeader" id="cookieMode-detail">
+cookieMode<span class="detailHeaderTag">
+property
+</span>
+</div>
+
+<div class="signature">
+public string <a href="CHttpSession.html#getCookieMode"><b>getCookieMode</b></a>()<br/>public void <a href="CHttpSession.html#setCookieMode"><b>setCookieMode</b></a>(string $value)</div>
+
+<p>how to use cookie to store session ID. Defaults to 'Allow'.</p>
+
+
+<div class="detailHeader" id="cookieParams-detail">
+cookieParams<span class="detailHeaderTag">
+property
+</span>
+</div>
+
+<div class="signature">
+public array <a href="CHttpSession.html#getCookieParams"><b>getCookieParams</b></a>()<br/>public void <a href="CHttpSession.html#setCookieParams"><b>setCookieParams</b></a>(array $value)</div>
+
+<p>the session cookie parameters.</p>
+
+<div class="SeeAlso">
+<h4>See Also</h4>
+<ul>
+	<li><a href="http://us2.php.net/manual/en/function.session-get-cookie-params.php">http://us2.php.net/manual/en/function.session-get-cookie-params.php</a></li>
+</ul>
+</div>
+
+<div class="detailHeader" id="count-detail">
+count<span class="detailHeaderTag">
+property
+ <em>read-only</em> </span>
+</div>
+
+<div class="signature">
+public integer <a href="CHttpSession.html#getCount"><b>getCount</b></a>()</div>
+
+<p>Returns the number of items in the session.</p>
+
+
+<div class="detailHeader" id="gCProbability-detail">
+gCProbability<span class="detailHeaderTag">
+property
+</span>
+</div>
+
+<div class="signature">
+public integer <a href="CHttpSession.html#getGCProbability"><b>getGCProbability</b></a>()<br/>public void <a href="CHttpSession.html#setGCProbability"><b>setGCProbability</b></a>(integer $value)</div>
+
+<p>the probability (percentage) that the gc (garbage collection) process is started on every session initialization, defaults to 1 meaning 1% chance.</p>
+
+
+<div class="detailHeader" id="isStarted-detail">
+isStarted<span class="detailHeaderTag">
+property
+ <em>read-only</em> </span>
+</div>
+
+<div class="signature">
+public boolean <a href="CHttpSession.html#getIsStarted"><b>getIsStarted</b></a>()</div>
+
+<p>whether the session has started</p>
+
+
+<div class="detailHeader" id="iterator-detail">
+iterator<span class="detailHeaderTag">
+property
+ <em>read-only</em> </span>
+</div>
+
+<div class="signature">
+public <a href="CHttpSessionIterator.html">CHttpSessionIterator</a> <a href="CHttpSession.html#getIterator"><b>getIterator</b></a>()</div>
+
+<p>Returns an iterator for traversing the session variables.
+This method is required by the interface IteratorAggregate.</p>
+
+
+<div class="detailHeader" id="keys-detail">
+keys<span class="detailHeaderTag">
+property
+ <em>read-only</em> </span>
+</div>
+
+<div class="signature">
+public array <a href="CHttpSession.html#getKeys"><b>getKeys</b></a>()</div>
+
+<p>the list of session variable names</p>
+
+
+<div class="detailHeader" id="savePath-detail">
+savePath<span class="detailHeaderTag">
+property
+</span>
+</div>
+
+<div class="signature">
+public string <a href="CHttpSession.html#getSavePath"><b>getSavePath</b></a>()<br/>public void <a href="CHttpSession.html#setSavePath"><b>setSavePath</b></a>(string $value)</div>
+
+<p>the current session save path, defaults to '/tmp'.</p>
+
+
+<div class="detailHeader" id="sessionID-detail">
+sessionID<span class="detailHeaderTag">
+property
+</span>
+</div>
+
+<div class="signature">
+public string <a href="CHttpSession.html#getSessionID"><b>getSessionID</b></a>()<br/>public void <a href="CHttpSession.html#setSessionID"><b>setSessionID</b></a>(string $value)</div>
+
+<p>the current session ID</p>
+
+
+<div class="detailHeader" id="sessionName-detail">
+sessionName<span class="detailHeaderTag">
+property
+</span>
+</div>
+
+<div class="signature">
+public string <a href="CHttpSession.html#getSessionName"><b>getSessionName</b></a>()<br/>public void <a href="CHttpSession.html#setSessionName"><b>setSessionName</b></a>(string $value)</div>
+
+<p>the current session name</p>
+
+
+<div class="detailHeader" id="timeout-detail">
+timeout<span class="detailHeaderTag">
+property
+</span>
+</div>
+
+<div class="signature">
+public integer <a href="CHttpSession.html#getTimeout"><b>getTimeout</b></a>()<br/>public void <a href="CHttpSession.html#setTimeout"><b>setTimeout</b></a>(integer $value)</div>
+
+<p>the number of seconds after which data will be seen as 'garbage' and cleaned up, defaults to 1440 seconds.</p>
+
+
+<div class="detailHeader" id="useCustomStorage-detail">
+useCustomStorage<span class="detailHeaderTag">
+property
+ <em>read-only</em> </span>
+</div>
+
+<div class="signature">
+public boolean <a href="CHttpSession.html#getUseCustomStorage"><b>getUseCustomStorage</b></a>()</div>
+
+<p>Returns a value indicating whether to use custom session storage.
+This method should be overriden to return true if custom session storage handler should be used.
+If returning true, make sure the methods <a href="CHttpSession.html#openSession">openSession</a>, <a href="CHttpSession.html#closeSession">closeSession</a>, <a href="CHttpSession.html#readSession">readSession</a>,
+<a href="CHttpSession.html#writeSession">writeSession</a>, <a href="CHttpSession.html#destroySession">destroySession</a>, and <a href="CHttpSession.html#gcSession">gcSession</a> are overridden in child
+class, because they will be used as the callback handlers.
+The default implementation always return false.</p>
+
+
+<div class="detailHeader" id="useTransparentSessionID-detail">
+useTransparentSessionID<span class="detailHeaderTag">
+property
+</span>
+</div>
+
+<div class="signature">
+public boolean <a href="CHttpSession.html#getUseTransparentSessionID"><b>getUseTransparentSessionID</b></a>()<br/>public void <a href="CHttpSession.html#setUseTransparentSessionID"><b>setUseTransparentSessionID</b></a>(boolean $value)</div>
+
+<p>whether transparent sid support is enabled or not, defaults to false.</p>
+
+
+<h2>Method Details</h2>
+
+<div class="detailHeader" id="add-detail">
+add()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>add</b>(mixed $key, mixed $value)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$key</td>
+  <td class="paramTypeCol">mixed</td>
+  <td class="paramDescCol">session variable name</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$value</td>
+  <td class="paramTypeCol">mixed</td>
+  <td class="paramDescCol">session variable value</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CHttpSession.php#467">framework/web/CHttpSession.php#467</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">add</span><span style="color: #007700">(</span><span style="color: #0000BB">$key</span><span style="color: #007700">,</span><span style="color: #0000BB">$value</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$_SESSION</span><span style="color: #007700">[</span><span style="color: #0000BB">$key</span><span style="color: #007700">]=</span><span style="color: #0000BB">$value</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Adds a session variable.
+Note, if the specified name already exists, the old value will be removed first.</p>
+
+
+<div class="detailHeader" id="clear-detail">
+clear()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>clear</b>()</div>
+</td></tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CHttpSession.php#492">framework/web/CHttpSession.php#492</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">clear</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;foreach(</span><span style="color: #0000BB">array_keys</span><span style="color: #007700">(</span><span style="color: #0000BB">$_SESSION</span><span style="color: #007700">)&nbsp;as&nbsp;</span><span style="color: #0000BB">$key</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;unset(</span><span style="color: #0000BB">$_SESSION</span><span style="color: #007700">[</span><span style="color: #0000BB">$key</span><span style="color: #007700">]);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Removes all session variables</p>
+
+
+<div class="detailHeader" id="close-detail">
+close()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>close</b>()</div>
+</td></tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CHttpSession.php#116">framework/web/CHttpSession.php#116</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">close</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">session_id</span><span style="color: #007700">()!==</span><span style="color: #DD0000">''</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@</span><span style="color: #0000BB">session_write_close</span><span style="color: #007700">();<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Ends the current session and store session data.</p>
+
+
+<div class="detailHeader" id="closeSession-detail">
+closeSession()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public boolean <b>closeSession</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">boolean</td>
+  <td class="paramDescCol">whether session is closed successfully</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CHttpSession.php#343">framework/web/CHttpSession.php#343</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">closeSession</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Session close handler.
+This method should be overridden if <a href="CHttpSession.html#useCustomStorage">useCustomStorage</a> is set true.
+Do not call this method directly.</p>
+
+
+<div class="detailHeader" id="contains-detail">
+contains()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public boolean <b>contains</b>(mixed $key)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$key</td>
+  <td class="paramTypeCol">mixed</td>
+  <td class="paramDescCol">session variable name</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">boolean</td>
+  <td class="paramDescCol">whether there is the named session variable</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CHttpSession.php#502">framework/web/CHttpSession.php#502</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">contains</span><span style="color: #007700">(</span><span style="color: #0000BB">$key</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;isset(</span><span style="color: #0000BB">$_SESSION</span><span style="color: #007700">[</span><span style="color: #0000BB">$key</span><span style="color: #007700">]);<br />}</span>
+</span>
+</code></div>
+</div>
+<p></p>
+
+
+<div class="detailHeader" id="count()-detail">
+count()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public integer <b>count</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">integer</td>
+  <td class="paramDescCol">number of items in the session.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CHttpSession.php#423">framework/web/CHttpSession.php#423</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">count</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getCount</span><span style="color: #007700">();<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Returns the number of items in the session.
+This method is required by Countable interface.</p>
+
+
+<div class="detailHeader" id="destroy-detail">
+destroy()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>destroy</b>()</div>
+</td></tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CHttpSession.php#125">framework/web/CHttpSession.php#125</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">destroy</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">session_id</span><span style="color: #007700">()!==</span><span style="color: #DD0000">''</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@</span><span style="color: #0000BB">session_unset</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@</span><span style="color: #0000BB">session_destroy</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Frees all session variables and destroys all data registered to a session.</p>
+
+
+<div class="detailHeader" id="destroySession-detail">
+destroySession()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public boolean <b>destroySession</b>(string $id)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$id</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">session ID</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">boolean</td>
+  <td class="paramDescCol">whether session is destroyed successfully</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CHttpSession.php#380">framework/web/CHttpSession.php#380</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">destroySession</span><span style="color: #007700">(</span><span style="color: #0000BB">$id</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Session destroy handler.
+This method should be overridden if <a href="CHttpSession.html#useCustomStorage">useCustomStorage</a> is set true.
+Do not call this method directly.</p>
+
+
+<div class="detailHeader" id="gcSession-detail">
+gcSession()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public boolean <b>gcSession</b>(integer $maxLifetime)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$maxLifetime</td>
+  <td class="paramTypeCol">integer</td>
+  <td class="paramDescCol">the number of seconds after which data will be seen as 'garbage' and cleaned up.</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">boolean</td>
+  <td class="paramDescCol">whether session is GCed successfully</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CHttpSession.php#392">framework/web/CHttpSession.php#392</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">gcSession</span><span style="color: #007700">(</span><span style="color: #0000BB">$maxLifetime</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Session GC (garbage collection) handler.
+This method should be overridden if <a href="CHttpSession.html#useCustomStorage">useCustomStorage</a> is set true.
+Do not call this method directly.</p>
+
+
+<div class="detailHeader" id="get-detail">
+get()
+<span class="detailHeaderTag">
+method
+(available since v1.1.2)
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public mixed <b>get</b>(mixed $key, mixed $defaultValue=NULL)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$key</td>
+  <td class="paramTypeCol">mixed</td>
+  <td class="paramDescCol">the session variable name</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$defaultValue</td>
+  <td class="paramTypeCol">mixed</td>
+  <td class="paramDescCol">the default value to be returned when the session variable does not exist.</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">mixed</td>
+  <td class="paramDescCol">the session variable value, or $defaultValue if the session variable does not exist.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CHttpSession.php#445">framework/web/CHttpSession.php#445</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">get</span><span style="color: #007700">(</span><span style="color: #0000BB">$key</span><span style="color: #007700">,</span><span style="color: #0000BB">$defaultValue</span><span style="color: #007700">=</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;isset(</span><span style="color: #0000BB">$_SESSION</span><span style="color: #007700">[</span><span style="color: #0000BB">$key</span><span style="color: #007700">])&nbsp;?&nbsp;</span><span style="color: #0000BB">$_SESSION</span><span style="color: #007700">[</span><span style="color: #0000BB">$key</span><span style="color: #007700">]&nbsp;:&nbsp;</span><span style="color: #0000BB">$defaultValue</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Returns the session variable value with the session variable name.
+This method is very similar to <a href="CHttpSession.html#itemAt">itemAt</a> and <a href="CHttpSession.html#offsetGet">offsetGet</a>,
+except that it will return $defaultValue if the session variable does not exist.</p>
+
+
+<div class="detailHeader" id="getCookieMode-detail">
+getCookieMode()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>getCookieMode</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">how to use cookie to store session ID. Defaults to 'Allow'.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CHttpSession.php#236">framework/web/CHttpSession.php#236</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getCookieMode</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">ini_get</span><span style="color: #007700">(</span><span style="color: #DD0000">'session.use_cookies'</span><span style="color: #007700">)===</span><span style="color: #DD0000">'0'</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #DD0000">'none'</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;else&nbsp;if(</span><span style="color: #0000BB">ini_get</span><span style="color: #007700">(</span><span style="color: #DD0000">'session.use_only_cookies'</span><span style="color: #007700">)===</span><span style="color: #DD0000">'0'</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #DD0000">'allow'</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #DD0000">'only'</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p></p>
+
+
+<div class="detailHeader" id="getCookieParams-detail">
+getCookieParams()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public array <b>getCookieParams</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">the session cookie parameters.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CHttpSession.php#210">framework/web/CHttpSession.php#210</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getCookieParams</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">session_get_cookie_params</span><span style="color: #007700">();<br />}</span>
+</span>
+</code></div>
+</div>
+<p></p>
+
+<div class="SeeAlso">
+<h4>See Also</h4>
+<ul>
+	<li><a href="http://us2.php.net/manual/en/function.session-get-cookie-params.php">http://us2.php.net/manual/en/function.session-get-cookie-params.php</a></li>
+</ul>
+</div>
+
+<div class="detailHeader" id="getCount-detail">
+getCount()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public integer <b>getCount</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">integer</td>
+  <td class="paramDescCol">the number of session variables</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CHttpSession.php#413">framework/web/CHttpSession.php#413</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getCount</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">count</span><span style="color: #007700">(</span><span style="color: #0000BB">$_SESSION</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Returns the number of items in the session.</p>
+
+
+<div class="detailHeader" id="getGCProbability-detail">
+getGCProbability()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public integer <b>getGCProbability</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">integer</td>
+  <td class="paramDescCol">the probability (percentage) that the gc (garbage collection) process is started on every session initialization, defaults to 1 meaning 1% chance.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CHttpSession.php#270">framework/web/CHttpSession.php#270</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getGCProbability</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;(int)</span><span style="color: #0000BB">ini_get</span><span style="color: #007700">(</span><span style="color: #DD0000">'session.gc_probability'</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p></p>
+
+
+<div class="detailHeader" id="getIsStarted-detail">
+getIsStarted()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public boolean <b>getIsStarted</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">boolean</td>
+  <td class="paramDescCol">whether the session has started</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CHttpSession.php#137">framework/web/CHttpSession.php#137</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getIsStarted</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">session_id</span><span style="color: #007700">()!==</span><span style="color: #DD0000">''</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p></p>
+
+
+<div class="detailHeader" id="getIterator-detail">
+getIterator()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public <a href="CHttpSessionIterator.html">CHttpSessionIterator</a> <b>getIterator</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol"><a href="CHttpSessionIterator.html">CHttpSessionIterator</a></td>
+  <td class="paramDescCol">an iterator for traversing the session variables.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CHttpSession.php#404">framework/web/CHttpSession.php#404</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getIterator</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;new&nbsp;</span><span style="color: #0000BB">CHttpSessionIterator</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Returns an iterator for traversing the session variables.
+This method is required by the interface IteratorAggregate.</p>
+
+
+<div class="detailHeader" id="getKeys-detail">
+getKeys()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public array <b>getKeys</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">the list of session variable names</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CHttpSession.php#431">framework/web/CHttpSession.php#431</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getKeys</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">array_keys</span><span style="color: #007700">(</span><span style="color: #0000BB">$_SESSION</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p></p>
+
+
+<div class="detailHeader" id="getSavePath-detail">
+getSavePath()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>getSavePath</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the current session save path, defaults to '/tmp'.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CHttpSession.php#188">framework/web/CHttpSession.php#188</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getSavePath</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">session_save_path</span><span style="color: #007700">();<br />}</span>
+</span>
+</code></div>
+</div>
+<p></p>
+
+
+<div class="detailHeader" id="getSessionID-detail">
+getSessionID()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>getSessionID</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the current session ID</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CHttpSession.php#145">framework/web/CHttpSession.php#145</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getSessionID</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">session_id</span><span style="color: #007700">();<br />}</span>
+</span>
+</code></div>
+</div>
+<p></p>
+
+
+<div class="detailHeader" id="getSessionName-detail">
+getSessionName()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>getSessionName</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the current session name</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CHttpSession.php#172">framework/web/CHttpSession.php#172</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getSessionName</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">session_name</span><span style="color: #007700">();<br />}</span>
+</span>
+</code></div>
+</div>
+<p></p>
+
+
+<div class="detailHeader" id="getTimeout-detail">
+getTimeout()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public integer <b>getTimeout</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">integer</td>
+  <td class="paramDescCol">the number of seconds after which data will be seen as 'garbage' and cleaned up, defaults to 1440 seconds.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CHttpSession.php#311">framework/web/CHttpSession.php#311</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getTimeout</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;(int)</span><span style="color: #0000BB">ini_get</span><span style="color: #007700">(</span><span style="color: #DD0000">'session.gc_maxlifetime'</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p></p>
+
+
+<div class="detailHeader" id="getUseCustomStorage-detail">
+getUseCustomStorage()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public boolean <b>getUseCustomStorage</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">boolean</td>
+  <td class="paramDescCol">whether to use custom storage.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CHttpSession.php#88">framework/web/CHttpSession.php#88</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getUseCustomStorage</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Returns a value indicating whether to use custom session storage.
+This method should be overriden to return true if custom session storage handler should be used.
+If returning true, make sure the methods <a href="CHttpSession.html#openSession">openSession</a>, <a href="CHttpSession.html#closeSession">closeSession</a>, <a href="CHttpSession.html#readSession">readSession</a>,
+<a href="CHttpSession.html#writeSession">writeSession</a>, <a href="CHttpSession.html#destroySession">destroySession</a>, and <a href="CHttpSession.html#gcSession">gcSession</a> are overridden in child
+class, because they will be used as the callback handlers.
+The default implementation always return false.</p>
+
+
+<div class="detailHeader" id="getUseTransparentSessionID-detail">
+getUseTransparentSessionID()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public boolean <b>getUseTransparentSessionID</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">boolean</td>
+  <td class="paramDescCol">whether transparent sid support is enabled or not, defaults to false.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CHttpSession.php#295">framework/web/CHttpSession.php#295</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getUseTransparentSessionID</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">ini_get</span><span style="color: #007700">(</span><span style="color: #DD0000">'session.use_trans_sid'</span><span style="color: #007700">)==</span><span style="color: #0000BB">1</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p></p>
+
+
+<div class="detailHeader" id="init-detail">
+init()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>init</b>()</div>
+</td></tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CHttpSession.php#71">framework/web/CHttpSession.php#71</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">init</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">parent</span><span style="color: #007700">::</span><span style="color: #0000BB">init</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">autoStart</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">open</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">register_shutdown_function</span><span style="color: #007700">(array(</span><span style="color: #0000BB">$this</span><span style="color: #007700">,</span><span style="color: #DD0000">'close'</span><span style="color: #007700">));<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Initializes the application component.
+This method is required by IApplicationComponent and is invoked by application.</p>
+
+
+<div class="detailHeader" id="itemAt-detail">
+itemAt()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public mixed <b>itemAt</b>(mixed $key)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$key</td>
+  <td class="paramTypeCol">mixed</td>
+  <td class="paramDescCol">the session variable name</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">mixed</td>
+  <td class="paramDescCol">the session variable value, null if no such variable exists</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CHttpSession.php#456">framework/web/CHttpSession.php#456</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">itemAt</span><span style="color: #007700">(</span><span style="color: #0000BB">$key</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;isset(</span><span style="color: #0000BB">$_SESSION</span><span style="color: #007700">[</span><span style="color: #0000BB">$key</span><span style="color: #007700">])&nbsp;?&nbsp;</span><span style="color: #0000BB">$_SESSION</span><span style="color: #007700">[</span><span style="color: #0000BB">$key</span><span style="color: #007700">]&nbsp;:&nbsp;</span><span style="color: #0000BB">null</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Returns the session variable value with the session variable name.
+This method is exactly the same as <a href="CHttpSession.html#offsetGet">offsetGet</a>.</p>
+
+
+<div class="detailHeader" id="offsetExists-detail">
+offsetExists()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public boolean <b>offsetExists</b>(mixed $offset)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$offset</td>
+  <td class="paramTypeCol">mixed</td>
+  <td class="paramDescCol">the offset to check on</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">boolean</td>
+  <td class="paramDescCol"></td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CHttpSession.php#520">framework/web/CHttpSession.php#520</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">offsetExists</span><span style="color: #007700">(</span><span style="color: #0000BB">$offset</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;isset(</span><span style="color: #0000BB">$_SESSION</span><span style="color: #007700">[</span><span style="color: #0000BB">$offset</span><span style="color: #007700">]);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>This method is required by the interface ArrayAccess.</p>
+
+
+<div class="detailHeader" id="offsetGet-detail">
+offsetGet()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public mixed <b>offsetGet</b>(integer $offset)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$offset</td>
+  <td class="paramTypeCol">integer</td>
+  <td class="paramDescCol">the offset to retrieve element.</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">mixed</td>
+  <td class="paramDescCol">the element at the offset, null if no element is found at the offset</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CHttpSession.php#530">framework/web/CHttpSession.php#530</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">offsetGet</span><span style="color: #007700">(</span><span style="color: #0000BB">$offset</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;isset(</span><span style="color: #0000BB">$_SESSION</span><span style="color: #007700">[</span><span style="color: #0000BB">$offset</span><span style="color: #007700">])&nbsp;?&nbsp;</span><span style="color: #0000BB">$_SESSION</span><span style="color: #007700">[</span><span style="color: #0000BB">$offset</span><span style="color: #007700">]&nbsp;:&nbsp;</span><span style="color: #0000BB">null</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>This method is required by the interface ArrayAccess.</p>
+
+
+<div class="detailHeader" id="offsetSet-detail">
+offsetSet()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>offsetSet</b>(integer $offset, mixed $item)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$offset</td>
+  <td class="paramTypeCol">integer</td>
+  <td class="paramDescCol">the offset to set element</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$item</td>
+  <td class="paramTypeCol">mixed</td>
+  <td class="paramDescCol">the element value</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CHttpSession.php#540">framework/web/CHttpSession.php#540</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">offsetSet</span><span style="color: #007700">(</span><span style="color: #0000BB">$offset</span><span style="color: #007700">,</span><span style="color: #0000BB">$item</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$_SESSION</span><span style="color: #007700">[</span><span style="color: #0000BB">$offset</span><span style="color: #007700">]=</span><span style="color: #0000BB">$item</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>This method is required by the interface ArrayAccess.</p>
+
+
+<div class="detailHeader" id="offsetUnset-detail">
+offsetUnset()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>offsetUnset</b>(mixed $offset)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$offset</td>
+  <td class="paramTypeCol">mixed</td>
+  <td class="paramDescCol">the offset to unset element</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CHttpSession.php#549">framework/web/CHttpSession.php#549</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">offsetUnset</span><span style="color: #007700">(</span><span style="color: #0000BB">$offset</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;unset(</span><span style="color: #0000BB">$_SESSION</span><span style="color: #007700">[</span><span style="color: #0000BB">$offset</span><span style="color: #007700">]);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>This method is required by the interface ArrayAccess.</p>
+
+
+<div class="detailHeader" id="open-detail">
+open()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>open</b>()</div>
+</td></tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CHttpSession.php#96">framework/web/CHttpSession.php#96</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">open</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getUseCustomStorage</span><span style="color: #007700">())<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@</span><span style="color: #0000BB">session_set_save_handler</span><span style="color: #007700">(array(</span><span style="color: #0000BB">$this</span><span style="color: #007700">,</span><span style="color: #DD0000">'openSession'</span><span style="color: #007700">),array(</span><span style="color: #0000BB">$this</span><span style="color: #007700">,</span><span style="color: #DD0000">'closeSession'</span><span style="color: #007700">),array(</span><span style="color: #0000BB">$this</span><span style="color: #007700">,</span><span style="color: #DD0000">'readSession'</span><span style="color: #007700">),array(</span><span style="color: #0000BB">$this</span><span style="color: #007700">,</span><span style="color: #DD0000">'writeSession'</span><span style="color: #007700">),array(</span><span style="color: #0000BB">$this</span><span style="color: #007700">,</span><span style="color: #DD0000">'destroySession'</span><span style="color: #007700">),array(</span><span style="color: #0000BB">$this</span><span style="color: #007700">,</span><span style="color: #DD0000">'gcSession'</span><span style="color: #007700">));<br />&nbsp;&nbsp;&nbsp;&nbsp;if(@</span><span style="color: #0000BB">session_start</span><span style="color: #007700">()===</span><span style="color: #0000BB">false&nbsp;</span><span style="color: #007700">&amp;&amp;&nbsp;</span><span style="color: #0000BB">YII_DEBUG</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$message</span><span style="color: #007700">=</span><span style="color: #0000BB">Yii</span><span style="color: #007700">::</span><span style="color: #0000BB">t</span><span style="color: #007700">(</span><span style="color: #DD0000">'yii'</span><span style="color: #007700">,</span><span style="color: #DD0000">'Failed&nbsp;to&nbsp;start&nbsp;session.'</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">function_exists</span><span style="color: #007700">(</span><span style="color: #DD0000">'error_get_last'</span><span style="color: #007700">))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$error</span><span style="color: #007700">=</span><span style="color: #0000BB">error_get_last</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(isset(</span><span style="color: #0000BB">$error</span><span style="color: #007700">[</span><span style="color: #DD0000">'message'</span><span style="color: #007700">]))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$message</span><span style="color: #007700">=</span><span style="color: #0000BB">$error</span><span style="color: #007700">[</span><span style="color: #DD0000">'message'</span><span style="color: #007700">];<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">Yii</span><span style="color: #007700">::</span><span style="color: #0000BB">log</span><span style="color: #007700">(</span><span style="color: #0000BB">$message</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">CLogger</span><span style="color: #007700">::</span><span style="color: #0000BB">LEVEL_WARNING</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'system.web.CHttpSession'</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Starts the session if it has not started yet.</p>
+
+
+<div class="detailHeader" id="openSession-detail">
+openSession()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public boolean <b>openSession</b>(string $savePath, string $sessionName)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$savePath</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">session save path</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$sessionName</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">session name</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">boolean</td>
+  <td class="paramDescCol">whether session is opened successfully</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CHttpSession.php#332">framework/web/CHttpSession.php#332</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">openSession</span><span style="color: #007700">(</span><span style="color: #0000BB">$savePath</span><span style="color: #007700">,</span><span style="color: #0000BB">$sessionName</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Session open handler.
+This method should be overridden if <a href="CHttpSession.html#useCustomStorage">useCustomStorage</a> is set true.
+Do not call this method directly.</p>
+
+
+<div class="detailHeader" id="readSession-detail">
+readSession()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>readSession</b>(string $id)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$id</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">session ID</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the session data</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CHttpSession.php#355">framework/web/CHttpSession.php#355</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">readSession</span><span style="color: #007700">(</span><span style="color: #0000BB">$id</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #DD0000">''</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Session read handler.
+This method should be overridden if <a href="CHttpSession.html#useCustomStorage">useCustomStorage</a> is set true.
+Do not call this method directly.</p>
+
+
+<div class="detailHeader" id="regenerateID-detail">
+regenerateID()
+<span class="detailHeaderTag">
+method
+(available since v1.1.8)
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>regenerateID</b>(boolean $deleteOldSession=false)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$deleteOldSession</td>
+  <td class="paramTypeCol">boolean</td>
+  <td class="paramDescCol">Whether to delete the old associated session file or not.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CHttpSession.php#164">framework/web/CHttpSession.php#164</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">regenerateID</span><span style="color: #007700">(</span><span style="color: #0000BB">$deleteOldSession</span><span style="color: #007700">=</span><span style="color: #0000BB">false</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">session_regenerate_id</span><span style="color: #007700">(</span><span style="color: #0000BB">$deleteOldSession</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Updates the current session id with a newly generated one .
+Please refer to <a href="http://php.net/session_regenerate_id">http://php.net/session_regenerate_id</a> for more details.</p>
+
+
+<div class="detailHeader" id="remove-detail">
+remove()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public mixed <b>remove</b>(mixed $key)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$key</td>
+  <td class="paramTypeCol">mixed</td>
+  <td class="paramDescCol">the name of the session variable to be removed</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">mixed</td>
+  <td class="paramDescCol">the removed value, null if no such session variable.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CHttpSession.php#477">framework/web/CHttpSession.php#477</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">remove</span><span style="color: #007700">(</span><span style="color: #0000BB">$key</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(isset(</span><span style="color: #0000BB">$_SESSION</span><span style="color: #007700">[</span><span style="color: #0000BB">$key</span><span style="color: #007700">]))<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$value</span><span style="color: #007700">=</span><span style="color: #0000BB">$_SESSION</span><span style="color: #007700">[</span><span style="color: #0000BB">$key</span><span style="color: #007700">];<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;unset(</span><span style="color: #0000BB">$_SESSION</span><span style="color: #007700">[</span><span style="color: #0000BB">$key</span><span style="color: #007700">]);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$value</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">null</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Removes a session variable.</p>
+
+
+<div class="detailHeader" id="setCookieMode-detail">
+setCookieMode()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>setCookieMode</b>(string $value)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$value</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">how to use cookie to store session ID. Valid values include 'none', 'allow' and 'only'.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CHttpSession.php#249">framework/web/CHttpSession.php#249</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">setCookieMode</span><span style="color: #007700">(</span><span style="color: #0000BB">$value</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$value</span><span style="color: #007700">===</span><span style="color: #DD0000">'none'</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">ini_set</span><span style="color: #007700">(</span><span style="color: #DD0000">'session.use_cookies'</span><span style="color: #007700">,</span><span style="color: #DD0000">'0'</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;else&nbsp;if(</span><span style="color: #0000BB">$value</span><span style="color: #007700">===</span><span style="color: #DD0000">'allow'</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">ini_set</span><span style="color: #007700">(</span><span style="color: #DD0000">'session.use_cookies'</span><span style="color: #007700">,</span><span style="color: #DD0000">'1'</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">ini_set</span><span style="color: #007700">(</span><span style="color: #DD0000">'session.use_only_cookies'</span><span style="color: #007700">,</span><span style="color: #DD0000">'0'</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;else&nbsp;if(</span><span style="color: #0000BB">$value</span><span style="color: #007700">===</span><span style="color: #DD0000">'only'</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">ini_set</span><span style="color: #007700">(</span><span style="color: #DD0000">'session.use_cookies'</span><span style="color: #007700">,</span><span style="color: #DD0000">'1'</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">ini_set</span><span style="color: #007700">(</span><span style="color: #DD0000">'session.use_only_cookies'</span><span style="color: #007700">,</span><span style="color: #DD0000">'1'</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throw&nbsp;new&nbsp;</span><span style="color: #0000BB">CException</span><span style="color: #007700">(</span><span style="color: #0000BB">Yii</span><span style="color: #007700">::</span><span style="color: #0000BB">t</span><span style="color: #007700">(</span><span style="color: #DD0000">'yii'</span><span style="color: #007700">,</span><span style="color: #DD0000">'CHttpSession.cookieMode&nbsp;can&nbsp;only&nbsp;be&nbsp;"none",&nbsp;"allow"&nbsp;or&nbsp;"only".'</span><span style="color: #007700">));<br />}</span>
+</span>
+</code></div>
+</div>
+<p></p>
+
+
+<div class="detailHeader" id="setCookieParams-detail">
+setCookieParams()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>setCookieParams</b>(array $value)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$value</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">cookie parameters, valid keys include: lifetime, path, domain, secure.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CHttpSession.php#222">framework/web/CHttpSession.php#222</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">setCookieParams</span><span style="color: #007700">(</span><span style="color: #0000BB">$value</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$data</span><span style="color: #007700">=</span><span style="color: #0000BB">session_get_cookie_params</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">extract</span><span style="color: #007700">(</span><span style="color: #0000BB">$data</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">extract</span><span style="color: #007700">(</span><span style="color: #0000BB">$value</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;if(isset(</span><span style="color: #0000BB">$httponly</span><span style="color: #007700">))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">session_set_cookie_params</span><span style="color: #007700">(</span><span style="color: #0000BB">$lifetime</span><span style="color: #007700">,</span><span style="color: #0000BB">$path</span><span style="color: #007700">,</span><span style="color: #0000BB">$domain</span><span style="color: #007700">,</span><span style="color: #0000BB">$secure</span><span style="color: #007700">,</span><span style="color: #0000BB">$httponly</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">session_set_cookie_params</span><span style="color: #007700">(</span><span style="color: #0000BB">$lifetime</span><span style="color: #007700">,</span><span style="color: #0000BB">$path</span><span style="color: #007700">,</span><span style="color: #0000BB">$domain</span><span style="color: #007700">,</span><span style="color: #0000BB">$secure</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Sets the session cookie parameters.
+The effect of this method only lasts for the duration of the script.
+Call this method before the session starts.</p>
+
+<div class="SeeAlso">
+<h4>See Also</h4>
+<ul>
+	<li><a href="http://us2.php.net/manual/en/function.session-set-cookie-params.php">http://us2.php.net/manual/en/function.session-set-cookie-params.php</a></li>
+</ul>
+</div>
+
+<div class="detailHeader" id="setGCProbability-detail">
+setGCProbability()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>setGCProbability</b>(integer $value)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$value</td>
+  <td class="paramTypeCol">integer</td>
+  <td class="paramDescCol">the probability (percentage) that the gc (garbage collection) process is started on every session initialization.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CHttpSession.php#279">framework/web/CHttpSession.php#279</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">setGCProbability</span><span style="color: #007700">(</span><span style="color: #0000BB">$value</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$value</span><span style="color: #007700">=(int)</span><span style="color: #0000BB">$value</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$value</span><span style="color: #007700">&gt;=</span><span style="color: #0000BB">0&nbsp;</span><span style="color: #007700">&amp;&amp;&nbsp;</span><span style="color: #0000BB">$value</span><span style="color: #007700">&lt;=</span><span style="color: #0000BB">100</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">ini_set</span><span style="color: #007700">(</span><span style="color: #DD0000">'session.gc_probability'</span><span style="color: #007700">,</span><span style="color: #0000BB">$value</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">ini_set</span><span style="color: #007700">(</span><span style="color: #DD0000">'session.gc_divisor'</span><span style="color: #007700">,</span><span style="color: #DD0000">'100'</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throw&nbsp;new&nbsp;</span><span style="color: #0000BB">CException</span><span style="color: #007700">(</span><span style="color: #0000BB">Yii</span><span style="color: #007700">::</span><span style="color: #0000BB">t</span><span style="color: #007700">(</span><span style="color: #DD0000">'yii'</span><span style="color: #007700">,</span><span style="color: #DD0000">'CHttpSession.gcProbability&nbsp;"{value}"&nbsp;is&nbsp;invalid.&nbsp;It&nbsp;must&nbsp;be&nbsp;an&nbsp;integer&nbsp;between&nbsp;0&nbsp;and&nbsp;100.'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array(</span><span style="color: #DD0000">'{value}'</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">$value</span><span style="color: #007700">)));<br />}</span>
+</span>
+</code></div>
+</div>
+<p></p>
+
+
+<div class="detailHeader" id="setSavePath-detail">
+setSavePath()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>setSavePath</b>(string $value)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$value</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the current session save path</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CHttpSession.php#197">framework/web/CHttpSession.php#197</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">setSavePath</span><span style="color: #007700">(</span><span style="color: #0000BB">$value</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">is_dir</span><span style="color: #007700">(</span><span style="color: #0000BB">$value</span><span style="color: #007700">))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">session_save_path</span><span style="color: #007700">(</span><span style="color: #0000BB">$value</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throw&nbsp;new&nbsp;</span><span style="color: #0000BB">CException</span><span style="color: #007700">(</span><span style="color: #0000BB">Yii</span><span style="color: #007700">::</span><span style="color: #0000BB">t</span><span style="color: #007700">(</span><span style="color: #DD0000">'yii'</span><span style="color: #007700">,</span><span style="color: #DD0000">'CHttpSession.savePath&nbsp;"{path}"&nbsp;is&nbsp;not&nbsp;a&nbsp;valid&nbsp;directory.'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array(</span><span style="color: #DD0000">'{path}'</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">$value</span><span style="color: #007700">)));<br />}</span>
+</span>
+</code></div>
+</div>
+<p></p>
+
+
+<div class="detailHeader" id="setSessionID-detail">
+setSessionID()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>setSessionID</b>(string $value)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$value</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the session ID for the current session</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CHttpSession.php#153">framework/web/CHttpSession.php#153</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">setSessionID</span><span style="color: #007700">(</span><span style="color: #0000BB">$value</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">session_id</span><span style="color: #007700">(</span><span style="color: #0000BB">$value</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p></p>
+
+
+<div class="detailHeader" id="setSessionName-detail">
+setSessionName()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>setSessionName</b>(string $value)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$value</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the session name for the current session, must be an alphanumeric string, defaults to PHPSESSID</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CHttpSession.php#180">framework/web/CHttpSession.php#180</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">setSessionName</span><span style="color: #007700">(</span><span style="color: #0000BB">$value</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">session_name</span><span style="color: #007700">(</span><span style="color: #0000BB">$value</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p></p>
+
+
+<div class="detailHeader" id="setTimeout-detail">
+setTimeout()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>setTimeout</b>(integer $value)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$value</td>
+  <td class="paramTypeCol">integer</td>
+  <td class="paramDescCol">the number of seconds after which data will be seen as 'garbage' and cleaned up</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CHttpSession.php#319">framework/web/CHttpSession.php#319</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">setTimeout</span><span style="color: #007700">(</span><span style="color: #0000BB">$value</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">ini_set</span><span style="color: #007700">(</span><span style="color: #DD0000">'session.gc_maxlifetime'</span><span style="color: #007700">,</span><span style="color: #0000BB">$value</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p></p>
+
+
+<div class="detailHeader" id="setUseTransparentSessionID-detail">
+setUseTransparentSessionID()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>setUseTransparentSessionID</b>(boolean $value)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$value</td>
+  <td class="paramTypeCol">boolean</td>
+  <td class="paramDescCol">whether transparent sid support is enabled or not.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CHttpSession.php#303">framework/web/CHttpSession.php#303</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">setUseTransparentSessionID</span><span style="color: #007700">(</span><span style="color: #0000BB">$value</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">ini_set</span><span style="color: #007700">(</span><span style="color: #DD0000">'session.use_trans_sid'</span><span style="color: #007700">,</span><span style="color: #0000BB">$value</span><span style="color: #007700">?</span><span style="color: #DD0000">'1'</span><span style="color: #007700">:</span><span style="color: #DD0000">'0'</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p></p>
+
+
+<div class="detailHeader" id="toArray-detail">
+toArray()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public array <b>toArray</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">the list of all session variables in array</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CHttpSession.php#510">framework/web/CHttpSession.php#510</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">toArray</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$_SESSION</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p></p>
+
+
+<div class="detailHeader" id="writeSession-detail">
+writeSession()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public boolean <b>writeSession</b>(string $id, string $data)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$id</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">session ID</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$data</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">session data</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">boolean</td>
+  <td class="paramDescCol">whether session write is successful</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CHttpSession.php#368">framework/web/CHttpSession.php#368</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">writeSession</span><span style="color: #007700">(</span><span style="color: #0000BB">$id</span><span style="color: #007700">,</span><span style="color: #0000BB">$data</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Session write handler.
+This method should be overridden if <a href="CHttpSession.html#useCustomStorage">useCustomStorage</a> is set true.
+Do not call this method directly.</p>
+
+
+</div><!-- end of content -->
+
+<div id="apiFooter">
+Copyright &copy; 2008-2011 by <a href="http://www.yiisoft.com">Yii Software LLC</a><br/>
+All Rights Reserved.<br/>
+</div><!-- end of footer -->
+
+<script type="text/javascript">
+/*<![CDATA[*/
+$("a.toggle").toggle(function(){
+	$(this).text($(this).text().replace(/Hide/,'Show'));
+	$(this).parents(".summary").find(".inherited").hide();
+},function(){
+	$(this).text($(this).text().replace(/Show/,'Hide'));
+	$(this).parents(".summary").find(".inherited").show();
+});
+$(".sourceCode a.show").toggle(function(){
+	$(this).text($(this).text().replace(/show/,'hide'));
+	$(this).parents(".sourceCode").find("div.code").show();
+},function(){
+	$(this).text($(this).text().replace(/hide/,'show'));
+	$(this).parents(".sourceCode").find("div.code").hide();
+});
+$("a.sourceLink").click(function(){
+	$(this).attr('target','_blank');
+});
+/*]]>*/
+</script>
+
+</div><!-- end of page -->
+</body>
+</html>

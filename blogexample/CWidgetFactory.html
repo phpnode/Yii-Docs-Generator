@@ -1,0 +1,578 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="language" content="en" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="css/api.css" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<title>CWidgetFactory</title>
+</head>
+
+<body>
+<div id="apiPage">
+
+<div id="apiHeader">
+My Console Application Class Reference
+</div><!-- end of header -->
+
+<div id="content">
+<h1>CWidgetFactory</h1>
+<div id="nav">
+<a href="index.html">All Packages</a>
+| <a href="#properties">Properties</a>
+| <a href="#methods">Methods</a>
+</div>
+
+<table class="summaryTable docClass">
+<colgroup>
+	<col class="col-name" />
+	<col class="col-value" />
+</colgroup>
+<tr>
+  <th>Package</th>
+  <td><a href="index.html#system.web">system.web</a></td>
+</tr>
+<tr>
+  <th>Inheritance</th>
+  <td>class CWidgetFactory &raquo;
+<a href="CApplicationComponent.html">CApplicationComponent</a> &raquo;
+<a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr>
+  <th>Implements</th>
+  <td><a href="IApplicationComponent.html">IApplicationComponent</a>, <a href="IWidgetFactory.html">IWidgetFactory</a></td>
+</tr>
+<tr>
+  <th>Since</th>
+  <td>1.1</td>
+</tr>
+<tr>
+  <th>Version</th>
+  <td>$Id: CWidgetFactory.php 2799 2011-01-01 19:31:13Z qiang.xue $</td>
+</tr>
+<tr>
+  <th>Source Code</th>
+  <td><a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CWidgetFactory.php">framework/web/CWidgetFactory.php</a></td>
+</tr>
+<tr>
+  <th>Author</th>
+  <td>Qiang Xue &lt;qiang.xue@gmail.com&gt;</td>
+</tr>
+</table>
+
+<div id="classDescription">
+CWidgetFactory creates new widgets to be used in views.
+<br/><br/>
+CWidgetFactory is used as the default "widgetFactory" application component.
+<br/><br/>
+When calling <a href="CBaseController.html#createWidget">CBaseController::createWidget</a>, <a href="CBaseController.html#widget">CBaseController::widget</a>
+or <a href="CBaseController.html#beginWidget">CBaseController::beginWidget</a>, if the "widgetFactory" component is installed,
+it will be used to create the requested widget. To install the "widgetFactory" component,
+we should have the following application configuration:
+<pre>
+return array(
+    'components'=&gt;array(
+        'widgetFactory'=&gt;array(
+            'class'=&gt;'CWidgetFactory',
+        ),
+    ),
+)
+</pre>
+<br/><br/>
+CWidgetFactory implements the "skin" feature, which allows a new widget to be created
+and initialized with a set of predefined property values (called skin).
+<br/><br/>
+When CWidgetFactory is used to create a new widget, it will first instantiate the
+widget instance. It then checks if there is a skin available for this widget
+according to the widget class name and the widget <a href="CWidget.html#skin">CWidget::skin</a> property.
+If a skin is found, it will be merged with the initial properties passed via
+<a href="CWidgetFactory.html#createWidget">createWidget</a>. Then the merged initial properties will be used to initialize
+the newly created widget instance.
+<br/><br/>
+As aforementioned, a skin is a set of initial property values for a widget.
+It is thus represented as an associative array of name-value pairs.
+Skins are stored in PHP scripts like other configurations. Each script file stores the skins
+for a particular widget type and is named as the wiget class name (e.g. CLinkPager.php).
+Each widget type may have one or several skins, identified by the skin name set via
+<a href="CWidget.html#skin">CWidget::skin</a> property. If the <a href="CWidget.html#skin">CWidget::skin</a> property is not set for a given
+widget, it means the default skin would be used. The following shows the possible skins for
+the <a href="CLinkPager.html">CLinkPager</a> widget:
+<pre>
+return array(
+    'default'=&gt;array(
+        'nextPageLabel'=&gt;'&amp;gt;&amp;gt;',
+        'prevPageLabel'=&gt;'&amp;lt;&amp;lt;',
+    ),
+    'short'=&gt;array(
+        'header'=&gt;'',
+        'maxButtonCount'=&gt;5,
+    ),
+);
+</pre>
+In the above, there are two skins. The first one is the default skin which is indexed by the string "default".
+Note that <a href="CWidget.html#skin">CWidget::skin</a> defaults to "default". Therefore, this is the skin that will be applied
+if we do not explicitly specify the <a href="CWidget.html#skin">CWidget::skin</a> property.
+The second one is named as the "short" skin which will be used only when we set <a href="CWidget.html#skin">CWidget::skin</a>
+to be "short".
+<br/><br/>
+By default, CWidgetFactory looks for the skin of a widget under the "skins" directory
+of the current application's <a href="CWebApplication.html#viewPath">CWebApplication::viewPath</a> (e.g. protected/views/skins).
+If a theme is being used, it will look for the skin under the "skins" directory of
+the theme's <a href="CTheme.html#viewPath">CTheme::viewPath</a> (as well as the aforementioned skin directory).
+In case the specified skin is not found, a widget will still be created
+normally without causing any error.</div>
+<a name="properties"></a>
+
+<div class="summary docProperty">
+<h2>Public Properties</h2>
+
+<p><a href="#" class="toggle">Hide inherited properties</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-property" />
+	<col class="col-type" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>Property</th><th>Type</th><th>Description</th><th>Defined By</th>
+</tr>
+<tr class="inherited" id="behaviors">
+  <td><a href="CApplicationComponent.html#behaviors-detail">behaviors</a></td>
+  <td>array</td>
+  <td>the behaviors that should be attached to this component.</td>
+  <td><a href="CApplicationComponent.html">CApplicationComponent</a></td>
+</tr>
+<tr id="enableSkin">
+  <td><a href="CWidgetFactory.html#enableSkin-detail">enableSkin</a></td>
+  <td>boolean</td>
+  <td>whether to enable widget skinning.</td>
+  <td>CWidgetFactory</td>
+</tr>
+<tr class="inherited" id="isInitialized">
+  <td><a href="CApplicationComponent.html#isInitialized-detail">isInitialized</a></td>
+  <td>boolean</td>
+  <td>Checks if this application component bas been initialized.</td>
+  <td><a href="CApplicationComponent.html">CApplicationComponent</a></td>
+</tr>
+<tr id="skinPath">
+  <td><a href="CWidgetFactory.html#skinPath-detail">skinPath</a></td>
+  <td>string</td>
+  <td>the directory containing all the skin files.</td>
+  <td>CWidgetFactory</td>
+</tr>
+<tr id="skinnableWidgets">
+  <td><a href="CWidgetFactory.html#skinnableWidgets-detail">skinnableWidgets</a></td>
+  <td>array</td>
+  <td>list of widget class names that can be skinned.</td>
+  <td>CWidgetFactory</td>
+</tr>
+<tr id="widgets">
+  <td><a href="CWidgetFactory.html#widgets-detail">widgets</a></td>
+  <td>array</td>
+  <td>widget initial property values.</td>
+  <td>CWidgetFactory</td>
+</tr>
+</table>
+</div>
+<a name="methods"></a>
+
+<div class="summary docMethod">
+<h2>Public Methods</h2>
+
+<p><a href="#" class="toggle">Hide inherited methods</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-method" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>Method</th><th>Description</th><th>Defined By</th>
+</tr>
+<tr class="inherited" id="__call">
+  <td><a href="CComponent.html#__call-detail">__call()</a></td>
+  <td>Calls the named method which is not a class method.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__get">
+  <td><a href="CComponent.html#__get-detail">__get()</a></td>
+  <td>Returns a property value, an event handler list or a behavior based on its name.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__isset">
+  <td><a href="CComponent.html#__isset-detail">__isset()</a></td>
+  <td>Checks if a property value is null.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__set">
+  <td><a href="CComponent.html#__set-detail">__set()</a></td>
+  <td>Sets value of a component property.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__unset">
+  <td><a href="CComponent.html#__unset-detail">__unset()</a></td>
+  <td>Sets a component property to be null.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="asa">
+  <td><a href="CComponent.html#asa-detail">asa()</a></td>
+  <td>Returns the named behavior object.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="attachBehavior">
+  <td><a href="CComponent.html#attachBehavior-detail">attachBehavior()</a></td>
+  <td>Attaches a behavior to this component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="attachBehaviors">
+  <td><a href="CComponent.html#attachBehaviors-detail">attachBehaviors()</a></td>
+  <td>Attaches a list of behaviors to the component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="attachEventHandler">
+  <td><a href="CComponent.html#attachEventHandler-detail">attachEventHandler()</a></td>
+  <td>Attaches an event handler to an event.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="canGetProperty">
+  <td><a href="CComponent.html#canGetProperty-detail">canGetProperty()</a></td>
+  <td>Determines whether a property can be read.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="canSetProperty">
+  <td><a href="CComponent.html#canSetProperty-detail">canSetProperty()</a></td>
+  <td>Determines whether a property can be set.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr id="createWidget">
+  <td><a href="CWidgetFactory.html#createWidget-detail">createWidget()</a></td>
+  <td>Creates a new widget based on the given class name and initial properties.</td>
+  <td>CWidgetFactory</td>
+</tr>
+<tr class="inherited" id="detachBehavior">
+  <td><a href="CComponent.html#detachBehavior-detail">detachBehavior()</a></td>
+  <td>Detaches a behavior from the component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="detachBehaviors">
+  <td><a href="CComponent.html#detachBehaviors-detail">detachBehaviors()</a></td>
+  <td>Detaches all behaviors from the component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="detachEventHandler">
+  <td><a href="CComponent.html#detachEventHandler-detail">detachEventHandler()</a></td>
+  <td>Detaches an existing event handler.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="disableBehavior">
+  <td><a href="CComponent.html#disableBehavior-detail">disableBehavior()</a></td>
+  <td>Disables an attached behavior.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="disableBehaviors">
+  <td><a href="CComponent.html#disableBehaviors-detail">disableBehaviors()</a></td>
+  <td>Disables all behaviors attached to this component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="enableBehavior">
+  <td><a href="CComponent.html#enableBehavior-detail">enableBehavior()</a></td>
+  <td>Enables an attached behavior.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="enableBehaviors">
+  <td><a href="CComponent.html#enableBehaviors-detail">enableBehaviors()</a></td>
+  <td>Enables all behaviors attached to this component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="evaluateExpression">
+  <td><a href="CComponent.html#evaluateExpression-detail">evaluateExpression()</a></td>
+  <td>Evaluates a PHP expression or callback under the context of this component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="getEventHandlers">
+  <td><a href="CComponent.html#getEventHandlers-detail">getEventHandlers()</a></td>
+  <td>Returns the list of attached event handlers for an event.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="getIsInitialized">
+  <td><a href="CApplicationComponent.html#getIsInitialized-detail">getIsInitialized()</a></td>
+  <td>Checks if this application component bas been initialized.</td>
+  <td><a href="CApplicationComponent.html">CApplicationComponent</a></td>
+</tr>
+<tr class="inherited" id="hasEvent">
+  <td><a href="CComponent.html#hasEvent-detail">hasEvent()</a></td>
+  <td>Determines whether an event is defined.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="hasEventHandler">
+  <td><a href="CComponent.html#hasEventHandler-detail">hasEventHandler()</a></td>
+  <td>Checks whether the named event has attached handlers.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="hasProperty">
+  <td><a href="CComponent.html#hasProperty-detail">hasProperty()</a></td>
+  <td>Determines whether a property is defined.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr id="init">
+  <td><a href="CWidgetFactory.html#init-detail">init()</a></td>
+  <td>Initializes the application component.</td>
+  <td>CWidgetFactory</td>
+</tr>
+<tr class="inherited" id="raiseEvent">
+  <td><a href="CComponent.html#raiseEvent-detail">raiseEvent()</a></td>
+  <td>Raises an event.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+</table>
+</div>
+<div class="summary docMethod">
+<h2>Protected Methods</h2>
+
+<p><a href="#" class="toggle">Hide inherited methods</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-method" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>Method</th><th>Description</th><th>Defined By</th>
+</tr>
+<tr id="getSkin">
+  <td><a href="CWidgetFactory.html#getSkin-detail">getSkin()</a></td>
+  <td>Returns the skin for the specified widget class and skin name.</td>
+  <td>CWidgetFactory</td>
+</tr>
+</table>
+</div>
+<a name="events"></a>
+
+<h2>Property Details</h2>
+<div class="detailHeader" id="enableSkin-detail">
+enableSkin<span class="detailHeaderTag">
+property
+ (available since v1.1.3)
+</span>
+</div>
+
+<div class="signature">
+public boolean <b>$enableSkin</b>;</div>
+
+<p>whether to enable widget skinning. Defaults to false.</p>
+
+<div class="SeeAlso">
+<h4>See Also</h4>
+<ul>
+	<li><a href="CWidgetFactory.html#skinnableWidgets">skinnableWidgets</a></li>
+</ul>
+</div>
+
+<div class="detailHeader" id="skinPath-detail">
+skinPath<span class="detailHeaderTag">
+property
+</span>
+</div>
+
+<div class="signature">
+public string <b>$skinPath</b>;</div>
+
+<p>the directory containing all the skin files. Defaults to null,
+meaning using the "skins" directory under the current application's <a href="CWebApplication.html#viewPath">CWebApplication::viewPath</a>.</p>
+
+
+<div class="detailHeader" id="skinnableWidgets-detail">
+skinnableWidgets<span class="detailHeaderTag">
+property
+ (available since v1.1.3)
+</span>
+</div>
+
+<div class="signature">
+public array <b>$skinnableWidgets</b>;</div>
+
+<p>list of widget class names that can be skinned.
+Because skinning widgets has performance impact, you may want to specify this property
+to limit skinning only to specific widgets. Any widgets that are not in this list
+will not be skinned. Defaults to null, meaning all widgets can be skinned.</p>
+
+
+<div class="detailHeader" id="widgets-detail">
+widgets<span class="detailHeaderTag">
+property
+ (available since v1.1.3)
+</span>
+</div>
+
+<div class="signature">
+public array <b>$widgets</b>;</div>
+
+<p>widget initial property values. Each array key-value pair
+represents the initial property values for a single widget class, with
+the array key being the widget class name, and array value being the initial
+property value array. For example,
+<pre>
+array(
+    'CLinkPager'=&gt;array(
+        'maxButtonCount'=&gt;5,
+        'cssFile'=&gt;false,
+    ),
+    'CJuiDatePicker'=&gt;array(
+        'language'=&gt;'ru',
+    ),
+)
+</pre>
+<br/><br/>
+Note that the initial values specified here may be overridden by
+the values given in <a href="CBaseController.html#createWidget">CBaseController::createWidget</a> calls.
+They may also be overridden by widget skins, if <a href="CWidgetFactory.html#enableSkin">enableSkin</a> is true.</p>
+
+
+<h2>Method Details</h2>
+
+<div class="detailHeader" id="createWidget-detail">
+createWidget()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public <a href="CWidget.html">CWidget</a> <b>createWidget</b>(<a href="CBaseController.html">CBaseController</a> $owner, string $className, array $properties=array (
+))</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$owner</td>
+  <td class="paramTypeCol"><a href="CBaseController.html">CBaseController</a></td>
+  <td class="paramDescCol">the owner of the new widget</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$className</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the class name of the widget. This can also be a path alias (e.g. system.web.widgets.COutputCache)</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$properties</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">the initial property values (name=>value) of the widget.</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol"><a href="CWidget.html">CWidget</a></td>
+  <td class="paramDescCol">the newly created widget whose properties have been initialized with the given values.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CWidgetFactory.php#145">framework/web/CWidgetFactory.php#145</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">createWidget</span><span style="color: #007700">(</span><span style="color: #0000BB">$owner</span><span style="color: #007700">,</span><span style="color: #0000BB">$className</span><span style="color: #007700">,</span><span style="color: #0000BB">$properties</span><span style="color: #007700">=array())<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$className</span><span style="color: #007700">=</span><span style="color: #0000BB">Yii</span><span style="color: #007700">::</span><span style="color: #0000BB">import</span><span style="color: #007700">(</span><span style="color: #0000BB">$className</span><span style="color: #007700">,</span><span style="color: #0000BB">true</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$widget</span><span style="color: #007700">=new&nbsp;</span><span style="color: #0000BB">$className</span><span style="color: #007700">(</span><span style="color: #0000BB">$owner</span><span style="color: #007700">);<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;if(isset(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">widgets</span><span style="color: #007700">[</span><span style="color: #0000BB">$className</span><span style="color: #007700">]))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$properties</span><span style="color: #007700">=</span><span style="color: #0000BB">$properties</span><span style="color: #007700">===array()&nbsp;?&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">widgets</span><span style="color: #007700">[</span><span style="color: #0000BB">$className</span><span style="color: #007700">]&nbsp;:&nbsp;</span><span style="color: #0000BB">CMap</span><span style="color: #007700">::</span><span style="color: #0000BB">mergeArray</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">widgets</span><span style="color: #007700">[</span><span style="color: #0000BB">$className</span><span style="color: #007700">],</span><span style="color: #0000BB">$properties</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">enableSkin</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">skinnableWidgets</span><span style="color: #007700">===</span><span style="color: #0000BB">null&nbsp;</span><span style="color: #007700">||&nbsp;</span><span style="color: #0000BB">in_array</span><span style="color: #007700">(</span><span style="color: #0000BB">$className</span><span style="color: #007700">,</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">skinnableWidgets</span><span style="color: #007700">))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$skinName</span><span style="color: #007700">=isset(</span><span style="color: #0000BB">$properties</span><span style="color: #007700">[</span><span style="color: #DD0000">'skin'</span><span style="color: #007700">])&nbsp;?&nbsp;</span><span style="color: #0000BB">$properties</span><span style="color: #007700">[</span><span style="color: #DD0000">'skin'</span><span style="color: #007700">]&nbsp;:&nbsp;</span><span style="color: #DD0000">'default'</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$skinName</span><span style="color: #007700">!==</span><span style="color: #0000BB">false&nbsp;</span><span style="color: #007700">&amp;&amp;&nbsp;(</span><span style="color: #0000BB">$skin</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getSkin</span><span style="color: #007700">(</span><span style="color: #0000BB">$className</span><span style="color: #007700">,</span><span style="color: #0000BB">$skinName</span><span style="color: #007700">))!==array())<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$properties</span><span style="color: #007700">=</span><span style="color: #0000BB">$properties</span><span style="color: #007700">===array()&nbsp;?&nbsp;</span><span style="color: #0000BB">$skin&nbsp;</span><span style="color: #007700">:&nbsp;</span><span style="color: #0000BB">CMap</span><span style="color: #007700">::</span><span style="color: #0000BB">mergeArray</span><span style="color: #007700">(</span><span style="color: #0000BB">$skin</span><span style="color: #007700">,</span><span style="color: #0000BB">$properties</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;foreach(</span><span style="color: #0000BB">$properties&nbsp;</span><span style="color: #007700">as&nbsp;</span><span style="color: #0000BB">$name</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">$value</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$widget</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">$name</span><span style="color: #007700">=</span><span style="color: #0000BB">$value</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$widget</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Creates a new widget based on the given class name and initial properties.</p>
+
+
+<div class="detailHeader" id="getSkin-detail">
+getSkin()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+protected array <b>getSkin</b>(string $className, string $skinName)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$className</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the widget class name</td>
+</tr>
+<tr>
+  <td class="paramNameCol">$skinName</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the widget skin name</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">the skin (name=>value) for the widget</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CWidgetFactory.php#172">framework/web/CWidgetFactory.php#172</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">protected&nbsp;function&nbsp;</span><span style="color: #0000BB">getSkin</span><span style="color: #007700">(</span><span style="color: #0000BB">$className</span><span style="color: #007700">,</span><span style="color: #0000BB">$skinName</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(!isset(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_skins</span><span style="color: #007700">[</span><span style="color: #0000BB">$className</span><span style="color: #007700">][</span><span style="color: #0000BB">$skinName</span><span style="color: #007700">]))<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$skinFile</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">skinPath</span><span style="color: #007700">.</span><span style="color: #0000BB">DIRECTORY_SEPARATOR</span><span style="color: #007700">.</span><span style="color: #0000BB">$className</span><span style="color: #007700">.</span><span style="color: #DD0000">'.php'</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">is_file</span><span style="color: #007700">(</span><span style="color: #0000BB">$skinFile</span><span style="color: #007700">))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_skins</span><span style="color: #007700">[</span><span style="color: #0000BB">$className</span><span style="color: #007700">]=require(</span><span style="color: #0000BB">$skinFile</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_skins</span><span style="color: #007700">[</span><span style="color: #0000BB">$className</span><span style="color: #007700">]=array();<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if((</span><span style="color: #0000BB">$theme</span><span style="color: #007700">=</span><span style="color: #0000BB">Yii</span><span style="color: #007700">::</span><span style="color: #0000BB">app</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">getTheme</span><span style="color: #007700">())!==</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$skinFile</span><span style="color: #007700">=</span><span style="color: #0000BB">$theme</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getSkinPath</span><span style="color: #007700">().</span><span style="color: #0000BB">DIRECTORY_SEPARATOR</span><span style="color: #007700">.</span><span style="color: #0000BB">$className</span><span style="color: #007700">.</span><span style="color: #DD0000">'.php'</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">is_file</span><span style="color: #007700">(</span><span style="color: #0000BB">$skinFile</span><span style="color: #007700">))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$skins</span><span style="color: #007700">=require(</span><span style="color: #0000BB">$skinFile</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;foreach(</span><span style="color: #0000BB">$skins&nbsp;</span><span style="color: #007700">as&nbsp;</span><span style="color: #0000BB">$name</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">$skin</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_skins</span><span style="color: #007700">[</span><span style="color: #0000BB">$className</span><span style="color: #007700">][</span><span style="color: #0000BB">$name</span><span style="color: #007700">]=</span><span style="color: #0000BB">$skin</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(!isset(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_skins</span><span style="color: #007700">[</span><span style="color: #0000BB">$className</span><span style="color: #007700">][</span><span style="color: #0000BB">$skinName</span><span style="color: #007700">]))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_skins</span><span style="color: #007700">[</span><span style="color: #0000BB">$className</span><span style="color: #007700">][</span><span style="color: #0000BB">$skinName</span><span style="color: #007700">]=array();<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_skins</span><span style="color: #007700">[</span><span style="color: #0000BB">$className</span><span style="color: #007700">][</span><span style="color: #0000BB">$skinName</span><span style="color: #007700">];<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Returns the skin for the specified widget class and skin name.</p>
+
+
+<div class="detailHeader" id="init-detail">
+init()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>init</b>()</div>
+</td></tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/CWidgetFactory.php#130">framework/web/CWidgetFactory.php#130</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">init</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">parent</span><span style="color: #007700">::</span><span style="color: #0000BB">init</span><span style="color: #007700">();<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">enableSkin&nbsp;</span><span style="color: #007700">&amp;&amp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">skinPath</span><span style="color: #007700">===</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">skinPath</span><span style="color: #007700">=</span><span style="color: #0000BB">Yii</span><span style="color: #007700">::</span><span style="color: #0000BB">app</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">getViewPath</span><span style="color: #007700">().</span><span style="color: #0000BB">DIRECTORY_SEPARATOR</span><span style="color: #007700">.</span><span style="color: #DD0000">'skins'</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Initializes the application component.
+This method overrides the parent implementation by resolving the skin path.</p>
+
+
+</div><!-- end of content -->
+
+<div id="apiFooter">
+Copyright &copy; 2008-2011 by <a href="http://www.yiisoft.com">Yii Software LLC</a><br/>
+All Rights Reserved.<br/>
+</div><!-- end of footer -->
+
+<script type="text/javascript">
+/*<![CDATA[*/
+$("a.toggle").toggle(function(){
+	$(this).text($(this).text().replace(/Hide/,'Show'));
+	$(this).parents(".summary").find(".inherited").hide();
+},function(){
+	$(this).text($(this).text().replace(/Show/,'Hide'));
+	$(this).parents(".summary").find(".inherited").show();
+});
+$(".sourceCode a.show").toggle(function(){
+	$(this).text($(this).text().replace(/show/,'hide'));
+	$(this).parents(".sourceCode").find("div.code").show();
+},function(){
+	$(this).text($(this).text().replace(/hide/,'show'));
+	$(this).parents(".sourceCode").find("div.code").hide();
+});
+$("a.sourceLink").click(function(){
+	$(this).attr('target','_blank');
+});
+/*]]>*/
+</script>
+
+</div><!-- end of page -->
+</body>
+</html>

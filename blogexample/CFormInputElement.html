@@ -1,0 +1,917 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="language" content="en" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="css/api.css" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<title>CFormInputElement</title>
+</head>
+
+<body>
+<div id="apiPage">
+
+<div id="apiHeader">
+My Console Application Class Reference
+</div><!-- end of header -->
+
+<div id="content">
+<h1>CFormInputElement</h1>
+<div id="nav">
+<a href="index.html">All Packages</a>
+| <a href="#properties">Properties</a>
+| <a href="#methods">Methods</a>
+</div>
+
+<table class="summaryTable docClass">
+<colgroup>
+	<col class="col-name" />
+	<col class="col-value" />
+</colgroup>
+<tr>
+  <th>Package</th>
+  <td><a href="index.html#system.web.form">system.web.form</a></td>
+</tr>
+<tr>
+  <th>Inheritance</th>
+  <td>class CFormInputElement &raquo;
+<a href="CFormElement.html">CFormElement</a> &raquo;
+<a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr>
+  <th>Since</th>
+  <td>1.1</td>
+</tr>
+<tr>
+  <th>Version</th>
+  <td>$Id: CFormInputElement.php 3126 2011-03-26 12:21:13Z qiang.xue $</td>
+</tr>
+<tr>
+  <th>Source Code</th>
+  <td><a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/form/CFormInputElement.php">framework/web/form/CFormInputElement.php</a></td>
+</tr>
+<tr>
+  <th>Author</th>
+  <td>Qiang Xue &lt;qiang.xue@gmail.com&gt;</td>
+</tr>
+</table>
+
+<div id="classDescription">
+CFormInputElement represents form input element.
+<br/><br/>
+CFormInputElement can represent the following types of form input based on <a href="CFormInputElement.html#type">type</a> property:
+<ul>
+<li>text: a normal text input generated using <a href="CHtml.html#activeTextField">CHtml::activeTextField</a></li>
+<li>hidden: a hidden input generated using <a href="CHtml.html#activeHiddenField">CHtml::activeHiddenField</a></li>
+<li>password: a password input generated using <a href="CHtml.html#activePasswordField">CHtml::activePasswordField</a></li>
+<li>textarea: a text area generated using <a href="CHtml.html#activeTextArea">CHtml::activeTextArea</a></li>
+<li>file: a file input generated using <a href="CHtml.html#activeFileField">CHtml::activeFileField</a></li>
+<li>radio: a radio button generated using <a href="CHtml.html#activeRadioButton">CHtml::activeRadioButton</a></li>
+<li>checkbox: a check box generated using <a href="CHtml.html#activeCheckBox">CHtml::activeCheckBox</a></li>
+<li>listbox: a list box generated using <a href="CHtml.html#activeListBox">CHtml::activeListBox</a></li>
+<li>dropdownlist: a drop-down list generated using <a href="CHtml.html#activeDropDownList">CHtml::activeDropDownList</a></li>
+<li>checkboxlist: a list of check boxes generated using <a href="CHtml.html#activeCheckBoxList">CHtml::activeCheckBoxList</a></li>
+<li>radiolist: a list of radio buttons generated using <a href="CHtml.html#activeRadioButtonList">CHtml::activeRadioButtonList</a></li>
+</ul>
+The <a href="CFormInputElement.html#type">type</a> property can also be a class name or a path alias to the class. In this case,
+the input is generated using a widget of the specified class. Note, the widget must
+have a property called "model" which expects a model object, and a property called "attribute"
+which expects the name of a model attribute.
+<br/><br/>
+Because CFormElement is an ancestor class of CFormInputElement, a value assigned to a non-existing property will be
+stored in <a href="CFormInputElement.html#attributes">attributes</a> which will be passed as HTML attribute values to the <a href="CHtml.html">CHtml</a> method
+generating the input or initial values of the widget properties.</div>
+<a name="properties"></a>
+
+<div class="summary docProperty">
+<h2>Public Properties</h2>
+
+<p><a href="#" class="toggle">Hide inherited properties</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-property" />
+	<col class="col-type" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>Property</th><th>Type</th><th>Description</th><th>Defined By</th>
+</tr>
+<tr class="inherited" id="attributes">
+  <td><a href="CFormElement.html#attributes-detail">attributes</a></td>
+  <td>array</td>
+  <td>list of attributes (name=>value) for the HTML element represented by this object.</td>
+  <td><a href="CFormElement.html">CFormElement</a></td>
+</tr>
+<tr id="coreTypes">
+  <td><a href="CFormInputElement.html#coreTypes-detail">coreTypes</a></td>
+  <td>array</td>
+  <td>Core input types (alias=>CHtml method name)</td>
+  <td>CFormInputElement</td>
+</tr>
+<tr id="enableAjaxValidation">
+  <td><a href="CFormInputElement.html#enableAjaxValidation-detail">enableAjaxValidation</a></td>
+  <td>boolean</td>
+  <td>whether to allow AJAX-based validation for this input.</td>
+  <td>CFormInputElement</td>
+</tr>
+<tr id="enableClientValidation">
+  <td><a href="CFormInputElement.html#enableClientValidation-detail">enableClientValidation</a></td>
+  <td>boolean</td>
+  <td>whether to allow client-side validation for this input.</td>
+  <td>CFormInputElement</td>
+</tr>
+<tr id="errorOptions">
+  <td><a href="CFormInputElement.html#errorOptions-detail">errorOptions</a></td>
+  <td>array</td>
+  <td>the options used when rendering the error part.</td>
+  <td>CFormInputElement</td>
+</tr>
+<tr id="hint">
+  <td><a href="CFormInputElement.html#hint-detail">hint</a></td>
+  <td>string</td>
+  <td>hint text of this input</td>
+  <td>CFormInputElement</td>
+</tr>
+<tr id="items">
+  <td><a href="CFormInputElement.html#items-detail">items</a></td>
+  <td>array</td>
+  <td>the options for this input when it is a list box, drop-down list, check box list, or radio button list.</td>
+  <td>CFormInputElement</td>
+</tr>
+<tr id="label">
+  <td><a href="CFormInputElement.html#label-detail">label</a></td>
+  <td>string</td>
+  <td>the label for this input.</td>
+  <td>CFormInputElement</td>
+</tr>
+<tr id="layout">
+  <td><a href="CFormInputElement.html#layout-detail">layout</a></td>
+  <td>string</td>
+  <td>the layout used to render label, input, hint and error.</td>
+  <td>CFormInputElement</td>
+</tr>
+<tr id="name">
+  <td><a href="CFormInputElement.html#name-detail">name</a></td>
+  <td>string</td>
+  <td>name of this input</td>
+  <td>CFormInputElement</td>
+</tr>
+<tr class="inherited" id="parent">
+  <td><a href="CFormElement.html#parent-detail">parent</a></td>
+  <td>mixed</td>
+  <td>the direct parent of this element.</td>
+  <td><a href="CFormElement.html">CFormElement</a></td>
+</tr>
+<tr id="required">
+  <td><a href="CFormInputElement.html#required-detail">required</a></td>
+  <td>boolean</td>
+  <td>Gets the value indicating whether this input is required.</td>
+  <td>CFormInputElement</td>
+</tr>
+<tr id="type">
+  <td><a href="CFormInputElement.html#type-detail">type</a></td>
+  <td>string</td>
+  <td>the type of this input.</td>
+  <td>CFormInputElement</td>
+</tr>
+<tr class="inherited" id="visible">
+  <td><a href="CFormElement.html#visible-detail">visible</a></td>
+  <td>boolean</td>
+  <td>Returns a value indicating whether this element is visible and should be rendered.</td>
+  <td><a href="CFormElement.html">CFormElement</a></td>
+</tr>
+</table>
+</div>
+<a name="methods"></a>
+
+<div class="summary docMethod">
+<h2>Public Methods</h2>
+
+<p><a href="#" class="toggle">Hide inherited methods</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-method" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>Method</th><th>Description</th><th>Defined By</th>
+</tr>
+<tr class="inherited" id="__call">
+  <td><a href="CComponent.html#__call-detail">__call()</a></td>
+  <td>Calls the named method which is not a class method.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__construct">
+  <td><a href="CFormElement.html#__construct-detail">__construct()</a></td>
+  <td>Constructor.</td>
+  <td><a href="CFormElement.html">CFormElement</a></td>
+</tr>
+<tr class="inherited" id="__get">
+  <td><a href="CFormElement.html#__get-detail">__get()</a></td>
+  <td>Returns a property value or an attribute value.</td>
+  <td><a href="CFormElement.html">CFormElement</a></td>
+</tr>
+<tr class="inherited" id="__isset">
+  <td><a href="CComponent.html#__isset-detail">__isset()</a></td>
+  <td>Checks if a property value is null.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__set">
+  <td><a href="CFormElement.html#__set-detail">__set()</a></td>
+  <td>Sets value of a property or attribute.</td>
+  <td><a href="CFormElement.html">CFormElement</a></td>
+</tr>
+<tr class="inherited" id="__toString">
+  <td><a href="CFormElement.html#__toString-detail">__toString()</a></td>
+  <td>Converts the object to a string.</td>
+  <td><a href="CFormElement.html">CFormElement</a></td>
+</tr>
+<tr class="inherited" id="__unset">
+  <td><a href="CComponent.html#__unset-detail">__unset()</a></td>
+  <td>Sets a component property to be null.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="asa">
+  <td><a href="CComponent.html#asa-detail">asa()</a></td>
+  <td>Returns the named behavior object.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="attachBehavior">
+  <td><a href="CComponent.html#attachBehavior-detail">attachBehavior()</a></td>
+  <td>Attaches a behavior to this component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="attachBehaviors">
+  <td><a href="CComponent.html#attachBehaviors-detail">attachBehaviors()</a></td>
+  <td>Attaches a list of behaviors to the component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="attachEventHandler">
+  <td><a href="CComponent.html#attachEventHandler-detail">attachEventHandler()</a></td>
+  <td>Attaches an event handler to an event.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="canGetProperty">
+  <td><a href="CComponent.html#canGetProperty-detail">canGetProperty()</a></td>
+  <td>Determines whether a property can be read.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="canSetProperty">
+  <td><a href="CComponent.html#canSetProperty-detail">canSetProperty()</a></td>
+  <td>Determines whether a property can be set.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="configure">
+  <td><a href="CFormElement.html#configure-detail">configure()</a></td>
+  <td>Configures this object with property initial values.</td>
+  <td><a href="CFormElement.html">CFormElement</a></td>
+</tr>
+<tr class="inherited" id="detachBehavior">
+  <td><a href="CComponent.html#detachBehavior-detail">detachBehavior()</a></td>
+  <td>Detaches a behavior from the component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="detachBehaviors">
+  <td><a href="CComponent.html#detachBehaviors-detail">detachBehaviors()</a></td>
+  <td>Detaches all behaviors from the component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="detachEventHandler">
+  <td><a href="CComponent.html#detachEventHandler-detail">detachEventHandler()</a></td>
+  <td>Detaches an existing event handler.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="disableBehavior">
+  <td><a href="CComponent.html#disableBehavior-detail">disableBehavior()</a></td>
+  <td>Disables an attached behavior.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="disableBehaviors">
+  <td><a href="CComponent.html#disableBehaviors-detail">disableBehaviors()</a></td>
+  <td>Disables all behaviors attached to this component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="enableBehavior">
+  <td><a href="CComponent.html#enableBehavior-detail">enableBehavior()</a></td>
+  <td>Enables an attached behavior.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="enableBehaviors">
+  <td><a href="CComponent.html#enableBehaviors-detail">enableBehaviors()</a></td>
+  <td>Enables all behaviors attached to this component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="evaluateExpression">
+  <td><a href="CComponent.html#evaluateExpression-detail">evaluateExpression()</a></td>
+  <td>Evaluates a PHP expression or callback under the context of this component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="getEventHandlers">
+  <td><a href="CComponent.html#getEventHandlers-detail">getEventHandlers()</a></td>
+  <td>Returns the list of attached event handlers for an event.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr id="getLabel">
+  <td><a href="CFormInputElement.html#getLabel-detail">getLabel()</a></td>
+  <td>Returns the label for this input. If the label is not manually set,
+this method will call <a href="CModel.html#getAttributeLabel">CModel::getAttributeLabel</a> to determine the label.</td>
+  <td>CFormInputElement</td>
+</tr>
+<tr class="inherited" id="getParent">
+  <td><a href="CFormElement.html#getParent-detail">getParent()</a></td>
+  <td>Returns the direct parent of this element. This could be either a <a href="CForm.html">CForm</a> object or a <a href="CBaseController.html">CBaseController</a> object
+(a controller or a widget).</td>
+  <td><a href="CFormElement.html">CFormElement</a></td>
+</tr>
+<tr id="getRequired">
+  <td><a href="CFormInputElement.html#getRequired-detail">getRequired()</a></td>
+  <td>Gets the value indicating whether this input is required.</td>
+  <td>CFormInputElement</td>
+</tr>
+<tr class="inherited" id="getVisible">
+  <td><a href="CFormElement.html#getVisible-detail">getVisible()</a></td>
+  <td>Returns a value indicating whether this element is visible and should be rendered.</td>
+  <td><a href="CFormElement.html">CFormElement</a></td>
+</tr>
+<tr class="inherited" id="hasEvent">
+  <td><a href="CComponent.html#hasEvent-detail">hasEvent()</a></td>
+  <td>Determines whether an event is defined.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="hasEventHandler">
+  <td><a href="CComponent.html#hasEventHandler-detail">hasEventHandler()</a></td>
+  <td>Checks whether the named event has attached handlers.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="hasProperty">
+  <td><a href="CComponent.html#hasProperty-detail">hasProperty()</a></td>
+  <td>Determines whether a property is defined.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="raiseEvent">
+  <td><a href="CComponent.html#raiseEvent-detail">raiseEvent()</a></td>
+  <td>Raises an event.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr id="render">
+  <td><a href="CFormInputElement.html#render-detail">render()</a></td>
+  <td>Renders everything for this input.</td>
+  <td>CFormInputElement</td>
+</tr>
+<tr id="renderError">
+  <td><a href="CFormInputElement.html#renderError-detail">renderError()</a></td>
+  <td>Renders the error display of this input.</td>
+  <td>CFormInputElement</td>
+</tr>
+<tr id="renderHint">
+  <td><a href="CFormInputElement.html#renderHint-detail">renderHint()</a></td>
+  <td>Renders the hint text for this input.</td>
+  <td>CFormInputElement</td>
+</tr>
+<tr id="renderInput">
+  <td><a href="CFormInputElement.html#renderInput-detail">renderInput()</a></td>
+  <td>Renders the input field.</td>
+  <td>CFormInputElement</td>
+</tr>
+<tr id="renderLabel">
+  <td><a href="CFormInputElement.html#renderLabel-detail">renderLabel()</a></td>
+  <td>Renders the label for this input.</td>
+  <td>CFormInputElement</td>
+</tr>
+<tr id="setLabel">
+  <td><a href="CFormInputElement.html#setLabel-detail">setLabel()</a></td>
+  <td>Sets the label for this input</td>
+  <td>CFormInputElement</td>
+</tr>
+<tr id="setRequired">
+  <td><a href="CFormInputElement.html#setRequired-detail">setRequired()</a></td>
+  <td>Sets whether this input is required.</td>
+  <td>CFormInputElement</td>
+</tr>
+<tr class="inherited" id="setVisible">
+  <td><a href="CFormElement.html#setVisible-detail">setVisible()</a></td>
+  <td>Sets whether this element is visible and should be rendered.</td>
+  <td><a href="CFormElement.html">CFormElement</a></td>
+</tr>
+</table>
+</div>
+<div class="summary docMethod">
+<h2>Protected Methods</h2>
+
+<p><a href="#" class="toggle">Hide inherited methods</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-method" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>Method</th><th>Description</th><th>Defined By</th>
+</tr>
+<tr id="evaluateVisible">
+  <td><a href="CFormInputElement.html#evaluateVisible-detail">evaluateVisible()</a></td>
+  <td>Evaluates the visibility of this element.</td>
+  <td>CFormInputElement</td>
+</tr>
+</table>
+</div>
+<a name="events"></a>
+
+<h2>Property Details</h2>
+<div class="detailHeader" id="coreTypes-detail">
+coreTypes<span class="detailHeaderTag">
+property
+</span>
+</div>
+
+<div class="signature">
+public static array <b>$coreTypes</b>;</div>
+
+<p>Core input types (alias=>CHtml method name)</p>
+
+
+<div class="detailHeader" id="enableAjaxValidation-detail">
+enableAjaxValidation<span class="detailHeaderTag">
+property
+ (available since v1.1.7)
+</span>
+</div>
+
+<div class="signature">
+public boolean <b>$enableAjaxValidation</b>;</div>
+
+<p>whether to allow AJAX-based validation for this input. Note that in order to use
+AJAX-based validation, <a href="CForm.html#activeForm">CForm::activeForm</a> must be configured with 'enableAjaxValidation'=>true.
+This property allows turning on or off  AJAX-based validation for individual input fields.
+Defaults to true.</p>
+
+
+<div class="detailHeader" id="enableClientValidation-detail">
+enableClientValidation<span class="detailHeaderTag">
+property
+ (available since v1.1.7)
+</span>
+</div>
+
+<div class="signature">
+public boolean <b>$enableClientValidation</b>;</div>
+
+<p>whether to allow client-side validation for this input. Note that in order to use
+client-side validation, <a href="CForm.html#activeForm">CForm::activeForm</a> must be configured with 'enableClientValidation'=>true.
+This property allows turning on or off  client-side validation for individual input fields.
+Defaults to true.</p>
+
+
+<div class="detailHeader" id="errorOptions-detail">
+errorOptions<span class="detailHeaderTag">
+property
+ (available since v1.1.1)
+</span>
+</div>
+
+<div class="signature">
+public array <b>$errorOptions</b>;</div>
+
+<p>the options used when rendering the error part. This property will be passed
+to the <a href="CActiveForm.html#error">CActiveForm::error</a> method call as its $htmlOptions parameter.</p>
+
+<div class="SeeAlso">
+<h4>See Also</h4>
+<ul>
+	<li><a href="CActiveForm.html#error">CActiveForm::error</a></li>
+</ul>
+</div>
+
+<div class="detailHeader" id="hint-detail">
+hint<span class="detailHeaderTag">
+property
+</span>
+</div>
+
+<div class="signature">
+public string <b>$hint</b>;</div>
+
+<p>hint text of this input</p>
+
+
+<div class="detailHeader" id="items-detail">
+items<span class="detailHeaderTag">
+property
+</span>
+</div>
+
+<div class="signature">
+public array <b>$items</b>;</div>
+
+<p>the options for this input when it is a list box, drop-down list, check box list, or radio button list.
+Please see <a href="CHtml.html#listData">CHtml::listData</a> for details of generating this property value.</p>
+
+
+<div class="detailHeader" id="label-detail">
+label<span class="detailHeaderTag">
+property
+</span>
+</div>
+
+<div class="signature">
+public string <a href="CFormInputElement.html#getLabel"><b>getLabel</b></a>()<br/>public void <a href="CFormInputElement.html#setLabel"><b>setLabel</b></a>(string $value)</div>
+
+<p>the label for this input. If the label is not manually set,
+this method will call <a href="CModel.html#getAttributeLabel">CModel::getAttributeLabel</a> to determine the label.</p>
+
+
+<div class="detailHeader" id="layout-detail">
+layout<span class="detailHeaderTag">
+property
+</span>
+</div>
+
+<div class="signature">
+public string <b>$layout</b>;</div>
+
+<p>the layout used to render label, input, hint and error. They correspond to the placeholders
+"{label}", "{input}", "{hint}" and "{error}".</p>
+
+
+<div class="detailHeader" id="name-detail">
+name<span class="detailHeaderTag">
+property
+</span>
+</div>
+
+<div class="signature">
+public string <b>$name</b>;</div>
+
+<p>name of this input</p>
+
+
+<div class="detailHeader" id="required-detail">
+required<span class="detailHeaderTag">
+property
+</span>
+</div>
+
+<div class="signature">
+public boolean <a href="CFormInputElement.html#getRequired"><b>getRequired</b></a>()<br/>public void <a href="CFormInputElement.html#setRequired"><b>setRequired</b></a>(boolean $value)</div>
+
+<p>Gets the value indicating whether this input is required.
+If this property is not set explicitly, it will be determined by calling
+<a href="CModel.html#isAttributeRequired">CModel::isAttributeRequired</a> for the associated model and attribute of this input.</p>
+
+
+<div class="detailHeader" id="type-detail">
+type<span class="detailHeaderTag">
+property
+</span>
+</div>
+
+<div class="signature">
+public string <b>$type</b>;</div>
+
+<p>the type of this input. This can be a widget class name, a path alias of a widget class name,
+or a input type alias (text, hidden, password, textarea, file, radio, checkbox, listbox, dropdownlist, checkboxlist, or radiolist).
+If a widget class, it must extend from <a href="CInputWidget.html">CInputWidget</a> or (@link CJuiInputWidget).</p>
+
+
+<h2>Method Details</h2>
+
+<div class="detailHeader" id="evaluateVisible-detail">
+evaluateVisible()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+protected boolean <b>evaluateVisible</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">boolean</td>
+  <td class="paramDescCol">whether this element is visible.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/form/CFormInputElement.php#247">framework/web/form/CFormInputElement.php#247</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">protected&nbsp;function&nbsp;</span><span style="color: #0000BB">evaluateVisible</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getParent</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">getModel</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">isAttributeSafe</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">name</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Evaluates the visibility of this element.
+This method will check if the attribute associated with this input is safe for
+the current model scenario.</p>
+
+
+<div class="detailHeader" id="getLabel-detail">
+getLabel()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>getLabel</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the label for this input. If the label is not manually set,
+this method will call <a href="CModel.html#getAttributeLabel">CModel::getAttributeLabel</a> to determine the label.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/form/CFormInputElement.php#138">framework/web/form/CFormInputElement.php#138</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getLabel</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_label</span><span style="color: #007700">!==</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_label</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getParent</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">getModel</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">getAttributeLabel</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">name</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p></p>
+
+
+<div class="detailHeader" id="getRequired-detail">
+getRequired()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public boolean <b>getRequired</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">boolean</td>
+  <td class="paramDescCol">whether this input is required.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/form/CFormInputElement.php#118">framework/web/form/CFormInputElement.php#118</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">getRequired</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_required</span><span style="color: #007700">!==</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_required</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getParent</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">getModel</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">isAttributeRequired</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">name</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Gets the value indicating whether this input is required.
+If this property is not set explicitly, it will be determined by calling
+<a href="CModel.html#isAttributeRequired">CModel::isAttributeRequired</a> for the associated model and attribute of this input.</p>
+
+
+<div class="detailHeader" id="render-detail">
+render()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>render</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the complete rendering result for this input, including label, input field, hint, and error.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/form/CFormInputElement.php#161">framework/web/form/CFormInputElement.php#161</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">render</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">type</span><span style="color: #007700">===</span><span style="color: #DD0000">'hidden'</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">renderInput</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$output</span><span style="color: #007700">=array(<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'{label}'</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">renderLabel</span><span style="color: #007700">(),<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'{input}'</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">renderInput</span><span style="color: #007700">(),<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'{hint}'</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">renderHint</span><span style="color: #007700">(),<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'{error}'</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getParent</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">showErrorSummary&nbsp;</span><span style="color: #007700">?&nbsp;</span><span style="color: #DD0000">''&nbsp;</span><span style="color: #007700">:&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">renderError</span><span style="color: #007700">(),<br />&nbsp;&nbsp;&nbsp;&nbsp;);<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">strtr</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">layout</span><span style="color: #007700">,</span><span style="color: #0000BB">$output</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Renders everything for this input.
+The default implementation simply returns the result of <a href="CFormInputElement.html#renderLabel">renderLabel</a>, <a href="CFormInputElement.html#renderInput">renderInput</a>,
+<a href="CFormInputElement.html#renderHint">renderHint</a>. When <a href="CForm.html#showErrorSummary">CForm::showErrorSummary</a> is false, <a href="CFormInputElement.html#renderError">renderError</a> is also called
+to show error messages after individual input fields.</p>
+
+
+<div class="detailHeader" id="renderError-detail">
+renderError()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>renderError</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the rendering result</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/form/CFormInputElement.php#225">framework/web/form/CFormInputElement.php#225</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">renderError</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$parent</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getParent</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$parent</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getActiveFormWidget</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">error</span><span style="color: #007700">(</span><span style="color: #0000BB">$parent</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getModel</span><span style="color: #007700">(),&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">name</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">errorOptions</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">enableAjaxValidation</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">enableClientValidation</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Renders the error display of this input.
+The default implementation returns the result of <a href="CHtml.html#error">CHtml::error</a></p>
+
+
+<div class="detailHeader" id="renderHint-detail">
+renderHint()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>renderHint</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the rendering result.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/form/CFormInputElement.php#236">framework/web/form/CFormInputElement.php#236</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">renderHint</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">hint</span><span style="color: #007700">===</span><span style="color: #0000BB">null&nbsp;</span><span style="color: #007700">?&nbsp;</span><span style="color: #DD0000">''&nbsp;</span><span style="color: #007700">:&nbsp;</span><span style="color: #DD0000">'&lt;div&nbsp;class="hint"&gt;'</span><span style="color: #007700">.</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">hint</span><span style="color: #007700">.</span><span style="color: #DD0000">'&lt;/div&gt;'</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Renders the hint text for this input.
+The default implementation returns the <a href="CFormInputElement.html#hint">hint</a> property enclosed in a paragraph HTML tag.</p>
+
+
+<div class="detailHeader" id="renderInput-detail">
+renderInput()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>renderInput</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the rendering result</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/form/CFormInputElement.php#199">framework/web/form/CFormInputElement.php#199</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">renderInput</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(isset(</span><span style="color: #0000BB">self</span><span style="color: #007700">::</span><span style="color: #0000BB">$coreTypes</span><span style="color: #007700">[</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">type</span><span style="color: #007700">]))<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$method</span><span style="color: #007700">=</span><span style="color: #0000BB">self</span><span style="color: #007700">::</span><span style="color: #0000BB">$coreTypes</span><span style="color: #007700">[</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">type</span><span style="color: #007700">];<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">strpos</span><span style="color: #007700">(</span><span style="color: #0000BB">$method</span><span style="color: #007700">,</span><span style="color: #DD0000">'List'</span><span style="color: #007700">)!==</span><span style="color: #0000BB">false</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">CHtml</span><span style="color: #007700">::</span><span style="color: #0000BB">$method</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getParent</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">getModel</span><span style="color: #007700">(),&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">name</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">items</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">attributes</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">CHtml</span><span style="color: #007700">::</span><span style="color: #0000BB">$method</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getParent</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">getModel</span><span style="color: #007700">(),&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">name</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">attributes</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$attributes</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">attributes</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$attributes</span><span style="color: #007700">[</span><span style="color: #DD0000">'model'</span><span style="color: #007700">]=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getParent</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">getModel</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$attributes</span><span style="color: #007700">[</span><span style="color: #DD0000">'attribute'</span><span style="color: #007700">]=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">name</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">ob_start</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getParent</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">getOwner</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">widget</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">type</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$attributes</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">ob_get_clean</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Renders the input field.
+The default implementation returns the result of the appropriate CHtml method or the widget.</p>
+
+
+<div class="detailHeader" id="renderLabel-detail">
+renderLabel()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public string <b>renderLabel</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the rendering result</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/form/CFormInputElement.php#179">framework/web/form/CFormInputElement.php#179</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">renderLabel</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$options&nbsp;</span><span style="color: #007700">=&nbsp;array(<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'label'</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getLabel</span><span style="color: #007700">(),<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'required'</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getRequired</span><span style="color: #007700">()<br />&nbsp;&nbsp;&nbsp;&nbsp;);<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;if(!empty(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">attributes</span><span style="color: #007700">[</span><span style="color: #DD0000">'id'</span><span style="color: #007700">]))<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$options</span><span style="color: #007700">[</span><span style="color: #DD0000">'for'</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">attributes</span><span style="color: #007700">[</span><span style="color: #DD0000">'id'</span><span style="color: #007700">];<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">CHtml</span><span style="color: #007700">::</span><span style="color: #0000BB">activeLabel</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getParent</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">getModel</span><span style="color: #007700">(),&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">name</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$options</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Renders the label for this input.
+The default implementation returns the result of <a href="CHtml.html">activeLabelEx</a>.</p>
+
+
+<div class="detailHeader" id="setLabel-detail">
+setLabel()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>setLabel</b>(string $value)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$value</td>
+  <td class="paramTypeCol">string</td>
+  <td class="paramDescCol">the label for this input</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/form/CFormInputElement.php#149">framework/web/form/CFormInputElement.php#149</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">setLabel</span><span style="color: #007700">(</span><span style="color: #0000BB">$value</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_label</span><span style="color: #007700">=</span><span style="color: #0000BB">$value</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p></p>
+
+
+<div class="detailHeader" id="setRequired-detail">
+setRequired()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>setRequired</b>(boolean $value)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$value</td>
+  <td class="paramTypeCol">boolean</td>
+  <td class="paramDescCol">whether this input is required.</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> <a class="sourceLink" href="http://code.google.com/p/yii/source/browse/trunk/framework/web/form/CFormInputElement.php#129">framework/web/form/CFormInputElement.php#129</a> (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">setRequired</span><span style="color: #007700">(</span><span style="color: #0000BB">$value</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_required</span><span style="color: #007700">=</span><span style="color: #0000BB">$value</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p></p>
+
+
+</div><!-- end of content -->
+
+<div id="apiFooter">
+Copyright &copy; 2008-2011 by <a href="http://www.yiisoft.com">Yii Software LLC</a><br/>
+All Rights Reserved.<br/>
+</div><!-- end of footer -->
+
+<script type="text/javascript">
+/*<![CDATA[*/
+$("a.toggle").toggle(function(){
+	$(this).text($(this).text().replace(/Hide/,'Show'));
+	$(this).parents(".summary").find(".inherited").hide();
+},function(){
+	$(this).text($(this).text().replace(/Show/,'Hide'));
+	$(this).parents(".summary").find(".inherited").show();
+});
+$(".sourceCode a.show").toggle(function(){
+	$(this).text($(this).text().replace(/show/,'hide'));
+	$(this).parents(".sourceCode").find("div.code").show();
+},function(){
+	$(this).text($(this).text().replace(/hide/,'show'));
+	$(this).parents(".sourceCode").find("div.code").hide();
+});
+$("a.sourceLink").click(function(){
+	$(this).attr('target','_blank');
+});
+/*]]>*/
+</script>
+
+</div><!-- end of page -->
+</body>
+</html>

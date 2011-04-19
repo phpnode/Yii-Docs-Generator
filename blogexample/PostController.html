@@ -1,0 +1,1036 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="language" content="en" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="css/api.css" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<title>PostController</title>
+</head>
+
+<body>
+<div id="apiPage">
+
+<div id="apiHeader">
+My Console Application Class Reference
+</div><!-- end of header -->
+
+<div id="content">
+<h1>PostController</h1>
+<div id="nav">
+<a href="index.html">All Packages</a>
+| <a href="#properties">Properties</a>
+| <a href="#methods">Methods</a>
+</div>
+
+<table class="summaryTable docClass">
+<colgroup>
+	<col class="col-name" />
+	<col class="col-value" />
+</colgroup>
+<tr>
+  <th>Inheritance</th>
+  <td>class PostController &raquo;
+<a href="Controller.html">Controller</a> &raquo;
+<a href="CController.html">CController</a> &raquo;
+<a href="CBaseController.html">CBaseController</a> &raquo;
+<a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr>
+  <th>Views</th>
+  <td><a href="application.views.post._comments.html">_comments</a>, <a href="application.views.post._form.html">_form</a>, <a href="application.views.post._view.html">_view</a>, <a href="application.views.post.admin.html">admin</a>, <a href="application.views.post.create.html">create</a>, <a href="application.views.post.index.html">index</a>, <a href="application.views.post.update.html">update</a>, <a href="application.views.post.view.html">view</a></td>
+</tr>
+<tr>
+  <th>Source Code</th>
+  <td>app/controllers/PostController.php</td>
+</tr>
+</table>
+
+<div id="classDescription">
+</div>
+<a name="properties"></a>
+
+<div class="summary docProperty">
+<h2>Public Properties</h2>
+
+<p><a href="#" class="toggle">Hide inherited properties</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-property" />
+	<col class="col-type" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>Property</th><th>Type</th><th>Description</th><th>Defined By</th>
+</tr>
+<tr class="inherited" id="action">
+  <td><a href="CController.html#action-detail">action</a></td>
+  <td><a href="CAction.html">CAction</a></td>
+  <td>the action currently being executed, null if no active action.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="actionParams">
+  <td><a href="CController.html#actionParams-detail">actionParams</a></td>
+  <td>array</td>
+  <td>Returns the request parameters that will be used for action parameter binding.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="breadcrumbs">
+  <td><a href="Controller.html#breadcrumbs-detail">breadcrumbs</a></td>
+  <td>array</td>
+  <td>the breadcrumbs of the current page.</td>
+  <td><a href="Controller.html">Controller</a></td>
+</tr>
+<tr class="inherited" id="cachingStack">
+  <td><a href="CController.html#cachingStack-detail">cachingStack</a></td>
+  <td><a href="CStack.html">CStack</a></td>
+  <td>stack of <a href="COutputCache.html">COutputCache</a> objects</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="clips">
+  <td><a href="CController.html#clips-detail">clips</a></td>
+  <td><a href="CMap.html">CMap</a></td>
+  <td>Returns the list of clips.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="defaultAction">
+  <td><a href="CController.html#defaultAction-detail">defaultAction</a></td>
+  <td>string</td>
+  <td>the name of the default action.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="id">
+  <td><a href="CController.html#id-detail">id</a></td>
+  <td>string</td>
+  <td>ID of the controller</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr id="layout">
+  <td><a href="PostController.html#layout-detail">layout</a></td>
+  <td></td>
+  <td></td>
+  <td>PostController</td>
+</tr>
+<tr class="inherited" id="menu">
+  <td><a href="Controller.html#menu-detail">menu</a></td>
+  <td>array</td>
+  <td>context menu items.</td>
+  <td><a href="Controller.html">Controller</a></td>
+</tr>
+<tr class="inherited" id="module">
+  <td><a href="CController.html#module-detail">module</a></td>
+  <td><a href="CWebModule.html">CWebModule</a></td>
+  <td>the module that this controller belongs to.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="pageTitle">
+  <td><a href="CController.html#pageTitle-detail">pageTitle</a></td>
+  <td>string</td>
+  <td>the page title.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="route">
+  <td><a href="CController.html#route-detail">route</a></td>
+  <td>string</td>
+  <td>the route (module ID, controller ID and action ID) of the current request.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="uniqueId">
+  <td><a href="CController.html#uniqueId-detail">uniqueId</a></td>
+  <td>string</td>
+  <td>the controller ID that is prefixed with the module ID (if any).</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="viewPath">
+  <td><a href="CController.html#viewPath-detail">viewPath</a></td>
+  <td>string</td>
+  <td>Returns the directory containing view files for this controller.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+</table>
+</div>
+<a name="methods"></a>
+
+<div class="summary docMethod">
+<h2>Public Methods</h2>
+
+<p><a href="#" class="toggle">Hide inherited methods</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-method" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>Method</th><th>Description</th><th>Defined By</th>
+</tr>
+<tr class="inherited" id="__call">
+  <td><a href="CComponent.html#__call-detail">__call()</a></td>
+  <td>Calls the named method which is not a class method.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__construct">
+  <td><a href="CController.html#__construct-detail">__construct()</a></td>
+  <td></td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="__get">
+  <td><a href="CComponent.html#__get-detail">__get()</a></td>
+  <td>Returns a property value, an event handler list or a behavior based on its name.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__isset">
+  <td><a href="CComponent.html#__isset-detail">__isset()</a></td>
+  <td>Checks if a property value is null.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__set">
+  <td><a href="CComponent.html#__set-detail">__set()</a></td>
+  <td>Sets value of a component property.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="__unset">
+  <td><a href="CComponent.html#__unset-detail">__unset()</a></td>
+  <td>Sets a component property to be null.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr id="accessRules">
+  <td><a href="PostController.html#accessRules-detail">accessRules()</a></td>
+  <td>Specifies the access control rules.</td>
+  <td>PostController</td>
+</tr>
+<tr id="actionAdmin">
+  <td><a href="PostController.html#actionAdmin-detail">actionAdmin()</a></td>
+  <td>Manages all models.</td>
+  <td>PostController</td>
+</tr>
+<tr id="actionCreate">
+  <td><a href="PostController.html#actionCreate-detail">actionCreate()</a></td>
+  <td>Creates a new model.</td>
+  <td>PostController</td>
+</tr>
+<tr id="actionDelete">
+  <td><a href="PostController.html#actionDelete-detail">actionDelete()</a></td>
+  <td>Deletes a particular model.</td>
+  <td>PostController</td>
+</tr>
+<tr id="actionIndex">
+  <td><a href="PostController.html#actionIndex-detail">actionIndex()</a></td>
+  <td>Lists all models.</td>
+  <td>PostController</td>
+</tr>
+<tr id="actionSuggestTags">
+  <td><a href="PostController.html#actionSuggestTags-detail">actionSuggestTags()</a></td>
+  <td>Suggests tags based on the current user input.</td>
+  <td>PostController</td>
+</tr>
+<tr id="actionUpdate">
+  <td><a href="PostController.html#actionUpdate-detail">actionUpdate()</a></td>
+  <td>Updates a particular model.</td>
+  <td>PostController</td>
+</tr>
+<tr id="actionView">
+  <td><a href="PostController.html#actionView-detail">actionView()</a></td>
+  <td>Displays a particular model.</td>
+  <td>PostController</td>
+</tr>
+<tr class="inherited" id="actions">
+  <td><a href="CController.html#actions-detail">actions()</a></td>
+  <td>Returns a list of external action classes.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="asa">
+  <td><a href="CComponent.html#asa-detail">asa()</a></td>
+  <td>Returns the named behavior object.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="attachBehavior">
+  <td><a href="CComponent.html#attachBehavior-detail">attachBehavior()</a></td>
+  <td>Attaches a behavior to this component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="attachBehaviors">
+  <td><a href="CComponent.html#attachBehaviors-detail">attachBehaviors()</a></td>
+  <td>Attaches a list of behaviors to the component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="attachEventHandler">
+  <td><a href="CComponent.html#attachEventHandler-detail">attachEventHandler()</a></td>
+  <td>Attaches an event handler to an event.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="beginCache">
+  <td><a href="CBaseController.html#beginCache-detail">beginCache()</a></td>
+  <td>Begins fragment caching.</td>
+  <td><a href="CBaseController.html">CBaseController</a></td>
+</tr>
+<tr class="inherited" id="beginClip">
+  <td><a href="CBaseController.html#beginClip-detail">beginClip()</a></td>
+  <td>Begins recording a clip.</td>
+  <td><a href="CBaseController.html">CBaseController</a></td>
+</tr>
+<tr class="inherited" id="beginContent">
+  <td><a href="CBaseController.html#beginContent-detail">beginContent()</a></td>
+  <td>Begins the rendering of content that is to be decorated by the specified view.</td>
+  <td><a href="CBaseController.html">CBaseController</a></td>
+</tr>
+<tr class="inherited" id="beginWidget">
+  <td><a href="CBaseController.html#beginWidget-detail">beginWidget()</a></td>
+  <td>Creates a widget and executes it.</td>
+  <td><a href="CBaseController.html">CBaseController</a></td>
+</tr>
+<tr class="inherited" id="behaviors">
+  <td><a href="CController.html#behaviors-detail">behaviors()</a></td>
+  <td>Returns a list of behaviors that this controller should behave as.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="canGetProperty">
+  <td><a href="CComponent.html#canGetProperty-detail">canGetProperty()</a></td>
+  <td>Determines whether a property can be read.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="canSetProperty">
+  <td><a href="CComponent.html#canSetProperty-detail">canSetProperty()</a></td>
+  <td>Determines whether a property can be set.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="clearPageStates">
+  <td><a href="CController.html#clearPageStates-detail">clearPageStates()</a></td>
+  <td>Removes all page states.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="createAbsoluteUrl">
+  <td><a href="CController.html#createAbsoluteUrl-detail">createAbsoluteUrl()</a></td>
+  <td>Creates an absolute URL for the specified action defined in this controller.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="createAction">
+  <td><a href="CController.html#createAction-detail">createAction()</a></td>
+  <td>Creates the action instance based on the action name.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="createUrl">
+  <td><a href="CController.html#createUrl-detail">createUrl()</a></td>
+  <td>Creates a relative URL for the specified action defined in this controller.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="createWidget">
+  <td><a href="CBaseController.html#createWidget-detail">createWidget()</a></td>
+  <td>Creates a widget and initializes it.</td>
+  <td><a href="CBaseController.html">CBaseController</a></td>
+</tr>
+<tr class="inherited" id="detachBehavior">
+  <td><a href="CComponent.html#detachBehavior-detail">detachBehavior()</a></td>
+  <td>Detaches a behavior from the component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="detachBehaviors">
+  <td><a href="CComponent.html#detachBehaviors-detail">detachBehaviors()</a></td>
+  <td>Detaches all behaviors from the component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="detachEventHandler">
+  <td><a href="CComponent.html#detachEventHandler-detail">detachEventHandler()</a></td>
+  <td>Detaches an existing event handler.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="disableBehavior">
+  <td><a href="CComponent.html#disableBehavior-detail">disableBehavior()</a></td>
+  <td>Disables an attached behavior.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="disableBehaviors">
+  <td><a href="CComponent.html#disableBehaviors-detail">disableBehaviors()</a></td>
+  <td>Disables all behaviors attached to this component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="enableBehavior">
+  <td><a href="CComponent.html#enableBehavior-detail">enableBehavior()</a></td>
+  <td>Enables an attached behavior.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="enableBehaviors">
+  <td><a href="CComponent.html#enableBehaviors-detail">enableBehaviors()</a></td>
+  <td>Enables all behaviors attached to this component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="endCache">
+  <td><a href="CBaseController.html#endCache-detail">endCache()</a></td>
+  <td>Ends fragment caching.</td>
+  <td><a href="CBaseController.html">CBaseController</a></td>
+</tr>
+<tr class="inherited" id="endClip">
+  <td><a href="CBaseController.html#endClip-detail">endClip()</a></td>
+  <td>Ends recording a clip.</td>
+  <td><a href="CBaseController.html">CBaseController</a></td>
+</tr>
+<tr class="inherited" id="endContent">
+  <td><a href="CBaseController.html#endContent-detail">endContent()</a></td>
+  <td>Ends the rendering of content.</td>
+  <td><a href="CBaseController.html">CBaseController</a></td>
+</tr>
+<tr class="inherited" id="endWidget">
+  <td><a href="CBaseController.html#endWidget-detail">endWidget()</a></td>
+  <td>Ends the execution of the named widget.</td>
+  <td><a href="CBaseController.html">CBaseController</a></td>
+</tr>
+<tr class="inherited" id="evaluateExpression">
+  <td><a href="CComponent.html#evaluateExpression-detail">evaluateExpression()</a></td>
+  <td>Evaluates a PHP expression or callback under the context of this component.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="filterAccessControl">
+  <td><a href="CController.html#filterAccessControl-detail">filterAccessControl()</a></td>
+  <td>The filter method for 'accessControl' filter.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="filterAjaxOnly">
+  <td><a href="CController.html#filterAjaxOnly-detail">filterAjaxOnly()</a></td>
+  <td>The filter method for 'ajaxOnly' filter.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="filterPostOnly">
+  <td><a href="CController.html#filterPostOnly-detail">filterPostOnly()</a></td>
+  <td>The filter method for 'postOnly' filter.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr id="filters">
+  <td><a href="PostController.html#filters-detail">filters()</a></td>
+  <td></td>
+  <td>PostController</td>
+</tr>
+<tr class="inherited" id="forward">
+  <td><a href="CController.html#forward-detail">forward()</a></td>
+  <td>Processes the request using another controller action.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="getAction">
+  <td><a href="CController.html#getAction-detail">getAction()</a></td>
+  <td>Returns the action currently being executed, null if no active action.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="getActionParams">
+  <td><a href="CController.html#getActionParams-detail">getActionParams()</a></td>
+  <td>Returns the request parameters that will be used for action parameter binding.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="getCachingStack">
+  <td><a href="CController.html#getCachingStack-detail">getCachingStack()</a></td>
+  <td>Returns stack of <a href="COutputCache.html">COutputCache</a> objects</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="getClips">
+  <td><a href="CController.html#getClips-detail">getClips()</a></td>
+  <td>Returns the list of clips.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="getEventHandlers">
+  <td><a href="CComponent.html#getEventHandlers-detail">getEventHandlers()</a></td>
+  <td>Returns the list of attached event handlers for an event.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="getId">
+  <td><a href="CController.html#getId-detail">getId()</a></td>
+  <td>Returns ID of the controller</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="getLayoutFile">
+  <td><a href="CController.html#getLayoutFile-detail">getLayoutFile()</a></td>
+  <td>Looks for the layout view script based on the layout name.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="getModule">
+  <td><a href="CController.html#getModule-detail">getModule()</a></td>
+  <td>Returns the module that this controller belongs to. It returns null
+if the controller does not belong to any module</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="getPageState">
+  <td><a href="CController.html#getPageState-detail">getPageState()</a></td>
+  <td>Returns a persistent page state value.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="getPageTitle">
+  <td><a href="CController.html#getPageTitle-detail">getPageTitle()</a></td>
+  <td>Returns the page title. Defaults to the controller name and the action name.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="getRoute">
+  <td><a href="CController.html#getRoute-detail">getRoute()</a></td>
+  <td>Returns the route (module ID, controller ID and action ID) of the current request.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="getUniqueId">
+  <td><a href="CController.html#getUniqueId-detail">getUniqueId()</a></td>
+  <td>Returns the controller ID that is prefixed with the module ID (if any).</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="getViewFile">
+  <td><a href="CController.html#getViewFile-detail">getViewFile()</a></td>
+  <td>Looks for the view file according to the given view name.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="getViewPath">
+  <td><a href="CController.html#getViewPath-detail">getViewPath()</a></td>
+  <td>Returns the directory containing view files for this controller.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="hasEvent">
+  <td><a href="CComponent.html#hasEvent-detail">hasEvent()</a></td>
+  <td>Determines whether an event is defined.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="hasEventHandler">
+  <td><a href="CComponent.html#hasEventHandler-detail">hasEventHandler()</a></td>
+  <td>Checks whether the named event has attached handlers.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="hasProperty">
+  <td><a href="CComponent.html#hasProperty-detail">hasProperty()</a></td>
+  <td>Determines whether a property is defined.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="init">
+  <td><a href="CController.html#init-detail">init()</a></td>
+  <td>Initializes the controller.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="invalidActionParams">
+  <td><a href="CController.html#invalidActionParams-detail">invalidActionParams()</a></td>
+  <td>This method is invoked when the request parameters do not satisfy the requirement of the specified action.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="isCachingStackEmpty">
+  <td><a href="CController.html#isCachingStackEmpty-detail">isCachingStackEmpty()</a></td>
+  <td>Returns whether the caching stack is empty.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr id="loadModel">
+  <td><a href="PostController.html#loadModel-detail">loadModel()</a></td>
+  <td>Returns the data model based on the primary key given in the GET variable.</td>
+  <td>PostController</td>
+</tr>
+<tr class="inherited" id="missingAction">
+  <td><a href="CController.html#missingAction-detail">missingAction()</a></td>
+  <td>Handles the request whose action is not recognized.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="paginate">
+  <td><a href="CController.html#paginate-detail">paginate()</a></td>
+  <td>Generates pagination information.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="processDynamicOutput">
+  <td><a href="CController.html#processDynamicOutput-detail">processDynamicOutput()</a></td>
+  <td>Postprocesses the dynamic output.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="processOutput">
+  <td><a href="CController.html#processOutput-detail">processOutput()</a></td>
+  <td>Postprocesses the output generated by <a href="PostController.html#render">render()</a>.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="raiseEvent">
+  <td><a href="CComponent.html#raiseEvent-detail">raiseEvent()</a></td>
+  <td>Raises an event.</td>
+  <td><a href="CComponent.html">CComponent</a></td>
+</tr>
+<tr class="inherited" id="recordCachingAction">
+  <td><a href="CController.html#recordCachingAction-detail">recordCachingAction()</a></td>
+  <td>Records a method call when an output cache is in effect.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="redirect">
+  <td><a href="CController.html#redirect-detail">redirect()</a></td>
+  <td>Redirects the browser to the specified URL or route (controller/action).</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="refresh">
+  <td><a href="CController.html#refresh-detail">refresh()</a></td>
+  <td>Refreshes the current page.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="render">
+  <td><a href="CController.html#render-detail">render()</a></td>
+  <td>Renders a view with a layout.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="renderDynamic">
+  <td><a href="CController.html#renderDynamic-detail">renderDynamic()</a></td>
+  <td>Renders dynamic content returned by the specified callback.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="renderDynamicInternal">
+  <td><a href="CController.html#renderDynamicInternal-detail">renderDynamicInternal()</a></td>
+  <td>This method is internally used.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="renderFile">
+  <td><a href="CBaseController.html#renderFile-detail">renderFile()</a></td>
+  <td>Renders a view file.</td>
+  <td><a href="CBaseController.html">CBaseController</a></td>
+</tr>
+<tr class="inherited" id="renderInternal">
+  <td><a href="CBaseController.html#renderInternal-detail">renderInternal()</a></td>
+  <td>Renders a view file.</td>
+  <td><a href="CBaseController.html">CBaseController</a></td>
+</tr>
+<tr class="inherited" id="renderPartial">
+  <td><a href="CController.html#renderPartial-detail">renderPartial()</a></td>
+  <td>Renders a view.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="renderText">
+  <td><a href="CController.html#renderText-detail">renderText()</a></td>
+  <td>Renders a static text string.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="resolveViewFile">
+  <td><a href="CController.html#resolveViewFile-detail">resolveViewFile()</a></td>
+  <td>Finds a view file based on its name.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="run">
+  <td><a href="CController.html#run-detail">run()</a></td>
+  <td>Runs the named action.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="runAction">
+  <td><a href="CController.html#runAction-detail">runAction()</a></td>
+  <td>Runs the action after passing through all filters.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="runActionWithFilters">
+  <td><a href="CController.html#runActionWithFilters-detail">runActionWithFilters()</a></td>
+  <td>Runs an action with the specified filters.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="setAction">
+  <td><a href="CController.html#setAction-detail">setAction()</a></td>
+  <td>Sets the action currently being executed.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="setPageState">
+  <td><a href="CController.html#setPageState-detail">setPageState()</a></td>
+  <td>Saves a persistent page state value.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="setPageTitle">
+  <td><a href="CController.html#setPageTitle-detail">setPageTitle()</a></td>
+  <td>Sets the page title.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="widget">
+  <td><a href="CBaseController.html#widget-detail">widget()</a></td>
+  <td>Creates a widget and executes it.</td>
+  <td><a href="CBaseController.html">CBaseController</a></td>
+</tr>
+</table>
+</div>
+<div class="summary docMethod">
+<h2>Protected Methods</h2>
+
+<p><a href="#" class="toggle">Hide inherited methods</a></p>
+
+<table class="summaryTable">
+<colgroup>
+	<col class="col-method" />
+	<col class="col-description" />
+	<col class="col-defined" />
+</colgroup>
+<tr>
+  <th>Method</th><th>Description</th><th>Defined By</th>
+</tr>
+<tr class="inherited" id="afterAction">
+  <td><a href="CController.html#afterAction-detail">afterAction()</a></td>
+  <td>This method is invoked right after an action is executed.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="afterRender">
+  <td><a href="CController.html#afterRender-detail">afterRender()</a></td>
+  <td>This method is invoked after the specified is rendered by calling <a href="PostController.html#render">render()</a>.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="beforeAction">
+  <td><a href="CController.html#beforeAction-detail">beforeAction()</a></td>
+  <td>This method is invoked right before an action is to be executed (after all possible filters.)</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="beforeRender">
+  <td><a href="CController.html#beforeRender-detail">beforeRender()</a></td>
+  <td>This method is invoked at the beginning of <a href="PostController.html#render">render()</a>.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="createActionFromMap">
+  <td><a href="CController.html#createActionFromMap-detail">createActionFromMap()</a></td>
+  <td>Creates the action instance based on the action map.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="loadPageStates">
+  <td><a href="CController.html#loadPageStates-detail">loadPageStates()</a></td>
+  <td>Loads page states from a hidden input.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr id="newComment">
+  <td><a href="PostController.html#newComment-detail">newComment()</a></td>
+  <td>Creates a new comment.</td>
+  <td>PostController</td>
+</tr>
+<tr class="inherited" id="replaceDynamicOutput">
+  <td><a href="CController.html#replaceDynamicOutput-detail">replaceDynamicOutput()</a></td>
+  <td>Replaces the dynamic content placeholders with actual content.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+<tr class="inherited" id="savePageStates">
+  <td><a href="CController.html#savePageStates-detail">savePageStates()</a></td>
+  <td>Saves page states as a base64 string.</td>
+  <td><a href="CController.html">CController</a></td>
+</tr>
+</table>
+</div>
+<a name="events"></a>
+
+<h2>Property Details</h2>
+<div class="detailHeader" id="layout-detail">
+layout<span class="detailHeaderTag">
+property
+</span>
+</div>
+
+<div class="signature">
+public <b>$layout</b>;</div>
+
+<p></p>
+
+
+<h2>Method Details</h2>
+
+<div class="detailHeader" id="accessRules-detail">
+accessRules()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public array <b>accessRules</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">access control rules</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> app/controllers/PostController.php#27 (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">accessRules</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;array(<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array(</span><span style="color: #DD0000">'allow'</span><span style="color: #007700">,&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;allow&nbsp;all&nbsp;users&nbsp;to&nbsp;access&nbsp;'index'&nbsp;and&nbsp;'view'&nbsp;actions.<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'actions'</span><span style="color: #007700">=&gt;array(</span><span style="color: #DD0000">'index'</span><span style="color: #007700">,</span><span style="color: #DD0000">'view'</span><span style="color: #007700">),<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'users'</span><span style="color: #007700">=&gt;array(</span><span style="color: #DD0000">'*'</span><span style="color: #007700">),<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array(</span><span style="color: #DD0000">'allow'</span><span style="color: #007700">,&nbsp;</span><span style="color: #FF8000">//&nbsp;allow&nbsp;authenticated&nbsp;users&nbsp;to&nbsp;access&nbsp;all&nbsp;actions<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'users'</span><span style="color: #007700">=&gt;array(</span><span style="color: #DD0000">'@'</span><span style="color: #007700">),<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array(</span><span style="color: #DD0000">'deny'</span><span style="color: #007700">,&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;deny&nbsp;all&nbsp;users<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'users'</span><span style="color: #007700">=&gt;array(</span><span style="color: #DD0000">'*'</span><span style="color: #007700">),<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),<br />&nbsp;&nbsp;&nbsp;&nbsp;);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Specifies the access control rules.
+This method is used by the 'accessControl' filter.</p>
+
+
+<div class="detailHeader" id="actionAdmin-detail">
+actionAdmin()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>actionAdmin</b>()</div>
+</td></tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> app/controllers/PostController.php#142 (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">actionAdmin</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$model</span><span style="color: #007700">=new&nbsp;</span><span style="color: #0000BB">Post</span><span style="color: #007700">(</span><span style="color: #DD0000">'search'</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;if(isset(</span><span style="color: #0000BB">$_GET</span><span style="color: #007700">[</span><span style="color: #DD0000">'Post'</span><span style="color: #007700">]))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$model</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">attributes</span><span style="color: #007700">=</span><span style="color: #0000BB">$_GET</span><span style="color: #007700">[</span><span style="color: #DD0000">'Post'</span><span style="color: #007700">];<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">render</span><span style="color: #007700">(</span><span style="color: #DD0000">'admin'</span><span style="color: #007700">,array(<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'model'</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">$model</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;));<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Manages all models.</p>
+
+
+<div class="detailHeader" id="actionCreate-detail">
+actionCreate()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>actionCreate</b>()</div>
+</td></tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> app/controllers/PostController.php#61 (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">actionCreate</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$model</span><span style="color: #007700">=new&nbsp;</span><span style="color: #0000BB">Post</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;if(isset(</span><span style="color: #0000BB">$_POST</span><span style="color: #007700">[</span><span style="color: #DD0000">'Post'</span><span style="color: #007700">]))<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$model</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">attributes</span><span style="color: #007700">=</span><span style="color: #0000BB">$_POST</span><span style="color: #007700">[</span><span style="color: #DD0000">'Post'</span><span style="color: #007700">];<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$model</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">save</span><span style="color: #007700">())<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">redirect</span><span style="color: #007700">(array(</span><span style="color: #DD0000">'view'</span><span style="color: #007700">,</span><span style="color: #DD0000">'id'</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">$model</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">id</span><span style="color: #007700">));<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">render</span><span style="color: #007700">(</span><span style="color: #DD0000">'create'</span><span style="color: #007700">,array(<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'model'</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">$model</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;));<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Creates a new model.
+If creation is successful, the browser will be redirected to the 'view' page.</p>
+
+
+<div class="detailHeader" id="actionDelete-detail">
+actionDelete()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>actionDelete</b>()</div>
+</td></tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> app/controllers/PostController.php#99 (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">actionDelete</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">Yii</span><span style="color: #007700">::</span><span style="color: #0000BB">app</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">request</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">isPostRequest</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;we&nbsp;only&nbsp;allow&nbsp;deletion&nbsp;via&nbsp;POST&nbsp;request<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">loadModel</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">delete</span><span style="color: #007700">();<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;if&nbsp;AJAX&nbsp;request&nbsp;(triggered&nbsp;by&nbsp;deletion&nbsp;via&nbsp;admin&nbsp;grid&nbsp;view),&nbsp;we&nbsp;should&nbsp;not&nbsp;redirect&nbsp;the&nbsp;browser<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">if(!isset(</span><span style="color: #0000BB">$_GET</span><span style="color: #007700">[</span><span style="color: #DD0000">'ajax'</span><span style="color: #007700">]))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">redirect</span><span style="color: #007700">(array(</span><span style="color: #DD0000">'index'</span><span style="color: #007700">));<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throw&nbsp;new&nbsp;</span><span style="color: #0000BB">CHttpException</span><span style="color: #007700">(</span><span style="color: #0000BB">400</span><span style="color: #007700">,</span><span style="color: #DD0000">'Invalid&nbsp;request.&nbsp;Please&nbsp;do&nbsp;not&nbsp;repeat&nbsp;this&nbsp;request&nbsp;again.'</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Deletes a particular model.
+If deletion is successful, the browser will be redirected to the 'index' page.</p>
+
+
+<div class="detailHeader" id="actionIndex-detail">
+actionIndex()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>actionIndex</b>()</div>
+</td></tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> app/controllers/PostController.php#117 (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">actionIndex</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$criteria</span><span style="color: #007700">=new&nbsp;</span><span style="color: #0000BB">CDbCriteria</span><span style="color: #007700">(array(<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'condition'</span><span style="color: #007700">=&gt;</span><span style="color: #DD0000">'status='</span><span style="color: #007700">.</span><span style="color: #0000BB">Post</span><span style="color: #007700">::</span><span style="color: #0000BB">STATUS_PUBLISHED</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'order'</span><span style="color: #007700">=&gt;</span><span style="color: #DD0000">'update_time&nbsp;DESC'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'with'</span><span style="color: #007700">=&gt;</span><span style="color: #DD0000">'commentCount'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;));<br />&nbsp;&nbsp;&nbsp;&nbsp;if(isset(</span><span style="color: #0000BB">$_GET</span><span style="color: #007700">[</span><span style="color: #DD0000">'tag'</span><span style="color: #007700">]))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$criteria</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">addSearchCondition</span><span style="color: #007700">(</span><span style="color: #DD0000">'tags'</span><span style="color: #007700">,</span><span style="color: #0000BB">$_GET</span><span style="color: #007700">[</span><span style="color: #DD0000">'tag'</span><span style="color: #007700">]);<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$dataProvider</span><span style="color: #007700">=new&nbsp;</span><span style="color: #0000BB">CActiveDataProvider</span><span style="color: #007700">(</span><span style="color: #DD0000">'Post'</span><span style="color: #007700">,&nbsp;array(<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'pagination'</span><span style="color: #007700">=&gt;array(<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'pageSize'</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">Yii</span><span style="color: #007700">::</span><span style="color: #0000BB">app</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">params</span><span style="color: #007700">[</span><span style="color: #DD0000">'postsPerPage'</span><span style="color: #007700">],<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'criteria'</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">$criteria</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;));<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">render</span><span style="color: #007700">(</span><span style="color: #DD0000">'index'</span><span style="color: #007700">,array(<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'dataProvider'</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">$dataProvider</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;));<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Lists all models.</p>
+
+
+<div class="detailHeader" id="actionSuggestTags-detail">
+actionSuggestTags()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>actionSuggestTags</b>()</div>
+</td></tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> app/controllers/PostController.php#156 (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">actionSuggestTags</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(isset(</span><span style="color: #0000BB">$_GET</span><span style="color: #007700">[</span><span style="color: #DD0000">'q'</span><span style="color: #007700">])&nbsp;&amp;&amp;&nbsp;(</span><span style="color: #0000BB">$keyword</span><span style="color: #007700">=</span><span style="color: #0000BB">trim</span><span style="color: #007700">(</span><span style="color: #0000BB">$_GET</span><span style="color: #007700">[</span><span style="color: #DD0000">'q'</span><span style="color: #007700">]))!==</span><span style="color: #DD0000">''</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$tags</span><span style="color: #007700">=</span><span style="color: #0000BB">Tag</span><span style="color: #007700">::</span><span style="color: #0000BB">model</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">suggestTags</span><span style="color: #007700">(</span><span style="color: #0000BB">$keyword</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$tags</span><span style="color: #007700">!==array())<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">implode</span><span style="color: #007700">(</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">,</span><span style="color: #0000BB">$tags</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Suggests tags based on the current user input.
+This is called via AJAX when the user is entering the tags input.</p>
+
+
+<div class="detailHeader" id="actionUpdate-detail">
+actionUpdate()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>actionUpdate</b>()</div>
+</td></tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> app/controllers/PostController.php#80 (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">actionUpdate</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$model</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">loadModel</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;if(isset(</span><span style="color: #0000BB">$_POST</span><span style="color: #007700">[</span><span style="color: #DD0000">'Post'</span><span style="color: #007700">]))<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$model</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">attributes</span><span style="color: #007700">=</span><span style="color: #0000BB">$_POST</span><span style="color: #007700">[</span><span style="color: #DD0000">'Post'</span><span style="color: #007700">];<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$model</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">save</span><span style="color: #007700">())<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">redirect</span><span style="color: #007700">(array(</span><span style="color: #DD0000">'view'</span><span style="color: #007700">,</span><span style="color: #DD0000">'id'</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">$model</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">id</span><span style="color: #007700">));<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">render</span><span style="color: #007700">(</span><span style="color: #DD0000">'update'</span><span style="color: #007700">,array(<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'model'</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">$model</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;));<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Updates a particular model.
+If update is successful, the browser will be redirected to the 'view' page.</p>
+
+
+<div class="detailHeader" id="actionView-detail">
+actionView()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>actionView</b>()</div>
+</td></tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> app/controllers/PostController.php#46 (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">actionView</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$post</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">loadModel</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$comment</span><span style="color: #007700">=</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">newComment</span><span style="color: #007700">(</span><span style="color: #0000BB">$post</span><span style="color: #007700">);<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">render</span><span style="color: #007700">(</span><span style="color: #DD0000">'view'</span><span style="color: #007700">,array(<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'model'</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">$post</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'comment'</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">$comment</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;));<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Displays a particular model.</p>
+
+
+<div class="detailHeader" id="filters-detail">
+filters()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public array <b>filters</b>()</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol">array</td>
+  <td class="paramDescCol">action filters</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> app/controllers/PostController.php#15 (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">filters</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;array(<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'accessControl'</span><span style="color: #007700">,&nbsp;</span><span style="color: #FF8000">//&nbsp;perform&nbsp;access&nbsp;control&nbsp;for&nbsp;CRUD&nbsp;operations<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">);<br />}</span>
+</span>
+</code></div>
+</div>
+<p></p>
+
+
+<div class="detailHeader" id="loadModel-detail">
+loadModel()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+public void <b>loadModel</b>()</div>
+</td></tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> app/controllers/PostController.php#170 (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">loadModel</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_model</span><span style="color: #007700">===</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(isset(</span><span style="color: #0000BB">$_GET</span><span style="color: #007700">[</span><span style="color: #DD0000">'id'</span><span style="color: #007700">]))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">Yii</span><span style="color: #007700">::</span><span style="color: #0000BB">app</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">user</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">isGuest</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$condition</span><span style="color: #007700">=</span><span style="color: #DD0000">'status='</span><span style="color: #007700">.</span><span style="color: #0000BB">Post</span><span style="color: #007700">::</span><span style="color: #0000BB">STATUS_PUBLISHED</span><span style="color: #007700">.</span><span style="color: #DD0000">'&nbsp;OR&nbsp;status='</span><span style="color: #007700">.</span><span style="color: #0000BB">Post</span><span style="color: #007700">::</span><span style="color: #0000BB">STATUS_ARCHIVED</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$condition</span><span style="color: #007700">=</span><span style="color: #DD0000">''</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_model</span><span style="color: #007700">=</span><span style="color: #0000BB">Post</span><span style="color: #007700">::</span><span style="color: #0000BB">model</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">findByPk</span><span style="color: #007700">(</span><span style="color: #0000BB">$_GET</span><span style="color: #007700">[</span><span style="color: #DD0000">'id'</span><span style="color: #007700">],&nbsp;</span><span style="color: #0000BB">$condition</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_model</span><span style="color: #007700">===</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throw&nbsp;new&nbsp;</span><span style="color: #0000BB">CHttpException</span><span style="color: #007700">(</span><span style="color: #0000BB">404</span><span style="color: #007700">,</span><span style="color: #DD0000">'The&nbsp;requested&nbsp;page&nbsp;does&nbsp;not&nbsp;exist.'</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">_model</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Returns the data model based on the primary key given in the GET variable.
+If the data model is not found, an HTTP exception will be raised.</p>
+
+
+<div class="detailHeader" id="newComment-detail">
+newComment()
+<span class="detailHeaderTag">
+method
+</span>
+</div>
+
+<table class="summaryTable">
+<tr><td colspan="3">
+<div class="signature2">
+protected <a href="Comment.html">Comment</a> <b>newComment</b>(<a href="Post.html">Post</a> $post)</div>
+</td></tr>
+<tr>
+  <td class="paramNameCol">$post</td>
+  <td class="paramTypeCol"><a href="Post.html">Post</a></td>
+  <td class="paramDescCol">the post that the new comment belongs to</td>
+</tr>
+<tr>
+  <td class="paramNameCol">{return}</td>
+  <td class="paramTypeCol"><a href="Comment.html">Comment</a></td>
+  <td class="paramDescCol">the comment instance</td>
+</tr>
+</table>
+
+<div class="sourceCode">
+<b>Source Code:</b> app/controllers/PostController.php#196 (<b><a href="#" class="show">show</a></b>)
+<div class="code"><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">protected&nbsp;function&nbsp;</span><span style="color: #0000BB">newComment</span><span style="color: #007700">(</span><span style="color: #0000BB">$post</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$comment</span><span style="color: #007700">=new&nbsp;</span><span style="color: #0000BB">Comment</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;if(isset(</span><span style="color: #0000BB">$_POST</span><span style="color: #007700">[</span><span style="color: #DD0000">'ajax'</span><span style="color: #007700">])&nbsp;&amp;&amp;&nbsp;</span><span style="color: #0000BB">$_POST</span><span style="color: #007700">[</span><span style="color: #DD0000">'ajax'</span><span style="color: #007700">]===</span><span style="color: #DD0000">'comment-form'</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">CActiveForm</span><span style="color: #007700">::</span><span style="color: #0000BB">validate</span><span style="color: #007700">(</span><span style="color: #0000BB">$comment</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">Yii</span><span style="color: #007700">::</span><span style="color: #0000BB">app</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">end</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;if(isset(</span><span style="color: #0000BB">$_POST</span><span style="color: #007700">[</span><span style="color: #DD0000">'Comment'</span><span style="color: #007700">]))<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$comment</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">attributes</span><span style="color: #007700">=</span><span style="color: #0000BB">$_POST</span><span style="color: #007700">[</span><span style="color: #DD0000">'Comment'</span><span style="color: #007700">];<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$post</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">addComment</span><span style="color: #007700">(</span><span style="color: #0000BB">$comment</span><span style="color: #007700">))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$comment</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">status</span><span style="color: #007700">==</span><span style="color: #0000BB">Comment</span><span style="color: #007700">::</span><span style="color: #0000BB">STATUS_PENDING</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">Yii</span><span style="color: #007700">::</span><span style="color: #0000BB">app</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">user</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">setFlash</span><span style="color: #007700">(</span><span style="color: #DD0000">'commentSubmitted'</span><span style="color: #007700">,</span><span style="color: #DD0000">'Thank&nbsp;you&nbsp;for&nbsp;your&nbsp;comment.&nbsp;Your&nbsp;comment&nbsp;will&nbsp;be&nbsp;posted&nbsp;once&nbsp;it&nbsp;is&nbsp;approved.'</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">refresh</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$comment</span><span style="color: #007700">;<br />}</span>
+</span>
+</code></div>
+</div>
+<p>Creates a new comment.
+This method attempts to create a new comment based on the user input.
+If the comment is successfully created, the browser will be redirected
+to show the created comment.</p>
+
+
+</div><!-- end of content -->
+
+<div id="apiFooter">
+Copyright &copy; 2008-2011 by <a href="http://www.yiisoft.com">Yii Software LLC</a><br/>
+All Rights Reserved.<br/>
+</div><!-- end of footer -->
+
+<script type="text/javascript">
+/*<![CDATA[*/
+$("a.toggle").toggle(function(){
+	$(this).text($(this).text().replace(/Hide/,'Show'));
+	$(this).parents(".summary").find(".inherited").hide();
+},function(){
+	$(this).text($(this).text().replace(/Show/,'Hide'));
+	$(this).parents(".summary").find(".inherited").show();
+});
+$(".sourceCode a.show").toggle(function(){
+	$(this).text($(this).text().replace(/show/,'hide'));
+	$(this).parents(".sourceCode").find("div.code").show();
+},function(){
+	$(this).text($(this).text().replace(/hide/,'show'));
+	$(this).parents(".sourceCode").find("div.code").hide();
+});
+$("a.sourceLink").click(function(){
+	$(this).attr('target','_blank');
+});
+/*]]>*/
+</script>
+
+</div><!-- end of page -->
+</body>
+</html>
