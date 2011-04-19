@@ -139,7 +139,7 @@ EOD;
 		$themePath=dirname(__FILE__).'/docs';
 
 		echo "\nBuilding.. : " . $this->pageTitle."\n";
-		echo "Type...... : " . ( $offline ? "offline" : "online" ). "\n";
+		
 		echo "Version... : " . $this->version."\n";
 		echo "Source URL : " . $this->baseSourceUrl."\n\n";
 
