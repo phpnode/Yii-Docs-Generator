@@ -33,7 +33,7 @@ class DocsCommand extends CConsoleCommand
 	public $baseSourceUrl=false;
 	public $frameworkSourceUrl="http://code.google.com/p/yii/source/browse";
 	public $version;
-
+	public $enableViews = true;
 	public $appOptions = array();
 	public $yiiOptions = array();
 	public function getHelp()
@@ -54,10 +54,9 @@ PARAMETERS
   * check: check PHPDoc for proper @param syntax
 
 EXAMPLES
-  * yiic docs yii/doc online - builds api ONLINE documentation in folder yii/doc
-  * yiic docs yii/doc        - builds api OFFLINE (default) documentation in folder yii/doc
-
-  * yiic docs check          - cheks PHPDoc @param directives
+  * yiic docs yii/doc        	- builds api documentation in folder yii/doc
+  * yiic docs yii/doc noviews 	- disables documentation of views
+  * yiic docs check          	- cheks PHPDoc @param directives
 
 EOD;
 	}
@@ -121,7 +120,11 @@ EOD;
 
 		if(!is_dir($docPath=$args[0]))
 			$this->usageError("the output directory {$docPath} does not exist.");
-
+		
+		if (isset($args[1]) && $args[1] == "noviews") {
+			$this->enableViews = false;
+			
+		}
 		/*$offline=true;
 		if(isset($args[1]) && $args[1]==='online')
 			$offline=false;
@@ -248,14 +251,15 @@ EOD;
 			$content=preg_replace_callback(self::URL_PATTERN,array($this,'fixOfflineLink'),$content);
 			file_put_contents($docPath.'/'.$name.'.html',$content);
 		}
-	
-		foreach($this->views as $path=>$view)
-		{
-			$this->currentView=$path;
-			$this->pageTitle=$view->name;
-			$content=$this->render('view',array('view'=>$view),true);
-			$content=preg_replace_callback(self::URL_PATTERN,array($this,'fixOfflineLink'),$content);
-			file_put_contents($docPath.'/'.$view->package.".".$view->name.'.html',$content);
+		if ($this->enableViews) {
+			foreach($this->views as $path=>$view)
+			{
+				$this->currentView=$path;
+				$this->pageTitle=$view->name;
+				$content=$this->render('view',array('view'=>$view),true);
+				$content=preg_replace_callback(self::URL_PATTERN,array($this,'fixOfflineLink'),$content);
+				file_put_contents($docPath.'/'.$view->package.".".$view->name.'.html',$content);
+			}
 		}
 		CFileHelper::copyDirectory($this->themePath.'/assets',$docPath,array('exclude'=>array('.svn')));
 
@@ -293,7 +297,12 @@ EOD;
 		foreach(CFileHelper::findFiles(YII_PATH,$this->yiiOptions) as $file) {
 			$files[] = $file;
 		}
-		$viewFiles = CFileHelper::findFiles($sourcePath."/views", array('fileTypes'=>array('php')));
+		if ($this->enableViews) {
+			$viewFiles = CFileHelper::findFiles($sourcePath."/views", array('fileTypes'=>array('php')));
+		}
+		else {
+			$viewFiles = array();
+		}
 		$model=new DocsModel;
 		$model->build($files, $viewFiles);
 		return $model;
