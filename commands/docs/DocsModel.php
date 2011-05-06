@@ -357,6 +357,13 @@ class DocsModel
 
 	protected function getTypeUrl($type)
 	{
+		if (stristr($type,"[]")) {
+			$type = substr($type,0,-2);
+			if(isset($this->classes[$type]) && $type!==$this->_currentClass)
+				return '{{'.$type.'|'.$type.'}}[]';
+			else
+				return $type."[]";
+		}
 		if(isset($this->classes[$type]) && $type!==$this->_currentClass)
 			return '{{'.$type.'|'.$type.'}}';
 		else
@@ -609,6 +616,7 @@ class DocsModel
 					$object->introduction=$this->processDescription($segs[1]);
 				$object->description=$this->processDescription($segs[1]);
 			}
+			
 		}
 	}
 	

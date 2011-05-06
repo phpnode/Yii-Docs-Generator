@@ -1,6 +1,6 @@
 <?php
 /**
- * ApiCommand class file.
+ * DocsCommand class file.
  *
  * @author Qiang Xue <qiang.xue@gmail.com>
  * @link http://www.yiiframework.com/
@@ -8,6 +8,9 @@
  * @license http://www.yiiframework.com/license/
  */
 Yii::import('application.commands.docs.DocsModel');
+/**
+ * BUILD_PATH refers to the application base path
+ */
 defined("BUILD_PATH") or define("BUILD_PATH", dirname(dirname(__FILE__)));
 
 /**
@@ -73,10 +76,9 @@ EOD;
 				'/commands/docs',
 				'/commands/DocsCommand',
 				'/messages',
-				'/modules',
 				'/vendors',
 				'/extensions',
-				'/views',
+				'views',
 				'/vendors',
 				'/config',
 				'/tests',
@@ -351,6 +353,13 @@ EOD;
 
 	public function renderTypeUrl($type)
 	{
+		if (stristr($type,"[]")) {
+			$type = substr($type,0,-2);
+			if(isset($this->classes[$type]) && $type!==$this->currentClass)
+				return '{{'.$type.'|'.$type.'}}[]';
+			else
+				return $type."[]";
+		}
 		if(isset($this->classes[$type]) && $type!==$this->currentClass)
 			return '{{'.$type.'|'.$type.'}}';
 		else
