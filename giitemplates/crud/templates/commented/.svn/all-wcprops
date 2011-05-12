@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/3099/trunk/framework/gii/generators/crud/templates/default
+END
+_view.php
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/1997/trunk/framework/gii/generators/crud/templates/default/_view.php
+END
+view.php
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/2061/trunk/framework/gii/generators/crud/templates/default/view.php
+END
+update.php
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/1996/trunk/framework/gii/generators/crud/templates/default/update.php
+END
+_form.php
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/3099/trunk/framework/gii/generators/crud/templates/default/_form.php
+END
+create.php
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/1996/trunk/framework/gii/generators/crud/templates/default/create.php
+END
+controller.php
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/2975/trunk/framework/gii/generators/crud/templates/default/controller.php
+END
+_search.php
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/1995/trunk/framework/gii/generators/crud/templates/default/_search.php
+END
+index.php
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/1996/trunk/framework/gii/generators/crud/templates/default/index.php
+END
+admin.php
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/1996/trunk/framework/gii/generators/crud/templates/default/admin.php
+END
