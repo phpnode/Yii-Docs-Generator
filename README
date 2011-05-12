@@ -1,12 +1,21 @@
 Yii-Docs-Generator:
 
 Generates nice HTML documentation from your Yii app source code, just a quick hack of the doc builder from Yii's build process.
-
+Also includes some properly commented templates for Gii.
 Read the wiki at http://www.yiiframework.com/wiki/186/how-to-generate-yii-like-documentation/
 
 Installation:
 
 Extract the contents of the commands folder to protected/commands
+
+If you want to use the included commented Gii templates, extract them somewhere like ext.giitemplates, then include them in your gii module config e.g.
+'gii'=>array(
+			...
+			'generatorPaths' => array(
+				'ext.giitemplates',
+			),
+		),
+
 
 Usage:
 
